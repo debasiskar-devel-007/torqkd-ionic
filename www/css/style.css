@@ -1,0 +1,416 @@
+@font-face {
+    font-family: 'capture_itregular';
+    src: url('../fonts/capture_it-webfont.eot');
+    src: url('../fonts/capture_it-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/capture_it-webfont.woff') format('woff'), url('../fonts/capture_it-webfont.ttf') format('truetype'), url('../fonts/capture_it-webfont.svg#capture_itregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'veneerregular';
+    src: url('../fonts/veneer-webfont.eot');
+    src: url('../fonts/veneer-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/veneer-webfont.woff') format('woff'), url('../fonts/veneer-webfont.ttf') format('truetype'), url('../fonts/veneer-webfont.svg#veneerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'reservation_wideregular';
+    src: url('../fonts/reservationwide-regular-webfont.eot');
+    src: url('../fonts/reservationwide-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/reservationwide-regular-webfont.woff') format('woff'), url('../fonts/reservationwide-regular-webfont.ttf') format('truetype'), url('../fonts/reservationwide-regular-webfont.svg#reservation_wideregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'reservation_wideblack';
+    src: url('../fonts/ufonts.com_reservationwide-black-webfont.eot');
+    src: url('../fonts/ufonts.com_reservationwide-black-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/ufonts.com_reservationwide-black-webfont.woff') format('woff'), url('../fonts/ufonts.com_reservationwide-black-webfont.ttf') format('truetype'), url('../fonts/ufonts.com_reservationwide-black-webfont.svg#reservation_wideblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family:reservation;
+    src: url('../fonts/ufonts.com_reservationwide-black.eot');
+    src: url('../fonts/ufonts.com_reservationwide-black.eot?#iefix') format('embedded-opentype'), url('../fonts/ufonts.com_reservationwide-black.woff') format('woff'), url('../fonts/ufonts.com_reservationwide-black.ttf') format('truetype');
+    font-weight: normal !important;
+    font-style: normal !important;
+
+}
+@font-face {
+    font-family:'reservation';
+    src: url('../fonts/ufonts.com_reservationwide-black.eot');
+    src: url('../fonts/ufonts.com_reservationwide-black.eot?#iefix') format('embedded-opentype'), url('../fonts/ufonts.com_reservationwide-black.woff') format('woff'), url('../fonts/ufonts.com_reservationwide-black.ttf') format('truetype');
+    font-weight: normal !important;
+    font-style: normal !important;
+
+}
+
+
+ion-tabbar{display: none !important;}
+
+.has-header{ background: url("../images/bg.jpg") no-repeat center top; background-repeat: no-repeat;
+    background-attachment: fixed; background-size: cover;
+    overflow: hidden; }
+
+.homepage_wrapper{
+    background: #edeeee none repeat scroll 0 0;
+    box-shadow: 0 8px 20px -2px rgba(10, 9, 10, 1);
+    margin: 60px auto;
+    padding: 20px 9px;
+    position: relative;
+    width: 258px;
+    z-index: 500;
+    margin-bottom: 310px;
+}
+
+.homepage_wrapper .logoblock{
+    margin: 20px auto;
+    padding-bottom: 6px;
+    width: 241px;
+}
+.homepage_wrapper .logoblock img{ width: 100%; max-width: 100%; display: block;}
+
+/*.homepage_wrapper .video-contain {
+    border: 6px solid #fff;
+    margin: 0 auto ; margin-bottom: 20px!important;
+    padding: 0 !important;
+
+    width: 100%; height:100px!important;
+
+}*/
+
+.homepage_wrapper .video-contain {
+    /*border: 6px solid #fff;
+    margin: 0 auto 10px auto !important;
+    padding: 0 !important;
+    width: 247px;
+    height: 106px;*/
+    border: 6px solid #fff;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px !important;
+}
+
+.homepage_wrapper .video-contain img{    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none!important;
+}
+
+
+.homepage_wrapper .text-contain {
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 15px 10px 6px 10px;
+}
+
+
+.introbtn button {
+    background: #f7931e none repeat scroll 0 0;
+    border: 4px solid #fff;
+    font-family: "veneerregular";
+    font-size: 20px;
+    line-height: 40px;
+    list-style: outside none none;
+    margin: 5px 0;
+    padding: 5px 0 0;
+    text-align: center;
+    width: 100%;
+    color: #4f4f51;
+    box-shadow: none;
+    height: 49px;
+    /*background: #f7931e ;
+    border: 4px solid #fff;
+    font-family: "veneerregular";
+    font-size: 20px;
+    line-height: 40px;
+    list-style: outside none none;
+    margin: 5px 0;
+    padding: 18px 0 15px 0 ;
+    text-align: center; display:block; width:100%;*/
+}
+
+.introbtn:hover button{background-color: #f7931e !important; box-shadow: none;}
+
+/*
+.homepage_wrapper .linkcontain{margin: 10px auto;
+    text-transform: uppercase;
+    width: 256px;}*/
+
+
+.footer-menu1 {
+    padding: 20px 0;
+    color: #999999 !important;
+    text-align: center;
+    width: 100%;
+    z-index: 0;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #dfe2e2;
+}
+
+.footer-menu1 span a, .footer-menu1 span a:hover {
+    color: #999999 !important;
+    text-decoration: none;
+    opacity: 1!important;
+}
+.footer-menu1 span {
+    color: #999999 !important;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+
+/*---login page css----*/
+
+.login-header{background-color: #dfe2e2;}
+
+.login-body {
+    margin: 0;
+    padding: 0 0 0 0;
+    overflow: hidden;
+    width: 100%;
+    background: url(../images/base_camp1.jpg) center top no-repeat, url(../images/base_camp2.jpg) center 264px no-repeat,url(../images/base_camp3.jpg) center 524px no-repeat,url(../images/base_camp4.jpg) center 788px no-repeat;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+
+.login-body .login-top {
+    width: 100%;
+    padding: 4px 0;
+    background: #ebebeb;
+}
+
+.login-body .login-top .login-wrapper {
+    width: 100%;
+    margin: 0px auto;
+    overflow: hidden;
+}
+.logo {
+    margin: 10px auto;
+    width: 224px;
+}
+
+
+.login-box {
+    width: 320px;
+    padding: 16px 10px 38px 10px;
+    margin: 50px auto;
+    background: #ebebeb;
+    border: solid 2px #97989a;
+    border-radius: 4px;
+    position: relative;
+    z-index: 9;
+}
+
+.UserLogIn_email {
+    background: #fff !important;
+    border: 3px solid #97989a !important;
+    border-radius: 5px !important;
+    height: 40px !important;
+    margin: 8px auto;
+    width: 86% !important;
+    color: #000 !important;
+    display: block;
+    font-size: 20px !important;
+    padding: 2px 2% 0px 2%!important;
+    font-weight: bold!important;
+}
+
+.login-box .loginbtn, .login-box .loginbtn:hover {
+    background: #f8931f;
+    border: 4px solid #fff;
+    border-radius: 0;
+    color: #434142;
+    cursor: pointer;
+    font-family: "veneerregular";
+    font-size: 24px;
+    height: 43px;
+    margin: 10px auto;
+    outline: medium none !important;
+    padding: 7px 0 2px 0;
+    text-transform: uppercase;
+    display: block;
+    width: 84%;
+    box-shadow:none;
+}
+
+.alert-danger {
+    color: #f8931f !important;
+    font-size: 14px!important;
+    font-family: Arial, Helvetica, sans-serif!important;
+    width: 100% !important;
+    display: block!important;
+    margin: 0px auto !important;
+    padding: 0 !important;
+    text-align: left !important;
+    font-weight: normal !important;
+    margin: 0px auto;
+    width: 86% !important;
+}
+
+.form-group {
+    margin: 0 !important;
+    width: 100% !important;
+}
+.form-control {
+    color: #000 !important;
+}
+
+.form-control::-moz-placeholder {
+    color: #97989a !important;
+    opacity: 1;
+    text-transform: uppercase;
+}
+.form-control:-ms-input-placeholder {
+    color: #97989a !important;
+    text-transform: uppercase;
+}
+.form-control::-webkit-input-placeholder {
+    color: #97989a !important;
+    text-transform: uppercase;
+}
+
+.login-box form input{margin-bottom: 16px;}
+.login-bottom-div {
+    width: 84%;
+    margin: 0 auto;
+    clear: both;
+    margin-top: 19px;
+}
+.login-box a {
+    color: #333;
+    font-family: "veneerregular";
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.login-bottom-div .link1 {
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+.login-bottom-div .link2 {
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+.mobile-top-con .logo {
+    float: none;
+    width: 160px;
+    margin: 20px auto;
+}
+
+.mobile-top-con .mobile-menu {
+    float: left;
+    height: 0;
+    margin-top: 8px;
+    width: 54px !important;
+}
+.mobile-top-con .logout {
+    float: right;
+    margin-right: 6px;
+    margin-top: -64px;
+    width: 54px;
+}
+
+
+.mobile-top-con .mobile-menu .bar-button-menutoggle {
+    background-color: #f7931e;
+    height: 37px;
+}
+
+.mobile-top-con .mobile-menu .bar-button-default {
+    color: #fff;
+}
+
+.mobile-top-con .mobile-menu .bar-button-menutoggle ion-icon {
+    padding: 0 6px;
+    font-size: 5.4rem;
+}
+
+.experience-wrapper {
+    margin: 0 auto;
+    width: 90%;
+}
+.movile-tab-body {
+    display: block;
+    float: none !important;
+    font-family: "veneerregular";
+    font-size: 21px;
+    height: 45px;
+    margin: 0 auto !important;
+    overflow: hidden;
+    padding: 0 !important;
+    position: relative;
+    width: 98% !important;
+}
+
+.movile-tab-body ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.movile-tab-body li {
+    border-radius: 0 !important;
+    display: block;
+    float: left;
+    height: 40px;
+    margin: 0 !important;
+    text-align: center;
+    width: 49%;
+}
+
+.movile-tab-body li a {
+    background: #404042 none repeat scroll 0 0;
+    border: 2px solid #fff;
+    border-radius: 0 !important;
+    color: #f7931d;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    width: 99%;
+    text-decoration: none;
+}
+
+.stats-slide {
+    margin-top: 24px;
+}
+
+.stats-slide h4{
+    color: #f7931e !important;
+    font-family: "veneerregular" !important;
+    font-size: 22px;
+    font-weight: normal;
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 380px){
+    .login-box {
+        width: 260px!important;
+        padding: 16px 5% 20px 5%;
+    }
+    .login-bottom-div .link1 {
+        float: none;
+        width: 100%;
+        text-align: center;
+        display: block;
+        margin: 10px 0;
+    }
+    .login-bottom-div .link2 {
+        float: none;
+        width: 100%;
+        text-align: center;
+        display: block;
+        margin: 0px 0;
+    }
+}
