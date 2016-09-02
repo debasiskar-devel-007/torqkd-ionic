@@ -1,9 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
 import {NavController, Page, App, Platform, MenuController, Nav} from 'ionic-angular';
+import { Slides } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import {ContactPage} from '../contact/contact'
 import {LoginPage} from '../login/login'
 import {AboutPage} from '../about/about'
+
 
 /*
   Generated class for the ProfilePage page.
@@ -23,6 +25,23 @@ export class ProfilePage {
       [MenuController]
     ];
   }
+  mySlideOptions = {
+    initialSlide: 0,
+    loop: true,
+    autoplay:4000
+  };
+
+  mySlideOptions2 = {
+    initialSlide: 0,
+    loop: true,
+    autoplay:2000
+  };
+
+  mySlideOptions3 = {
+    initialSlide: 0,
+    loop: true,
+    autoplay:1200
+  };
 
   //private nav;
   private platform;

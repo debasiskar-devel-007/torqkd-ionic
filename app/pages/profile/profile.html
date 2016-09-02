@@ -23,19 +23,572 @@
     <div class="experience-wrapper">
         <div class="movile-tab-body">
             <ul>
-                <li><a href="#/add-route">GPS</a></li>
-                <li class="ng-hide"><a href="http://torqkd.com/upload/">CAMERA</a></li>
-                <li class="ng-hide"><input type="button" value="CAMERA" class="browsebtn">
-                </li>
+                <li><a href="javascript:void(0)">GPS</a></li>
+                <li class="ng-hide"><a href="javascript:void(0)">CAMERA</a></li>
+                <!--<li class="ng-hide"><input type="button" value="CAMERA" class="browsebtn">
+                </li>-->
             </ul>
         </div>
-        <div class="stats-slide">
+        <div class="stats-slider">
             <h4>Stats</h4>
+            <ion-slides [options]="mySlideOptions">
+                <ion-slide class="Stats-slider-contain">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#DFE2E2 !important;">
+                            <tbody>
+                            <tr>
+                                <th colspan="4" class="ng-binding">ROAD</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="strongtext ng-binding">0.00</div><div class="spantext">Distance</div>
+                                </td>
+                                <td>
+                                    <div class="strongtext ng-binding">00:03:05</div><div class="spantext">Time</div>
+                                </td>
+                                <td>
+                                    <div class="strongtext ng-binding">1</div><div class="spantext">Activities</div>
+                                </td>
+                                <td>
+                                    <div class="strongtext ng-binding">0</div><div class="spantext">Events</div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                </ion-slide>
+                <ion-slide class="Stats-slider-contain">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#DFE2E2 !important;">
+                        <tbody>
+                        <tr>
+                            <th colspan="4" class="ng-binding">BUNGEE</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="strongtext ng-binding">1.00</div><div class="spantext">Distance</div>
+                            </td>
+                            <td>
+                                <div class="strongtext ng-binding">00:06:57</div><div class="spantext">Time</div>
+                            </td>
+                            <td>
+                                <div class="strongtext ng-binding">3</div><div class="spantext">Activities</div>
+                            </td>
+                            <td>
+                                <div class="strongtext ng-binding">0</div><div class="spantext">Events</div>
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </ion-slide>
+                <ion-slide class="Stats-slider-contain">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#DFE2E2 !important;">
+                        <tbody><tr>
+                            <th colspan="4" class="ng-binding">CLIFF</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="strongtext ng-binding">0.82</div><div class="spantext">Distance</div>
+                            </td>
+                            <td>
+                                <div class="strongtext ng-binding">00:05:13</div><div class="spantext">Time</div>
+                            </td>
+                            <td>
+                                <div class="strongtext ng-binding">1</div><div class="spantext">Activities</div>
+                            </td>
+                            <td>
+                                <div class="strongtext ng-binding">0</div><div class="spantext">Events</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </ion-slide>
+                <ion-slide class="Stats-slider-contain">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#DFE2E2 !important;">
+                        <tbody>
+                        <tr>
+                            <th colspan="4" class="ng-binding">BASE</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="strongtext ng-binding">0.71</div><div class="spantext">Distance</div>
+                            </td>
+                            <td>
+                                <div class="strongtext ng-binding">00:03:38</div><div class="spantext">Time</div>
+                            </td>
+                            <td>
+                                <div class="strongtext ng-binding">1</div><div class="spantext">Activities</div>
+                            </td>
+                            <td>
+                                <div class="strongtext ng-binding">0</div><div class="spantext">Events</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </ion-slide>
+            </ion-slides>
         </div>
-        <div>
-            
+        <div class="status-menu">
+            <div class="text-box" id="text-box">
+                <textarea placeholder="STATUS UPDATE"></textarea>
+            </div>
+            <div class="menu1">
+                <a href="javascript:void(0);" ng-click="addVideo()" style="color: #fff;">+<br>VIDEO</a>
+            </div>
+            <div class="menu2">
+                <a href="javascript:void(0);" ng-click="addPhoto()" style="color: #fff;">+<br>Photo</a>
+            </div>
+            <div class="clear"></div>
         </div>
-        <p>
+        <!--<div class="status-input" id="statusinput" ng-show="currentUser==sessUser">
+            <div>
+                    <a href="javascript:void(0);" ng-click="showTag = true"><img src="images/adduser_new2.png" width="25" height="17" style="display:inline; width: 25px; margin:5px 0 0 14px;"></a>
+                </div>
+            <div>
+                    <form name="signUpForm" id="signUpForm" class="form-horizontal ng-pristine ng-valid">
+                        <input type="text" placeholder="Type to search YouTube" ng-model="youtubeTxt" class="searchbox ng-pristine ng-valid ng-touched"><br>
+                        <input type="submit" value="search" class="searchbtn">
+                    </form>
+                    <div class="btnor">OR</div>
+                    <input class="browsebtn" type="button" value="Click To Browse">
+           </div>
+            <div>
+                    <select id="share_with">
+                        <option value="1">Community</option>
+                        <option value="2">Friends</option>
+                        <option value="3">Friends Of Friends</option>
+                        <option value="4">Private Me Only</option>
+                    </select>
+                    <button class="postbtn1">cancel</button>
+                    <button class="postbtn2">post</button>
+                    <div class="clear"></div>
+                </div>
+        </div>-->
+        <div class="clear"></div>
+        <div id="tabs">
+            <div class="btntablist">
+                <button class="btntab active">Social</button>
+                <button class="btntab">Events</button>
+                <button class="btntab">Groups</button>
+                <button class="btntab">stats</button>
+            </div>
+            <div id="mainView">
+                <div class="blog1">
+                    <div class="left-img">
+                        <img width="50" height="50" alt="" src="images/createimage.jpg">
+                        <div class="mobile-name-view">
+                            <strong>mdfgdf dfgdf</strong>
+                            <br>
+                            <span>22 minutes ago</span>
+                        </div>
+                        <div class="clear"></div>
+                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
+                    </div>
+                    <div class="text-contain">
+                        <a href="http://lipsum.com/" target="_blank">http://lipsum.com/</a>
+                        <div class="extracted_url extracted_url2">
+                            <div class="extracted_thumb">
+                                <img src="images/3.jpg">
+                            </div>
+                            <div class="extracted_content">
+                                <h4>
+                                    <a href="http://lipsum.com/" target="_blank">Lorem Ipsum - All the facts - Lipsum generator</a>
+                                </h4>
+                                <p>Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.</p>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="bottom-like-contain">
+                        <div class="linknew-box">
+                            <ul>
+                                <li class="commend-div">
+                                    <a href="javascript:void(0);">
+                                        <img src="images/n1.png" alt="" height="20" width="20">
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0);"><img ng-src="images/n2.png" alt="" width="20" height="20" src="images/n2.png"></a></li>
+                                <li><a href="javascript:void(0);"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="like-con2">
+                            <span class="dropdown">
+                                <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
+                               <!-- <ul class="dropdown-menu">
+                                    <li><a href="#">HTML</a></li>
+                                    <li><a href="#">CSS</a></li>
+                                    <li><a href="#">JavaScript</a></li>
+                                </ul>-->
+                            </span>
+                            <label>0 LIKE - 0</label>
+                            <a href="javascript:void(0);">Comment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog2">
+                    <div class="left-img">
+                        <img width="50" height="50" alt="" src="images/createimage.jpg">
+                        <div class="mobile-name-view">
+                            <strong>mdfgdf dfgdf</strong>
+                            <br>
+                            <span>22 minutes ago</span>
+                        </div>
+                        <div class="clear"></div>
+                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
+                    </div>
+                    <div class="text-contain">
+                        <a href="http://lipsum.com/" target="_blank">http://lipsum.com/</a>
+                        <div class="extracted_url extracted_url2">
+                            <div class="extracted_thumb">
+                                <img src="http://lipsum.com/banners/ding.png">
+                            </div>
+                            <div class="extracted_content">
+                                <h4>
+                                    <a href="http://lipsum.com/" target="_blank">Lorem Ipsum - All the facts - Lipsum generator</a>
+                                </h4>
+                                <p>Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.</p>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="bottom-like-contain">
+                        <div class="linknew-box">
+                            <ul>
+                                <li class="commend-div">
+                                    <a href="javascript:void(0);">
+                                        <img src="images/n1.png" alt="" height="20" width="20">
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0);"><img ng-src="images/n2.png" alt="" width="20" height="20" src="images/n2.png"></a></li>
+                                <li><a href="javascript:void(0);"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="like-con2">
+                            <span class="dropdown">
+                                <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
+                                <!-- <ul class="dropdown-menu">
+                                     <li><a href="#">HTML</a></li>
+                                     <li><a href="#">CSS</a></li>
+                                     <li><a href="#">JavaScript</a></li>
+                                 </ul>-->
+                            </span>
+                            <label>0 LIKE - </label>
+                            <a href="javascript:void(0);"> 0 Comment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog1">
+                    <div class="left-img">
+                        <img width="50" height="50" alt="" src="images/createimage.jpg">
+                        <div class="mobile-name-view">
+                            <strong>mdfgdf dfgdf</strong>
+                            <br>
+                            <span>22 minutes ago</span>
+                        </div>
+                        <div class="clear"></div>
+                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
+                    </div>
+                    <div class="text-contain">
+                        <a href="javascript:void(0);" target="_blank" class="hastagLink">#text</a>
+                    </div>
+                    <div class="bottom-like-contain">
+                        <div class="linknew-box">
+                            <ul>
+                                <li class="commend-div">
+                                    <a href="javascript:void(0);">
+                                        <img src="images/n1.png" alt="" height="20" width="20">
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0);"><img ng-src="images/n2.png" alt="" width="20" height="20" src="images/n2.png"></a></li>
+                                <li><a href="javascript:void(0);"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="like-con2">
+                            <span class="dropdown">
+                                <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
+                                <!-- <ul class="dropdown-menu">
+                                     <li><a href="#">HTML</a></li>
+                                     <li><a href="#">CSS</a></li>
+                                     <li><a href="#">JavaScript</a></li>
+                                 </ul>-->
+                            </span>
+                            <label>0 LIKE - 0</label>
+                            <a href="javascript:void(0);">Comment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog2">
+                    <div class="left-img">
+                        <img width="50" height="50" alt="" src="images/createimage.jpg">
+                        <div class="mobile-name-view">
+                            <strong>mdfgdf dfgdf</strong>
+                            <br>
+                            <span>22 minutes ago</span>
+                        </div>
+                        <div class="clear"></div>
+                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
+                    </div>
+                    <div class="text-contain">
+                        <img style="position:absolute; margin-top:-2px;" alt="" src="images/arrow.png" width="54" height="28">
+                        <video controls="controls" src="http://torqkd.com/uploads/video/converted/1472802916_265805129.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="bottom-like-contain">
+                        <div class="linknew-box">
+                            <ul>
+                                <li class="commend-div">
+                                    <a href="javascript:void(0);">
+                                        <img src="images/n1.png" alt="" height="20" width="20">
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0);"><img ng-src="images/n2.png" alt="" width="20" height="20" src="images/n2.png"></a></li>
+                                <li><a href="javascript:void(0);"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="like-con2">
+                            <span class="dropdown">
+                                <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
+                                <!-- <ul class="dropdown-menu">
+                                     <li><a href="#">HTML</a></li>
+                                     <li><a href="#">CSS</a></li>
+                                     <li><a href="#">JavaScript</a></li>
+                                 </ul>-->
+                            </span>
+                            <label>0 LIKE - 0</label>
+                            <a href="javascript:void(0);">Comment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog1">
+                    <div class="left-img">
+                        <img width="50" height="50" alt="" src="images/createimage.jpg">
+                        <div class="mobile-name-view">
+                            <strong>mdfgdf dfgdf</strong>
+                            <br>
+                            <span>22 minutes ago</span>
+                        </div>
+                        <div class="clear"></div>
+                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
+                    </div>
+                    <div class="text-contain">
+                        <img style="position:absolute; margin-top:-2px;" alt="" src="images/arrow.png" width="54" height="28">
+                        <div class="video-container-wrapper">
+                            <!--<iframe src=""></iframe>-->
+                            <img src="images/createimage2.jpg" width="100%;">
+                            <img src="images/youplay.png" class="play_youtybe">
+                        </div>
+                    </div>
+                    <div class="bottom-like-contain">
+                        <div class="linknew-box">
+                            <ul>
+                                <li class="commend-div">
+                                    <a href="javascript:void(0);">
+                                        <img src="images/n1.png" alt="" height="20" width="20">
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0);"><img ng-src="images/n2.png" alt="" width="20" height="20" src="images/n2.png"></a></li>
+                                <li><a href="javascript:void(0);"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="like-con2">
+                            <span class="dropdown">
+                                <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
+                                <!-- <ul class="dropdown-menu">
+                                     <li><a href="#">HTML</a></li>
+                                     <li><a href="#">CSS</a></li>
+                                     <li><a href="#">JavaScript</a></li>
+                                 </ul>-->
+                            </span>
+                            <label>0 LIKE - 0</label>
+                            <a href="javascript:void(0);">Comment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog2">
+                    <div class="left-img">
+                        <img width="50" height="50" alt="" src="images/createimage.jpg">
+                        <div class="mobile-name-view">
+                            <strong>mdfgdf dfgdf</strong>
+                            <br>
+                            <span>22 minutes ago</span>
+                        </div>
+                        <div class="clear"></div>
+                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
+                    </div>
+                    <div class="text-contain">
+                        <div class="blogimg">
+                            <img style="position:absolute; margin-top:-2px;" alt="" src="images/arrow.png" width="54" height="28">
+                           <img src="images/createimage1.jpg" style="cursor: pointer;" alt="" class="imgresponsive">
+                        </div>
+                    </div>
+                    <div class="bottom-like-contain">
+                        <div class="linknew-box">
+                            <ul>
+                                <li class="commend-div">
+                                    <a href="javascript:void(0);">
+                                        <img src="images/n1.png" alt="" height="20" width="20">
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0);"><img ng-src="images/n2.png" alt="" width="20" height="20" src="images/n2.png"></a></li>
+                                <li><a href="javascript:void(0);"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="like-con2">
+                            <span class="dropdown">
+                                <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
+                                <!-- <ul class="dropdown-menu">
+                                     <li><a href="#">HTML</a></li>
+                                     <li><a href="#">CSS</a></li>
+                                     <li><a href="#">JavaScript</a></li>
+                                 </ul>-->
+                            </span>
+                            <label>0 LIKE - 0</label>
+                            <a href="javascript:void(0);">Comment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog1">
+                    <div class="left-img">
+                        <img width="50" height="50" alt="" src="images/createimage.jpg">
+                        <div class="mobile-name-view">
+                            <strong>mdfgdf dfgdf</strong>
+                            <br>
+                            <span>22 minutes ago</span>
+                        </div>
+                        <div class="clear"></div>
+                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
+                    </div>
+                    <div class="text-contain">
+                        <a href="javascript:void(0);" target="_blank">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</a>
+                    </div>
+                    <div class="bottom-like-contain">
+                        <div class="linknew-box">
+                            <ul>
+                                <li class="commend-div">
+                                    <a href="javascript:void(0);">
+                                        <img src="images/n1.png" alt="" height="20" width="20">
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0);"><img ng-src="images/n2.png" alt="" width="20" height="20" src="images/n2.png"></a></li>
+                                <li><a href="javascript:void(0);"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="like-con2">
+                            <span class="dropdown">
+                                <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
+                                <!-- <ul class="dropdown-menu">
+                                     <li><a href="#">HTML</a></li>
+                                     <li><a href="#">CSS</a></li>
+                                     <li><a href="#">JavaScript</a></li>
+                                 </ul>-->
+                            </span>
+                            <label>0 LIKE - 0</label>
+                            <a href="javascript:void(0);">Comment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog2">
+                    <div class="left-img">
+                        <img width="50" height="50" alt="" src="images/createimage.jpg">
+                        <div class="mobile-name-view">
+                            <strong>mdfgdf dfgdf</strong>
+                            <br>
+                            <span>22 minutes ago</span>
+                        </div>
+                        <div class="clear"></div>
+                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
+                    </div>
+                    <div class="text-contain">
+                        <div class="rowone">
+                            MOUNTAIN <br>
+                            <img src="images/1398763698.png" style="max-width: 46px;" alt="">
+                        </div>
+                        <div class="rowtwo">
+                            <h2>Ghiohg</h2>
+                            <div class="date-contain">
+                                <h5>
+                                    <span>DATE</span><br>
+                                    08/26/2016
+                                </h5>
+                                <h5>
+                                    <span>TIME</span><br>
+                                    00:14:53
+                                </h5>
+                                <h5>
+                                    <span>DISTANCE</span><br>
+                                    8.173 miles
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="mapwrapper">
+                            <img src="images/map.png">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="bottom-like-contain">
+                        <div class="linknew-box">
+                            <ul>
+                                <li class="commend-div">
+                                    <a href="javascript:void(0);">
+                                        <img src="images/n1.png" alt="" height="20" width="20">
+                                    </a>
+                                </li>
+                                <li><a href="javascript:void(0);"><img ng-src="images/n2.png" alt="" width="20" height="20" src="images/n2.png"></a></li>
+                                <li><a href="javascript:void(0);"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="like-con2">
+                            <span class="dropdown">
+                                <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
+                                <!-- <ul class="dropdown-menu">
+                                     <li><a href="#">HTML</a></li>
+                                     <li><a href="#">CSS</a></li>
+                                     <li><a href="#">JavaScript</a></li>
+                                 </ul>-->
+                            </span>
+                            <label>0 LIKE - 0</label>
+                            <a href="javascript:void(0);">Comment</a>
+                        </div>
+                    </div>
+                </div>
+                <span class="empty"></span>
+                <div class="viewMore">
+                    <a href="javascript:void(0);" ng-click="viewMoreStatus()" class="">View More</a>
+                </div>
+            </div>
+        </div>
+        <div class="stats-slider-bottom">
+            <ion-slides [options]="mySlideOptions2">
+                <ion-slide class="Stats-slider-bottom-contain1">
+                    <a hre="javascript:void(0);"><img src="images/map.png"></a>
+                </ion-slide>
+                <ion-slide class="Stats-slider-bottom-contain1">
+                    <a hre="javascript:void(0);"><img src="images/createimage.jpg"></a>
+                </ion-slide>
+                <ion-slide class="Stats-slider-bottom-contain1">
+                    <a hre="javascript:void(0);"><img src="images/3.jpg"></a>
+                </ion-slide>
+            </ion-slides>
+            <ion-slides [options]="mySlideOptions3">
+                <ion-slide class="Stats-slider-bottom-contain2">
+                    <a hre="javascript:void(0);"><img src="images/createimage.jpg"></a>
+                </ion-slide>
+                <ion-slide class="Stats-slider-bottom-contain2">
+                    <a hre="javascript:void(0);"><img src="images/map.jpg"></a>
+                </ion-slide>
+                <ion-slide class="Stats-slider-bottom-contain2">
+                    <a hre="javascript:void(0);"><img src="images/createimage.jpg"></a>
+                </ion-slide>
+            </ion-slides>
+        </div>
+</div>
+<!--        <p>
             This starter project is our way of helping you get a functional app running in record time.
         </p>
         <p>
@@ -43,7 +596,7 @@
         </p>
         <p>
             <button primary menuToggle>Toggle Menu</button>
-        </p>
-    </div>
+        </p>-->
+
 
 </ion-content>
