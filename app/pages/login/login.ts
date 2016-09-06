@@ -35,6 +35,9 @@ export class LoginPage {
       password: ["", Validators.required]
     });
   }
+
+
+
   doLogin(event) {
     //console.log(this.loginForm.value);
     console.log(99);
@@ -45,7 +48,7 @@ export class LoginPage {
       return;
     }
     if(this.loginForm.valid){
-      var body = 'email='+event.email+'&password='+event.password;
+      //var body = 'email='+event.email+'&password='+event.password;
       var headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 

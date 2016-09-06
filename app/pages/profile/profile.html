@@ -1,9 +1,12 @@
-<ion-header class="login-header">
-    <ion-navbar class="login-top">
+<ion-header class="login-header ">
+    <ion-navbar class="login-top" hideBackButton>
             <div class="login-wrapper">
                 <div class="mobile-top-con">
-                    <div class="mobile-menu">
-                        <button menuToggle>
+                    <div class="mobile-menu show">
+                        <button class="navmenur" menuToggle="right" hidden="false">
+                        <ion-icon name="menu"></ion-icon>
+                        </button>
+                        <button class="navmenul hide" menuToggle="left" hidden="true">
                         <ion-icon name="menu"></ion-icon>
                         </button>
                     </div>
@@ -18,8 +21,12 @@
     </ion-navbar>
 </ion-header>
 
+<ion-content  style="background-color: #ffaf36;height:800px">
+</ion-content>
 
-<ion-content padding class="getting-started">
+<ion-content padding class="getting-started contentwrapper has-header hide has-subheader" fullscreen>
+
+
     <div class="experience-wrapper">
         <div class="movile-tab-body">
             <ul>
@@ -32,31 +39,31 @@
         <div class="stats-slider">
             <h4>Stats</h4>
             <ion-slides [options]="mySlideOptions">
-                <ion-slide class="Stats-slider-contain">
+                <ion-slide class="Stats-slider-contain" *ngFor="let item of statdata; let i = index">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#DFE2E2 !important;">
                             <tbody>
                             <tr>
-                                <th colspan="4" class="ng-binding">ROAD</th>
+                                <th colspan="4" class="ng-binding">{{item.sport_name}}</th>
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="strongtext ng-binding">0.00</div><div class="spantext">Distance</div>
+                                    <div class="strongtext ng-binding">{{item.total_dis}}</div><div class="spantext">Distance</div>
                                 </td>
                                 <td>
-                                    <div class="strongtext ng-binding">00:03:05</div><div class="spantext">Time</div>
+                                    <div class="strongtext ng-binding">{{item.total_time}}</div><div class="spantext">Time</div>
                                 </td>
                                 <td>
-                                    <div class="strongtext ng-binding">1</div><div class="spantext">Activities</div>
+                                    <div class="strongtext ng-binding">{{item.activity_no}}</div><div class="spantext">Activities</div>
                                 </td>
                                 <td>
-                                    <div class="strongtext ng-binding">0</div><div class="spantext">Events</div>
+                                    <div class="strongtext ng-binding">{{item.event_no}}</div><div class="spantext">Events</div>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
 
                 </ion-slide>
-                <ion-slide class="Stats-slider-contain">
+                <!--<ion-slide class="Stats-slider-contain">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#DFE2E2 !important;">
                         <tbody>
                         <tr>
@@ -122,7 +129,7 @@
                         </tr>
                         </tbody>
                     </table>
-                </ion-slide>
+                </ion-slide>-->
             </ion-slides>
         </div>
         <div class="status-menu">
@@ -170,19 +177,19 @@
                 <button class="btntab">stats</button>
             </div>
             <div id="mainView">
-                <div class="blog1">
+                <div class="blog1" *ngFor="let item of statusdata; let i = index" >
                     <div class="left-img">
-                        <img width="50" height="50" alt="" src="images/createimage.jpg">
+                        <img width="50" height="50" alt="" src="{{item.user_image}}?v={{index}}">
                         <div class="mobile-name-view">
-                            <strong>mdfgdf dfgdf</strong>
+                            <strong>{{item.user_name}}</strong>
                             <br>
-                            <span>22 minutes ago</span>
+                            <span>{{item.timespan}}</span>
                         </div>
                         <div class="clear"></div>
                         <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
                     </div>
-                    <div class="text-contain">
-                        <a href="http://lipsum.com/" target="_blank">http://lipsum.com/</a>
+                    <div class="text-contain" *ngIf=" item.type=='' " innerHTML="{{item.msg}}">
+                        <!--<a href="http://lipsum.com/" target="_blank">http://lipsum.com/</a>
                         <div class="extracted_url extracted_url2">
                             <div class="extracted_thumb">
                                 <img src="images/3.jpg">
@@ -195,8 +202,33 @@
                                 <div class="clear"></div>
                             </div>
                             <div class="clear"></div>
+                        </div>-->
+                    </div>
+                    <div class="text-contain" *ngIf=" item.type=='image' ">
+
+                        <div class="blogimg">
+                            <img style="position:absolute; margin-top:-2px;" alt="" src="images/arrow.png" width="54" height="28">
+                            <img src="images/createimage1.jpg" style="cursor: pointer;" alt="" class="imgresponsive">
                         </div>
                     </div>
+                    <div class="text-contain" *ngIf=" item.type=='youtube' ">
+
+                        <div class="blogimg"  ng-if="item.type=='youtube'" style="position: relative;" id="youtubeBody{{item.id}}">
+                            <!--<youtube-video class="embed-responsive-item" video-id="item.value"></youtube-video>-->
+                            <img src="http://torqkd.com/user/ajs1/createimage?image={{item.s_img}}" width="100%">
+                            <img src="images/youplay.png" width="20%" class="paly_video" ng-click="showYoutubevdo(item.id,item.value)" style="cursor:pointer; width: 20%; z-index: 100; top: 40%; position: absolute; left: 40%;">
+                        </div>
+                    </div>
+
+                    <div class="text-contain" *ngIf=" item.type=='mp4' ">
+
+                        <div class="blogimg"  ng-if="item.type=='youtube'" style="position: relative;" id="youtubeBody{{item.id}}">
+                            <!--<youtube-video class="embed-responsive-item" video-id="item.value"></youtube-video>-->
+                            <img src="http://torqkd.com/user/ajs1/createimage?image={{item.s_img}}" width="100%">
+                            <img src="images/youplay.png" width="20%" class="paly_video" ng-click="showYoutubevdo(item.id,item.value)" style="cursor:pointer; width: 20%; z-index: 100; top: 40%; position: absolute; left: 40%;">
+                        </div>
+                    </div>
+
                     <div class="bottom-like-contain">
                         <div class="linknew-box">
                             <ul>
@@ -219,12 +251,14 @@
                                     <li><a href="#">JavaScript</a></li>
                                 </ul>-->
                             </span>
-                            <label>0 LIKE - 0</label>
-                            <a href="javascript:void(0);">Comment</a>
+                            <label>{{item.like_no}} LIKE -  {{item.comment_no}}</label>
+                            <a href="javascript:void(0);"> &nbsp; Comment</a>
                         </div>
                     </div>
                 </div>
-                <div class="blog2">
+
+
+               <!-- <div class="blog2">
                     <div class="left-img">
                         <img width="50" height="50" alt="" src="images/createimage.jpg">
                         <div class="mobile-name-view">
@@ -267,11 +301,11 @@
                         <div class="like-con2">
                             <span class="dropdown">
                                 <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
-                                <!-- <ul class="dropdown-menu">
+                                &lt;!&ndash; <ul class="dropdown-menu">
                                      <li><a href="#">HTML</a></li>
                                      <li><a href="#">CSS</a></li>
                                      <li><a href="#">JavaScript</a></li>
-                                 </ul>-->
+                                 </ul>&ndash;&gt;
                             </span>
                             <label>0 LIKE - </label>
                             <a href="javascript:void(0);"> 0 Comment</a>
@@ -308,11 +342,11 @@
                         <div class="like-con2">
                             <span class="dropdown">
                                 <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
-                                <!-- <ul class="dropdown-menu">
+                                &lt;!&ndash; <ul class="dropdown-menu">
                                      <li><a href="#">HTML</a></li>
                                      <li><a href="#">CSS</a></li>
                                      <li><a href="#">JavaScript</a></li>
-                                 </ul>-->
+                                 </ul>&ndash;&gt;
                             </span>
                             <label>0 LIKE - 0</label>
                             <a href="javascript:void(0);">Comment</a>
@@ -350,11 +384,11 @@
                         <div class="like-con2">
                             <span class="dropdown">
                                 <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
-                                <!-- <ul class="dropdown-menu">
+                                &lt;!&ndash; <ul class="dropdown-menu">
                                      <li><a href="#">HTML</a></li>
                                      <li><a href="#">CSS</a></li>
                                      <li><a href="#">JavaScript</a></li>
-                                 </ul>-->
+                                 </ul>&ndash;&gt;
                             </span>
                             <label>0 LIKE - 0</label>
                             <a href="javascript:void(0);">Comment</a>
@@ -375,7 +409,7 @@
                     <div class="text-contain">
                         <img style="position:absolute; margin-top:-2px;" alt="" src="images/arrow.png" width="54" height="28">
                         <div class="video-container-wrapper">
-                            <!--<iframe src=""></iframe>-->
+                            &lt;!&ndash;<iframe src=""></iframe>&ndash;&gt;
                             <img src="images/createimage2.jpg" width="100%;">
                             <img src="images/youplay.png" class="play_youtybe">
                         </div>
@@ -396,11 +430,11 @@
                         <div class="like-con2">
                             <span class="dropdown">
                                 <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
-                                <!-- <ul class="dropdown-menu">
+                                &lt;!&ndash; <ul class="dropdown-menu">
                                      <li><a href="#">HTML</a></li>
                                      <li><a href="#">CSS</a></li>
                                      <li><a href="#">JavaScript</a></li>
-                                 </ul>-->
+                                 </ul>&ndash;&gt;
                             </span>
                             <label>0 LIKE - 0</label>
                             <a href="javascript:void(0);">Comment</a>
@@ -440,11 +474,11 @@
                         <div class="like-con2">
                             <span class="dropdown">
                                 <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
-                                <!-- <ul class="dropdown-menu">
+                                &lt;!&ndash; <ul class="dropdown-menu">
                                      <li><a href="#">HTML</a></li>
                                      <li><a href="#">CSS</a></li>
                                      <li><a href="#">JavaScript</a></li>
-                                 </ul>-->
+                                 </ul>&ndash;&gt;
                             </span>
                             <label>0 LIKE - 0</label>
                             <a href="javascript:void(0);">Comment</a>
@@ -481,11 +515,11 @@
                         <div class="like-con2">
                             <span class="dropdown">
                                 <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
-                                <!-- <ul class="dropdown-menu">
+                                &lt;!&ndash; <ul class="dropdown-menu">
                                      <li><a href="#">HTML</a></li>
                                      <li><a href="#">CSS</a></li>
                                      <li><a href="#">JavaScript</a></li>
-                                 </ul>-->
+                                 </ul>&ndash;&gt;
                             </span>
                             <label>0 LIKE - 0</label>
                             <a href="javascript:void(0);">Comment</a>
@@ -546,17 +580,19 @@
                         <div class="like-con2">
                             <span class="dropdown">
                                 <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
-                                <!-- <ul class="dropdown-menu">
+                                &lt;!&ndash; <ul class="dropdown-menu">
                                      <li><a href="#">HTML</a></li>
                                      <li><a href="#">CSS</a></li>
                                      <li><a href="#">JavaScript</a></li>
-                                 </ul>-->
+                                 </ul>&ndash;&gt;
                             </span>
                             <label>0 LIKE - 0</label>
                             <a href="javascript:void(0);">Comment</a>
                         </div>
                     </div>
-                </div>
+                </div>-->
+
+
                 <span class="empty"></span>
                 <div class="viewMore">
                     <a href="javascript:void(0);" ng-click="viewMoreStatus()" class="">View More</a>
@@ -565,25 +601,19 @@
         </div>
         <div class="stats-slider-bottom">
             <ion-slides [options]="mySlideOptions2">
-                <ion-slide class="Stats-slider-bottom-contain1">
-                    <a hre="javascript:void(0);"><img src="images/map.png"></a>
+                <ion-slide *ngFor="let item of banner1data; let i = index" class="Stats-slider-bottom-contain1">
+                    <a hre="javascript:void(0);"><img src="http://torqkd.com/user/ajs1/getiamgeencode?image=http://torqkd.com/uploads/advertise_image/thumb/{{item.b_image}}"></a>
                 </ion-slide>
-                <ion-slide class="Stats-slider-bottom-contain1">
+                <!--<ion-slide class="Stats-slider-bottom-contain1">
                     <a hre="javascript:void(0);"><img src="images/createimage.jpg"></a>
                 </ion-slide>
                 <ion-slide class="Stats-slider-bottom-contain1">
                     <a hre="javascript:void(0);"><img src="images/3.jpg"></a>
-                </ion-slide>
+                </ion-slide>-->
             </ion-slides>
             <ion-slides [options]="mySlideOptions3">
-                <ion-slide class="Stats-slider-bottom-contain2">
-                    <a hre="javascript:void(0);"><img src="images/createimage.jpg"></a>
-                </ion-slide>
-                <ion-slide class="Stats-slider-bottom-contain2">
-                    <a hre="javascript:void(0);"><img src="images/map.jpg"></a>
-                </ion-slide>
-                <ion-slide class="Stats-slider-bottom-contain2">
-                    <a hre="javascript:void(0);"><img src="images/createimage.jpg"></a>
+                <ion-slide *ngFor="let item of banner2data; let i = index" class="Stats-slider-bottom-contain2">
+                    <a hre="javascript:void(0);"><img src="http://torqkd.com/user/ajs1/getiamgeencode?image=http://torqkd.com/uploads/advertise_image/thumb/{{item.b_image}}"></a>
                 </ion-slide>
             </ion-slides>
         </div>
@@ -599,4 +629,27 @@
         </p>-->
 
 
+
+
+
+
+
+
+
 </ion-content>
+
+
+<ion-footer>
+
+<div class="footer-menu1 ng-scope">
+    <span>©TORKQ</span>
+    <span>|</span>
+    <span>
+<a href="javascript:void(0);" ng-click="showtermsploicy('terms')">TERMS </a>
+</span>
+    <span>|</span>
+    <span>
+<a href="javascript:void(0);" ng-click="showtermsploicy('policy')">PRIVACY</a>
+</span>
+</div>
+</ion-footer>

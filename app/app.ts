@@ -4,6 +4,7 @@ import {StatusBar, Splashscreen} from 'ionic-native';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
 import {HomePage} from './pages/home/home';
+import {ProfilePage} from './pages/profile/profile';
 
 
 @Component({
@@ -13,7 +14,7 @@ class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage: any = HomePage;
+  rootPage: any = ProfilePage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -33,11 +34,11 @@ class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      if (Splashscreen) {
+      /*if (Splashscreen) {
         setTimeout(() => {
           Splashscreen.hide();
         }, 100);
-      }
+      }*/
 
       if (StatusBar) {
         // hide StatusBar using cordova-plugin-statusbar

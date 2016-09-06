@@ -52,9 +52,11 @@ a, a:-webkit-any-link {
 
 ion-tabbar{display: none !important;}
 
-.has-header{ background: url("../images/bg.jpg") no-repeat center top; background-repeat: no-repeat;
+.homec{ background: url("../images/bg.jpg") no-repeat center top; background-repeat: no-repeat;
     background-attachment: fixed; background-size: cover;
     overflow: hidden; }
+
+ion-header::after{background-image: none !important;}
 
 .homepage_wrapper{
     background: #edeeee none repeat scroll 0 0;
@@ -313,11 +315,10 @@ ion-tabbar{display: none !important;}
 
 ion-page.show-page scroll-content {
     display: block;
-    background-color: #DFE2E2 !important;
 }
 
 scroll-content{
-    background-color: #DFE2E2 !important;
+
     border-top: none;
     border-bottom: solid 2px #acacac;
     line-height: inherit;
@@ -342,6 +343,9 @@ scroll-content{
     width: 54px;
 }
 
+.contentwrapper{
+    background-color: #DFE2E2 !important;
+}
 
 .mobile-top-con .mobile-menu .bar-button-menutoggle {
     background-color: #f7931e;
@@ -359,7 +363,7 @@ scroll-content{
 
 .experience-wrapper {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 .movile-tab-body {
     display: block;
@@ -371,7 +375,11 @@ scroll-content{
     overflow: hidden;
     padding: 0 !important;
     position: relative;
-    width: 98% !important;
+    width: 100% !important;
+}
+
+scroll-content {
+    padding: 10px !important;
 }
 
 .movile-tab-body ul {
@@ -398,6 +406,12 @@ scroll-content{
     line-height: 40px;
     width: 100%;
     text-decoration: none;
+}
+
+ion-slides {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .stats-slider {
@@ -461,17 +475,17 @@ scroll-content{
 }
 
 .Stats-slider-bottom-contain1{
-    max-height: 400px; max-width: 100%; overflow: hidden;
-    margin-bottom: 20px;
+    width: 90%; overflow: hidden;
+    margin-bottom: 0px;height:auto;
 }
 .Stats-slider-bottom-contain1 img{
-    width: 100%;    max-height: inherit !important;
+    width: 100%;    max-height: inherit !important; height: 200px;
 }
 .Stats-slider-bottom-contain2{
-    max-height: 400px; max-width: 100%; overflow: hidden;
+    height: auto; width: 90%; overflow: hidden;
 }
 .Stats-slider-bottom-contain2 img{
-    width: 100%;  max-height: inherit !important;
+    width: 90%;height:auto;
 }
 
 .video-container-wrapper {
