@@ -1,10 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {LoginPage} from  '../login/login';
-import { Storage, LocalStorage } from 'ionic-angular';
+import { Storage, LocalStorage,ModalController } from 'ionic-angular';
 import {ProfilePage} from '../profile/profile'
+import {HomevideomodalPage} from '../homevideomodal/homevideomodal'
 import {Splashscreen} from 'ionic-native';
+import {Toast} from 'ionic-native';
+import {MediaPlugin} from 'ionic-native';
+//import {StreamingMedia, StreamingVideoOptions} from 'ionic-native';
 import * as $ from "jquery";
+
 //import {ROUTER_DIRECTIVES, Router, Location} from "angular2/router";
 
 @Component({
@@ -14,10 +19,11 @@ export class HomePage {
   private local:LocalStorage;
   loginPage=LoginPage;
   profilePage=ProfilePage;
+  homevideomodal=HomevideomodalPage;
   private isloggedin:boolean=false;
   //private router:Router;
 
-  constructor(private navCtrl: NavController) {
+  constructor(private navCtrl: NavController ,public modalCtrl: ModalController) {
     //this.local=null;
 
     this.local = new Storage(LocalStorage);
@@ -40,6 +46,44 @@ export class HomePage {
     });
 
   
+  }
+
+  openvideoplayer() {
+
+    Toast.show("I'm a toast", '5000', 'center').subscribe(
+        toast => {
+          console.log(toast);
+        }
+    );
+
+    // Create a MediaPlugin instance.  Expects path to file or url as argument
+    /*var file = new MediaPlugin('http://m.torkq.com/video/Torkq_LR_061416.mp4');
+
+// Catch the Success & Error Output
+// Platform Quirks
+// iOS calls success on completion of playback only
+// Android calls success on completion of playback AND on release()
+    file.init.then(() => {
+      file.play();
+      Toast.show("I'm  for success", '5000', 'center').subscribe(
+          toast => {
+            console.log(toast);
+          }
+      );
+    }, (err) => {
+      Toast.show("I'm   for error", '5000', 'center').subscribe(
+          toast => {
+            console.log(toast);
+          }
+      );
+    });
+
+// play the file
+    file.play();
+    // let profileModal = this.modalCtrl.create(HomevideomodalPage, { userId: 8675309 });
+    // profileModal.present();
+*/
+
   }
   ionViewDidEnter() {
 

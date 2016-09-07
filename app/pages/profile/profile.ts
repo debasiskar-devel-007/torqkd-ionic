@@ -140,8 +140,8 @@ export class ProfilePage {
               //this.navpage();
               this.isloggedin=true;
               $('.has-header').removeClass('hide');
-              $('.navmenur').addClass('hide');
-              $('.navmenul').removeClass('hide');
+              //$('.navmenur').addClass('hide');
+              //$('.navmenul').removeClass('hide');
 
               //return;
               // /$('.exp').click();
@@ -169,7 +169,7 @@ export class ProfilePage {
         if (Splashscreen) {
             setTimeout(() => {
                 Splashscreen.hide();
-            }, 1000);
+            }, 100);
         }
         console.log(this.isloggedin);
         if(!this.isloggedin)this.navCtrl.setRoot(HomePage);
@@ -209,6 +209,11 @@ export class ProfilePage {
 
         }
 
+    }
+
+    openmenu(){
+        console.log('dsd');
+        $('.navmenul').click();
     }
 
 
