@@ -485,7 +485,7 @@ ion-slides {
     height: auto; width: 90%; overflow: hidden;
 }
 .Stats-slider-bottom-contain2 img{
-    width: 90%;height:auto;
+    width: 100%;    max-height: inherit !important; height: 200px;
 }
 
 .video-container-wrapper {
@@ -517,6 +517,9 @@ ion-slides {
 
 .mapwrapper{width: 100%; margin: 0; padding: 0px;}
 .mapwrapper img{max-width: 100%; height: auto;}
+.videotoplogo{margin: 10px auto; float: none; display: block; width:200px;}
+.videotoplogo img{max-width: 100%;}
+.btnclosevideo{margin: 0 auto; display: block; float: none; text-align: center; width:120px;}
 
 /*
 

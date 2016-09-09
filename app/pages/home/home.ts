@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, Platform} from 'ionic-angular';
 import {LoginPage} from  '../login/login';
 import { Storage, LocalStorage,ModalController } from 'ionic-angular';
 import {ProfilePage} from '../profile/profile'
 import {HomevideomodalPage} from '../homevideomodal/homevideomodal'
 import {Splashscreen} from 'ionic-native';
 import {Toast} from 'ionic-native';
-import {MediaPlugin} from 'ionic-native';
+
+///import {} from 'ionic-native';
+//import {StreamingMedia} from 'ionic-native';
 //import {StreamingMedia, StreamingVideoOptions} from 'ionic-native';
 import * as $ from "jquery";
 
@@ -23,7 +25,7 @@ export class HomePage {
   private isloggedin:boolean=false;
   //private router:Router;
 
-  constructor(private navCtrl: NavController ,public modalCtrl: ModalController) {
+  constructor(private navCtrl: NavController ,public modalCtrl: ModalController , public  platform: Platform) {
     //this.local=null;
 
     this.local = new Storage(LocalStorage);
@@ -45,16 +47,23 @@ export class HomePage {
       }
     });
 
+    this.platform.registerBackButtonAction(function(){
+
+      this.platform.exitApp();
+    },500);
+
   
   }
 
   openvideoplayer() {
+    let modal = this.modalCtrl.create(HomevideomodalPage,{"url": "http://m.torkq.com/video/Torkq_LR_061416.mp4","poster":"http://m.torkq.com/images/tork_img2.jpg"});
+    modal.present();
 
-    Toast.show("I'm a toast", '5000', 'center').subscribe(
-        toast => {
-          console.log(toast);
-        }
-    );
+
+    //window.plugins.streamingMedia.playVideo(videoUrl);
+
+
+
 
     // Create a MediaPlugin instance.  Expects path to file or url as argument
     /*var file = new MediaPlugin('http://m.torkq.com/video/Torkq_LR_061416.mp4');
@@ -85,6 +94,8 @@ export class HomePage {
 */
 
   }
+
+
   ionViewDidEnter() {
 
 

@@ -3,11 +3,12 @@ import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 //import {ProfilePage} from '../profile/profile'
 import {Control} from "@angular/common";
-import {StatusBar, Splashscreen} from 'ionic-native';
+import {StatusBar, Splashscreen,InAppBrowser,GoogleMap, GoogleMapsEvent} from 'ionic-native';
 import {Http, Headers} from "@angular/http";
-import { Storage, LocalStorage,NavController,Nav ,Content} from 'ionic-angular';
+import { Storage, LocalStorage,NavController,Nav ,Content,ModalController} from 'ionic-angular';
 import * as $ from "jquery";
 import {HomePage} from "../home/home";
+import {HomevideomodalPage} from "../homevideomodal/homevideomodal";
 //import * as $ from "jquery";
 
 /*
@@ -55,7 +56,7 @@ export class ProfilePage {
         autoplay:4000
     };
 
-  constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http) {
+  constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http ,public modalCtrl: ModalController ) {
     this.loginForm = fb.group({
       email: ["", Validators.required],
       password: ["", Validators.required]
@@ -160,6 +161,15 @@ export class ProfilePage {
 
   }
 
+    launchVideo(url,poster) {
+        let modal = this.modalCtrl.create(HomevideomodalPage, {
+            "url": "http://torqkd.com/uploads/video/converted/"+url,
+            "poster": poster
+        });
+
+        modal.present();
+    }
+
 
     ionViewDidEnter() {
 
@@ -198,6 +208,8 @@ export class ProfilePage {
                         //console.log(data.json().banner2);
                         this.statdata=data.json().statdet;
                         this.statusdata=data.json().status;
+
+                        this.loadmaps(this.statusdata);
                         //this.banner2data=data.json().banner2;
                         //console.log(data.json());
 
@@ -209,6 +221,45 @@ export class ProfilePage {
 
         }
 
+    }
+    loadmaps(statusd){
+        setTimeout(function () {
+
+            var x;
+            let map = new Array();
+            for (x in statusd) {
+                //console.log(statusd[x]);
+                if (statusd[x].type == 'route') {
+                    console.log(statusd[x].id + 'routeid');
+                    console.log('map' + statusd[x].id);
+
+                    /* map[statusd[x].id] = new GoogleMap('map' +statusd[x].id, {
+                     // Map Options: https://developers.google.com/maps/documentation/javascript/3.exp/reference#MapOptions
+                     });
+
+                     map[statusd[x].id].on(GoogleMapsEvent.MAP_READY).subscribe(() => {
+                     console.log('Map is ready!'+statusd[x].id);
+                     map[statusd[x].id].setVisible(true);
+                     map[statusd[x].id].showDialog();
+                     });*/
+
+                    var myOptions = {
+                        zoom: 14,
+                        center: new google.maps.LatLng(52.21454000000001, 0.14044490000003407),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    }
+                    map[statusd[x].id] = new google.maps.Map(document.getElementById('map'+statusd[x].id), myOptions);
+
+                    //let map2 = new google.maps.Map(document.getElementById("map_canvas2"), myOptions);
+                }
+            }
+        },5000);
+
+    }
+    launch(url){
+
+        let browser = new InAppBrowser();
+        InAppBrowser.open(url, "_system", "location=true");
     }
 
     openmenu(){
