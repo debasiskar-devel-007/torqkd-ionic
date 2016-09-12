@@ -141,6 +141,7 @@ export class ProfilePage {
               //this.navpage();
               this.isloggedin=true;
               $('.has-header').removeClass('hide');
+              this.ionViewDidEnter();
               //$('.navmenur').addClass('hide');
               //$('.navmenul').removeClass('hide');
 
@@ -227,11 +228,28 @@ export class ProfilePage {
 
             var x;
             let map = new Array();
+            let poly = new Array();
+            let locations = new Array();
+            let points = new Array();
+            let path = new Array();
+            let address = new Array();
+            let markers = new Array();
+            let bounds = new Array();
+            let markerp = new Array();
+            let marker;
+
             for (x in statusd) {
+                bounds[statusd[x].id] = new google.maps.LatLngBounds();
                 //console.log(statusd[x]);
                 if (statusd[x].type == 'route') {
-                    console.log(statusd[x].id + 'routeid');
-                    console.log('map' + statusd[x].id);
+                   // console.log(statusd[x].id + 'routeid');
+                   // console.log('map' + statusd[x].id);
+                    console.log(statusd[x].routes);
+                    //console.log(statusd[x].routes.date);
+                    //console.log(statusd[x].routes.id);
+                    locations[statusd[x].id]=(statusd[x].routes.location);
+                    markerp[statusd[x].id]=(statusd[x].routes.marker);
+                    //console.log(statusd[x].routes.location.length);
 
                     /* map[statusd[x].id] = new GoogleMap('map' +statusd[x].id, {
                      // Map Options: https://developers.google.com/maps/documentation/javascript/3.exp/reference#MapOptions
@@ -243,12 +261,99 @@ export class ProfilePage {
                      map[statusd[x].id].showDialog();
                      });*/
 
+                    //var poly[statusd[x].id];
+
                     var myOptions = {
-                        zoom: 14,
+                        zoom: 10,
                         center: new google.maps.LatLng(52.21454000000001, 0.14044490000003407),
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                        mapTypeId: google.maps.MapTypeId.HYBRID,
+                        mapTypeControlOptions: {
+                            mapTypeIds: [google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.SATELLITE]
+                        },
+                        disableDefaultUI: true
                     }
                     map[statusd[x].id] = new google.maps.Map(document.getElementById('map'+statusd[x].id), myOptions);
+
+
+                    poly[statusd[x].id] = new google.maps.Polyline({
+                        geodesic: true,
+                        strokeColor: '#F7931E',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 4
+                    });
+
+                    var n;
+                    path[statusd[x].id] = new google.maps.MVCArray();
+
+                    if(locations[statusd[x].id].length>0)
+                    {
+                        for(n in locations[statusd[x].id]){
+                            var stptggg = locations[statusd[x].id][n];
+                            var setcarr = new Array();
+
+                            //console.log(locations[statusd[x].id][n]);
+                            //stptggg = stptggg.replace(/\(/g, '').replace(/\)/g, '');
+                            //setcarr = stptggg.split(',');
+                            var curP = new google.maps.LatLng(locations[statusd[x].id][n]['latitude'] , locations[statusd[x].id][n]['longitude']);
+
+                            /*points[statusd[x].id].push({
+                                lat:locations[statusd[x].id][n]['latitude'],
+                                lng:locations[statusd[x].id][n]['longitude']
+                            })*/
+
+                            bounds[statusd[x].id].extend(curP);
+
+
+
+                            path[statusd[x].id].push(curP);
+                            if(path[statusd[x].id].getLength() === 1) {
+                                poly[statusd[x].id].setPath(path[statusd[x].id]);
+                                map[statusd[x].id].setCenter(curP);
+                                marker = new google.maps.Marker({
+                                    map: map[statusd[x].id],
+                                    position: curP,
+                                    icon:'http://torqkd.com/images/map-icon.png',
+                                    title:address[statusd[x].id]
+                                });
+                            }
+                        }
+
+                        /*let flightPath = new google.maps.Polyline({
+                            path: path,
+                            geodesic: true,
+                            strokeColor: '#F7931E',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 4
+                        });*/
+
+                        poly[statusd[x].id].setMap(map[statusd[x].id]);
+
+
+                    }
+
+                    else {
+                        var curP = new google.maps.LatLng(markerp[statusd[x].id][0]['latitude'], markerp[statusd[x].id][0]['longitude']);
+
+
+                        bounds[statusd[x].id].extend(curP);
+                        marker = new google.maps.Marker({
+                            map: map[statusd[x].id],
+                            position: curP,
+                            icon:'http://torqkd.com/images/map-icon.png',
+                            title:address[statusd[x].id]
+                        });
+                    }
+                    map[statusd[x].id].fitBounds(bounds[statusd[x].id]);
+                    map[statusd[x].id].setZoom( map[statusd[x].id].getZoom());
+
+
+
+                    // /map[statusd[x].id].fitBounds(path[0].geometry.viewport);
+
+
+
+
+
 
                     //let map2 = new google.maps.Map(document.getElementById("map_canvas2"), myOptions);
                 }

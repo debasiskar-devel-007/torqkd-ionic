@@ -363,7 +363,7 @@ scroll-content{
 
 .experience-wrapper {
     margin: 0 auto;
-    width: 100%;
+    width: 98%;
 }
 .movile-tab-body {
     display: block;
@@ -379,7 +379,7 @@ scroll-content{
 }
 
 scroll-content {
-    padding: 10px !important;
+    padding: 0px !important;
 }
 
 .movile-tab-body ul {
@@ -1104,6 +1104,28 @@ video {
     font-size: 12px;
 }
 
+
+/*----Profile---*/
+#mainView .blog1 .text-contain .rowone {
+    color: #f79213;
+    float: left;
+    font-family: "veneerregular";
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 10px;
+    margin-top: 66px;
+    text-transform: uppercase;
+    width: 45%;
+}
+
+#mainView .blog1 .text-contain .rowtwo {
+    margin-top: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+    width: 45%;
+    margin-left: 0;
+    float: left;
+}
 
 
 @media screen and (max-width: 500px){
