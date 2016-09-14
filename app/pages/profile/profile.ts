@@ -9,6 +9,7 @@ import { Storage, LocalStorage,NavController,Nav ,Content,ModalController} from 
 import * as $ from "jquery";
 import {HomePage} from "../home/home";
 import {HomevideomodalPage} from "../homevideomodal/homevideomodal";
+import { ImagePicker } from 'ionic-native';
 //import * as $ from "jquery";
 
 /*
@@ -242,26 +243,10 @@ export class ProfilePage {
                 bounds[statusd[x].id] = new google.maps.LatLngBounds();
                 //console.log(statusd[x]);
                 if (statusd[x].type == 'route') {
-                   // console.log(statusd[x].id + 'routeid');
-                   // console.log('map' + statusd[x].id);
                     console.log(statusd[x].routes);
-                    //console.log(statusd[x].routes.date);
-                    //console.log(statusd[x].routes.id);
                     locations[statusd[x].id]=(statusd[x].routes.location);
                     markerp[statusd[x].id]=(statusd[x].routes.marker);
-                    //console.log(statusd[x].routes.location.length);
 
-                    /* map[statusd[x].id] = new GoogleMap('map' +statusd[x].id, {
-                     // Map Options: https://developers.google.com/maps/documentation/javascript/3.exp/reference#MapOptions
-                     });
-
-                     map[statusd[x].id].on(GoogleMapsEvent.MAP_READY).subscribe(() => {
-                     console.log('Map is ready!'+statusd[x].id);
-                     map[statusd[x].id].setVisible(true);
-                     map[statusd[x].id].showDialog();
-                     });*/
-
-                    //var poly[statusd[x].id];
 
                     var myOptions = {
                         zoom: 10,
@@ -291,19 +276,9 @@ export class ProfilePage {
                             var stptggg = locations[statusd[x].id][n];
                             var setcarr = new Array();
 
-                            //console.log(locations[statusd[x].id][n]);
-                            //stptggg = stptggg.replace(/\(/g, '').replace(/\)/g, '');
-                            //setcarr = stptggg.split(',');
                             var curP = new google.maps.LatLng(locations[statusd[x].id][n]['latitude'] , locations[statusd[x].id][n]['longitude']);
 
-                            /*points[statusd[x].id].push({
-                                lat:locations[statusd[x].id][n]['latitude'],
-                                lng:locations[statusd[x].id][n]['longitude']
-                            })*/
-
                             bounds[statusd[x].id].extend(curP);
-
-
 
                             path[statusd[x].id].push(curP);
                             if(path[statusd[x].id].getLength() === 1) {
@@ -318,16 +293,7 @@ export class ProfilePage {
                             }
                         }
 
-                        /*let flightPath = new google.maps.Polyline({
-                            path: path,
-                            geodesic: true,
-                            strokeColor: '#F7931E',
-                            strokeOpacity: 1.0,
-                            strokeWeight: 4
-                        });*/
-
                         poly[statusd[x].id].setMap(map[statusd[x].id]);
-
 
                     }
 
@@ -346,16 +312,6 @@ export class ProfilePage {
                     map[statusd[x].id].fitBounds(bounds[statusd[x].id]);
                     map[statusd[x].id].setZoom( map[statusd[x].id].getZoom());
 
-
-
-                    // /map[statusd[x].id].fitBounds(path[0].geometry.viewport);
-
-
-
-
-
-
-                    //let map2 = new google.maps.Map(document.getElementById("map_canvas2"), myOptions);
                 }
             }
         },5000);
@@ -378,13 +334,9 @@ export class ProfilePage {
         console.log('hh'+$('.login-header').height());
         if($('ion-header').height() < event.target.scrollTop) {
 
-            //$('ion-header').css('z-index','0');
-            //$('ion-content').css('z-index','3');
+
         }
-        else {
-            //$('ion-header').css('z-index','3');
-            //$('ion-content').css('z-index','0');
-        }
+
     }
 
     ngAfterViewInit() {
@@ -404,6 +356,36 @@ export class ProfilePage {
           console.log(JSON.stringify(error.json()));
         });
   }
+
+    openphotobowse(){
+
+        $('.status-input').removeClass('hide');
+        $('.browsephoto').removeClass('hide');
+
+        let options = {
+            // max images to be selected, defaults to 15. If this is set to 1, upon
+            // selection of a single image, the plugin will return it.
+            maximumImagesCount: 80,
+
+            // max width and height to allow the images to be.  Will keep aspect
+            // ratio no matter what.  So if both are 800, the returned image
+            // will be at most 800 pixels wide and 800 pixels tall.  If the width is
+            // 800 and height 0 the image will be 800 pixels wide if the source
+            // is at least that wide.
+            width: 200,
+            height: 200,
+
+            // quality of resized image, defaults to 100
+            quality: 90
+        };
+        ImagePicker.getPictures(options).then((results) => {
+            for (var i = 0; i < results.length; i++) {
+                console.log('Image URI: ' + results[i]);
+                alert('Image URI: ' + results[i]);
+                $('.photopreview').attr('src',results[i]);
+            }
+        }, (err) => { });
+    }
 
 
 

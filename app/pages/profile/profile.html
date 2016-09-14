@@ -140,23 +140,40 @@
                 <a href="javascript:void(0);" ng-click="addVideo()" style="color: #fff;">+<br>VIDEO</a>
             </div>
             <div class="menu2">
-                <a href="javascript:void(0);" ng-click="addPhoto()" style="color: #fff;">+<br>Photo</a>
+                <a href="javascript:void(0);" (click)="openphotobowse()"  ng-click="addPhoto()" style="color: #fff;">+<br>Photo</a>
             </div>
             <div class="clear"></div>
         </div>
-        <!--<div class="status-input" id="statusinput" ng-show="currentUser==sessUser">
-            <div>
+        <div class="status-input hide" id="statusinput">
+            <div ng-show="isStatusInput">
+                <tags-input ng-show="showTag" placeholder="Who are with you?">
+                    <div class="host">
+                        <div class="tags">
+                            <ul class="tag-list"></ul>
+                            <input class="input searchbox" type="text" placeholder="Who are with you?">
+                            <span class="input" style="visibility: hidden; width: auto; white-space: pre; display: none;">Who are with you?</span>
+                        </div>
+                    </div>
+                </tags-input>
                     <a href="javascript:void(0);" ng-click="showTag = true"><img src="images/adduser_new2.png" width="25" height="17" style="display:inline; width: 25px; margin:5px 0 0 14px;"></a>
-                </div>
-            <div>
+            </div>
+
+            <div ng-show="isPhoto" style="padding-bottom: 15px;" class=" browsephoto hide">
+                <input ng-show="!isMobileApp" type="button" class="browsebtn" value="Click To Browse"><br>
+                <img class="photopreview" src="" height="300" width="300">
+                <!--<a ng-show="isMobileApp" class="browsebtn ng-hide" style="display:block;" href="http://torqkd.com/upload/">Click To Browse</a>-->
+            </div>
+
+            <div ng-show="isVideo" class="ng-hide hide videobrowse">
                     <form name="signUpForm" id="signUpForm" class="form-horizontal ng-pristine ng-valid">
-                        <input type="text" placeholder="Type to search YouTube" ng-model="youtubeTxt" class="searchbox ng-pristine ng-valid ng-touched"><br>
+                        <input type="text" placeholder="Type to search YouTube" ng-model="youtubeTxt" class="searchbox"><br>
                         <input type="submit" value="search" class="searchbtn">
                     </form>
                     <div class="btnor">OR</div>
                     <input class="browsebtn" type="button" value="Click To Browse">
            </div>
-            <div>
+            <div ng-show="isStatusInput" class="">
+              <div>
                     <select id="share_with">
                         <option value="1">Community</option>
                         <option value="2">Friends</option>
@@ -166,8 +183,9 @@
                     <button class="postbtn1">cancel</button>
                     <button class="postbtn2">post</button>
                     <div class="clear"></div>
-                </div>
-        </div>-->
+              </div>
+           </div>
+        </div>
         <div class="clear"></div>
         <div id="tabs">
             <div class="btntablist">
