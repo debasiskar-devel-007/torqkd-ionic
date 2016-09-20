@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header class="login-header">
+<ion-header class="commentheader">
 
   <ion-nav-bar class="btnwrapper">
     <ion-nav-back-button class="button-clear btnback" (click)="goback()">
@@ -16,15 +16,15 @@
 
 
 <ion-content padding class="commentwrapper" >
-  <div class="commend-box-pro-inner" *ngFor="let item of items; let i = index">
+  <div class="commend-box-pro-inner" *ngFor="let item of items.comment; let i = index">
     <div class="commend-box">
       <div class="com-img">
-        <img src="images/imgcomment.jpg" alt="">
+        <img src="{{item.user_image}}" alt="">
       </div>
       <div class="combodyu">
         <div class="date-link">
           <a href="javascript:void(0)">{{item.time}}</a>
-          <img class="closeCBtn" src="images/deletebutton1.png" width="11" height="11">
+          <img class="closeCBtn" src="images/deletebutton1.png" width="11" height="11" *ngIf="item.user_id == items.c_user" (click)="delcomment(item)">
         </div>
         <div class="nprofilename2">
           <strong>
@@ -32,7 +32,7 @@
           </strong>
         </div>
         <div class="clearfix"></div>
-        <div class="combodyuinnertext" [innerHTML]="item.body">
+        <div class="combodyuinnertext" [innerHTML]="getsanitizedcontent(item.body)">
         </div>
       </div>
     </div>
@@ -63,23 +63,33 @@
     </div>
   </div>-->
 
+</ion-content>
+
+<ion-footer>
   <div class="commentfooter">
     <div class="commendboxpro">
       <div class="profile-img2" style="width: 38px; margin: 0 5px 0 0;">
-        <img src="images/imgcomment.jpg">
+        <img src="{{items.c_user_image}}">
       </div>
       <div class="popup-text-box1">
         <div class="commentemo">
-          <div class="commentemoinnertextarea" contenteditable="true"></div>
-          <a href="javascript:void(0)">
+          <div class="commentemoinnertextarea" id="commentemoinnertextarea" contenteditable="true"></div>
+          <a href="javascript:void(0)" (click)="showemojidiv()">
             <img src="images/emo.png" width="22" height="22" class="emocss" style="background:none; width:22px;">
           </a>
-          <a class="mob-post2" href="javascript:void(0);" style="margin-top:16px; margin-right:0px;">POST</a>
+          <a class="mob-post2" href="javascript:void(0);" style="margin-top:16px; margin-right:0px;" (click)="addComment()">POST</a>
         </div>
       </div>
     </div>
+    <div style="display: none; background-color: #ffffff; padding: 5px; max-height: 300px; overflow: auto;" id="emojisdiv">
+      <div class="emojisdiv">
+        <a *ngFor="let emoitem of emojisArr; let j = index" href="javascript:void(0)" class="emoticon emoticon-{{emoitem}}" (click)="emoinsert(emoitem)" title="::{{emoitem}}::" ></a>
+      </div>
+    </div>
   </div>
-</ion-content>
+</ion-footer>
+
+
 
 
 
