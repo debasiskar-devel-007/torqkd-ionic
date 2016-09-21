@@ -1433,20 +1433,20 @@ video {
     border-radius: 0;
     padding: 0;
 }
-.alert-head{
+.alert-wrapper .alert-head{
     padding: 0;
 }
-.alert-message{
+.alert-wrapper .alert-message{
     padding: 15px 15px 20px;
     font-family: "veneerregular";
     font-size: 16px;
     color: #434142;
 }
-.alert-button-group{
+.alert-wrapper .alert-button-group{
     padding: 0 0 15px;
     margin: 0 auto;
 }
-.alert-button{
+.alert-wrapper .alert-button{
     background: #f8931f none repeat scroll 0 0;
     border: 4px solid #fff;
     border-radius: 0;
@@ -1462,6 +1462,55 @@ video {
     text-transform: uppercase;
 }
 /*******************For Alert Box[end]**********************/
+
+/*******************For Action Sheet[start]**********************/
+.sharewithactionsheet .action-sheet-wrapper{
+    width:275px;
+    font-family: "veneerregular";
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+}
+.sharewithactionsheet .action-sheet-wrapper .action-sheet-group{
+    background: #58585a none repeat scroll 0 0;
+}
+.sharewithactionsheet .action-sheet-wrapper .action-sheet-title{
+    color: #ffffff;
+    border-bottom: 1px solid #9a9a9c;
+    font-size: 24px;
+}
+.sharewithactionsheet .action-sheet-wrapper .action-sheet-button{
+    color: #ffffff;
+    border-bottom: 1px solid #9a9a9c;
+    margin-bottom: 0 !important;
+}
+.sharewithactionsheet .action-sheet-wrapper .activated{
+    background:#ff8b00 none repeat scroll 4px center / 12px auto;
+}
+.sharewithactionsheet .action-sheet-wrapper .action-sheet-button:hover{
+    background:#ff8b00 none repeat scroll 4px center / 12px auto;
+}
+.sharewithactionsheet .action-sheet-wrapper .activebtn{
+    background:#ff8b00 url("../images/sharetick.png") no-repeat scroll 4px center / 12px auto !important;
+    padding-left: 20px;
+}
+
+.sharewithactionsheet .action-sheet-button:nth-child(2) span{
+    background: rgba(0, 0, 0, 0) url("../images/share1_icon.png") no-repeat scroll 0 center / 16px auto;
+    padding-left: 25px;
+}
+.sharewithactionsheet .action-sheet-button:nth-child(3) span{
+    background: rgba(0, 0, 0, 0) url("../images/share2_icon.png") no-repeat scroll 0 center / 12px auto;
+    padding-left: 22px;
+}
+.sharewithactionsheet .action-sheet-button:nth-child(4) span{
+    background: rgba(0, 0, 0, 0) url("../images/share3_icon.png") no-repeat scroll 0 center / 16px auto;
+    padding-left: 25px;
+}
+.sharewithactionsheet .action-sheet-button:nth-child(5) span{
+    background: rgba(0, 0, 0, 0) url("../images/share4_icon.png") no-repeat scroll 0 center / 11px auto;
+    padding-left: 20px;
+}
+/*******************For Action Sheet[end]**********************/
 
 
 /***********************Emoji icons [start]**********************************/
