@@ -638,12 +638,12 @@ ion-label {
 }
 
 .status-menu .text-box {
-    background: #fff url("../images/menu-arrow.png") no-repeat scroll right top;
+    background: #fff url("../images/menu-arrow.png") no-repeat scroll right top / 26px 58px;
     float: left;
     height: auto;
     padding: 4px 3.5% 0 0;
     width: 49.8%;
-    height: 58px;
+    min-height: 58px;
 }
 
 .status-menu .text-box textarea {
@@ -1302,7 +1302,7 @@ video {
     padding: 10px;
     width: 100%;
     display: block;
-    background-color: #fff;
+    background-color: #DFE2E2;
     height: auto;
     float: left;
 }
@@ -4420,3 +4420,208 @@ code.has-numbering {
 
 
 /***********************Emoji icons [end]************************************/
+
+/***********************Highlight Words[start]**************************************/
+
+.highlightTextarea {
+    position: relative;
+}
+.highlightTextarea .highlightTextarea-container {
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+}
+.highlightTextarea .highlightTextarea-highlighter {
+    border: medium none;
+    color: transparent;
+    cursor: text;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.highlightTextarea.debug .highlightTextarea-highlighter {
+    border: 1px solid red;
+    color: red;
+    margin: -1px;
+}
+.highlightTextarea mark {
+    color: transparent;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+.highlightTextarea input, .highlightTextarea textarea {
+    left: 0;
+    position: absolute;
+    resize: none;
+    top: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.highlightTextarea .ui-wrapper {
+    margin: 0 !important;
+}
+.highlightTextarea .ui-resizable-se {
+    bottom: 15px;
+    right: 0;
+}
+
+/***********************Highlight Words[end]****************************************/
+
+/***********************Extract Url [start]****************************************/
+.extracted_url {
+    background: #ffffff none repeat scroll 0 0;
+    border-top: 1px solid #d9d9d9;
+    padding: 2%;
+    position: relative;
+    width: 96%;
+    display: inline-block;
+}
+.extracted_thumb {
+    display: inline-block;
+    float: left;
+    margin-bottom: 15px;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.extracted_thumb img {
+    border: 1px solid #d9d9d9;
+    max-height: 250px;
+}
+.extracted_content {
+    color: #575757;
+    display: inline-block;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    margin: 0;
+    max-width: 100%;
+    padding: 0 10px;
+    position: relative;
+}
+.extracted_content p {
+    margin: 0;
+    padding: 0;
+}
+.extracted_content h4 {
+    color: #f7931d;
+    font-family: Arial,Helvetica,sans-serif;
+    padding-bottom: 5px;
+}
+.extracted_content h4 a {
+    color: #f7931d;
+}
+.thumb_sel {
+    color: #f7931d;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+.thumb_sel .prev_thumb {
+    background: rgba(0, 0, 0, 0) url("../images/new_prev.png") no-repeat scroll left center;
+    cursor: pointer;
+    font-size: 0;
+    height: 27px;
+    left: 20px;
+    position: absolute;
+    top: 20px;
+    width: 37px;
+}
+.thumb_sel .next_thumb {
+    background: rgba(0, 0, 0, 0) url("../images/new_next.png") no-repeat scroll left center;
+    cursor: pointer;
+    font-size: 0;
+    height: 27px;
+    left: 56px;
+    position: absolute;
+    top: 20px;
+    width: 37px;
+}
+.extracted_close1 {
+    background: rgba(0, 0, 0, 0) url("../images/close-img.png") no-repeat scroll left top;
+    display: none;
+    height: 12px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 12px;
+}
+.extracted_close1 img {
+    display: none;
+}
+.extracted_url:hover .extracted_close1 {
+    display: block;
+}
+.extracted_close2 {
+    background: rgba(0, 0, 0, 0) url("../images/close-img.png") no-repeat scroll left top;
+    display: block;
+    height: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 12px;
+}
+.extracted_close2 img {
+    display: none;
+}
+.extracted_close2:hover {
+    background-position: -13px 0;
+}
+/***********************Extract Url[end]********************************888********/
+
+/***********************Tag People List [start]******************************/
+.tagpeoplelistwrapper .item-checkbox{
+    background: none !important;
+}
+/***********************Tag People List [end]********************************/
+
+/***********************Code By Samsuj [start]**********************************/
+[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    color: #777777;
+    display: block; /* For Firefox */
+}
+[contenteditable=true]{
+    color: #000000;
+}
+.statusuparea{
+    float: left;
+    height: auto;
+    min-height: 52px;
+    overflow: hidden;
+    text-align: left;
+    width: 88%;
+}
+.commentheader .tagpeopletitle {
+    text-align: center;
+    font-family: "veneerregular";
+}
+.tagPeopleFooter {
+    text-align: center;
+    background: #DFE2E2;
+}
+.tagPeopleFooter button{
+    background: #f7931e none repeat scroll 0 0 !important;
+    border: 2px solid #fff;
+    box-shadow: 0 0 2px #888;
+    color: #414151 !important;
+    cursor: pointer;
+    font-family: "veneerregular";
+    font-size: 16px !important;
+    line-height: 33px !important;
+    text-align: center;
+    text-transform: uppercase;
+}
+.tagPeopleFooter button:hover{
+    background-color: #387ef5;
+}
+.tagpeoplelistwrapper{
+    background: #FAB363;
+}
+/***********************Code By Samsuj [end]**********************************/
