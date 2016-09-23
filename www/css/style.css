@@ -4605,6 +4605,7 @@ code.has-numbering {
 .tagPeopleFooter {
     text-align: center;
     background: #DFE2E2;
+    padding: 10px 0;
 }
 .tagPeopleFooter button{
     background: #f7931e none repeat scroll 0 0 !important;
@@ -4623,5 +4624,22 @@ code.has-numbering {
 }
 .tagpeoplelistwrapper{
     background: #FAB363;
+}
+
+.tagpeoplelistwrapper .userimage img{
+    border-radius: 0;
+}
+.tagpeoplelistwrapper ion-label{
+    text-align: left;
+}
+ .tagpeoplelistwrapper .item .item-inner{
+     border-bottom: none;
+ }
+.tagpeoplelistwrapper ion-item{
+    border-bottom: 1px solid #dedede;
+    background: none !important;
+}
+.tagpeoplelistwrapper ion-item:last-child{
+    border-bottom: none !important;
 }
 /***********************Code By Samsuj [end]**********************************/

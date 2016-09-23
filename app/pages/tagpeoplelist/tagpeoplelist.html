@@ -9,12 +9,12 @@
 
     <ion-list>
   <ion-item *ngFor="let item of userList; let i = index">
-      <ion-avatar item-left>
-          <img src="images/3.jpg">
+      <ion-checkbox (ionChange)="handleChange($event,item.id)"></ion-checkbox>
+      <ion-avatar item-left class="userimage">
+          <img src="{{item.user_image}}">
       </ion-avatar>
 
       <ion-label>{{item.user_name}}</ion-label>
-      <ion-checkbox (ionChange)="handleChange($event,item.id)"></ion-checkbox>
   </ion-item>
     </ion-list>
 </ion-content>
