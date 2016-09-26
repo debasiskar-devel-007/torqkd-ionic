@@ -4642,4 +4642,288 @@ code.has-numbering {
 .tagpeoplelistwrapper ion-item:last-child{
     border-bottom: none !important;
 }
+
+
+.event-tab {
+    background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid #b3b8ba;
+    margin: 0 auto 5px;
+    padding: 5px;
+    width: 96%;
+    display: inline-block;
+}
+.event-tab h1 {
+    color: #6b6b6b !important;
+    font-family: "veneerregular";
+    font-size: 28px !important;
+    font-weight: normal;
+    letter-spacing: normal !important;
+    line-height: 30px;
+    margin: 8px 0 0 !important;
+    padding: 2px 10px 5px 0 !important;
+}
+.event-tab h3 {
+    color: #a7a7a7 !important;
+    font-family: "veneerregular";
+    font-size: 16px !important;
+    font-weight: normal;
+    letter-spacing: normal !important;
+    line-height: 30px;
+    margin: 0 !important;
+    padding: 2px 10px 5px 0 !important;
+}
+.event-tab h4 {
+    line-height: 14px;
+    padding-bottom: 5px;
+}
+.event-tab .left-part {
+    float: left;
+    width: 16%;
+}
+.event-tab .left-part .img-div {
+    border: 1px solid #ddd;
+    float: left;
+    margin-left: 10px;
+    width: 148px;
+}
+.event-tab .left-part .img-div img {
+    width: 100%;
+}
+.event-tab .right-part .date-contain {
+    color: #6b6b6b !important;
+    font-family: "veneerregular";
+    font-size: 34px !important;
+    line-height: 24px;
+    margin: 0;
+    width: 310px;
+}
+.event-tab .right-part .date-contain span {
+    color: #abaaaf;
+    font-size: 12px;
+}
+.event-tab .right-part {
+    float: right;
+    width: 84%;
+    padding-left: 15px;
+}
+.event-tab .right-part .name-contain {
+    float: left;
+    margin: 0 5px;
+    width: 105px;
+}
+.event-tab .right-part .name-contain img {
+    display: block;
+    max-height: 40px;
+    max-width: 100%;
+}
+.event-tab .right-part .name-contain p {
+    color: #f79213;
+    display: block;
+    font-family: "reservation";
+    font-size: 14px;
+    min-height: 30px;
+    width: 100%;
+}
+.event-tab .right-part .name-contain p span {
+    color: #abaaaf;
+    font-size: 12px;
+}
+
+.event-menu .viewgrp{
+    background: none;
+    border: none;
+    color: #4f5052;
+    padding: 0px;
+    box-shadow: none;
+    border-radius: 0;
+    cursor: pointer;
+    float: left;
+    font-family: "veneerregular";
+    font-size: 18px !important;
+    line-height: 24px;
+    margin: 24px 10px 20px 0;
+    text-transform: uppercase;
+}
+
+
+.groups-body {
+    background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid #b3b8ba;
+    margin-bottom: 10px;
+    padding: 8px 0 0;
+    display: inline-block;
+}
+.groups-body .h1text {
+    display: inline-block;
+    float: left;
+}
+.groups-body .destext1 {
+    display: block;
+    margin-top: 14px;
+    overflow: hidden;
+}
+.groups-body .left-img1 {
+    width:20%;
+    float:left;
+    margin-left: 2%;
+}
+.groups-body .left-img1 img {
+    float: left;
+    width: 90%;
+    background: url(../images/logo.png) no-repeat center center;
+    background-size: 80%;
+}
+.groups-body .righttext1 {
+    float: right;
+    font-family: "reservation";
+    margin-right: 2%;
+    position: relative;
+    width: 75%;
+}
+.groups-body .righttext1 h1 {
+    color: #4f5052;
+    font-family: "reservation";
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: inherit;
+    margin: 0;
+    padding: 0 !important;
+}
+.groups-body .righttext1 .sttext .ng-binding {
+    color: #777 !important;
+    display: block !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 10px !important;
+    padding: 4px 0 0 !important;
+}
+.groups-body .righttext1 h1 span {
+    color: #777;
+    font-family: Arial,Helvetica,sans-serif;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-language-override: normal;
+    font-size: 11px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant: normal;
+    font-weight: normal !important;
+    letter-spacing: 0 !important;
+    line-height: 30px;
+    padding-left: 0;
+}
+.groups-body .sttext {
+    display: inline-block;
+    overflow: hidden;
+}
+.groups-body .righttext1 strong {
+    color: #777;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    text-align: right !important;
+}
+.groups-body .righttext1 p {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    padding: 0;
+}
+.groups-body .righttext1 a {
+    color: #777;
+    display: block;
+    font-size: 11px;
+    padding-top: 5px;
+}
+.groups-body .righttext1 a:hover {
+    text-decoration: none;
+}
+.groups-body .left-img img {
+    border: medium none;
+    padding: 0;
+}
+
+.groups-body .viewgrp{
+    background: none;
+    border: none;
+    color: #4f5052;
+    padding: 0px;
+    box-shadow: none;
+    border-radius: 0;
+    cursor: pointer;
+    float: left;
+    font-family: "veneerregular";
+    font-size: 18px !important;
+    line-height: 24px;
+    margin: 24px 10px 20px 0;
+    text-transform: uppercase;
+}
+
+.groupTab {
+    clear: both;
+    width: 100%;
+}
+.groupTab input[type="button"] {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    box-shadow: none;
+    color: #4f5052 !important;
+    font-family: "veneerregular";
+    font-size: 18px;
+    margin: 0 10px 10px 8px !important;
+    padding: 0;
+}
+.groupSubBtn {
+    background: #f8931f none repeat scroll 0 0;
+    border: 4px solid #fff;
+    border-radius: 0;
+    color: #434142;
+    cursor: pointer;
+    font-family: "veneerregular";
+    font-size: 24px;
+    line-height: 24px;
+    margin: 10px 10px 20px 0;
+    outline: medium none !important;
+    padding: 7px 10px 2px;
+    text-transform: uppercase;
+}
+
+.map_left-con {
+    line-height: 23px;
+    margin: 40px auto 0;
+    width: 80%;
+}
+.map_left-con .header_msg {
+    color: #f7941e;
+    font-family: veneerregular;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 30px;
+    text-align: left;
+}
+.map_left-con h2 {
+    font-family: reservation !important;
+    font-size: 16px;
+    margin: 40px 0 0;
+    padding: 0;
+}
+.map_left-con h3 {
+    color: #545455;
+    font-family: reservation !important;
+    font-size: 16px;
+    margin: 0;
+    padding: 20px 0;
+}
+.map_left-con span {
+    line-height: 22px;
+}
+
+.map_left-con .header_msg2 {
+    color: #f7941e;
+    font-family: veneerregular;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 30px;
+    text-align: left;
+}
+
 /***********************Code By Samsuj [end]**********************************/

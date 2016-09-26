@@ -8,8 +8,7 @@ import {HomePage} from "../home/home";
 import {HomevideomodalPage} from "../homevideomodal/homevideomodal";
 import {SocialcommentPage} from "../socialcomment/socialcomment";
 import {ProfilePage} from "../profile/profile";
-import {profilegroupPage} from "../profilegroup/profilegroup";
-import {eventDetailsPage} from "../eventdetails1/eventdetails1";
+import {profileeventlistPage} from "../profileeventlist/profileeventlist";
 import {tagpeoplelistPage} from "../tagpeoplelist/tagpeoplelist";
 import {socialtaglistPage} from "../socialtaglist/socialtaglist";
 import {DomSanitizationService} from "@angular/platform-browser";
@@ -25,10 +24,10 @@ import { ActionSheetController } from 'ionic-angular';
  Ionic pages and navigation.
  */
 @Component({
-    templateUrl: 'build/pages/profileeventlist/profileeventlist.html',
+    templateUrl: 'build/pages/profilegroup/profilegroup.html',
     directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
-export class profileeventlistPage {
+export class profilegroupPage {
     @ViewChild(Nav) nav: Nav;
     @ViewChild(Content)
     content:Content;
@@ -41,23 +40,19 @@ export class profileeventlistPage {
     private data1;
     private statdata;
     private statusdata;
-    private eventdata;
     private loggedinuser;
     private local:LocalStorage;
-    private eventoffset;
     sanitizer;
     public profilepage=ProfilePage;
-    public profilegrouppage = profilegroupPage;
-    public eventdetailspage = eventDetailsPage;
+    public profileeventlistpage=profileeventlistPage;
     public isStatusInput = false;
     public statustype = '';
     public statusvalue = '';
     public tagpeople = '';
     public getExactRunning = false;
     public statusText1 = '';
-    public eventlist;
-    public totalevent;
-    public eventcount;
+    public groupList;
+    public groupcount;
 
     mySlideOptions = {
         initialSlide: 0,
@@ -83,9 +78,6 @@ export class profileeventlistPage {
             email: ["", Validators.required],
             password: ["", Validators.required]
         });
-
-        this.eventoffset = 0;
-        this.eventdata = [];
 
 
         platform.registerBackButtonAction(() => {
@@ -125,7 +117,6 @@ export class profileeventlistPage {
 
                 this.isloggedin=true;
 
-                this.eventoffset = 0;
 
                 /************statdata[start]*********************/
                 var link1 = 'http://torqkd.com/user/ajs2/getonlystat/userid/'+this.loggedinuser;
@@ -145,7 +136,7 @@ export class profileeventlistPage {
                     });
                 /************statdata[end]*********************/
 
-                this.getEvents();
+                this.getGroups();
 
             }
             else{
@@ -172,41 +163,51 @@ export class profileeventlistPage {
     }
 
 
-    getEvents(){
-        var link = 'http://torqkd.com/user/ajs2/getEvents';
-        var data = {offset: this.eventoffset,sess_user:this.loggedinuser,userid:this.loggedinuser};
+    getGroups(){
+        var link = 'http://torqkd.com/user/ajs2/getGroups';
+        var data = {userid: this.loggedinuser};
 
 
         this._http.post(link, data)
             .subscribe(res => {
                 var res2 = res.json();
-                this.eventlist = res2.event;
-                this.totalevent = res2.totalCount;
-                this.eventcount = this.eventlist.length;
-                this.eventoffset = parseInt(this.eventoffset)+5;
+                this.groupList = res2;
+                this.groupcount = res2.length;
             }, error => {
                 console.log("Oooops!");
             });
 
     }
-
-    getMoreEvents(){
-        var link = 'http://torqkd.com/user/ajs2/getEvents';
-        var data = {offset: this.eventoffset,sess_user:this.loggedinuser,userid:this.loggedinuser};
+    getlocGroups(){
+        var link = 'http://torqkd.com/user/ajs2/getLocGroups';
+        var data = {userid: this.loggedinuser};
 
 
         this._http.post(link, data)
             .subscribe(res => {
                 var res2 = res.json();
-                this.eventlist=this.eventlist.concat(res2.event);
-                this.eventcount = this.eventlist.length;
-                this.eventoffset = parseInt(this.eventoffset)+5;
+                this.groupList = res2;
+                this.groupcount = res2.length;
             }, error => {
                 console.log("Oooops!");
             });
 
     }
+    getsugGroups(){
+        var link = 'http://torqkd.com/user/ajs2/getSugGroups';
+        var data = {userid: this.loggedinuser};
 
+
+        this._http.post(link, data)
+            .subscribe(res => {
+                var res2 = res.json();
+                this.groupList = res2;
+                this.groupcount = res2.length;
+            }, error => {
+                console.log("Oooops!");
+            });
+
+    }
 
     launch(url){
 

@@ -124,42 +124,40 @@
         <div id="tabs">
             <div class="btntablist">
                 <button class="btntab" [navPush]="profilepage">Social</button>
-                <button class="btntab active">Events</button>
-                <button class="btntab" [navPush]="profilegrouppage">Groups</button>
+                <button class="btntab" [navPush]="profileeventlistpage">Events</button>
+                <button class="btntab active">Groups</button>
                 <button class="btntab">stats</button>
             </div>
             <div id="mainView">
 
-                <div class="event-tab" *ngFor="let item of eventlist; let i = index" >
-                    <div class="left-part">
-                        <h4 style="color:#f79213; font-family: 'reservation'; font-size: 10px;">{{item.sport_name}}</h4>
-                        <img alt="#" src="{{item.sport_image}}">
+                <div class="groupTab">
+                    <input type="button" value="COMMUNITY GROUPS" (click)="getsugGroups()">
+                    <input type="button" value="FRIENDS GROUPS" (click)="getlocGroups()">
+                </div>
+
+                <div class="groups-body" *ngFor="let item of groupList; let i = index">
+                    <div class="left-img1">
+                        <img src="{{item.image}}">
+                        <div style="clear: both;"></div>
                     </div>
-                    <div class="right-part" style="margin-bottom:5px;" >
-                        <h1>{{item.name}}</h1>
-                        <h3>{{item.address}}</h3>
-                        <div class="clear"></div>
-                        <div class="date-contain">
-                            <span>Date</span>
-                            <br />
-                            {{item.date}}
-                            <br />
-                            <span>Time</span>
-                            <br />
-                            {{item.time}}
+                    <div class="righttext1">
+                        <h1 class="h1text">{{item.name}}</h1>
+                        <div class="sttext">
+                            <strong><span> {{item.time}} </span><br>{{(item.type==1)?"Public":"Private"}} Group / {{item.member}} member</strong>
                         </div>
-                        <div class="event-menu">
-                            <a class="viewgrp" href="javascript:void(0)" [navPush]="eventdetailspage" [navParams]="{id:item.id}">View Event</a>
+                        <div style="clear: both;"></div>
+                        <div class="destext1">
+                            <div style="clear: both;"></div>
+                            <p>{{item.description}}</p>
                         </div>
+                        <a class="viewgrp" href="javascript:void (0)">View Group</a>
                     </div>
                     <div class="clear"></div>
                 </div>
 
-                <span class="empty" *ngIf="!eventcount">No results found.</span>
 
-                <div class="viewMore" *ngIf="eventoffset < totalevent">
-                    <a href="javascript:void(0);" (click)="getMoreEvents()" class="">View More</a>
-                </div>
+                <span class="empty" *ngIf="!groupcount">No results found.</span>
+
             </div>
 
 
@@ -200,3 +198,19 @@
 
 </ion-content>
 
+<!--
+
+<ion-footer>
+
+<div class="footer-menu1 ng-scope">
+    <span>©TORKQ</span>
+    <span>|</span>
+    <span>
+<a href="javascript:void(0);" ng-click="showtermsploicy('terms')">TERMS </a>
+</span>
+    <span>|</span>
+    <span>
+<a href="javascript:void(0);" ng-click="showtermsploicy('policy')">PRIVACY</a>
+</span>
+</div>
+</ion-footer>-->
