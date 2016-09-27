@@ -37,8 +37,11 @@ export class eventDetailsPage {
     private loggedinuser;
     sanitizer;
     public eventdet;
+    public navCtrl;
 
-    constructor(fb: FormBuilder,public platform: Platform,public navCtrl: NavController,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController,public params: NavParams) {
+    constructor(fb: FormBuilder,public platform: Platform,navCtrl: NavController,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController,public params: NavParams) {
+        this.navCtrl = navCtrl;
+
         platform.registerBackButtonAction(() => {
 
             this.navCtrl.pop();
@@ -64,6 +67,29 @@ export class eventDetailsPage {
                 else{
 
                     this.eventdet =data.json();
+                    console.log(this.eventdet);
+
+                    /************************Load Map [start]*********************************/
+                    var centerpos = new google.maps.LatLng(this.eventdet.latitude, this.eventdet.longitude);
+                    var myOptions = {
+                        zoom: 12,
+                        center: centerpos,
+                        mapTypeId: google.maps.MapTypeId.HYBRID,
+                        scrollwheel:false,
+                        mapTypeControlOptions: {
+                            mapTypeIds: [google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.SATELLITE]
+                        },
+                        disableDefaultUI: true
+                    }
+
+                    var map = new google.maps.Map(document.getElementById('map'), myOptions);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: centerpos,
+                        icon:'http://torqkd.com/images/map-icon.png',
+                        //title:address[statusd[x].id]
+                    });
+                    /************************Load Map [end]***********************************/
 
                 }
             }, error => {
@@ -72,6 +98,13 @@ export class eventDetailsPage {
 
 
 
+    }
+
+    gotoback(){
+        this.navCtrl.pop({
+            animate: true,
+            direction: 'back'
+        });
     }
 
     addhideclass(hparam){
