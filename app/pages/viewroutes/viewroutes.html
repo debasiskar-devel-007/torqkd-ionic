@@ -27,6 +27,87 @@
 
 <ion-content padding>
 
-  This Page Is comming Soon !
+  <div class="experience-wrapper view-route-page">
+
+
+    <div class="routes-body-contain">
+      <div style="width:100%; padding:2%; background:#ebebeb;">
+        <div style="width:100%;">
+          <h4 class="routestext">Routes</h4>
+          <div class="mb-btn"><a href="javascript:void(0)">+</a></div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div style="width: 100%; ">
+          <div class="ptext">
+            <p style="color:#4f4f51;font-size: 13px;margin: 0px; line-height:22px;font-family: 'helvetica', 'arial';font-weight:normal;text-transform:none;letter-spacing:normal;">Below are listed the routes  recorded through either the online system or the Torkq mobile app. Click on the map for a larger view of the route recorded.</p>
+          </div>
+          <div class="albumPhotos">
+            <img src="{{userImage}}">
+          </div>
+        </div>
+        <div class="clear"></div>
+
+
+        <div class="routes-wrapper">
+          <div class="routes-row" style="margin: 10px 0; position:relative;" *ngFor="let item of routesdata; let i = index">
+            <div class="rowone">
+              {{item.sport_name}} <br>
+              <img alt="" style="max-width: 46px;" src="{{item.sport_image}}">
+            </div>
+            <div class="rowtwo ">
+              <h2 class="">{{item.route_name}}</h2>
+              <div class="date-contain">
+                <h5 class="">
+                  <span>DATE</span><br>
+                  {{item.date}}
+                </h5>
+                <h5 class="">
+                  <span>TIME</span><br>
+                  {{item.duration}}
+                </h5>
+                <h5 class="">
+                  <span>DISTANCE</span><br>
+                  {{item.distance}} miles
+                </h5>
+              </div>
+            </div>
+
+
+            <div class="clear"></div>
+            <div id="viewroutemap{{item.id}}"  class="rowthree" style="width: 100%; height: 330px;">
+            </div>
+
+            <div class="sdiv" style="display:block; margin-right: 11px; text-align: right; padding-top:10px;">
+              <a style="color: #616564; font-family: 'veneerregular'; font-size: 22px; padding:0px 0; text-decoration: none; " href="javascript:void(0)" (click)="delRoute(item)">✖</a>
+            </div>
+
+
+          </div>
+
+
+          <div class="empty" *ngIf="noofroutes==0">No results found.</div>
+          <div class="viewMore" *ngIf="totatcount > routesoffset && noofroutes"><a href="javascript:void(0);" (click)="getRoutes()">View More</a></div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+
+    <div id="mapconmain" style=" width:170px; height:204px;"></div>
+    <div class="clear"></div>
+    <div class="footer-menu1">
+      <span>&copy;TORKQ</span>
+      <span>|</span>
+      <span><a ng-click="showtermsploicy('terms')" href="javascript:void(0);">TERMS </a></span>
+      <span>|</span>
+      <span><a ng-click="showtermsploicy('policy')" href="javascript:void(0);">PRIVACY</a></span>
+    </div>
+  </div>
 
 </ion-content>

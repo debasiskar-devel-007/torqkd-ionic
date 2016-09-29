@@ -1537,7 +1537,7 @@ video {
     font-size: 24px;
 }
 .socilashareactionsheet .action-sheet-wrapper .action-sheet-button{
-    color: #ffffff;
+    color: #424242;
     border-bottom: 1px solid #9a9a9c;
     margin-bottom: 0 !important;
 }
@@ -5208,5 +5208,180 @@ code.has-numbering {
     color: #333;
 }
 
+.view-route-page {
+    width: 96%;
+    margin: 0 auto;
+}
+
+.view-route-page .routes-body-contain{
+    padding: 2%;
+    width: 100%;
+    background: #f5921b none repeat scroll 0 0;
+    margin: 20px auto;
+}
+
+.view-route-page .routestext{
+    display: block;
+    float: left;
+    width: 150px;
+    color: #f7921d;
+    font-family: "veneerregular";
+    font-size: 34px;
+    letter-spacing: 3px;
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+.view-route-page .mb-btn{
+    background: #242021 none repeat scroll 0 0;
+    display: block;
+    float: right;
+    height: 28px;
+    width: 28px;
+    margin-top: 12px;
+}
+
+.view-route-page .mb-btn a{
+    color: #f7941e;
+    display: block;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 26px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.view-route-page .routes-body-contain .ptext{
+    float: left;
+    width: 60%;
+}
+.view-route-page .routes-body-contain .albumPhotos{
+    margin: 0;
+    border: 4px solid #fff;
+    box-shadow: 0 0 2px #888;
+    float: right;
+    width: 88px;
+}
+
+.view-route-page .routes-body-contain .routes-wrapper {
+    background: #ffffff none repeat scroll 0 0;
+    margin: 10px auto;
+    padding: 4%;
+    width: 92%;
+}
+.view-route-page .routes-body-contain .routes-wrapper .routes-row {
+    border-bottom: 2px solid #bcbec0;
+    float: none;
+    margin: 0 auto 20px 2%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    width: 100%;
+}
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowone {
+    color: #f79213;
+    float: left;
+    font-family: "veneerregular";
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 10px;
+    margin-top: 66px;
+    text-transform: uppercase;
+    width: 110px;
+}
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo {
+    float: left;
+    margin-top: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+    width: 120px;
+}
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo h2 {
+    color: #616564;
+    font-family: "veneerregular";
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 24px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo .date-contain {
+    padding: 10px 12px 10px 0;
+}
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo .date-contain h5 {
+    color: #616564;
+    font-family: "veneerregular";
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 22px;
+    margin: 0 !important;
+    padding-bottom: 8px;
+}
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo .date-contain h5 span {
+    color: #929497;
+    font-family: reservation;
+    font-size: 12px;
+}
+.view-route-page .routes-body-contain .routes-wrapper .back-btn {
+    color: #5a5b5d;
+    font-family: "veneerregular";
+    font-size: 22px;
+    margin-left: -5%;
+    width: 95%;
+}
+.view-route-page .routes-body-contain .routes-wrapper .back-btn a {
+    color: #5a5b5d;
+}
+
+.notification-wrapper{
+    padding-left:0px;
+    padding-right:0px;
+    width:100%;
+    padding-top: 10px;
+}
+
+.notification-wrapper .settingswrapper h4 {
+    color: #f7941e;
+    font-family: veneerregular;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.notification-wrapper .settingswrapper ul{
+    margin-bottom:0px;
+    padding:0;
+    background:#ebebeb;
+    border-top:solid 1px #FFFFFF;
+    border-left:solid 2px #fff;
+    border-right:solid 2px #fff;
+}
+
+.notification-wrapper .notifications_li {
+    border-bottom: 1px solid #ffffff;
+    list-style: outside none none;
+    padding: 10px;
+}
+.notification-wrapper .notifications_li .msg_text_notificationswrapper {
+    float: left;
+    margin-left: 10px;
+    width: 220px;
+}
+.notification-wrapper .notifications_li .notifications_img{
+    width:80px;
+    height:50px;
+    background-position: center center;
+    margin:5px 0 5px 0;
+    border:solid 2px #fff;
+    background-color:#000;
+    background-size: cover;
+}
+
+.notification-wrapper .notifications_li .notificationStr{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
 
 /***********************Code By Samsuj [end]**********************************/

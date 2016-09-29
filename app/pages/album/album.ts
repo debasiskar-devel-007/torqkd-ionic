@@ -19,15 +19,17 @@ export class AlbumPage {
   private local:LocalStorage;
   private photolist;
   public albumvideopage = AlbumvideoPage;
+  public userImage;
 
   constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController) {
     this.local = new Storage(LocalStorage);
 
     this.local.get('userinfo').then((value) => {
       this.loggedinuser=JSON.parse(value).id;
-      console.log(JSON.parse(value).id);
+      console.log(JSON.parse(value));
       if(value!=null) {
         this.getimages(this.loggedinuser,this.loggedinuser);
+        this.userImage = JSON.parse(value).user_image;
       }
       else{
         $('ion-content').removeClass('hide');
