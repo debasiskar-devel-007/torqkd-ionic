@@ -12,11 +12,12 @@ import {profileeventlistPage} from "../profileeventlist/profileeventlist";
 import {profilegroupPage} from "../profilegroup/profilegroup";
 import {tagpeoplelistPage} from "../tagpeoplelist/tagpeoplelist";
 import {socialtaglistPage} from "../socialtaglist/socialtaglist";
+import {statDetPage} from "../statdet/statdet";
 import {DomSanitizationService} from "@angular/platform-browser";
 import { AlertController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
-import  CHART_DIRECTIVES   from 'angular2-highcharts';
-
+import '../../../node_modules/chart.js/src/chart.js';
+import { BaseChartComponent } from 'ng2-charts/ng2-charts';
 
 //import {ProfilePage} from '../profile/profile'
 //import * as $ from "jquery";
@@ -29,7 +30,7 @@ import  CHART_DIRECTIVES   from 'angular2-highcharts';
  */
 @Component({
     templateUrl: 'build/pages/profilestat/profilestat.html',
-    directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES,CHART_DIRECTIVES]
+    directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES,BaseChartComponent]
 })
 export class profileStatPage {
     @ViewChild(Nav) nav: Nav;
@@ -58,7 +59,73 @@ export class profileStatPage {
     public statusText1 = '';
     public groupList;
     public groupcount;
-    public options;
+    public statdata2;
+    public statcount;
+
+
+    /*******************************Chat Settings [start] ******************************************/
+
+    public lineChartOptions:any = {
+        animation: false,
+        responsive: true,
+        scales: {
+            yAxes: [{
+                scaleLabel : {
+                    display:true,
+                    labelString : 'Activity',
+                    fontColor : '#555555',
+                    fontFamily : '"veneerregular"',
+                    fontSize : 12
+                },
+                gridLines : {
+                    color :'#ddd',
+                    lineWidth : 1,
+                    tickMarkLength :0
+                },
+                ticks : {
+                    fontColor : '#555555',
+                    fontFamily : '"veneerregular"',
+                }
+            }],
+            xAxes : [{
+                gridLines : {
+                    display : false,
+                },
+                ticks : {
+                    fontColor : '#555555',
+                    fontFamily : '"veneerregular"',
+                }
+            }]
+        },
+        title: {
+            display: true,
+            text: 'Last 6 Months',
+            fontFamily : '"veneerregular"',
+            fontSize : 18,
+            fontColor : '#555555'
+        },
+        legend : {
+            position : 'bottom',
+            labels : {
+                fontFamily : '"veneerregular"',
+                fontColor : '#555555',
+                boxWidth : 0
+            }
+        }
+    };
+    public lineChartColors:Array<any> = [
+        { // grey
+            borderColor: 'rgba(247,146,19,1)',
+            pointBackgroundColor: 'rgba(247,146,19,1)',
+            pointBorderColor: 'rgb(247,146,19)',
+            pointHoverBackgroundColor: 'rgb(247,146,19)',
+            pointHoverBorderColor: 'rgba(247,146,19,0.8)'
+        }
+    ];
+    public lineChartLegend:boolean = true;
+    public lineChartType:string = 'line';
+    /*******************************Chat Settings [end] ******************************************/
+
 
     mySlideOptions = {
         initialSlide: 0,
@@ -81,12 +148,7 @@ export class profileStatPage {
     constructor(fb: FormBuilder,public platform: Platform,public navCtrl: NavController,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController) {
         this.sanitizer=sanitizer;
 
-        this.options = {
-            title: { text: 'simple chart' },
-            series: [{
-                data: [29.9, 71.5, 106.4, 129.2],
-            }]
-        };
+
 
         this.loginForm = fb.group({
             email: ["", Validators.required],
@@ -150,7 +212,28 @@ export class profileStatPage {
                     });
                 /************statdata[end]*********************/
 
-                console.log(123);
+                /*****************Get User Stat[start]**********************/
+                var link5 = 'http://torqkd.com/user/ajs2/getUserStat';
+                var data5 = {userid: this.loggedinuser};
+
+                this._http.post(link5, data5)
+                    .subscribe(res => {
+                        if(res.json()==null){
+
+                            return;
+                        }
+                        else{
+                            var res2 = res.json();
+                            this.statdata2 = res2;
+                            this.statcount = res2.length;
+                        }
+                    }, error => {
+                        console.log("Oooops!");
+                    });
+                /*****************Get User Stat[start]**********************/
+
+
+
 
             }
             else{
@@ -491,6 +574,41 @@ export class profileStatPage {
         }
 
 
+    }
+
+
+
+
+
+    /******************Stat Chart[start]**********************/
+    getLineChartData(item){
+
+        var rdata = [
+            {
+                data: item.data,
+                label: 'Month',
+                fill:false,
+                lineTension : 0,
+                pointRadius : 5
+            }
+        ];
+
+        return rdata;
+    }
+    getLineChartLabels(item){
+        var rdata = item.mon;
+        return rdata;
+    }
+    /******************Stat Chart[end]**********************/
+
+
+    viewstatdet(item){
+        console.log(item.statDet);
+        let modal = this.modalCtrl.create(statDetPage, {
+            "item": item.statDet,
+        });
+
+        modal.present();
     }
 
 

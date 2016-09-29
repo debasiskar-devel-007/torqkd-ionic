@@ -130,7 +130,56 @@
             </div>
             <div id="mainView">
 
-                <chart [options]="options"></chart>
+                <table width="100%" *ngFor="let item of statdata2; let i = index" class="stat-tab">
+
+                    <tr>
+
+                        <td class="first-td" style="padding-bottom:10px;" width="20%">
+
+                            <h4 style="color:#f79213">{{item.sport_name}}</h4>
+
+                            <img src="http://torqkd.com/uploads/sports_image/thumb/{{item.imag_name}}" alt=""  style="margin-top:10px;  width:52px;"/></td>
+
+                        <td>{{item.activity_no}}<br />
+                            <span>Activities</span></td>
+
+                        <td >{{item.total_dis}}<br />
+                            <span>Distance</span></td>
+
+                        <td >{{item.total_time}}<br/>
+
+                            <span style="text-align:left">Time</span></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td  valign="top" align="left" width="100%"  colspan="5">
+
+                            <base-chart  class="chart"
+                                         [datasets]="getLineChartData(item)"
+                                         [labels]="getLineChartLabels(item)"
+                                         [options]="lineChartOptions"
+                                         [colors]="lineChartColors"
+                                         [legend]="lineChartLegend"
+                                         [chartType]="lineChartType"></base-chart>
+
+                            <div class="stat-table2" style="padding:10px 0; "><a href="javascript:void(0);" class="stat-view-btn" (click)="viewstatdet(item)">View Details</a></div>
+                        </td>
+
+                    <tr>
+
+                        <td  valign="bottom" colspan="5" style="padding:0; border-top: solid 1px #555555; padding:15px 0 0 0; margin-bottom:10px;">
+
+                    </tr>
+
+                </table>
+
+                <span class="empty" *ngIf="!statcount">No results found.</span>
+
+
+
+
 
             </div>
 

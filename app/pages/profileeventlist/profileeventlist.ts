@@ -9,6 +9,7 @@ import {HomevideomodalPage} from "../homevideomodal/homevideomodal";
 import {SocialcommentPage} from "../socialcomment/socialcomment";
 import {ProfilePage} from "../profile/profile";
 import {profilegroupPage} from "../profilegroup/profilegroup";
+import {profileStatPage} from "../profilestat/profilestat";
 import {eventDetailsPage} from "../eventdetails1/eventdetails1";
 import {tagpeoplelistPage} from "../tagpeoplelist/tagpeoplelist";
 import {socialtaglistPage} from "../socialtaglist/socialtaglist";
@@ -48,6 +49,7 @@ export class profileeventlistPage {
     sanitizer;
     public profilepage=ProfilePage;
     public profilegrouppage = profilegroupPage;
+    public profilestatpage = profileStatPage;
     public eventdetailspage = eventDetailsPage;
     public isStatusInput = false;
     public statustype = '';

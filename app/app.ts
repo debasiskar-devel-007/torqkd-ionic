@@ -22,6 +22,7 @@ import {UpdateprofilePage} from './pages/updateprofile/updateprofile';
 import {SportsPage} from './pages/sports/sports';
 import {ExperiencePage} from './pages/experience/experience';
 import {LogoutPage} from './pages/logout/logout';
+import {PhotoPage} from './pages/photo/photo';
 
 
 @Component({
@@ -47,6 +48,7 @@ class MyApp {
       { title: 'Friends', component: FriendsPage },
       { title: 'Community', component: CommunityPage },
       { title: 'Album', component: AlbumPage },
+      { title: 'Photo', component: PhotoPage },
       { title: 'Torkq TV', component: TorqkdtvPage },
       { title: 'View Routes', component: ViewroutesPage },
       { title: 'Add Events', component: AddeventsPage },

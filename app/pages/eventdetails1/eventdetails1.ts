@@ -123,6 +123,11 @@ export class eventDetailsPage {
         return this.sanitizer.bypassSecurityTrustHtml(content);
     }
 
+    openmenu(){
+        $('.navmenul').click();
+    }
+
+
 
 }
 

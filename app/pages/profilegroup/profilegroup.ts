@@ -9,6 +9,7 @@ import {HomevideomodalPage} from "../homevideomodal/homevideomodal";
 import {SocialcommentPage} from "../socialcomment/socialcomment";
 import {ProfilePage} from "../profile/profile";
 import {profileeventlistPage} from "../profileeventlist/profileeventlist";
+import {profileStatPage} from "../profilestat/profilestat";
 import {tagpeoplelistPage} from "../tagpeoplelist/tagpeoplelist";
 import {socialtaglistPage} from "../socialtaglist/socialtaglist";
 import {DomSanitizationService} from "@angular/platform-browser";
@@ -45,6 +46,7 @@ export class profilegroupPage {
     sanitizer;
     public profilepage=ProfilePage;
     public profileeventlistpage=profileeventlistPage;
+    public profilestatpage = profileStatPage;
     public isStatusInput = false;
     public statustype = '';
     public statusvalue = '';

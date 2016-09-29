@@ -49,6 +49,9 @@ a, a:-webkit-any-link {
     cursor: auto;
 }
 
+ion-content,ion-header,ion-footer{
+    background-color: #dfe2e2;
+}
 
 ion-tabbar{display: none !important;}
 
@@ -57,6 +60,10 @@ ion-tabbar{display: none !important;}
     overflow: hidden; }
 
 ion-header::after{background-image: none !important;}
+
+.clear{
+    clear: both;
+}
 
 .homepage_wrapper{
     background: #edeeee none repeat scroll 0 0;
@@ -1128,8 +1135,7 @@ video {
 
 .commendboxpro {
     background: #f6f9fa;
-    margin-top: -5px;
-    padding: 8px 0;
+    padding: 8px;
     float: left;
     width: 100%;
 }
@@ -1193,7 +1199,7 @@ video {
     background: #fab363;
     margin: 0 auto;
     padding: 2px 1%;
-    width: 98%;
+    width: 100%;
     padding-bottom: 10px;
     position: relative;
     float: left;
@@ -1250,6 +1256,10 @@ video {
 
 .commend-box-pro-inner .combodyu strong {
     line-height: 18px;
+}
+
+.commend-box-pro-inner .combodyu strong a{
+    color: #333333;
 }
 
 
@@ -1327,6 +1337,7 @@ video {
 .commentwrapper scroll-content{
     margin-bottom: 128px !important;
     margin-top: 4px !important;
+    border: none;
 }
 
 /*----Profile---*/
@@ -1510,6 +1521,43 @@ video {
     background: rgba(0, 0, 0, 0) url("../images/share4_icon.png") no-repeat scroll 0 center / 11px auto;
     padding-left: 20px;
 }
+
+.socilashareactionsheet .action-sheet-wrapper{
+    width:275px;
+    font-family: "veneerregular";
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+}
+.socilashareactionsheet .action-sheet-wrapper .action-sheet-group{
+    background: #FFFFFF none repeat scroll 0 0;
+}
+.socilashareactionsheet .action-sheet-wrapper .action-sheet-title{
+    color: #424242;
+    border-bottom: 1px solid #9a9a9c;
+    font-size: 24px;
+}
+.socilashareactionsheet .action-sheet-wrapper .action-sheet-button{
+    color: #ffffff;
+    border-bottom: 1px solid #9a9a9c;
+    margin-bottom: 0 !important;
+}
+.socilashareactionsheet .action-sheet-button:nth-child(2){
+    background: rgba(0, 0, 0, 0) url("../images/texts1.png") no-repeat scroll center center;
+}
+.socilashareactionsheet .action-sheet-button:nth-child(3){
+    background: rgba(0, 0, 0, 0) url("../images/texts2.png") no-repeat scroll center center;
+}
+.socilashareactionsheet .action-sheet-button:nth-child(4){
+    background: rgba(0, 0, 0, 0) url("../images/texts3.png") no-repeat scroll center center;
+}
+.socilashareactionsheet .action-sheet-group .action-sheet-button span{
+    display:block;
+    text-align:center;
+}
+
+
+
+
 /*******************For Action Sheet[end]**********************/
 
 
@@ -4925,5 +4973,240 @@ code.has-numbering {
     line-height: 30px;
     text-align: left;
 }
+
+.stat-tab td{
+    font-size: 26px;
+    color: #555555;
+    font-family: "veneerregular";
+    line-height: 24px;
+    padding: 0;
+}
+.stat-tab td span{
+    font-size: 12px;
+}
+.stat-tab .first-td {
+    font-family: "reservation";
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.stat-tab .first-td h4{
+    font-size: 12px;
+}
+.stat-table2 {
+    color: #555555;
+    font-family: "veneerregular";
+    font-size: 18px;
+    padding: 20px 0;
+    text-align: center;
+}
+.stat-table2 .stat-view-btn {
+    color: #555555;
+}
+
+.stat-det-area {
+    background: #fab363;
+    margin: 0 auto;
+    padding: 2px 2%;
+    width: 100%;
+}
+.stat-det-area2 {
+    width: 90%;
+    margin: 5%;
+}
+.stat-det-header{
+    width: 100%;
+}
+.stat-det-data{
+    width: 100%;
+}
+.stat-det-header span,.stat-det-data span{
+    font-family: "veneerregular";
+    font-size: 14px;
+    padding: 10px 0 10px 1%;
+    text-align: left;
+    text-transform: uppercase;
+}
+.stat-det-header span:nth-child(1){
+    width: 20%;
+    display: block;
+    float: left;
+}
+
+.stat-det-header span:nth-child(2),.stat-det-header span:nth-child(3),.stat-det-header span:nth-child(4){
+    width: 25%;
+    display: block;
+    float: left;
+}
+.stat-det-data span:nth-child(1){
+    width: 20%;
+    display: block;
+    float: left;
+}
+
+.stat-det-data span:nth-child(2),.stat-det-data span:nth-child(3),.stat-det-data span:nth-child(4){
+    width: 25%;
+    display: block;
+    float: left;
+}
+.photo-page .photosheading{
+    background: #58595b none repeat scroll 0 0;
+    color: #f7931e;
+    font-family: "veneerregular";
+    font-size: 25px;
+    height: 50px;
+    line-height: 54px;
+    padding: 0 0 0 2%;
+    width: 100%;
+}
+.photo-page .photoalbumwrapper{
+    display: block;
+    margin: 20px auto;
+}
+
+@media screen and (max-width:560px) {
+    .photoalbumwrapper{
+        display: block;
+        width: 254px;
+        margin: 20px auto;
+    }
+}
+
+.photo-page .photolist{
+    width: 230px;
+    height: 150px;
+    margin: 5px;
+    float: left;
+    cursor: pointer;
+    border: 6px solid #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.photo-page .link-option{
+    float: left;
+    font-family: "veneerregular";
+    margin: 20px 0 30px;
+}
+
+.photo-page .link-option a{
+    color: #333;
+}
+.photo-page .albumPhotos{
+    border: 4px solid #fff;
+    box-shadow: 0 0 2px #888;
+    float: right;
+    margin: 20px 0 0;
+    width: 88px;
+}
+
+.photo-page .album-tab{
+    display: block;
+}
+
+.photo-page .album-tab #tabs{
+    background: none;
+    border: none;
+    margin: 0;
+}
+
+.photo-page .album-tab #tabs ul{
+    background: none;
+    list-style: outside none none;
+}
+
+.photo-page .album-tab #tabs li{
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: none;
+    color: #555555;
+    cursor: pointer;
+    font-size: 22px;
+    height: auto;
+    padding: 0;
+    width: auto;
+    float: left;
+    font-family: "veneerregular";
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+.photo-page .album-tab #tabs li.active{
+    color: #333333;
+    text-decoration: none;
+}
+
+.photo-det-content{
+    background-color: rgb(255,255,255);
+}
+.photo-det-content scroll-content{
+    margin-top: 56px;
+    margin-bottom: 94px;
+    border: none;
+}
+.photo-detail-page {
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-align: center;
+}
+.photo-detail-page .img-part{
+    background: rgb(0,0,0);
+    display: table-cell;
+    vertical-align: middle;
+}
+.photo-det-footer .comment_top {
+    border-bottom: 1px solid #fff;
+    clear: both;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.photo-det-footer .left-part{
+    width: 30%;
+    float: left;
+}
+.photo-det-footer .comment_top .left-part .profile-img {
+    float: left;
+    margin-right: 5px;
+    width: 50px;
+}
+.photo-det-footer .comment_top .left-part .name-text {
+    color: #000;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 18px;
+    text-align: left;
+}
+.photo-det-footer .right-part{
+    width: 65%;
+    float: right;
+}
+.photo-det-footer .comment_top .right-part .text-contain {
+    color: #333;
+    float: right;
+    font-size: 13px;
+    line-height: 14px;
+    padding: 0;
+    text-align: right;
+    width: 100%;
+}
+
+.photo-det-footer .comment_top .right-part .cmnt_share {
+    color: #333;
+    font-size: 14px;
+    margin: 0;
+    text-align: right;
+    width: 100%;
+    margin-top: 50px;
+}
+.photo-det-footer .comment_top .right-part .cmnt_share a {
+    color: #333;
+}
+
 
 /***********************Code By Samsuj [end]**********************************/

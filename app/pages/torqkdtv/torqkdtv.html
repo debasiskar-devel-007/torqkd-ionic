@@ -27,6 +27,19 @@
 
 <ion-content padding>
 
-  This Page Is comming Soon !
+  <div style="position:relative;" class="experience-wrapper photo-page">
+
+
+
+    <div class="photosheading">Torkq TV</div>
+
+    <div class="photoalbumwrapper">
+      <div class="photolist" *ngFor="let item of videolist; let i = index" [style.background-image]="getsanitizerstyle(item.img_src)" (click)="showPhotoDetails(item)"><img style="width: 20%; left: 40%; position: absolute; top: 40%; cursor:pointer;" src="images/youplay.png"></div>
+    </div>
+
+
+
+
+  </div>
 
 </ion-content>
