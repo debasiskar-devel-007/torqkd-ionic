@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,AlertController} from "ionic-angular";
 import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
+import {SinglepostPage} from "../singlepost/singlepost";
+
 
 /*
   Generated class for the NotificationPage page.
@@ -17,7 +19,7 @@ export class NotificationPage {
   private local:LocalStorage;
   private datalist3;
 
-  constructor(private navCtrl: NavController,private _http: Http,private sanitizer:DomSanitizationService) {
+  constructor(private navCtrl: NavController,private nav: Nav,private _http: Http,private sanitizer:DomSanitizationService) {
     this.local = new Storage(LocalStorage);
 
     this.local.get('userinfo').then((value) => {
@@ -55,9 +57,29 @@ export class NotificationPage {
   }
   getsanibackcol(item){
     if(item.is_read1 == 0){
-      return this.sanitizer.bypassSecurityTrustStyle('#d9d9d9');
+      return this.sanitizer.bypassSecurityTrustStyle('#d9d9d9 none repeat scroll 0 0');
     }else{
-      return this.sanitizer.bypassSecurityTrustStyle('#ebebeb');
+      return this.sanitizer.bypassSecurityTrustStyle('#ebebeb none repeat scroll 0 0');
+    }
+  }
+
+  markasreadnot(item){
+    if(item.is_read1 == 0){
+      var link = 'http://torqkd.com/user/ajs2/markasreadnot1';
+      var data = {cid : this.loggedinuser, id: item.id};
+
+      this._http.post(link, data)
+          .subscribe(res => {
+
+            item.is_read1 = res;
+
+            this.nav.push(SinglepostPage,{postId: item.post_id });
+
+          }, error => {
+            console.log("Oooops!");
+          });
+    }else{
+      this.nav.push(SinglepostPage,{postId: item.post_id });
     }
   }
 
