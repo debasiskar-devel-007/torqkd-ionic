@@ -5493,4 +5493,383 @@ code.has-numbering {
 }
 
 
+.friends-page {
+    margin: 0 auto 20px;
+    padding: 10px 5%;
+    width: 100%;
+}
+.friends-page h4 {
+    color: #f7921d;
+    font-family: "veneerregular";
+    font-size: 34px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0 0 16px;
+}
+.friends-page .left-text {
+    color: #4f4f51;
+    float: none;
+    font-family: "helvetica","arial";
+    font-size: 16px;
+    line-height: 26px;
+    padding:0 0 30px 0;
+    width: 100%;
+}
+.friends-page .right-text {
+    background: #ccc none repeat scroll 0 0;
+    border: 1px solid #999;
+    border-radius: 6px;
+    color: #111;
+    float: none;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    padding: 10px;
+    width: 80%;
+}
+.friends-page .right-text p {
+    display: block;
+    float: left;
+    width: 160px;
+    margin: 0;
+}
+.friends-page .right-text strong {
+    color: #f7921d;
+    font-family: "veneerregular";
+    font-size: 22px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+.friends-page .right-text img {
+    border: 2px solid #f7921d;
+    margin: 0 10px 0 0;
+    width: 40px;
+}
+.community .right-text img {
+    float: left;
+}
+.friends-page .back {
+    color: #333;
+    font-family: "veneerregular";
+    font-size: 22px;
+    padding: 10px 0;
+}
+
+.friends-page .bottom-img{
+    margin: 0 auto;
+    width: 90%;
+}
+
+.friends-page .bottom-img .frlist-user {
+    border: 4px solid #dfe2e2;
+    height: 228px;
+    margin-left: 0;
+    width: 134px;
+    float: left;
+}
+.friends-page .bottom-img .frlist-user img {
+    max-height: inherit;
+    max-width: inherit;
+}
+.friends-page .bottom-img .frlist-user .imgdiv {
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.friends-page .bottom-img .frlist-user .imgdiv img {
+    border: medium none;
+    height: 143px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.friends-page .bottom-img .frlist-user .friend_detail {
+    background: #f5f5f5 none repeat scroll 0 0;
+    border: 1px solid #d1d1d1;
+    color: #333;
+    display: block;
+    font-size: 12px;
+    height: 70px;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 5%;
+    text-align: left;
+    width: 100%;
+    word-wrap: break-word;
+}
+.friends-page .bottom-img .frlist-user .friend_detail a {
+    color: #333;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+}
+.friends-page .bottom-img .frlist-user .friend_detail span {
+    color: #f7931e;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 2px 0 0;
+}
+
+.friends-page .search-new{
+    margin: 25px auto 40px;
+    width: 90%;
+}
+
+.friends-page .search-new div{
+    margin-bottom: 10px;
+}
+
+.friends-page .search-new label{
+    display: block;
+    float: none;
+    width: 100%;
+    font-family: "veneerregular";
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 32px;
+}
+
+.friends-page .search-new .inputsearch {
+    padding: 0;
+}
+
+.friends-page .search-new .inputsearch input {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+    box-shadow: none;
+}
+
+.search-new #select-search {
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: normal;
+    height: 40px;
+    padding: 0 5px;
+    width: 100%;
+}
+
+
+.userpopup .frndPopup{
+    background: rgba(0, 0, 0, 0) url("../images/hover_mobile.png") no-repeat scroll 0 0;
+    display: block;
+    height: 189px;
+    margin: 50px auto;
+    width: 291px;
+    padding: 12px;
+}
+
+.userpopup .frndPopup ul{
+    margin: 0;
+    display: inline;
+}
+
+.userpopup .frndPopup ul li:last-child {
+    color: #4f4f51;
+    display: inline;
+    font-family: reservation;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+}
+.userpopup .frndPopup ul li:last-child img {
+    margin-right: 2px;
+    float: left;
+}
+.userpopup .frndPopup ul li a {
+    color: #4f4f51;
+    display: block;
+    height: 45px;
+    line-height: 14px;
+    padding: 8px 0;
+}
+.userpopup .frndPopup a:last-child {
+    color: #f7941e;
+}
+
+.userpopup .frndPopup .sdfsd {
+    bottom: -65px;
+    color: #f79213;
+    font-family: "reservation";
+    height: auto;
+    margin-top: 70px;
+    padding: 0;
+    position: absolute;
+    right: 4px;
+}
+
+.friends-page .bottom-img .fr_request {
+    border: 4px solid #ffa500 !important;
+    box-shadow: 0 0 5px #888;
+}
+
+.mysports-page {
+    width: 96%;
+    margin: 0 auto;
+}
+
+.mysports-page .Sports-mobile{
+    width: 100%;
+    margin: 20px auto 40px;
+}
+
+.mysports-page .Sports-mobile h4 {
+    color: #f79213;
+    float: left;
+    font-family: "veneerregular";
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 22px;
+    margin: 0;
+    padding: 6px;
+    width: 100px;
+}
+
+.mysports-page .sports-table-mobile {
+    margin-top: 5px;
+    width: 100%;
+}
+.mysports-page .sports-table-mobile h3 {
+    color: #3c3c3d;
+    font-family: "veneerregular" !important;
+    font-size: 24px;
+    font-weight: normal !important;
+    letter-spacing: 2px;
+    margin: 40px 0 0 6px !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+.mysports-page .sports-table-mobile ul {
+    clear: both;
+    margin: 5px 0 30px;
+    padding: 0;
+}
+.mysports-page .sports-table-mobile ul li {
+    display: block;
+    float: left;
+    height: 68px;
+    margin: 0 8px 10px 0 !important;
+    width: 62px;
+}
+.mysports-page .sports-table-mobile ul li a {
+    border: 2px solid #dfe2e2;
+    display: block;
+    margin: 0 auto 10px;
+    padding: 1px;
+    width: 46px !important;
+}
+.mysports-page .sports-table-mobile ul li strong {
+    color: #58595b !important;
+    display: block;
+    font-family: reservation !important;
+    font-size: 9px !important;
+    font-weight: normal;
+    line-height: 12px;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    width: 62px;
+    word-wrap: break-word !important;
+}
+.mysports-page .sports-table-mobile img {
+    display: block;
+    margin: 0 auto;
+}
+.eventmap-page {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.eventmap-page .iframe_h2 {
+    background: #f7931e none repeat scroll 0 0 !important;
+    color: #5a5b5d !important;
+    font-family: "veneerregular";
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 22px;
+    padding: 12px 0 8px 3%;
+    text-transform: uppercase;
+}
+
+.eventmap-page #event-map-canvas{
+    height: 400px;
+    width:100%;
+}
+
+.daily-poll-page .popupbox2_mobile {
+    border: 6px solid #f6921c;
+    border-radius: 0;
+    position: relative;
+    height: auto;
+    margin: 15px auto 0;
+    width: 96%;
+}
+
+.daily-poll-page .album-body {
+    padding: 60px 0;
+}
+.daily-poll-page .album-body .album-wrpper {
+    background: #ebebeb none repeat scroll 0 0;
+    border: 2px solid #97989a;
+    border-radius: 4px;
+    margin: 0 auto;
+    padding: 18px;
+    width: 80%;
+}
+.daily-poll-page .album-body .album-wrpper .redio-box {
+    float: left;
+    margin: 4px 0 0;
+    width: 30px;
+}
+.daily-poll-page .album-body .album-wrpper label {
+    color: #4f4f51;
+    display: block;
+    float: left;
+    font-family: "reservation";
+    font-size: 12px;
+    font-style: normal;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    width: 60%;
+    font-weight: 700;
+}
+.daily-poll-page .album-body .album-wrpper .vote-btn {
+    background: #f7941d none repeat scroll 0 0;
+    border: 5px solid #fff;
+    color: #4f4f51;
+    font-family: "veneerregular" !important;
+    font-size: 24px;
+    height: 34px;
+    line-height: 40px;
+    margin: 10px auto !important;
+    text-align: center;
+    width: 88px;
+}
+.daily-poll-page .album-body .album-wrpper .vote-btn a {
+    color: #4f4f51;
+    text-decoration: none;
+}
+
+.daily-poll-page .popupbox2_mobile .album-wrpper h2 {
+    color: #f7941d;
+    font-family: veneerregular;
+    font-size: 20px;
+    font-weight: normal !important;
+    line-height: 22px;
+    margin: 0;
+    padding: 0 0 20px;
+}
+
 /***********************Code By Samsuj [end]**********************************/

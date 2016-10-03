@@ -1,5 +1,5 @@
 <!--
-  Generated template for the DailypolPage page.
+  Generated template for the FriendsPage page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
@@ -24,7 +24,49 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
 
-  This Page Is comming Soon !
+  <div class="experience-wrapper daily-poll-page">
+    <div class="popupbox2 popupbox2_mobile">
+      <div style="background-size: cover; background-image: url('http://torqkd.com/uploads/pollback/thumb/1470843297.jpg');" class="album-body ">
+        <div class="album-wrpper">
+          <h2 class="ng-binding">Set amidst the backdrop of a thriving woodland and the blend of red, yellow, and orange, Silver Mountain in Baraga, Michigan offers a 1,300-foot climb. Ready for Fall from atop a mountain?</h2>
+          <div ng-repeat="item in curPoll.ans_arr" ng-show="curPoll.ans_arr.length" class="ng-scope">
+            <input type="radio" ng-click="changeans(item.ans_id)" ng-checked="item.ans_id == curPoll.sel_ans" ng-disabled="!sessUser" name="radio_vote" class="redio-box radio_ans">
+            <label class="ng-binding"> Count me in! I’ll pack a pumpkin and hot cocoa for the top!</label>
+            <div class="clear"></div>
+          </div>
+          <div ng-repeat="item in curPoll.ans_arr" ng-show="curPoll.ans_arr.length" class="ng-scope">
+            <input type="radio" ng-click="changeans(item.ans_id)" ng-checked="item.ans_id == curPoll.sel_ans" ng-disabled="!sessUser" name="radio_vote" class="redio-box radio_ans">
+            <label class="ng-binding"> I’ve never liked Fall. Ever.</label>
+            <div class="clear"></div>
+          </div>
+          <div ng-repeat="item in curPoll.ans_arr" ng-show="curPoll.ans_arr.length" class="ng-scope">
+            <input type="radio" ng-click="changeans(item.ans_id)" ng-checked="item.ans_id == curPoll.sel_ans" ng-disabled="!sessUser" name="radio_vote" class="redio-box radio_ans">
+            <label class="ng-binding"> Depends on how cold it gets…</label>
+            <div class="clear"></div>
+          </div>
+          <div class="vote-btn">
+            <a style="display: block;" id="votenext" href="javascript:void(0);" *ngIf="loggedinuser == 0">NEXT</a>
+            <a style="display: block;" id="vote" href="javascript:void(0);"  *ngIf="loggedinuser > 0">VOTE</a>
+          </div>
+          <a style="line-height: 40px; text-align: center; font-size:12px; color:#111; display:block; width: 100px; margin:0px auto; " href="#/dailypoll-result/767">View Results</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="clear"></div>
+    <div class="footer-menu1">
+      <span>&copy;TORKQ</span>
+      <span>|</span>
+      <span><a ng-click="showtermsploicy('terms')" href="javascript:void(0);">TERMS </a></span>
+      <span>|</span>
+      <span><a ng-click="showtermsploicy('policy')" href="javascript:void(0);">PRIVACY</a></span>
+    </div>
+
+
+  </div>
+
 </ion-content>
