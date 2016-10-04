@@ -5845,17 +5845,36 @@ code.has-numbering {
     width: 60%;
     font-weight: 700;
 }
+.daily-poll-page .album-body .album-wrpper .radio-item {
+    background: rgba(0, 0, 0,0) none repeat scroll 0 0;
+}
+.daily-poll-page .album-body .album-wrpper .radio-label {
+    color: #4f4f51;
+    display: block;
+    float: left;
+    font-family: "reservation";
+    font-size: 12px !important;
+    font-style: normal;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    width: 60%;
+    font-weight: 700;
+    text-overflow : unset;
+    overflow: auto;
+    white-space : normal;
+    text-align:left;
+}
 .daily-poll-page .album-body .album-wrpper .vote-btn {
     background: #f7941d none repeat scroll 0 0;
     border: 5px solid #fff;
     color: #4f4f51;
     font-family: "veneerregular" !important;
     font-size: 24px;
-    height: 34px;
     line-height: 40px;
     margin: 10px auto !important;
     text-align: center;
     width: 88px;
+    height: 46px;
 }
 .daily-poll-page .album-body .album-wrpper .vote-btn a {
     color: #4f4f51;
@@ -5872,4 +5891,200 @@ code.has-numbering {
     padding: 0 0 20px;
 }
 
+.vote-alert-class .alert-wrapper{
+    padding: 10px;
+    font-family: "veneerregular";
+    color: #4f4f51;
+}
+
+.vote-alert-class .alert-wrapper .alert-head h2{
+    text-align: center;
+    color: #f8931f;
+    text-decoration: underline;
+}
+.vote-alert-class .alert-wrapper .alert-message{
+    padding: 2px;
+}
+.vote-alert-class .alert-wrapper .alert-button{
+    width: 100px;
+    padding : 7px 0 2px;
+    text-align: center;
+}
+.vote-alert-class .alert-wrapper .alert-button .button-inner{
+    justify-content : center;
+}
+
+.daily-poll-res .popupbox3_mobile {
+    background: #ebebeb none repeat scroll 0 0;
+    border: 6px solid #f6921c;
+    border-radius: 0;
+    padding: 15px;
+    position: relative;
+    margin: 0 auto;
+    width: 96%;
+    font-family: "veneerregular";
+}
+
+.daily-poll-res .popupbox3_mobile .album-wrpper h4{
+    color: #333333;
+}
+
+.daily-poll-res .link-option {
+    float: left;
+    font-family: "veneerregular";
+    margin: 20px 0 30px;
+    width: 100%;
+}
+
+.daily-poll-res .link-option a{
+    color: #333333;
+}
+
+.daily-poll-res .popupbox3_mobile .labels {
+    border: medium none !important;
+    display: block !important;
+    font-family: "veneerregular" !important;
+    font-size: 14px !important;
+    text-shadow: 0 -1px 1px #666666, 0 1px 1px #ffffff !important;
+}
+.daily-poll-res .popupbox3_mobile .labels .chart-label {
+    border-radius: 5px !important;
+    box-shadow: 2px 2px 5px #202020 !important;
+    color: #fff;
+    font-family: "veneerregular" !important;
+    font-size: 14px !important;
+    margin: 5px;
+    padding: 5px;
+    text-shadow: none !important;
+}
+
+.forum-page {
+    width: 100%;
+}
+
+.forum-page .forumpress-table{
+    width: 96%;
+    margin: 0 auto;
+}
+
+.forum-page .forumpress-table h2 {
+    color: #f7931d;
+    float: left;
+    font-family: "veneerregular";
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 30px;
+    margin: 0 !important;
+    padding: 18px 5px 0 0;
+    width: 100%;
+    font-size: 30px;
+}
+.forum-page .forumpress-table h2 a , .forumpress-table h2 a:hover{
+    color: #f7931d;
+    opacity: 1;
+}
+
+.forum-page .forumpress-table h2 span a {
+    color: #f7931d;
+}
+.forum-page .forumpress-table h2 label {
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.forum-page .forumpress-table .top-heading {
+    background: #555555 none repeat scroll 0 0;
+    color: #f7941e;
+    font-family: "veneerregular";
+    font-size: 22px;
+    letter-spacing: 2px;
+    padding: 13px 0 11px 1%;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.forum-page .forumpress-table .rowone {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.forum-page .forumpress-table .rowone .left-img1 {
+    border-right: 1px solid #ccc;
+    float: left;
+    padding: 2%;
+}
+
+.forum-page .forumpress-table .top-row {
+    background: #555555 none repeat scroll 0 0;
+    color: #f7941e;
+    display: table;
+    font-family: "veneerregular";
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 15px auto 0;
+    padding: 0 !important;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.forum-page .forumpress-table .div1 {
+    border-right: 1px solid #ccc !important;
+    display: table-cell;
+    padding: 10px 2% !important;
+    text-transform: uppercase;
+    vertical-align: top;
+    width: 26%;
+    word-break: keep-all;
+}
+.forum-page .forumpress-table .div2 {
+    border-right: 1px solid #ccc !important;
+    display: table-cell;
+    padding: 10px 2% !important;
+    width: 22%;
+}
+.forum-page .forumpress-table .div3 {
+    border-right: 1px solid #ccc !important;
+    display: table-cell;
+    padding: 10px 2% !important;
+    text-align: center;
+    width: 22%;
+}
+.forum-page .forumpress-table .div4 {
+    display: table-cell;
+    padding: 10px 2% !important;
+    vertical-align: top;
+    width: 26%;
+}
+
+.forum-page .forumpress-table .div4 a{
+    color: #f7941e;
+}
+
+.forum-page .forumpress-table .div4 a:hover{
+    color: #f7941e;
+}
+
+.forum-page .forumpress-table .table-row2 {
+    background: #f5f5f5 none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    display: table;
+    font-size: 15px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.forum-page .forumpress-table .topicTitle a,.forum-page .forumpress-table .topicTitle a:hover {
+    color: #333333;
+    opacity : 1;
+}
+.forum-page .forumpress-table .adminActions {
+    margin: 10px auto;
+}
+.forum-page .forumpress-table .adminActions a,.forum-page .forumpress-table .adminActions a:hover {
+    color: #f7941e;
+    opacity : 1;
+    font-size: 14px;
+}
 /***********************Code By Samsuj [end]**********************************/
