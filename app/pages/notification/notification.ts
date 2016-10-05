@@ -3,6 +3,7 @@ import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Pla
 import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {SinglepostPage} from "../singlepost/singlepost";
+import * as $ from "jquery";
 
 
 /*
@@ -31,6 +32,10 @@ export class NotificationPage {
         this.loggedinuser = 0;
       }
     });
+  }
+
+  openmenu(){
+    $('.navmenul').click();
   }
 
   getData(){

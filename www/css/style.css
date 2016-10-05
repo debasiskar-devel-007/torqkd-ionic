@@ -621,7 +621,7 @@ ion-slides {
 
 .menu-inner {
     position: absolute;
-    top: 101px !important;
+    top: 60px !important;
     width: 100% !important;
 }
 
@@ -1525,7 +1525,8 @@ video {
 .socilashareactionsheet .action-sheet-wrapper{
     width:275px;
     font-family: "veneerregular";
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    border: 5px solid #f7941e;
+    border-bottom: none;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
 }
 .socilashareactionsheet .action-sheet-wrapper .action-sheet-group{
@@ -1535,6 +1536,8 @@ video {
     color: #424242;
     border-bottom: 1px solid #9a9a9c;
     font-size: 24px;
+
+    display: none;
 }
 .socilashareactionsheet .action-sheet-wrapper .action-sheet-button{
     color: #424242;
@@ -5006,14 +5009,26 @@ code.has-numbering {
 }
 
 .stat-det-area {
-    background: #fab363;
+    background: #dfe2e2;
     margin: 0 auto;
     padding: 2px 2%;
     width: 100%;
 }
 .stat-det-area2 {
-    width: 90%;
-    margin: 5%;
+    background-color: #fff;
+    border: 5px solid #f7941e;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10%;
+    width: 100%;
+
+}
+.stat-det-area3{
+    padding: 5%;
+    border: 1px solid #aaaaaa;
+    color: #444444;
+    display: inline-block;
+    width: 100%;
 }
 .stat-det-header{
     width: 100%;
@@ -5340,6 +5355,9 @@ code.has-numbering {
     padding-top: 10px;
 }
 
+.notification-wrapper .settingswrapper ion-list {
+    border-top: 1px solid #ffffff;
+}
 .notification-wrapper .settingswrapper h4 {
     color: #f7941e;
     font-family: veneerregular;
@@ -5355,7 +5373,7 @@ code.has-numbering {
     border-bottom: 1px solid #ffffff;
     list-style: outside none none;
     padding: 10px;
-    border-top: none;
+    border-top: none !important;
 }
 
 .notification-wrapper .notifications_li .item-inner{
@@ -5385,6 +5403,9 @@ code.has-numbering {
 .notification-wrapper .notifications_li .notificationStr{
     font-family: Arial,Helvetica,sans-serif;
     font-size: 12px;
+}
+.single-post {
+    width: 100%;
 }
 
 .single-post .blog1conwrapper {
@@ -5438,7 +5459,7 @@ code.has-numbering {
     margin: 0 auto;
     padding: 2px 1% 10px;
     position: relative;
-    width: 98%;
+    width: 100%;
 
 }
 .single-post .bottom-like-contain {
@@ -5929,14 +5950,14 @@ code.has-numbering {
     color: #333333;
 }
 
-.daily-poll-res .link-option {
+.daily-poll-res .link-option , .single-post .link-option{
     float: left;
     font-family: "veneerregular";
     margin: 20px 0 30px;
     width: 100%;
 }
 
-.daily-poll-res .link-option a{
+.daily-poll-res .link-option a, .single-post .link-option a{
     color: #333333;
 }
 
@@ -6087,4 +6108,19 @@ code.has-numbering {
     opacity : 1;
     font-size: 14px;
 }
+
+.stat-det-page ion-header{
+    border-bottom: 1px solid #666666;
+}
+
+
+.commentheader .btnwrapper .btnback{
+    font-family: "veneerregular";
+    background: none;
+    color: #333333;
+    font-size: 14px;
+    cursor:pointer;
+    font-size : 20px;
+}
+
 /***********************Code By Samsuj [end]**********************************/

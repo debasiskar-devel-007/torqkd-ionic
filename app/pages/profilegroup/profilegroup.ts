@@ -14,7 +14,7 @@ import {tagpeoplelistPage} from "../tagpeoplelist/tagpeoplelist";
 import {socialtaglistPage} from "../socialtaglist/socialtaglist";
 import {DomSanitizationService} from "@angular/platform-browser";
 import { AlertController } from 'ionic-angular';
-import { ActionSheetController } from 'ionic-angular';
+import { ActionSheetController,LoadingController } from 'ionic-angular';
 //import {ProfilePage} from '../profile/profile'
 //import * as $ from "jquery";
 
@@ -74,7 +74,7 @@ export class profilegroupPage {
         autoplay:4000
     };
 
-    constructor(fb: FormBuilder,public platform: Platform,public navCtrl: NavController,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController) {
+    constructor(fb: FormBuilder,public platform: Platform,public navCtrl: NavController,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController,public loadingCtrl: LoadingController) {
         this.sanitizer=sanitizer;
         this.loginForm = fb.group({
             email: ["", Validators.required],
