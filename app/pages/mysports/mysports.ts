@@ -35,6 +35,11 @@ export class MysportsPage {
       }
     });
   }
+
+  openmenu(){
+    $('.navmenul').click();
+  }
+
   getsports(){
     var link = 'http://torqkd.com/user/ajs2/usersportsnew';
     var data = {userid : this.loggedinuser };

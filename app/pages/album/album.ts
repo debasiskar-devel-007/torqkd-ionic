@@ -4,6 +4,8 @@ import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {PhotodetPage} from "../photodet/photodet";
 import {AlbumvideoPage} from "../albumvideo/albumvideo";
+import {ProfilePage} from "../profile/profile";
+import * as $ from "jquery";
 
 /*
   Generated class for the AlbumPage page.
@@ -19,6 +21,7 @@ export class AlbumPage {
   private local:LocalStorage;
   private photolist;
   public albumvideopage = AlbumvideoPage;
+  public profilepage = ProfilePage;
   public userImage;
 
   constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController) {

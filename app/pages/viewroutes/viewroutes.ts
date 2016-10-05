@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,AlertController} from "ionic-angular";
 import {Http, Headers} from "@angular/http";
+import * as $ from "jquery";
 
 /*
   Generated class for the ViewroutesPage page.
@@ -38,6 +39,10 @@ export class ViewroutesPage {
     });
 
   }
+
+    openmenu(){
+        $('.navmenul').click();
+    }
 
   getRoutes(){
     var link = 'http://torqkd.com/user/ajs2/getRoutes';

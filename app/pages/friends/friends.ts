@@ -54,6 +54,11 @@ export class FriendsPage {
 
   }
 
+
+  openmenu(){
+    $('.navmenul').click();
+  }
+
   getUsers(){
     var link = 'http://torqkd.com/user/ajs2/getFriendDetNew/userid/'+this.loggedinuser+'/sessId/'+this.loggedinuser;
     var data = {};

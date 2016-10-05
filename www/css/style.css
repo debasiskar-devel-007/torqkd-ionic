@@ -642,13 +642,14 @@ ion-label {
     margin-bottom: 0px;
     width: 100%;
     overflow: hidden;
+    background-color: #FFFFFF;
 }
 
 .status-menu .text-box {
     background: #fff url("../images/menu-arrow.png") no-repeat scroll right top / 26px 58px;
     float: left;
     height: auto;
-    padding: 4px 3.5% 0 0;
+    padding: 0 3.5% 0 0;
     width: 49.8%;
     min-height: 58px;
 }
@@ -5116,6 +5117,7 @@ code.has-numbering {
     float: right;
     margin: 20px 0 0;
     width: 88px;
+    display: flex;
 }
 
 .photo-page .album-tab{
@@ -5583,13 +5585,15 @@ code.has-numbering {
 
 .friends-page .bottom-img{
     margin: 0 auto;
-    width: 90%;
+    width: 96%;
 }
+.friends-page .bottom-img .img-con{
 
+}
 .friends-page .bottom-img .frlist-user {
     border: 4px solid #dfe2e2;
     height: 228px;
-    margin-left: 0;
+    margin: 0 2px;
     width: 134px;
     float: left;
 }
@@ -5736,7 +5740,7 @@ code.has-numbering {
 }
 
 .mysports-page {
-    width: 96%;
+    width: 100%;
     margin: 0 auto;
 }
 

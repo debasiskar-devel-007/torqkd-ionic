@@ -4,6 +4,7 @@ import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {ForumListPage} from "../forumlist/forumlist";
 import {ForumDetailsPage} from "../forumdetails/forumdetails";
+import * as $ from "jquery";
 
 /*
   Generated class for the ForumPage page.
@@ -35,6 +36,10 @@ export class ForumPage {
         this.loggedinuser= 0;
       }
     });
+  }
+
+  openmenu(){
+    $('.navmenul').click();
   }
 
   getForumList(){

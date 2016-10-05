@@ -34,6 +34,9 @@ export class EventmapPage {
 
   }
 
+  openmenu(){
+    $('.navmenul').click();
+  }
   getevents(){
     var link = 'http://torqkd.com/user/ajs2/getCurLocation2';
     var data = { 'sesh_user' : this.loggedinuser };

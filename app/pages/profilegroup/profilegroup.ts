@@ -166,6 +166,7 @@ export class profilegroupPage {
 
 
     getGroups(){
+
         var link = 'http://torqkd.com/user/ajs2/getGroups';
         var data = {userid: this.loggedinuser};
 
@@ -175,12 +176,23 @@ export class profilegroupPage {
                 var res2 = res.json();
                 this.groupList = res2;
                 this.groupcount = res2.length;
+
+
             }, error => {
                 console.log("Oooops!");
+
+
+
             });
 
     }
     getlocGroups(){
+        let loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+
+        loading.present();
+
         var link = 'http://torqkd.com/user/ajs2/getLocGroups';
         var data = {userid: this.loggedinuser};
 
@@ -190,12 +202,19 @@ export class profilegroupPage {
                 var res2 = res.json();
                 this.groupList = res2;
                 this.groupcount = res2.length;
+                loading.dismiss();
             }, error => {
                 console.log("Oooops!");
+                loading.dismiss();
             });
 
     }
     getsugGroups(){
+        let loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+
+        loading.present();
         var link = 'http://torqkd.com/user/ajs2/getSugGroups';
         var data = {userid: this.loggedinuser};
 
@@ -205,8 +224,10 @@ export class profilegroupPage {
                 var res2 = res.json();
                 this.groupList = res2;
                 this.groupcount = res2.length;
+                loading.dismiss();
             }, error => {
                 console.log("Oooops!");
+                loading.dismiss();
             });
 
     }

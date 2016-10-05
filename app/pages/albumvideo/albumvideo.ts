@@ -4,6 +4,8 @@ import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {VideodetPage} from "../videodet/videodet";
 import {AlbumPage} from "../album/album";
+import {ProfilePage} from "../profile/profile";
+import * as $ from "jquery";
 
 /*
   Generated class for the AlbumvideoPage page.
@@ -19,8 +21,12 @@ export class AlbumvideoPage {
   private local:LocalStorage;
   private videolist;
   public albumpage = AlbumPage;
+  public profilepage = ProfilePage;
+  private userImage;
 
   constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController) {
+    this.userImage = 'http://torqkd.com/uploads/user_image/thumb/default.jpg';
+    
     this.local = new Storage(LocalStorage);
 
     this.local.get('userinfo').then((value) => {
@@ -28,6 +34,7 @@ export class AlbumvideoPage {
       console.log(JSON.parse(value).id);
       if(value!=null) {
         this.getvideos(this.loggedinuser,this.loggedinuser);
+        this.userImage = JSON.parse(value).user_image;
       }
       else{
         $('ion-content').removeClass('hide');

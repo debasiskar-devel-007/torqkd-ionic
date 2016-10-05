@@ -3,6 +3,7 @@ import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Pla
 import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {VideodetPage} from "../videodet/videodet";
+import * as $ from "jquery";
 
 /*
   Generated class for the TorqkdtvPage page.

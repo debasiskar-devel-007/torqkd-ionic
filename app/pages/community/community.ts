@@ -53,6 +53,9 @@ export class CommunityPage {
 
 
   }
+  openmenu(){
+    $('.navmenul').click();
+  }
 
   getUsers(){
     var link = 'http://torqkd.com/user/ajs2/getFriendDet21new/userid/'+this.loggedinuser+'/sessId/'+this.loggedinuser;

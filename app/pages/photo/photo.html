@@ -3,7 +3,10 @@
     <div class="login-wrapper">
       <div class="mobile-top-con">
         <div class="mobile-menu show">
-          <button class="navmenul" menuToggle="left" hidden="true">
+          <button class="navmenur" (click)="openmenu()" menuToggle="right" hidden="false">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <button class="navmenul hide" menuToggle="left" hidden="true">
             <ion-icon name="menu"></ion-icon>
           </button>
         </div>

@@ -3,7 +3,10 @@
     <div class="login-wrapper">
       <div class="mobile-top-con">
         <div class="mobile-menu show">
-          <button class="navmenul" menuToggle="left" hidden="true">
+          <button class="navmenur" (click)="openmenu()" menuToggle="right" hidden="false">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <button class="navmenul hide" menuToggle="left" hidden="true">
             <ion-icon name="menu"></ion-icon>
           </button>
         </div>
@@ -24,9 +27,9 @@
 
 
     <div class="photosheading">Photos & Videos</div>
-    <div class="link-option"><a href="javascript:void(0);"> Back to Profile</a></div>
+    <div class="link-option"><a href="javascript:void(0);" [navPush]="profilepage"> Back to Profile</a></div>
     <div class="albumPhotos">
-      <img src="http://torqkd.com/uploads/user_image/thumb/498.png">
+      <img src="{{userImage}}">
     </div>
 
     <div class="album-tab">

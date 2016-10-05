@@ -3,6 +3,7 @@ import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Pla
 import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {PhotodetPage} from "../photodet/photodet";
+import * as $ from "jquery";
 
 /*
   Generated class for the PhotoPage page.

@@ -41,6 +41,9 @@ export class DailypollPage {
       }
     });
   }
+    openmenu(){
+        $('.navmenul').click();
+    }
 
   getPolls(){
     var link = 'http://torqkd.com/user/ajs2/getpolldetnew';
