@@ -642,8 +642,7 @@ ion-label {
 .status-menu {
     border: 6px solid #fff;
     height: auto;
-    margin: 10px 0;
-    margin-bottom: 0px;
+    margin: 20px 0 0;
     width: 100%;
     overflow: hidden;
     background-color: #FFFFFF;
@@ -1195,7 +1194,7 @@ video {
     margin: 0 6px;
     background-color: #f7931e;
     height: 37px;
-    padding: 10px;
+    padding: 9px;
     color: #fff;
 }
 
@@ -1563,7 +1562,9 @@ video {
     text-align:center;
 }
 
-
+.socilashareactionsheet .action-sheet-cancel{
+    display: none;
+}
 
 
 /*******************For Action Sheet[end]**********************/
@@ -5589,7 +5590,7 @@ code.has-numbering {
 }
 .friends-page .right-text img {
     border: 2px solid #f7921d;
-    margin: 0 10px 0 0;
+    margin: 0 7px 0 0;
     width: 40px;
 }
 .community .right-text img {
@@ -5705,7 +5706,7 @@ code.has-numbering {
 .userpopup .frndPopup{
     background: rgba(0, 0, 0, 0) url("../images/hover_mobile.png") no-repeat scroll 0 0;
     display: block;
-    height: 189px;
+    height: 129px;
     margin: 50px auto;
     width: 291px;
     padding: 12px;
@@ -5973,11 +5974,19 @@ code.has-numbering {
     color: #333333;
 }
 
-.daily-poll-res .link-option , .single-post .link-option{
+.daily-poll-res .link-option{
     float: left;
     font-family: "veneerregular";
     margin: 20px 0 30px;
     width: 100%;
+}
+
+.single-post .link-option{
+    float: left;
+    font-family: "veneerregular";
+    margin: 10px 0 18px;
+    width: 100%;
+    padding-left: 12px;
 }
 
 .daily-poll-res .link-option a, .single-post .link-option a{
@@ -6062,7 +6071,7 @@ code.has-numbering {
 .forum-page .forumpress-table .top-row {
     background: #555555 none repeat scroll 0 0;
     color: #f7941e;
-    display: table;
+    display: table-row;
     font-family: "veneerregular";
     font-size: 18px;
     letter-spacing: 2px;
@@ -6074,7 +6083,9 @@ code.has-numbering {
 }
 
 .forum-page .forumpress-table .div1 {
+    border-left: 1px solid #ccc !important;
     border-right: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
     display: table-cell;
     padding: 10px 2% !important;
     text-transform: uppercase;
@@ -6084,22 +6095,39 @@ code.has-numbering {
 }
 .forum-page .forumpress-table .div2 {
     border-right: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
     display: table-cell;
     padding: 10px 2% !important;
     width: 22%;
 }
 .forum-page .forumpress-table .div3 {
     border-right: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
     display: table-cell;
     padding: 10px 2% !important;
     text-align: center;
     width: 22%;
 }
 .forum-page .forumpress-table .div4 {
+    border-right: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
     display: table-cell;
     padding: 10px 2% !important;
     vertical-align: top;
     width: 26%;
+    border-bottom: 1px solid #ccc !important;
+}
+
+.forum-page .forumpress-table .forum-list-div1{
+    width: 35%;
+}
+
+.forum-page .forumpress-table .forum-list-div3{
+    width: 30%;
+}
+
+.forum-page .forumpress-table .forum-list-div4{
+    width: 35%;
 }
 
 .forum-page .forumpress-table .div4 a{
@@ -6113,7 +6141,7 @@ code.has-numbering {
 .forum-page .forumpress-table .table-row2 {
     background: #f5f5f5 none repeat scroll 0 0;
     border: 1px solid #ccc;
-    display: table;
+    display: table-row;
     font-size: 15px;
     margin: 0 auto;
     width: 100%;
@@ -6134,6 +6162,14 @@ code.has-numbering {
 
 .stat-det-page ion-header{
    /* border-bottom: 1px solid #666666;*/
+}
+
+.forum-details-div1,.forum-details-div4{
+    width: 30% !important;
+}
+
+.forum-details-div2,.forum-details-div3{
+    width: 20% !important;
 }
 
 
@@ -6170,5 +6206,104 @@ code.has-numbering {
     font-weight: normal;
     line-height: 18px;
 }
+
+.single-post .blog1 {
+    background: #fab363;
+    margin: 0 auto;
+    padding: 2px 1%;
+    width: 100%;
+    padding-bottom: 10px;
+    position: relative;
+    clear: both;
+    float: left;
+}
+
+.single-post .blog1 .left-img {
+    float: none;
+    width: 100%;
+    margin: 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #333333;
+}
+
+.single-post .blog1 .left-img img {
+    float: left;
+    margin-left: 0px;
+    width: 50px;
+    margin-right: 12px;
+    background: url(../images/logo.png) no-repeat center center;
+    background-size: 80%;
+}
+.single-post .blog1 .mobile-name-view {
+    float: left;
+    width: 79%;
+    line-height: 25px;
+}
+
+.single-post .blog1 .text-contain {
+    background: #fff;
+    color: #000;
+    font-size: 11px;
+    line-height: 18px;
+    padding: 8px;
+    width: auto;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    clear: both;
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.single-post .blog1 .text-contain a {
+    color: #000;
+}
+
+.single-post .blog1 .text-contain .rowone {
+    color: #f79213;
+    float: left;
+    font-family: "veneerregular";
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 10px;
+    margin-top: 66px;
+    text-transform: uppercase;
+    width: 45%;
+}
+.single-post .blog1 .text-contain .rowtwo {
+    float: left;
+    margin-top: 20px;
+    padding-right: 10px;
+    padding-top: 0;
+    width: 120px;
+}
+.single-post .blog1 .text-contain .rowtwo .date-contain {
+    padding: 10px 12px 10px 0;
+}
+.single-post .blog1 .text-contain .rowtwo h2 {
+    color: #616564;
+    font-family: "veneerregular";
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 24px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.single-post .blog1 .text-contain .rowtwo .date-contain h5 {
+    color: #616564;
+    font-family: "veneerregular";
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 22px;
+    margin: 0 !important;
+    padding-bottom: 8px;
+}
+.single-post .blog1 .text-contain .rowtwo .date-contain h5 span {
+    color: #929497;
+    font-family: reservation;
+    font-size: 12px;
+}
+
 
 /***********************Code By Samsuj [end]**********************************/

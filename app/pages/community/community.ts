@@ -85,11 +85,11 @@ export class CommunityPage {
 
   changeasd(ev){
     var val1 = ev.target.value;
-
+    
     if (val1 && val1.trim() != '') {
       this.itemlist = this.friendist.filter((item) => {
         return (item.spList.indexOf(val1) > -1);
-      })
+      });
     }else{
       this.itemlist = this.friendist;
     }

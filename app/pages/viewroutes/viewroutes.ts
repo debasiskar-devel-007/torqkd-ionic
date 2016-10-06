@@ -167,7 +167,7 @@ export class ViewroutesPage {
     delRoute(item){
         let confirm = this.alertCtrl.create({
             title: '',
-            message: 'Are you sure delete this route?',
+            message: 'CONFIRM DELETING ROUTE.',
             buttons: [
                 {
                     text: 'OK',

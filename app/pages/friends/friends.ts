@@ -92,6 +92,8 @@ export class FriendsPage {
 
     if (val1 && val1.trim() != '') {
       this.itemlist = this.friendist.filter((item) => {
+        console.log('sss : '+item.spList);
+        console.log('sss : '+item.spList.length);
         return (item.spList.indexOf(val1) > -1);
       })
     }else{

@@ -45,18 +45,18 @@
       </h2>
 
       <div class="clear"></div>
-      <div *ngFor="let item of forumlist; let i = index">
+      <div *ngFor="let item of forumlist; let i = index" style="display: table; margin-top: 15px;">
         <div class="top-row">
-          <div class="div1" style="border:none; padding:0 2%; height:auto;">
+          <div class="div1 forum-list-div1" style="border:none; padding:0 2%; height:auto;">
             <a style="color: #f7941e;" href="javascript:void(0)" [navPush]="forumlistpage" [navParams]="{id:item.id,title:item.sport_name}">{{item.sport_name}}</a>
           </div>
-          <div class="div3" style="border:none;  padding:0 2%; height:auto;">POST</div>
-          <div class="div4" style="border:none;  padding:0 2%; height:auto;">LATEST POST</div>
+          <div class="div3 forum-list-div3" style="border:none;  padding:0 2%; height:auto;">POST</div>
+          <div class="div4 forum-list-div4" style="border:none;  padding:0 2%; height:auto;">LATEST POST</div>
           <div class="clear"></div>
         </div>
 
         <div class="table-row2" *ngFor="let item2 of item.forumL; let j = index">
-          <div class="div1">
+          <div class="div1 forum-list-div1">
             <div>
               <div style="padding-bottom: 8px; font-weight: bold;">
                 <a style=" color:#000;" href="javascript:void(0)" [navPush]="forumdetailspage" [navParams]="{id:item2.id}">{{item2.name}}</a>
@@ -64,10 +64,10 @@
               <div innerHTML="{{item2.description}}"></div>
             </div>
           </div>
-          <div class="div3">
+          <div class="div3 forum-list-div3">
             <div style="display:block; line-height: 100px;">{{item2.no_post}}</div>
           </div>
-          <div class="div4" style="border-right:none;">
+          <div class="div4 forum-list-div4" style="border-right:none;">
             <div style="color: #f7941e  !important; font-size: 15px!important;" *ngIf="!item2.lpost">No topics yet</div>
             <div *ngIf="item2.lpost">
               <a href="javascript:void(0)" style="font-size:15px;">{{item2.lpostArr.title}}</a>
