@@ -519,6 +519,21 @@ export class profileStatPage {
         modal.present();
 
     }
+    statuscancel(){
+        $('#text-box').find('.highlightTextarea-highlighter').html('');
+        $('.highlightTextarea').css('height',58);
+        $('.highlightTextarea-container').css('height',58);
+        $('.highlightTextarea-highlighter').css('height',58);
+        this.isStatusInput = false;
+
+        $('#statusuparea').text('');
+        $( '#extracted_url' ).html('');
+
+        this.statusText1 = '';
+        this.statustype = '';
+        this.statusvalue = '';
+        this.tagpeople = '';
+    }
 
     statusupdate(){
         var msg = $('#statusuparea').text();

@@ -69,6 +69,14 @@ export class eventDetailsPage {
                     this.eventdet =data.json();
                     console.log(this.eventdet);
 
+                    var contentString = '<div class="event-infowindow">\
+                        <h1 id="firstHeading" class="firstHeading">\
+                        '+this.eventdet.name+'<br/>\
+                    <span>'+this.eventdet.address+', '+this.eventdet.city+', '+this.eventdet.state+'</span></h1>\
+                    <div>'+this.eventdet.imageTag+'</div>\
+                        </div>';
+
+
                     /************************Load Map [start]*********************************/
                     var centerpos = new google.maps.LatLng(this.eventdet.latitude, this.eventdet.longitude);
                     var myOptions = {
@@ -89,6 +97,15 @@ export class eventDetailsPage {
                         icon:'http://torqkd.com/images/map-icon.png',
                         //title:address[statusd[x].id]
                     });
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
+                    });
+
                     /************************Load Map [end]***********************************/
 
                 }

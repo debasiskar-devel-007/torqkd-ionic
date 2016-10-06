@@ -79,7 +79,7 @@ class MyApp {
       if (StatusBar) {
         // hide StatusBar using cordova-plugin-statusbar
         setTimeout(() => {
-          StatusBar.backgroundColorByHexString("#ffaf36")
+          StatusBar.backgroundColorByHexString("#B2B2B2")
         },100);
       }
     });
