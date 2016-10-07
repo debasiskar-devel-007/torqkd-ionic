@@ -5,6 +5,7 @@ import {DomSanitizationService} from "@angular/platform-browser";
 import {ForumListPage} from "../forumlist/forumlist";
 import {ForumDetailsPage} from "../forumdetails/forumdetails";
 import * as $ from "jquery";
+import {TopicdetailsPage} from "../topicdetails/topicdetails";
 
 /*
   Generated class for the ForumPage page.
@@ -22,6 +23,7 @@ export class ForumPage {
   private forumlist;
   private forumlistpage = ForumListPage;
   private forumdetailspage = ForumDetailsPage;
+  private topicdetailspage = TopicdetailsPage;
 
   constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController) {
     this.local = new Storage(LocalStorage);
@@ -30,11 +32,11 @@ export class ForumPage {
       if(value!=null) {
         this.loggedinuser= JSON.parse(value).id;
         this.userdetails = JSON.parse(value);
-        this.getForumList();
       }
       else{
         this.loggedinuser= 0;
       }
+      this.getForumList();
     });
   }
 

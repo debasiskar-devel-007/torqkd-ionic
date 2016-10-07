@@ -70,7 +70,7 @@
           <div class="div4 forum-list-div4" style="border-right:none;">
             <div style="color: #f7941e  !important; font-size: 15px!important;" *ngIf="!item2.lpost">No topics yet</div>
             <div *ngIf="item2.lpost">
-              <a href="javascript:void(0)" style="font-size:15px;">{{item2.lpostArr.title}}</a>
+              <a href="javascript:void(0)" style="font-size:15px;" [navPush]="topicdetailspage" [navParams]="{id:item2.lpostArr.id}">{{item2.lpostArr.title}}</a>
               <div style="color: #f7941e  !important; padding-top: 8px;">
                 <strong style="color: #333 !important">{{item2.lpostArr.time}} - </strong>
                 {{item2.lpostArr.user_name}}
