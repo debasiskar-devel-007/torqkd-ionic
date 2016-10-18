@@ -30,7 +30,6 @@ export class HomevideomodalPage {
     ScreenOrientation.unlockOrientation();
   }
   goback(){
-    console.log('dfdsf');
     this.navCtrl.pop();
   }
 

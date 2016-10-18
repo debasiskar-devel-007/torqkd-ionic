@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,NavParams} from "ionic-angular";
 import {Http, Headers} from "@angular/http";
 import {PhotocommentPage} from "../photocomment/photocomment";
+import {Facebook} from 'ionic-native';
+import {Fbcomment2Page} from "../fbcomment2/fbcomment2";
+import {TwcommentPage} from "../twcomment/twcomment";
+import { ActionSheetController,ToastController } from 'ionic-angular';
+import { InAppBrowser} from "ionic-native";
 
 /*
   Generated class for the PhotodetPage page.
@@ -16,10 +21,10 @@ export class PhotodetPage {
   private itemdet;
   private loggedinuser;
   private local:LocalStorage;
+    private accessToken;
 
-  constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http,public modalCtrl: ModalController) {
+  constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http,public modalCtrl: ModalController,public actionSheetCtrl: ActionSheetController,public toastCtrl: ToastController) {
     this.itemdet=this._navParams.get("item");
-    console.log(this.itemdet);
 
     this.local = new Storage(LocalStorage);
 
@@ -81,6 +86,105 @@ export class PhotodetPage {
 
 
   }
+
+    showSocilaShareList(item){
+        let actionSheet = this.actionSheetCtrl.create({
+            title: 'Share',
+            cssClass : 'socilashareactionsheet',
+            buttons: [
+                {
+                    text: '',
+                    handler: () => {
+                        Facebook.login(["email","public_profile"]).then((result) => {
+
+                            if(result.status == 'connected'){
+                                this.accessToken = result.authResponse.accessToken;
+
+                                if(item.is_status == 1){
+                                    var obj = {
+                                        method: "share",
+                                        href: 'http://torkq.com/singlepost.php?id='+this.loggedinuser+'&image='+item.value,
+                                        display : 'popup'
+                                    };
+                                    Facebook.showDialog(obj).then((res) => {
+                                        let toast = this.toastCtrl.create({
+                                            message: 'Posted Successfully On Facebook',
+                                            duration: 3000
+                                        });
+
+                                        toast.onDidDismiss(() => {
+                                            this.navCtrl.pop();
+                                        });
+
+                                        toast.present();
+                                    });
+                                }else{
+                                    var obj = {
+                                        method: "share",
+                                        href: 'http://torkq.com/singlepost.php?id='+this.loggedinuser+'&image1='+item.value,
+                                        display : 'popup'
+                                    };
+                                    Facebook.showDialog(obj).then((res) => {
+                                        let toast = this.toastCtrl.create({
+                                            message: 'Posted Successfully On Facebook',
+                                            duration: 3000
+                                        });
+
+                                        toast.onDidDismiss(() => {
+                                            this.navCtrl.pop();
+                                        });
+
+                                        toast.present();
+                                    });
+                                }
+
+
+
+
+
+
+                            }else{
+                                alert('An Error occured in FB Login');
+                            }
+                        });
+                    }
+                },
+                {
+                    text: '',
+                    handler: () => {
+
+                        var sType = 'text';
+                        if(item.is_status == 1){
+                            sType = 'statImg';
+                        }
+                        if(item.is_status == 0){
+                            sType = 'commImg';
+                        }
+
+                        var inAppBrowserRef;
+
+                        inAppBrowserRef = InAppBrowser.open('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com=&userid='+this.loggedinuser+'&type=statImg',  '_blank', 'location=no');
+
+                    }
+                },
+                {
+                    text: '',
+                    handler: () => {
+                        var inAppBrowserRef;
+                        inAppBrowserRef = InAppBrowser.open('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.img_src+'&description=',  '_blank', 'location=no');
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    }
 
 
 }

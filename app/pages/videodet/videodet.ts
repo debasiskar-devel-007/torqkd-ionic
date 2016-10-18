@@ -3,6 +3,11 @@ import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Pla
 import {Http, Headers} from "@angular/http";
 import {PhotocommentPage} from "../photocomment/photocomment";
 import {VideocommentPage} from "../videocomment/videocomment";
+import {Facebook} from 'ionic-native';
+import {Fbcomment1Page} from "../fbcomment1/fbcomment1";
+import {TwcommentPage} from "../twcomment/twcomment";
+import { ActionSheetController,ToastController } from 'ionic-angular';
+import { InAppBrowser} from "ionic-native";
 
 /*
   Generated class for the VideodetPage page.
@@ -19,8 +24,9 @@ export class VideodetPage {
   private local:LocalStorage;
     private poster;
     private videourl;
+    private accessToken;
 
-  constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http,public modalCtrl: ModalController) {
+  constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http,public modalCtrl: ModalController,public actionSheetCtrl: ActionSheetController,public toastCtrl: ToastController) {
     this.itemdet=this._navParams.get("item");
     console.log(this.itemdet);
       if(this.itemdet.type == 'mp4'){
@@ -116,4 +122,87 @@ export class VideodetPage {
               });
       }
   }
+
+    showSocilaShareList(item){
+        let actionSheet = this.actionSheetCtrl.create({
+            title: 'Share',
+            cssClass : 'socilashareactionsheet',
+            buttons: [
+                {
+                    text: '',
+                    handler: () => {
+                        Facebook.login(["email","public_profile"]).then((result) => {
+
+                            if(result.status == 'connected'){
+                                this.accessToken = result.authResponse.accessToken;
+                                if(item.type == 'mp4'){
+                                    let modal = this.modalCtrl.create(Fbcomment1Page, {
+                                        "item": item, "accessToken" : this.accessToken
+                                    });
+
+                                    modal.present();
+
+                                }else if(item.type == 'youtube'){
+                                    let modal = this.modalCtrl.create(Fbcomment1Page, {
+                                        "item": item, "accessToken" : this.accessToken
+                                    });
+
+                                    modal.present();
+                                }
+
+
+
+
+
+                            }else{
+                                alert('An Error occured in FB Login');
+                            }
+                        });
+                    }
+                },
+                {
+                    text: '',
+                    handler: () => {
+
+                        var sType = 'text';
+                        if(item.type == 'image'){
+                            sType = 'statImg';
+                        }
+
+                        var inAppBrowserRef;
+
+                        if(item.type == 'mp4'){
+                            let modal = this.modalCtrl.create(TwcommentPage, {
+                                "item": item
+                            });
+                            modal.present();
+
+                        }else if(item.type == 'youtube'){
+                            let modal = this.modalCtrl.create(TwcommentPage, {
+                                "item": item
+                            });
+                            modal.present();
+                        }
+
+                    }
+                },
+                {
+                    text: '',
+                    handler: () => {
+                        var inAppBrowserRef;
+                        inAppBrowserRef = InAppBrowser.open('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.img_src+'&description=',  '_blank', 'location=no');
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    }
+
 }

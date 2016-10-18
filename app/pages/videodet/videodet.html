@@ -1,10 +1,10 @@
-<ion-header>
+<ion-header class="commentheader">
 
-  <ion-navbar>
+  <ion-nav-bar class="btnwrapper">
     <ion-nav-back-button class="button-clear btnback" (click)="goback()">
       <i class="ion-arrow-left-c"></i> Back
     </ion-nav-back-button>
-  </ion-navbar>
+  </ion-nav-bar>
 
 </ion-header>
 
@@ -36,7 +36,7 @@
           <a href="javascript:void(0);" (click)="showComment(itemdet)">Comment{{(itemdet.commentNo >1)?'s':''}}  [{{itemdet.commentNo}}]</a> -
           <a href="javascript:void(0);" (click)="updatelike(itemdet.id,itemdet.ttype)">{{(itemdet.likeStatus)?'Unlike':'Like'}} [{{itemdet.likeNo}}] </a>
           <b style="font-weight:bold;display:inline-block; ">•</b>
-          <a style="display: inline-block; position: relative;" href="javascript:void(0);">Share</a>
+          <a style="display: inline-block; position: relative;" href="javascript:void(0);" (click)="showSocilaShareList(itemdet)">Share</a>
         </div>
       </div>
       <div class="clear"></div>

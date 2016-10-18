@@ -1,29 +1,19 @@
-<!--
-  Generated template for the HomevideomodalPage page.
+<ion-header class="commentheader">
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+  <ion-nav-bar class="btnwrapper">
+    <ion-nav-back-button class="button-clear btnback" (click)="goback()">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
 
+</ion-header>
 
 
 
 <ion-content class="contentwrapper" padding>
-  <div class="videotoplogo">
-    <img src="images/logo_main.png">
-  </div>
   <div class="video-container" style="padding-top: 0;">
-    <!--<iframe src="https://www.youtube.com/embed/kkUZRGrF9Ig?rel=0&autoplay=0" frameborder="0" allowfullscreen></iframe>-->
     <video width="100%" autoplay="true" poster="{{poster}}" loop="" controls="">
       <source src="{{videourl}}" type="video/mp4">
     </video>
-
-    --------------------------------------------------------------
-
-    <!--<iframe width="400" height="240" src="https://www.youtube.com/embed/MLeIBFYY6UY?autoplay=1" autoplay frameborder="0" allowfullscreen></iframe>-->
   </div>
-  <div class="introbtn btnclosevideo">
-    <button (click)="goback()" class="button-inner">Close</button>
-  </div>
-
 </ion-content>

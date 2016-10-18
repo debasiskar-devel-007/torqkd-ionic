@@ -140,7 +140,7 @@ export class TopicdetailsPage {
     deletetopic2(item){
         let confirm = this.alertCtrl.create({
             title: '',
-            message: 'Are you sure delete this topic?',
+            message: 'ARE YOU SURE YOU WANT TO DELETE?',
             buttons: [
                 {
                     text: 'OK',
@@ -176,7 +176,7 @@ export class TopicdetailsPage {
     deletetopic3(item,item1){
         let confirm = this.alertCtrl.create({
             title: '',
-            message: 'Are you sure delete this topic?',
+            message: 'ARE YOU SURE YOU WANT TO DELETE?',
             buttons: [
                 {
                     text: 'OK',
@@ -214,7 +214,7 @@ export class TopicdetailsPage {
     deletetopic1(topicId){
         let confirm = this.alertCtrl.create({
             title: '',
-            message: 'Are you sure delete this topic?',
+            message: 'ARE YOU SURE YOU WANT TO DELETE?',
             buttons: [
                 {
                     text: 'OK',
