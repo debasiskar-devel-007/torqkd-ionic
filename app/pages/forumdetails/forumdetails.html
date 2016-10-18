@@ -53,6 +53,8 @@
         </span>
       </h2>
 
+      <a *ngIf="loggedinuser" href="javascript:void(0)" class="NewTopic-btn" [navPush]="topicnewpage" [navParams]="{id:forumid}">New Topic</a>
+
       <div class="clear"></div>
       <div *ngIf="isLoad" style="display: table;">
         <div class="top-row">
@@ -75,7 +77,7 @@
                 <a style="font-size:14px!important; font-weight:700!important;" href="javascript:void(0)" [navPush]="topicdetailspage" [navParams]="{id:item.id}">{{item.title}}</a>
               </span>
               <small style="display:block; padding-bottom: 8px;" *ngIf="item.user_id == loggedinuser" class="adminActions">
-                <a href="javascript:void(0)">Move Topic</a> | <a href="javascript:void(0);">Delete Topic</a>
+                <a href="javascript:void(0)" (click)="movetopic(item)">Move Topic</a> | <a href="javascript:void(0);" (click)="deletetopic(item)">Delete Topic</a>
               </small>
               <div class="topic-meta" style="font-size: 14px;">posted by <strong>{{item.user_name}}</strong> on {{item.time}}</div>
             </div>
@@ -113,11 +115,15 @@
 
     <div class="clear"></div>
     <div class="footer-menu1">
-      <span>&copy;TORKQ</span>
+      <span>©TORKQ</span>
       <span>|</span>
-      <span><a ng-click="showtermsploicy('terms')" href="javascript:void(0);">TERMS </a></span>
+      <span>
+            <a href="javascript:void(0);" (click)="showtermsploicy('terms')">TERMS </a>
+        </span>
       <span>|</span>
-      <span><a ng-click="showtermsploicy('policy')" href="javascript:void(0);">PRIVACY</a></span>
+      <span>
+            <a href="javascript:void(0);" (click)="showtermsploicy('policy')">PRIVACY</a>
+        </span>
     </div>
 
   </div>

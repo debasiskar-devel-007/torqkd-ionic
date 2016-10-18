@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProfilePage} from '../profile/profile'
 import {Control} from "@angular/common";
 import {Http, Headers} from "@angular/http";
-import { Storage, LocalStorage } from 'ionic-angular';
+import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform} from "ionic-angular";
 //import * as $ from "jquery";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the LoginPage page.
@@ -29,7 +29,7 @@ export class LoginPage {
   private local:LocalStorage;
   profilePage=ProfilePage;
 
-  constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http) {
+  constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http,public modalCtrl: ModalController) {
     this.loginForm = fb.group({
       email: ["", Validators.required],
       password: ["", Validators.required]
@@ -88,6 +88,13 @@ export class LoginPage {
 
       //this.navCtrl.push(ProfilePage);
     }
+  }
+  showtermsploicy(type){
+    let modal = this.modalCtrl.create(CommonPopupPage, {
+      "type": type
+    });
+
+    modal.present();
   }
 
 }

@@ -32,11 +32,15 @@
 
     <div class="clear"></div>
     <div class="footer-menu1">
-      <span>&copy;TORKQ</span>
+      <span>©TORKQ</span>
       <span>|</span>
-      <span><a ng-click="showtermsploicy('terms')" href="javascript:void(0);">TERMS </a></span>
+      <span>
+            <a href="javascript:void(0);" (click)="showtermsploicy('terms')">TERMS </a>
+        </span>
       <span>|</span>
-      <span><a ng-click="showtermsploicy('policy')" href="javascript:void(0);">PRIVACY</a></span>
+      <span>
+            <a href="javascript:void(0);" (click)="showtermsploicy('policy')">PRIVACY</a>
+        </span>
     </div>
 
   </div>

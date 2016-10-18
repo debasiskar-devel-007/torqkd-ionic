@@ -18,6 +18,7 @@ import { AlertController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import '../../../node_modules/chart.js/src/chart.js';
 import { BaseChartComponent } from 'ng2-charts/ng2-charts';
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 //import {ProfilePage} from '../profile/profile'
 //import * as $ from "jquery";
@@ -626,6 +627,13 @@ export class profileStatPage {
         modal.present();
     }
 
+    showtermsploicy(type){
+        let modal = this.modalCtrl.create(CommonPopupPage, {
+            "type": type
+        });
+
+        modal.present();
+    }
 
 
 }

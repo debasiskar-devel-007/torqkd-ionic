@@ -17,6 +17,7 @@ import { AlertController } from 'ionic-angular';
 import { ActionSheetController,LoadingController } from 'ionic-angular';
 //import {ProfilePage} from '../profile/profile'
 //import * as $ from "jquery";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
  Generated class for the LoginPage page.
@@ -563,6 +564,13 @@ export class profilegroupPage {
 
     }
 
+    showtermsploicy(type){
+        let modal = this.modalCtrl.create(CommonPopupPage, {
+            "type": type
+        });
+
+        modal.present();
+    }
 
 
 }

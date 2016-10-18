@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,AlertController} from "ionic-angular";
 import {Http, Headers} from "@angular/http";
 import * as $ from "jquery";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the ViewroutesPage page.
@@ -21,7 +22,7 @@ export class ViewroutesPage {
   private totatcount;
   private noofroutes;
 
-  constructor(private navCtrl: NavController,private _http: Http,public alertCtrl: AlertController) {
+  constructor(private navCtrl: NavController,private _http: Http,public alertCtrl: AlertController,public modalCtrl: ModalController) {
     this.local = new Storage(LocalStorage);
 
     this.local.get('userinfo').then((value) => {
@@ -200,6 +201,15 @@ export class ViewroutesPage {
             }, error => {
                 console.log("Oooops!");
             });
+    }
+
+
+    showtermsploicy(type){
+        let modal = this.modalCtrl.create(CommonPopupPage, {
+            "type": type
+        });
+
+        modal.present();
     }
 
 

@@ -6,6 +6,7 @@ import {ProfilePage} from '../profile/profile'
 import {HomevideomodalPage} from '../homevideomodal/homevideomodal'
 import {Splashscreen} from 'ionic-native';
 import {Toast} from 'ionic-native';
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 ///import {} from 'ionic-native';
 //import {StreamingMedia} from 'ionic-native';
@@ -115,6 +116,13 @@ export class HomePage {
     console.log('nav methi called');
     this.navCtrl.setRoot(ProfilePage);
 
+  }
+  showtermsploicy(type){
+    let modal = this.modalCtrl.create(CommonPopupPage, {
+      "type": type
+    });
+
+    modal.present();
   }
 }
 

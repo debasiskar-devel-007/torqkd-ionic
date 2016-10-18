@@ -4,6 +4,7 @@ import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import * as $ from "jquery";
 import {UserpopupPage} from "../userpopup/userpopup";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the FriendsPage page.
@@ -110,6 +111,14 @@ export class FriendsPage {
   godetails(item){
     let modal = this.modalCtrl.create(UserpopupPage, {
       "item": item , "redirectpage" : 'friends'
+    });
+
+    modal.present();
+  }
+
+  showtermsploicy(type){
+    let modal = this.modalCtrl.create(CommonPopupPage, {
+      "type": type
     });
 
     modal.present();

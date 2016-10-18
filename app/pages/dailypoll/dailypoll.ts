@@ -4,6 +4,7 @@ import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import * as $ from "jquery";
 import {DailypollresultPage} from "../dailypollresult/dailypollresult";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the DailypolPage page.
@@ -123,6 +124,14 @@ export class DailypollPage {
     viewResult(){
         let modal = this.modalCtrl.create(DailypollresultPage, {
             "item": this.currentitem
+        });
+
+        modal.present();
+    }
+
+    showtermsploicy(type){
+        let modal = this.modalCtrl.create(CommonPopupPage, {
+            "type": type
         });
 
         modal.present();

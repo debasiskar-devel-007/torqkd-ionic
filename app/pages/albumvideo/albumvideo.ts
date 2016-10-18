@@ -6,6 +6,7 @@ import {VideodetPage} from "../videodet/videodet";
 import {AlbumPage} from "../album/album";
 import {ProfilePage} from "../profile/profile";
 import * as $ from "jquery";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the AlbumvideoPage page.
@@ -72,5 +73,13 @@ export class AlbumvideoPage {
 
     modal.present();
 
+  }
+
+  showtermsploicy(type){
+    let modal = this.modalCtrl.create(CommonPopupPage, {
+      "type": type
+    });
+
+    modal.present();
   }
 }

@@ -12,6 +12,7 @@ import {tagpeoplelistPage} from "../tagpeoplelist/tagpeoplelist";
 import {socialtaglistPage} from "../socialtaglist/socialtaglist";
 import {FbcommentPage} from "../fbcomment/fbcomment";
 import {NotificationPage} from "../notification/notification";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the SinglepostPage page.
@@ -414,6 +415,13 @@ export class SinglepostPage {
       ]
     });
     actionSheet.present();
+  }
+  showtermsploicy(type){
+    let modal = this.modalCtrl.create(CommonPopupPage, {
+      "type": type
+    });
+
+    modal.present();
   }
 
 }

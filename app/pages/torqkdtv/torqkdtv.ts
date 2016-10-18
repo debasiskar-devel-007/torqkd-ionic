@@ -4,6 +4,7 @@ import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {VideodetPage} from "../videodet/videodet";
 import * as $ from "jquery";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the TorqkdtvPage page.
@@ -67,6 +68,13 @@ export class TorqkdtvPage {
 
     modal.present();
 
+  }
+  showtermsploicy(type){
+    let modal = this.modalCtrl.create(CommonPopupPage, {
+      "type": type
+    });
+
+    modal.present();
   }
 
 

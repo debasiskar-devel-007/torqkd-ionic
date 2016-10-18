@@ -14,6 +14,7 @@ import {socialtaglistPage} from "../socialtaglist/socialtaglist";
 import {DomSanitizationService} from "@angular/platform-browser";
 import { AlertController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 //import {ProfilePage} from '../profile/profile'
 //import * as $ from "jquery";
 
@@ -144,6 +145,14 @@ export class eventDetailsPage {
         $('.navmenul').click();
     }
 
+
+    showtermsploicy(type){
+        let modal = this.modalCtrl.create(CommonPopupPage, {
+            "type": type
+        });
+
+        modal.present();
+    }
 
 
 }

@@ -4,6 +4,7 @@ import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {PhotodetPage} from "../photodet/photodet";
 import * as $ from "jquery";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the PhotoPage page.
@@ -67,6 +68,13 @@ export class PhotoPage {
 
     modal.present();
 
+  }
+  showtermsploicy(type){
+    let modal = this.modalCtrl.create(CommonPopupPage, {
+      "type": type
+    });
+
+    modal.present();
   }
 
 

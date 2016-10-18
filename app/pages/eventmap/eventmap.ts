@@ -3,6 +3,7 @@ import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Pla
 import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import * as $ from "jquery";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the EventmapPage page.
@@ -95,5 +96,15 @@ export class EventmapPage {
     }
 
   }
+
+
+  showtermsploicy(type){
+    let modal = this.modalCtrl.create(CommonPopupPage, {
+      "type": type
+    });
+
+    modal.present();
+  }
+
 
 }

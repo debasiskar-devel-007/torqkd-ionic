@@ -6,6 +6,7 @@ import {ForumPage} from "../forum/forum";
 import {ForumDetailsPage} from "../forumdetails/forumdetails";
 import * as $ from "jquery";
 import {TopicdetailsPage} from "../topicdetails/topicdetails";
+import {CommonPopupPage} from "../commonpopup/commonpopup";
 
 /*
   Generated class for the ForumPage page.
@@ -61,6 +62,14 @@ export class ForumListPage {
           console.log("Oooops!");
         });
 
+  }
+
+  showtermsploicy(type){
+    let modal = this.modalCtrl.create(CommonPopupPage, {
+      "type": type
+    });
+
+    modal.present();
   }
 
 }
