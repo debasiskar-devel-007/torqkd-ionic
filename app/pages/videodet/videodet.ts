@@ -8,6 +8,7 @@ import {Fbcomment1Page} from "../fbcomment1/fbcomment1";
 import {TwcommentPage} from "../twcomment/twcomment";
 import { ActionSheetController,ToastController } from 'ionic-angular';
 import { InAppBrowser} from "ionic-native";
+import { SafeResourceUrl, DomSanitizationService } from '@angular/platform-browser';
 
 /*
   Generated class for the VideodetPage page.
@@ -25,13 +26,27 @@ export class VideodetPage {
     private poster;
     private videourl;
     private accessToken;
+    private ytvdourl:SafeResourceUrl;
+    private pwidth;
+    private pheight;
 
-  constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http,public modalCtrl: ModalController,public actionSheetCtrl: ActionSheetController,public toastCtrl: ToastController) {
+  constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http,public modalCtrl: ModalController,public actionSheetCtrl: ActionSheetController,public toastCtrl: ToastController,public sanitizer:DomSanitizationService,public platform: Platform) {
     this.itemdet=this._navParams.get("item");
-    console.log(this.itemdet);
+
+      this.pwidth = 480;
+      this.pheight = 360;
+
+      platform.ready().then((readySource) => {
+          this.pwidth = platform.width();
+          this.pheight = (parseInt(this.pwidth)*3)/4;
+      });
+
       if(this.itemdet.type == 'mp4'){
           this.videourl="http://torqkd.com/uploads/video/converted/"+this.itemdet.value;
           this.poster=this.itemdet.img_src;
+      }
+      if(this.itemdet.type != 'mp4'){
+          this.ytvdourl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+this.itemdet.value+'?controls=1&autoplay=1&ref=0');
       }
 
     this.local = new Storage(LocalStorage);

@@ -15,7 +15,30 @@
       <img src="{{itemdet.img_src}}">
     </div>
   </div>
+  <div class="photo-det-footer">
+    <div class="comment_top">
+      <div class="left-part">
+        <div class="profile-img">
+          <img style=" max-width:50px; max-height:50px;" alt="" src="{{itemdet.user_image}}">
+        </div>
+        <div class="name-text">{{itemdet.user_name}}</div>
+      </div>
+      <div class="right-part">
+        <div class="text-contain">{{itemdet.timeSpan}}</div>
+        <div style="font-size:16px; text-align:left; padding-top:8px; padding-left: 4px; color: #000;" >{{itemdet.msg}}</div>
+        <div class="cmnt_share">
+          <a href="javascript:void(0);" (click)="showComment(itemdet)">Comment{{(itemdet.commentNo >1)?'s':''}}  [{{itemdet.commentNo}}]</a> -
+          <a href="javascript:void(0);" (click)="updatelike(itemdet.id)">{{(itemdet.likeStatus)?'Unlike':'Like'}} [{{itemdet.likeNo}}] </a>
+          <b style="font-weight:bold;display:inline-block; ">•</b>
+          <a style="display: inline-block; position: relative;" href="javascript:void(0);" (click)="showSocilaShareList(itemdet)">Share</a>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
 </ion-content>
+
+<!--
 <ion-footer>
   <div class="photo-det-footer">
     <div class="comment_top">
@@ -38,3 +61,4 @@
     </div>
   </div>
 </ion-footer>
+-->
