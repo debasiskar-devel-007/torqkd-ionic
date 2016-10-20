@@ -70,11 +70,11 @@ class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      /*if (Splashscreen) {
+      if (Splashscreen) {
         setTimeout(() => {
           Splashscreen.hide();
         }, 100);
-      }*/
+      }
 
       if (StatusBar) {
         // hide StatusBar using cordova-plugin-statusbar

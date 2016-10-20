@@ -1,6 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
 import { ScreenOrientation } from 'ionic-native';
+import {ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions} from 'ionic-native';
+//import * as $ from "jquery";
+import { Transfer } from 'ionic-native';
+import { MediaCapture } from 'ionic-native';
+import {File} from 'ionic-native';
+import { SocialSharing } from 'ionic-native';
+import {InAppBrowser} from 'ionic-native';
+import {StreamingMedia, StreamingVideoOptions} from 'ionic-native';
+import { Camera } from 'ionic-native';
 
 /*
   Generated class for the HomevideomodalPage page.
@@ -18,6 +27,14 @@ export class HomevideomodalPage {
   constructor(private navCtrl: NavController,private _navParams: NavParams) {
     this.poster=this._navParams.get("poster");
     this.videourl=this._navParams.get("url");
+
+    let options: StreamingVideoOptions = {
+      successCallback: () => { alert('Video played') },
+      errorCallback: (e) => { alert('Error streaming') },
+      orientation: 'landscape'
+    };
+
+    StreamingMedia.playVideo(this.videourl, options);
 
   }
 
