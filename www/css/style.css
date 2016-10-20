@@ -6532,4 +6532,119 @@ code.has-numbering {
     white-space : normal;
     text-align:left;
 }
+
+
+
+.experince-page .spSlider ion-slides{
+    width :100%;
+    border: 6px solid #fff;
+    display: block;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.experince-page .spSlider ion-slide{
+    height: 500px;
+}
+
+.experince-page .spSlider ion-slide .slide-zoom{
+    height: 100%;
+}
+
+.experince-page .spSlider ion-slide .h2text{
+    color: #fff;
+    font-family: "veneerregular";
+    font-size: 38px;
+    font-weight: normal;
+    left: 0;
+    letter-spacing: 5px;
+    padding: 4px 2%;
+    position: absolute;
+    text-shadow: 2px 2px 5px #333;
+    text-transform: uppercase;
+    top: 2px;
+    width: 97%;
+    text-align: left;
+}
+
+.experince-page .spSlider ion-slide span {
+    background: rgba(0, 0, 0,.1) url("../images/1px.png") repeat scroll left top;
+    display: block;
+    height: auto;
+    left: 0;
+    padding: 4px 2%;
+    position: absolute;
+    top: auto;
+    bottom: 10px;
+    width: 100%;
+}
+
+.experince-page .spSlider ion-slide span .text-div {
+    color: #e57e0d;
+    display: block;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 14px;
+    width: 200px;
+    text-align: left;
+}
+.experince-page .spSlider ion-slide span .more {
+    color: #e57e0d !important;
+    float: right !important;
+    font-family: "veneerregular" !important;
+    font-size: 24px !important;
+    line-height: 35px;
+    margin: 0;
+    padding: 0;
+    width: 74px !important;
+}
+.experince-page .spSlider ion-slide span .more a {
+    color: #f39221 !important;
+    font-weight: normal;
+}
+.experince-page .spSlider ion-slide span .more a:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 920px) {
+    .experince-page .spSlider ion-slides,.experince-page .spSlider ion-slide {
+        height: 450px;
+    }
+}
+@media screen and (max-width: 820px) {
+    .experince-page .spSlider ion-slides,.experince-page .spSlider ion-slide {
+        height: 400px;
+    }
+}
+@media screen and (max-width: 730px) {
+    .experince-page .spSlider ion-slides,.experince-page .spSlider ion-slide{
+        height: 350px;
+    }
+}
+@media screen and (max-width: 630px) {
+    .experince-page .spSlider ion-slides ,.experince-page .spSlider ion-slide{
+        height: 300px;
+    }
+}
+@media screen and (max-width: 540px) {
+    .experince-page .spSlider ion-slides,.experince-page .spSlider ion-slide {
+        height: 250px;
+    }
+}
+@media screen and (max-width: 430px) {
+    .experince-page .spSlider ion-slides,.experince-page .spSlider ion-slide {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .experince-page .spSlider ion-slides,.experince-page .spSlider ion-slide {
+        height: 180px;
+    }
+}
+
 /***********************Code By Samsuj [end]**********************************/

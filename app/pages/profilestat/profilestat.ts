@@ -262,10 +262,10 @@ export class profileStatPage {
 
 
     launch(url){
-
+/*
         let browser = new InAppBrowser();
         InAppBrowser.open(url, "_system", "location=true");
-    }
+*/    }
 
     openmenu(){
         $('.navmenul').click();
