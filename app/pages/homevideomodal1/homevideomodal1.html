@@ -1,0 +1,17 @@
+<ion-header class="commentheader">
+
+  <ion-nav-bar class="btnwrapper">
+    <ion-nav-back-button class="button-clear btnback" (click)="goback()">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+</ion-header>
+
+
+
+<ion-content class="contentwrapper" padding>
+  <div class="video-container" style="padding-top: 0;">
+    <iframe width="100%" height="{{pheight}}"  [src]="url" frameborder="0" allowfullscreen></iframe>
+  </div>
+</ion-content>
