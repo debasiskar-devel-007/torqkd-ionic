@@ -18,6 +18,7 @@ import { ActionSheetController,LoadingController } from 'ionic-angular';
 //import {ProfilePage} from '../profile/profile'
 //import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {GroupdetailsPage} from "../groupdetails/groupdetails";
 
 /*
  Generated class for the LoginPage page.
@@ -48,6 +49,7 @@ export class profilegroupPage {
     public profilepage=ProfilePage;
     public profileeventlistpage=profileeventlistPage;
     public profilestatpage = profileStatPage;
+    public groupdetailspage = GroupdetailsPage;
     public isStatusInput = false;
     public statustype = '';
     public statusvalue = '';

@@ -914,7 +914,7 @@ ion-label {
     color: #000;
     font-size: 11px;
     line-height: 18px;
-    padding: 8px 8px 0;
+    padding: 8px;
     width: auto;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
@@ -4861,7 +4861,8 @@ code.has-numbering {
     letter-spacing: 0;
     line-height: inherit;
     margin: 0;
-    padding: 0 !important;
+    padding: 0;
+    width:100%;
 }
 .groups-body .righttext1 .sttext .ng-binding {
     color: #777 !important;
@@ -5855,7 +5856,7 @@ code.has-numbering {
     margin: 0 auto;
 }
 
-.eventmap-page .iframe_h2 {
+.eventmap-page .iframe_h2 , .experince-page .iframe_h2 {
     background: #f7931e none repeat scroll 0 0 !important;
     color: #5a5b5d !important;
     font-family: "veneerregular";
@@ -5866,7 +5867,7 @@ code.has-numbering {
     text-transform: uppercase;
 }
 
-.eventmap-page #event-map-canvas{
+.eventmap-page #event-map-canvas , .experince-page #event-map-canvas{
     height: 400px;
     width:100%;
 }
@@ -6533,7 +6534,9 @@ code.has-numbering {
     text-align:left;
 }
 
-
+.experince-page .spSlider{
+    margin-bottom: 10px;
+}
 
 .experince-page .spSlider ion-slides{
     width :100%;
@@ -6645,6 +6648,259 @@ code.has-numbering {
     .experince-page .spSlider ion-slides,.experince-page .spSlider ion-slide {
         height: 180px;
     }
+}
+
+.experince-page .albums-div {
+    background: #fff none repeat scroll 0 0;
+    margin-top: 18px;
+    padding: 7px 1%;
+    position: relative;
+    width: 100%;
+}
+
+.experince-page .albums-div h3 {
+    background: #000 none repeat scroll 0 0;
+    color: #f7941d;
+    font-family: "veneerregular";
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 22px;
+    margin: -5px 0 0 !important;
+    padding: 12px 0 8px 3%;
+    text-transform: uppercase;
+    width: 100%;
+}
+.experince-page .albums-div h3 a {
+    background: #000 none repeat scroll 0 0;
+    color: #f7941d;
+    font-family: "veneerregular";
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 22px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.experince-page .albums-div_background {
+    background-size: 60% auto !important;
+    min-height: 130px;
+    min-width: 98%;
+}
+
+.experince-page .expgallery{
+    background :rgba(0, 0, 0, 0) url("../images/logo.png") no-repeat scroll center center / 80% auto;
+    width: 100%;
+}
+
+.experince-page .albums-div h2 {
+    background: rgba(0, 0, 0, 0) url("../images/tbg4.png") repeat scroll 0 0;
+    bottom: -3px;
+    color: #f7941d;
+    font-family: "veneerregular";
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 22px;
+    padding: 12px 0 8px 3%;
+    position: absolute;
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 999;
+}
+
+
+.group-details-page .top-part {
+    margin-bottom: 40px;
+    width: 100%;
+}
+.group-details-page .top-part .top-partcon-left {
+    float: left;
+    margin-bottom: 15px;
+    width: 120px;
+}
+.group-details-page .top-part .top-partcon-left .profile-img img {
+    border: 3px solid #f7931e;
+    margin-bottom: 10px;
+    min-height: 100px !important;
+    min-width: 100px !important;
+    position: relative;
+    z-index: 999;
+}
+.top-part .top-partcon-right {
+    color: #4f4f51;
+    float: left;
+    font-family: helvetica,arial;
+    font-size: 16px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    width: 50%;
+}
+.group-details-page .top-part .top-partcon-right h2 {
+    margin: 0 0 25px !important;
+    padding: 0 !important;
+}
+.group-details-page .top-part .top-partcon-right h2 a {
+    color: #787777;
+    font-family: veneerregular;
+    font-size: 28px;
+    font-style: normal !important;
+    font-weight: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+.group-details-page .top-part .left1 {
+    color: #333;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    width: 100px;
+}
+.group-details-page .top-part .left1 a {
+    color: #777;
+    font-weight: 700;
+}
+.group-details-page .top-part .right1 {
+    color: #777;
+    float: right;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    padding-right: 5px;
+    text-align: right;
+    width: 150px;
+}
+
+.group-details-page .newlinkdiv {
+    background-image: url("../images/linkdiv2.png");
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    height: 50px;
+    line-height: 60px;
+    margin: -1px 0 0 10px;
+    position: absolute;
+    text-align: center;
+    width: 105px;
+    z-index: 200;
+}
+.group-details-page .newlinkdiv a {
+    color: #333 !important;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.group-details-page .groups-body {
+    background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid #b3b8ba;
+    margin-bottom: 10px;
+    padding: 8px 0 0;
+}
+.group-details-page .groups-body .h1text {
+    display: inline-block;
+    float: left;
+}
+.group-details-page .groups-body .destext1 {
+    display: block;
+    margin-top: 14px;
+    overflow: hidden;
+}
+.group-details-page .groups-body .left-img img {
+    border: 1px solid #fab363;
+    box-shadow: 2px 2px 10px #fff;
+    padding: 2px;
+    width: 50px;
+}
+.group-details-page .groups-body .righttext1 {
+    float: right;
+    font-family: "reservation";
+    margin-right: 2%;
+    position: relative;
+    width: 80%;
+}
+.group-details-page .groups-body .righttext1 h1 {
+    color: #4f5052;
+    font-family: "reservation";
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: inherit;
+    margin: 0;
+    padding: 0 !important;
+}
+.group-details-page .groups-body .righttext1 .activity{
+    color: #777;
+    display: block;
+    font-size: 12px;
+    margin-right: 5px;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.group-details-page .groups-body .righttext1 .sttext .ng-binding {
+    color: #777 !important;
+    display: block !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 10px !important;
+    padding: 4px 0 0 !important;
+}
+.group-details-page .groups-body .righttext1 h1 span {
+    color: #777;
+    font-family: Arial,Helvetica,sans-serif;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-language-override: normal;
+    font-size: 11px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant: normal;
+    font-weight: normal !important;
+    letter-spacing: 0 !important;
+    line-height: 30px;
+    padding-left: 0;
+}
+.group-details-page .groups-body .sttext {
+    display: inline-block;
+    float: right;
+    overflow: hidden;
+}
+.group-details-page .groups-body .righttext1 strong {
+    color: #777;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    text-align: right !important;
+}
+.group-details-page .groups-body .righttext1 p {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    padding: 0;
+}
+.group-details-page .groups-body .righttext1 a {
+    color: #777;
+    display: block;
+    font-size: 11px;
+    padding-top: 5px;
+}
+.group-details-page .groups-body .righttext1 a:hover {
+    text-decoration: none;
+}
+.group-details-page .groups-body .left-img img {
+    border: medium none;
+    padding: 0;
+}
+
+.group-details-page .groups-body .concls {
+    background: #f7931e none repeat scroll 0 0 !important;
+    border: 6px solid #fff !important;
+    box-shadow: 0 0 2px #888;
+    color: #333;
+    font-family: "veneerregular" !important;
+    font-size: 20px !important;
+    height: 32px;
+    line-height: 36px;
+    margin-top: 18px;
+    padding: 0 10px 0 15px !important;
+    width: 80px;
 }
 
 /***********************Code By Samsuj [end]**********************************/

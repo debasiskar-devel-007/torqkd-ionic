@@ -150,7 +150,7 @@
                             <div style="clear: both;"></div>
                             <p>{{item.description}}</p>
                         </div>
-                        <a class="viewgrp" href="javascript:void (0)">View Group</a>
+                        <a class="viewgrp" href="javascript:void (0)" [navPush]="groupdetailspage" [navParams]="{id:item.id}">View Group</a>
                     </div>
                     <div class="clear"></div>
                 </div>

@@ -7,6 +7,7 @@ import {HomevideomodalPage} from '../homevideomodal/homevideomodal'
 import {Splashscreen} from 'ionic-native';
 import {Toast} from 'ionic-native';
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {ExperiencePage} from "../experience/experience";
 
 ///import {} from 'ionic-native';
 //import {StreamingMedia} from 'ionic-native';
@@ -25,6 +26,7 @@ export class HomePage {
   homevideomodal=HomevideomodalPage;
   private isloggedin:boolean=false;
   //private router:Router;
+  public experiencepage = ExperiencePage;
 
   constructor(private navCtrl: NavController ,public modalCtrl: ModalController , public  platform: Platform) {
     //this.local=null;
