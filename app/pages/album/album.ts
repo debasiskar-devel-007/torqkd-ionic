@@ -7,6 +7,8 @@ import {AlbumvideoPage} from "../albumvideo/albumvideo";
 import {ProfilePage} from "../profile/profile";
 import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the AlbumPage page.
@@ -18,6 +20,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
   templateUrl: 'build/pages/album/album.html',
 })
 export class AlbumPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
   private loggedinuser;
   private local:LocalStorage;
   private photolist;

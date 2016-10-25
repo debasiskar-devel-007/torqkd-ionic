@@ -5,6 +5,8 @@ import {DomSanitizationService} from "@angular/platform-browser";
 import * as $ from "jquery";
 import {UserpopupPage} from "../userpopup/userpopup";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the CommunityPage page.
@@ -16,6 +18,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
   templateUrl: 'build/pages/community/community.html',
 })
 export class CommunityPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
   private loggedinuser;
   private local:LocalStorage;
   private friendist;

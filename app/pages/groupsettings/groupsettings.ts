@@ -1,5 +1,5 @@
 import {Component, ViewChild} from "@angular/core";
-import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators,FormControl} from "@angular/forms";
 import {Splashscreen, InAppBrowser, ImagePicker} from "ionic-native";
 import {Http, Headers} from "@angular/http";
 import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,NavParams} from "ionic-angular";
@@ -11,6 +11,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
 import {GroupdetailsPage} from "../groupdetails/groupdetails";
 import {GroupmembersPage} from "../groupmembers/groupmembers";
 import {GroupstatPage} from "../groupstat/groupstat";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the GroupsettingsPage page.
@@ -20,8 +22,12 @@ import {GroupstatPage} from "../groupstat/groupstat";
 */
 @Component({
   templateUrl: 'build/pages/groupsettings/groupsettings.html',
+  directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
 export class GroupsettingsPage {
+    public homepage = HomePage;
+    public updateprofilepage = UpdateprofilePage;
+  private settingForm:FormGroup;
 
   private groupdetailspage = GroupdetailsPage;
   private groupmemberspage = GroupmembersPage;
@@ -48,10 +54,15 @@ export class GroupsettingsPage {
   private isMember;
   private isAdmin;
 
-  constructor(fb: FormBuilder,public platform: Platform,navCtrl: NavController,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController,public params: NavParams) {
+  constructor(public fb: FormBuilder,public platform: Platform,public navCtrl: NavController,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController,public params: NavParams) {
+
     this.groupid = this.params.get('id');
 
-    console.log(this.groupid);
+    this.settingForm = fb.group({
+      name: ["", Validators.required],
+      description: ["", Validators.required],
+      notify: ["0"]
+    });
 
     this.isMember = 0;
     this.isAdmin = 0;
@@ -123,6 +134,10 @@ export class GroupsettingsPage {
               this.isAdmin = 1;
           }
 
+
+          (<FormControl>this.settingForm.controls['name']).updateValue(this.groupdet.name);
+          (<FormControl>this.settingForm.controls['description']).updateValue(this.groupdet.description);
+
         }, error => {
           console.log("Oooops!");
         });
@@ -155,6 +170,33 @@ export class GroupsettingsPage {
         }, error => {
           console.log("Oooops!");
         });
+  }
+
+
+  formsubmit(event){
+    let x:any;
+
+    for(x in this.settingForm.controls){
+      this.settingForm.controls[x].markAsTouched();
+    }
+
+    if(this.settingForm.valid){
+
+        var link = 'http://torqkd.com/user/ajs2/groupSettings';
+        var data = {id: this.groupid,name: event.name,description: event.description};
+
+        this._http.post(link, data)
+            .subscribe(data5 => {
+
+              this.navCtrl.push(GroupdetailsPage,{id:this.groupid});
+
+            }, error => {
+              console.log("Oooops!");
+            });
+
+
+    }
+
   }
 
 

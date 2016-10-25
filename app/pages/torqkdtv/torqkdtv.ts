@@ -5,6 +5,8 @@ import {DomSanitizationService} from "@angular/platform-browser";
 import {VideodetPage} from "../videodet/videodet";
 import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the TorqkdtvPage page.
@@ -16,6 +18,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
   templateUrl: 'build/pages/torqkdtv/torqkdtv.html',
 })
 export class TorqkdtvPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
   private loggedinuser;
   private local:LocalStorage;
   private videolist;

@@ -15,6 +15,7 @@ import {DomSanitizationService} from "@angular/platform-browser";
 import { AlertController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 //import {ProfilePage} from '../profile/profile'
 //import * as $ from "jquery";
 
@@ -29,6 +30,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
     directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
 export class eventDetailsPage {
+    public homepage = HomePage;
+    public updateprofilepage = UpdateprofilePage;
     @ViewChild(Nav) nav: Nav;
     @ViewChild(Content)
     content:Content;

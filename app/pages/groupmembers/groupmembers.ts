@@ -11,6 +11,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
 import {GroupdetailsPage} from "../groupdetails/groupdetails";
 import {GroupsettingsPage} from "../groupsettings/groupsettings";
 import {GroupstatPage} from "../groupstat/groupstat";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the GroupmembersPage page.
@@ -22,6 +24,8 @@ import {GroupstatPage} from "../groupstat/groupstat";
   templateUrl: 'build/pages/groupmembers/groupmembers.html',
 })
 export class GroupmembersPage {
+    public homepage = HomePage;
+    public updateprofilepage = UpdateprofilePage;
   private groupdetailspage = GroupdetailsPage;
   private groupstatpage = GroupstatPage;
   private groupsettingspage = GroupsettingsPage;

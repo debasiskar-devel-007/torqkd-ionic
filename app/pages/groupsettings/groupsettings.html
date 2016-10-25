@@ -11,10 +11,10 @@
           </button>
         </div>
         <div class="logo">
-          <a href="javascript:void(0)"> <img src="images/logo_main.png" alt="#"></a>
+          <a [navPush]="homepage"> <img src="images/logo_main.png" alt="#"></a>
         </div>
         <div class="logout">
-          <img src="images/gear2.png">
+          <a [navPush]="updateprofilepage"><img src="images/gear2.png"></a>
         </div>
       </div>
     </div>
@@ -73,6 +73,38 @@
         <button class="btntab" [navPush]="groupstatpage" [navParams]="{id:groupid}">stats</button>
       </div>
       <div id="mainView">
+
+
+        <form novalidate [formGroup]="settingForm" (ngSubmit)="formsubmit(settingForm.value)" id="groupsetting">
+          <label>
+            Group Name
+            <sup>*</sup>
+          </label>
+          <input [formControl]="settingForm.controls['name']" type="text">
+          <div *ngIf ="settingForm.controls['name'].touched">
+            <div *ngIf ="!settingForm.controls['name'].valid" class = "alert alert-danger">
+              <strong>Name is required</strong>
+            </div>
+          </div>
+          <label>
+            Group Description
+            <sup>*</sup>
+          </label>
+          <textarea [formControl]="settingForm.controls['description']"></textarea>
+          <div *ngIf ="settingForm.controls['description'].touched">
+            <div *ngIf ="!settingForm.controls['description'].valid" class = "alert alert-danger">
+              <strong>Description  is required</strong>
+            </div>
+          </div>
+          <label>Notify group members of changes via email</label>
+          <label>
+            <input type="radio" value="1" [formControl]="settingForm.controls['notify']"> Yes
+          </label>
+          <label>
+            <input type="radio" value="0" [formControl]="settingForm.controls['notify']"> No
+          </label>
+          <button type="submit" class="savebtn5" >Save Changes</button>
+        </form>
 
       </div>
     </div>

@@ -5,6 +5,8 @@ import {DomSanitizationService} from "@angular/platform-browser";
 import {PhotodetPage} from "../photodet/photodet";
 import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the PhotoPage page.
@@ -16,6 +18,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
   templateUrl: 'build/pages/photo/photo.html',
 })
 export class PhotoPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
   private loggedinuser;
   private local:LocalStorage;
   private photolist;

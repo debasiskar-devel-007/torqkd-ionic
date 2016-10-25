@@ -11,6 +11,8 @@ import {ExperiencePage} from "../experience/experience";
 import {ExpgrouplistPage} from "../expgrouplist/expgrouplist";
 import {ExpstatlistPage} from "../expstatlist/expstatlist";
 import {eventDetailsPage} from "../eventdetails1/eventdetails1";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 /*
   Generated class for the ExpeventlistPage page.
 
@@ -21,6 +23,8 @@ import {eventDetailsPage} from "../eventdetails1/eventdetails1";
   templateUrl: 'build/pages/expeventlist/expeventlist.html',
 })
 export class ExpeventlistPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
 
   mySlideOptions = {
     initialSlide: 0,

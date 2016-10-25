@@ -49,6 +49,12 @@ a, a:-webkit-any-link {
     cursor: auto;
 }
 
+a{
+    text-decoration: none;
+}
+
+
+
 ion-content,ion-header,ion-footer{
     background-color: #dfe2e2;
 }
@@ -6901,6 +6907,1032 @@ code.has-numbering {
     margin-top: 18px;
     padding: 0 10px 0 15px !important;
     width: 80px;
+}
+
+.group-details-page #groupsetting label {
+    color: #f7931e;
+    display: block;
+    font-family: "veneerregular" !important;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px 0 1px;
+}
+.group-details-page #groupsetting textarea {
+    color: #000 !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 15px !important;
+
+
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    display: block;
+    height: auto;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.group-details-page #groupsetting input[type="text"] {
+    color: #000 !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 15px !important;
+
+
+
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    display: block;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+
+.group-details-page #groupsetting .savebtn5 {
+    background: #f8931f none repeat scroll 0 0;
+    border: 4px solid #ffffff;
+    border-radius: 0;
+    box-shadow: 0 0 2px #888;
+    color: #434142;
+    cursor: pointer;
+    display: block;
+    font-family: "veneerregular";
+    font-size: 24px;
+    line-height: 24px;
+    margin: 10px 10px 30px 0;
+    padding: 6px 22px 2px;
+    text-transform: uppercase;
+}
+
+
+.add-group-page .createevent-body ,.add-event-page .createevent-body {
+    margin: auto;
+    width: 98%;
+}
+
+.add-group-page .createevent-body .form-group , .add-event-page .createevent-body .form-group {
+    margin: 0;
+    width: 100%;
+}
+
+.add-group-page .createevent-body .left-part input[type="text"],.add-event-page .createevent-body .left-part input[type="text"] {
+    background: #fff none repeat scroll 0 0;
+    border: 3px solid #97989a;
+    color: #000;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    height: 40px;
+    padding: 4px;
+    width: 96%;
+
+
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    display: block;
+    line-height: 1.42857;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.add-group-page .createevent-body .left-part textarea ,.add-event-page .createevent-body .left-part textarea {
+    background: #fff none repeat scroll 0 0;
+    border: 3px solid #97989a;
+    border-radius: 5px;
+    color: #000;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    height: 70px;
+    margin-bottom: 20px;
+    resize: none;
+    width: 96%;
+}
+
+.add-group-page .createevent-body .left-part h2,.add-event-page .createevent-body .left-part h2 {
+    color: #f79213;
+    font-family: "veneerregular";
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    line-height: 36px;
+    margin: 0 !important;
+    padding: 0 0 20px !important;
+}
+
+.add-group-page .createevent-body label,.add-event-page .createevent-body label {
+    color: #4f4f51;
+    display: block;
+    font-family: "veneerregular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    text-transform: uppercase;
+}
+
+.add-group-page .createevent-body .left-part h3,.add-event-page .createevent-body .left-part h3 {
+    color: #f79213;
+    font-family: "veneerregular";
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 22px;
+    margin: 0 !important;
+    padding: 20px 0 10px !important;
+}
+
+.add-group-page .createevent-body #blah , .add-event-page .createevent-body #blah{
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid #97989a;
+    display: block;
+    min-height: 80px;
+}
+
+.add-group-page .createevent-body .upload-btn ,.add-event-page .createevent-body .upload-btn {
+    background: #242021 none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 0;
+    color: #f7941e !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+}
+.add-group-page .createevent-body .item-checkbox{
+    background: none !important;
+}
+.add-group-page .createevent-body .userimage img{
+    border-radius: 0;
+}
+.add-group-page .createevent-body ion-label{
+    text-align: left;
+}
+.add-group-page .createevent-body .item .item-inner{
+    border-bottom: none;
+}
+.add-group-page .createevent-body ion-item{
+    border-bottom: 1px solid #33344C;
+    background: none !important;
+}
+.add-group-page .createevent-body .select-box-menu div {
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "veneerregular";
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-right: 30px;
+    text-transform: uppercase;
+}
+
+.add-group-page .createevent-body .right-part h1 , .add-event-page .createevent-body .right-part h1 {
+    color: #f79213;
+    font-family: "veneerregular";
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 22px;
+    margin: 0 !important;
+    padding: 20px 0 25px;
+}
+.add-group-page .createevent-body .right-part h3 , .add-event-page .createevent-body .right-part h3 {
+    color: #4f4f51 !important;
+    font-family: "veneerregular";
+    font-size: 24px;
+    padding-top: 20px !important;
+}
+
+.add-group-page .createevent-body .sports-table ul , .add-event-page .createevent-body .sports-table ul {
+    margin: 5px 0 0 -6px;
+    padding: 0;
+}
+.add-group-page .createevent-body .sports-table ul li, .add-event-page .createevent-body .sports-table ul li {
+    display: block;
+    float: left;
+    height: 68px;
+    margin: 0 8px 35px 0 !important;
+    width: 62px;
+}
+.add-group-page .createevent-body .sports-table ul li a, .add-event-page .createevent-body .sports-table ul li a {
+    border: 2px solid #ebebeb;
+    display: block;
+    margin: 0 auto 10px;
+    padding: 2px;
+    width: 46px !important;
+}
+.add-group-page .createevent-body .sports-table ul li a.activeimg, .add-event-page .createevent-body .sports-table ul li a.activeimg{
+    border: 4px solid #f8931f;
+    box-shadow: 0 0 5px #888;
+    height: 46px;
+    width: 46px !important;
+}
+.add-group-page .createevent-body .sports-table ul li strong,.add-event-page .createevent-body .sports-table ul li strong {
+    color: #58595b !important;
+    display: block;
+    font-family: reservation !important;
+    font-size: 9px !important;
+    font-weight: normal;
+    line-height: 12px;
+    margin: 0 auto;
+    overflow-wrap: break-word !important;
+    text-align: center;
+    text-transform: uppercase;
+    width: 62px;
+}
+
+
+.register-body{
+    background: rgba(0, 0, 0, 0) url("../images/join-bg.jpg") no-repeat fixed center center / cover;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.register-body .register_wrapper {
+    background: #ebebeb none repeat scroll 0 0;
+    margin: 0 auto;
+    padding: 25px 8%;
+    position: relative;
+    width: 95%;
+    z-index: 999;
+}
+.register-body .register_wrapper .register_form {
+    margin: 0 auto;
+    width: 100%;
+}
+.register-body .register_wrapper .register_form h1 {
+    color: #f69f38;
+    font-family: "capture_itregular";
+    font-size: 30px;
+    font-variant: normal;
+    letter-spacing: 5px;
+    margin: 0;
+    padding: 0 0 5px;
+}
+.register-body .register_wrapper .register_form .register_input {
+    background: #f1f1f3 none repeat scroll 0 0 !important;
+    border: 1px solid #414143 !important;
+    border-radius: 5px !important;
+    color: #000 !important;
+    float: left;
+    font-size: 20px !important;
+    font-weight: bold;
+    height: 40px !important;
+    margin: 10px auto;
+    padding: 4px 2%;
+    width: 92% !important;
+}
+.register-body .register_wrapper .register_form .register_select {
+    background: #f1f1f3 none repeat scroll 0 0 !important;
+    border: 1px solid #414143 !important;
+    border-radius: 5px !important;
+    color: #000 !important;
+    float: left;
+    font-size: 20px !important;
+    font-weight: bold;
+    height: 42px !important;
+    margin: 10px auto;
+    padding: 4px 2%;
+    width: 92% !important;
+}
+.register-body .register_wrapper .register_form .register_error {
+    color: #f8931f;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+.register-body .register_wrapper .register_form p {
+    color: #666666;
+    font-size: 14px !important;
+    line-height: 18px;
+    margin: 20px 0;
+    padding: 0;
+}
+.register-body .register_wrapper .NextStep_btn {
+    background: rgba(0, 0, 0, 0) url("../images/next-step-btn.jpg") no-repeat scroll 0 0;
+    border: 4px solid #fff;
+    color: #434142;
+    cursor: pointer;
+    font-family: "capture_itregular";
+    font-size: 0;
+    height: 40px;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+    width: 235px;
+}
+
+.register-body .register_wrapper .menupart1{
+    background: rgba(0, 0, 0, 0) url("../images/bgimage.png") no-repeat scroll 0 0 / 100% auto;
+    height: 752px;
+    margin: 0 auto 20px;
+    width: 220px;
+}
+
+.footer-menu2 {
+    color: #999999;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    padding: 80px 0 20px;
+    text-align: center;
+    width: 100%;
+    z-index: 0;
+}
+
+.footer-menu2 span{
+    color: #999999 !important;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.footer-menu2 span a, .footer-menu2 span a:hover{
+    color: #999999;
+}
+
+.register-body .form-group{
+    display: table;
+}
+
+.register-body .form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #000;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+
+.register-body label.has-error {
+    color: #f8931f !important;
+    display: block !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: left !important;
+    width: 100% !important;
+}
+
+.register-body  .select-area .item{
+    background:#f1f1f3 none repeat scroll 0 0 !important;
+    width: 92% !important;
+    padding: 0;
+    border:1px solid #414143 !important;
+    border-radius:5px;
+    height : 40px;
+    margin-top :10px;
+    margin-bottom :10px;
+}
+
+.register-body  .select-area .item ion-label{
+    text-align: left;
+    padding-left: 2%;
+}
+.register-body  .select-area .item ion-select{
+    max-width:60%;
+    padding-left:0;
+}
+
+.activities-body{
+    background: rgba(0, 0, 0, 0) url("../images/hiker_sign.jpg") no-repeat fixed center center / cover;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.activities-body .register_wrapper {
+    background: #ebebeb none repeat scroll 0 0;
+    margin: 0 auto;
+    padding: 25px 8%;
+    position: relative;
+    width: 95%;
+    z-index: 999;
+}
+
+.activities-body .register_wrapper .menupart2{
+    background: rgba(0, 0, 0, 0) url("../images/bgimage2.png") no-repeat scroll 0 0 / 100% auto;
+    height: 752px;
+    margin: 0 auto 20px;
+    width: 220px;
+}
+
+.activities-body .activities_contain h2 {
+    color: #f69f38;
+    font-family: "capture_itregular";
+    font-size: 30px;
+    font-variant: normal;
+    font-weight: normal;
+    letter-spacing: 5px;
+    margin: 0;
+    padding: 0 0 5px;
+}
+.activities-body .activities_contain h1 {
+    color: #f69f38;
+    font-family: "capture_itregular";
+    font-size: 30px;
+    font-variant: normal;
+    font-weight: normal;
+    letter-spacing: 5px;
+    margin: 0;
+    padding: 0 0 5px;
+}
+.activities-body .activities_contain .sports-table {
+    margin-top: 5px;
+}
+.activities-body .activities_contain .sports-table h3 {
+    color: #3c3c3d;
+    font-family: "veneerregular" !important;
+    font-size: 24px;
+    font-weight: normal !important;
+    letter-spacing: 2px;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+.activities-body .activities_contain .sports-table ul {
+    margin: 5px 0 0 -6px;
+    padding: 0;
+}
+.activities-body .activities_contain .sports-table ul li {
+    display: block;
+    float: left;
+    height: 68px;
+    margin: 0 8px 35px 0 !important;
+    width: 62px;
+}
+.activities-body .activities_contain .sports-table ul li a {
+    border: 2px solid #dfe2e2;
+    display: block !important;
+    height: 46px !important;
+    margin: 0 auto !important;
+    overflow: hidden;
+    padding: 2px !important;
+    width: 46px !important;
+}
+
+.activities-body .activities_contain .sports-table ul li a.activeimg{
+    border: 4px solid #f8931f;
+}
+
+.activities-body .activities_contain .sports-table ul li strong {
+    color: #58595b !important;
+    display: block;
+    font-family: reservation !important;
+    font-size: 9px !important;
+    font-weight: normal;
+    line-height: 12px;
+    margin: 0 auto;
+    overflow-wrap: break-word !important;
+    text-align: center;
+    text-transform: uppercase;
+    width: 62px;
+}
+.activities-body .activities-submit {
+    background: #f8931f none repeat scroll 0 0;
+    border: 4px solid #fff;
+    border-radius: 0;
+    color: #434142;
+    cursor: pointer;
+    font-family: "veneerregular";
+    font-size: 24px;
+    line-height: 24px;
+    margin: 18px 10px 20px 1px;
+    outline: medium none !important;
+    padding: 7px 12px 2px;
+    text-transform: uppercase;
+}
+
+.connect-body {
+    background: rgba(0, 0, 0, 0) url("../images/jumper_sign.jpg") repeat fixed center center / cover ;
+    margin: 0;
+    min-height: 790px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+
+.connect-body .register_wrapper {
+    background: #ebebeb none repeat scroll 0 0;
+    margin: 0 auto;
+    padding: 25px 8%;
+    position: relative;
+    width: 95%;
+    z-index: 999;
+}
+
+.connect-body .register_wrapper .menupart3 {
+    background: rgba(0, 0, 0, 0) url("../images/bgimage3.png") no-repeat scroll 0 0 / 100% auto;
+    height: 752px;
+    margin: 0 auto 20px;
+    width: 220px;
+}
+
+.connect-body .top-text h4 {
+    color: #515b5d;
+    font-family: "veneerregular" !important;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 10px 0;
+}
+
+.connect-body .top-text h4::first-letter {
+    background: rgba(0, 0, 0, 0) url("../images/success.png") no-repeat scroll left center;
+    padding: 10px 0 0 30px;
+}
+
+.connect-body  .activities_contain .connect-img{ width:390px; margin:0 auto;}
+
+@media screen and (max-width:480px) {
+
+    .connect-body  .activities_contain .connect-img{ width:260px!important; margin-left:auto!important; margin-right:auto!important; }
+
+}
+
+@media screen and (max-width:400px) {
+
+    .connect-body  .activities_contain .connect-img{ width:234px; margin:0 auto;}
+
+}
+
+.connect-body .connect-user-list {
+    border: 4px solid #ebebeb;
+    float: left;
+    margin: 0 10px 8px 0;
+    width: 105px;
+}
+.connect-body .connect-user-list:hover {
+    border: 4px solid #f8931f;
+    box-shadow: 0 0 5px #888;
+}
+
+.connect-body .connect-user-list a {
+    display: block;
+}
+.connect-body .connect-user-list .connect_imgdiv {
+    display: block;
+    height: 110px;
+    overflow: hidden;
+    width: 100%;
+}
+.connect-body .connect-user-list a {
+    color: #333;
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height : 15px;
+}
+.connect-body .connect-user-list .connect_imgdiv img {
+    width: 100%;
+}
+.connect-body .connect_textdiv {
+    background: #f5f5f5 none repeat scroll 0 0;
+    border: 1px solid #d1d1d1;
+    font-size: 12px !important;
+    height: 52px;
+    line-height: 18px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    padding: 4px;
+    margin-top: -5px;
+}
+.connect-body .connect_textdiv span {
+    color: #f7931e;
+    font-size: 12px !important;
+    font-weight: bold;
+    padding: 0 !important;
+}
+
+.connect-body .skip {
+    border-radius: 0;
+    color: #58595b !important;
+    cursor: pointer;
+    font-family: reservation;
+    font-size: 12px !important;
+    line-height: 24px;
+    margin: 10px 0 0 10px;
+    padding: 0 0 2px;
+    text-transform: uppercase;
+}
+.connect-body .skip a {
+    color: #58595b !important;
+    font-family: reservation !important;
+    font-size: 12px !important;
+}
+
+.connect-body .activities-submit {
+    background: #f8931f none repeat scroll 0 0;
+    border: 4px solid #fff;
+    border-radius: 0;
+    color: #434142;
+    cursor: pointer;
+    font-family: "veneerregular";
+    font-size: 24px;
+    line-height: 24px;
+    margin: 18px 10px 20px 1px;
+    outline: medium none !important;
+    padding: 7px 12px 2px;
+    text-transform: uppercase;
+}
+.connect-body .active-pic {
+    border: 4px solid #f8931f;
+    box-shadow: 0 0 5px #888;
+}
+
+.next-body {
+    background: rgba(0, 0, 0, 0) url("../images/climber_sign.jpg") repeat fixed center center / cover ;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.next-body .register_wrapper {
+    background: #ebebeb none repeat scroll 0 0;
+    margin: 0 auto;
+    padding: 25px 8%;
+    position: relative;
+    width: 95%;
+    z-index: 999;
+}
+
+.next-body .register_wrapper .menupart4 {
+    background: rgba(0, 0, 0, 0) url("../images/bgimage4.png") no-repeat scroll 0 0 / 100% auto;
+    height: 752px;
+    margin: 0 auto 20px;
+    width: 220px;
+}
+
+.next-body .inviteFriends h4 {
+    color: #5e5e60;
+    font-family: veneerregular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+}
+.next-body .inviteFriends h5 {
+    color: #5e5e60;
+    font-family: veneerregular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+}
+.next-body .inviteFriends h6 {
+    color: #5e5e60;
+    font-family: veneerregular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+}
+
+.next-body #email_text {
+    border: 2px solid #888 !important;
+    border-radius: 5px !important;
+    color: #888888;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 11px;
+    height: 140px !important;
+    line-height: 12px;
+    margin-bottom: 10px;
+    padding: 6px !important;
+    resize: none;
+    width: 96% !important;
+}
+.next-body #social_select {
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid #888 !important;
+    border-radius: 5px !important;
+    height: 35px;
+    margin: 0 0 20px;
+    width: 96% !important;
+}
+.next-body #friend_emails {
+    border: 2px solid #888 !important;
+    border-radius: 5px !important;
+    color: #bfbfbf;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    height: 51px;
+    margin-bottom: 20px;
+    padding: 6px !important;
+    resize: none;
+    width: 96% !important;
+}
+
+.next-body .see-btn2 {
+    background: rgba(0, 0, 0, 0) url("../images/seemore.png") no-repeat scroll 0 0;
+    border: medium none;
+    box-shadow: none;
+    color: #f7931e;
+    cursor: pointer;
+    font-family: "reservation";
+    font-size: 11px;
+    height: 32px;
+    line-height: 8px !important;
+    margin-top: 5px;
+    padding: 0 0 6px 11px;
+    text-align: left;
+    width: 83px !important;
+}
+.next-body .activities-submit {
+    background: #f8931f none repeat scroll 0 0;
+    border: 4px solid #fff;
+    border-radius: 0;
+    color: #434142;
+    cursor: pointer;
+    font-family: "veneerregular";
+    font-size: 24px;
+    line-height: 24px;
+    margin: 18px 10px 20px 1px;
+    outline: medium none !important;
+    padding: 7px 12px 2px;
+    text-transform: uppercase;
+}
+
+.addimage-body {
+    background: rgba(0, 0, 0, 0) url("../images/addimage-bg.jpg") repeat fixed center center / cover ;
+    margin: 0;
+    min-height: 790px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+.addimage-body p {
+    color: #666666;
+    font-size: 10px;
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+}
+.addimage-body h4 {
+    color: #f7931e;
+    font-family: veneerregular;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    margin-top: 35px;
+}
+.addimage-body .imglist-div1 {
+    position: relative;
+    width: 100%;
+}
+
+.addimage-body .register_wrapper {
+    background: #ebebeb none repeat scroll 0 0;
+    margin: 0 auto;
+    padding: 25px 8%;
+    position: relative;
+    width: 95%;
+    z-index: 999;
+}
+
+.addimage-body .register_wrapper .menupart5 {
+    background: rgba(0, 0, 0, 0) url("../images/bgimage5.png") no-repeat scroll 0 0 / 100% auto;
+    height: 752px;
+    margin: 0 auto 20px;
+    width: 220px;
+}
+
+.addimage-body .img-btn-div {
+    bottom: -28px;
+    position: absolute;
+}
+.addimage-body .imglist-div1 .imglist {
+    border: 1px solid #000;
+    width: 142px;
+}
+.addimage-body .imglist-div1 .imglist img {
+    width: 100%;
+}
+.addimage-body .imglist-div1 .upload-btn1 {
+    background: #242021 none repeat scroll 0 0;
+    border: medium none;
+    color: #f7931e;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    height: 28px;
+    line-height: 28px;
+    width: 28px;
+}
+.addimage-body .help-icon {
+    margin: 0 0 0 10px;
+}
+.addimage-body .imglist-div2 {
+    position: relative;
+    width: 100%;
+}
+.addimage-body .imglist-div2 .imglist2 {
+    border: 1px solid #000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.addimage-body .imglist-div2 .imglist2 img {
+    width: 100%;
+}
+.addimage-body .imglist-div2 .upload-btn2 {
+    background: #242021 none repeat scroll 0 0;
+    border: medium none;
+    color: #f7931e;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    height: 28px;
+    line-height: 28px;
+    width: 28px;
+}
+.addimage-body .skipfinished {
+    background: #f8931f none repeat scroll 0 0;
+    border: 4px solid #fff;
+    color: #333333 !important;
+    display: inline-block;
+    font-family: "veneerregular";
+    font-size: 22px;
+    margin-top: 50px;
+    padding: 5px 25px 0;
+    text-align: center;
+}
+.addimage-body .skipfinished a {
+    color: #333333 !important;
+}
+
+.update-profile-page .createevent-body {
+    font-family: "veneerregular";
+}
+
+.update-profile-page .createevent-body .right-part {
+    float: none;
+    margin-top: 22px;
+    width: 100%;
+}
+.update-profile-page .createevent-body .right-part h2 {
+    color: #f79213;
+    font-family: "veneerregular";
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    line-height: 22px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.update-profile-page .createevent-body .right-part h1 {
+    color: #f79213;
+    font-family: "veneerregular";
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 22px;
+    margin: 0 !important;
+    padding: 20px 0 25px !important;
+}
+.update-profile-page .createevent-body .right-part ul {
+    margin-bottom: 20px;
+}
+.update-profile-page .createevent-body .right-part h3 {
+    color: #4f4f51 !important;
+    padding-top: 20px !important;
+}
+
+.update-profile-page .sports-table ul {
+    margin: 5px 0 0 -6px;
+    padding: 0;
+}
+.update-profile-page .sports-table ul li {
+    display: block;
+    float: left;
+    height: 68px;
+    margin: 0 8px 35px 0 !important;
+    width: 62px;
+}
+.update-profile-page .sports-table ul li a {
+    border: 2px solid #ebebeb;
+    display: block;
+    margin: 0 auto 10px;
+    padding: 2px;
+    width: 46px !important;
+}
+.update-profile-page .sports-table ul li a.activeimg {
+    border: 4px solid #f8931f;
+    box-shadow: 0 0 5px #888;
+    height: 46px;
+    width: 46px !important;
+}
+.update-profile-page .sports-table ul li strong {
+    color: #58595b !important;
+    display: block;
+    font-family: reservation !important;
+    font-size: 9px !important;
+    font-weight: normal;
+    line-height: 12px;
+    margin: 0 auto;
+    overflow-wrap: break-word !important;
+    text-align: center;
+    text-transform: uppercase;
+    width: 62px;
+}
+
+.update-profile-page .updatebtn {
+    background: #f8931f none repeat scroll 0 0;
+    border: 4px solid #fff;
+    border-radius: 0;
+    color: #434142;
+    cursor: pointer;
+    font-family: "veneerregular";
+    font-size: 24px;
+    line-height: 24px;
+    margin: 10px 10px 20px 0;
+    outline: medium none !important;
+    padding: 10px 20px 5px;
+    text-transform: uppercase;
+}
+.update-profile-page .createevent-body .backbtn {
+    color: #585b60;
+    font-family: "veneerregular";
+    font-size: 22px;
+    padding: 10px 0;
+    display: block;
+}
+
+.update-profile-page .editsettingbtn {
+    color: #f79213;
+    font-family: "veneerregular";
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 22px;
+    margin: 0 !important;
+    padding: 20px 0 25px !important;
+}
+
+.update-profile-page .editsettingbtn a{
+    color: #333333;
+}
+.update-profile-page .editsettingbtn a:hover{
+    color: #333333;
+}
+
+.update-profile-page .createevent-body .left-part .cropcontain {
+    clear: both;
+    margin: 25px 0;
+    overflow: hidden;
+    width: auto;
+}
+.update-profile-page .createevent-body .left-part .cropcontain .upload-btn1 {
+    background: #242021 none repeat scroll 0 0 !important;
+    border: medium none !important;
+    color: #f7941e !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    height: 28px !important;
+    margin: 2px 0;
+    width: 28px !important;
+}
+
+.update-profile-page .imgBtnCls {
+    background: #f8931f none repeat scroll 0 0;
+    border: 4px solid #fff;
+    border-radius: 0;
+    color: #434142;
+    cursor: pointer;
+    float: left;
+    font-family: "veneerregular";
+    font-size: 24px;
+    line-height: 24px;
+    margin: 10px 10px 20px 0;
+    outline: medium none !important;
+    padding: 7px 10px 2px;
+    text-transform: uppercase;
 }
 
 /***********************Code By Samsuj [end]**********************************/

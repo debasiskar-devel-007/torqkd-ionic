@@ -19,6 +19,7 @@ import { ActionSheetController } from 'ionic-angular';
 //import {ProfilePage} from '../profile/profile'
 //import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
  Generated class for the LoginPage page.
@@ -31,6 +32,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
     directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
 export class profileeventlistPage {
+    public homepage = HomePage;
+    public updateprofilepage = UpdateprofilePage;
     @ViewChild(Nav) nav: Nav;
     @ViewChild(Content)
     content:Content;

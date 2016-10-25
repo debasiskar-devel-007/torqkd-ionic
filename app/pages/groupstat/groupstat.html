@@ -11,10 +11,10 @@
           </button>
         </div>
         <div class="logo">
-          <a href="javascript:void(0)"> <img src="images/logo_main.png" alt="#"></a>
+          <a [navPush]="homepage"> <img src="images/logo_main.png" alt="#"></a>
         </div>
         <div class="logout">
-          <img src="images/gear2.png">
+          <a [navPush]="updateprofilepage"> <img src="images/gear2.png"></a>
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@
     <div id="tabs">
       <div class="btntablist">
         <button class="btntab" [navPush]="groupdetailspage"  [navParams]="{id:groupid}">Social</button>
-        <button class="btntab" [navPush]="groupsettingspage" [navParams]="{id:groupid}">settings</button>
+        <button class="btntab" [navPush]="groupsettingspage" [navParams]="{id:groupid}" *ngIf="isAdmin == 1">settings</button>
         <button class="btntab" [navPush]="groupmemberspage" [navParams]="{id:groupid}">members</button>
         <button class="btntab active">stats</button>
       </div>

@@ -9,6 +9,8 @@ import {TopicnewPage} from "../topicnew/topicnew";
 import {TopicmovePage} from "../topicmove/topicmove";
 import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the ForumPage page.
@@ -20,6 +22,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
   templateUrl: 'build/pages/forumdetails/forumdetails.html',
 })
 export class ForumDetailsPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
   private loggedinuser;
   private userdetails;
   private local:LocalStorage;

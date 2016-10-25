@@ -16,6 +16,8 @@ import {Homevideomodal1Page} from "../homevideomodal1/homevideomodal1";
 import {SocialcommentPage} from "../socialcomment/socialcomment";
 import {FbcommentPage} from "../fbcomment/fbcomment";
 import {TwcommentPage} from "../twcomment/twcomment";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the ExperiencePage page.
@@ -27,6 +29,8 @@ import {TwcommentPage} from "../twcomment/twcomment";
   templateUrl: 'build/pages/experience/experience.html',
 })
 export class ExperiencePage {
+    public homepage = HomePage;
+    public updateprofilepage = UpdateprofilePage;
 
   mySlideOptions = {
     initialSlide: 0,

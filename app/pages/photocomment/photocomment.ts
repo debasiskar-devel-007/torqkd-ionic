@@ -5,6 +5,8 @@ import {Http, Headers} from "@angular/http";
 import { Storage, LocalStorage } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import {DomSanitizationService} from "@angular/platform-browser";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the PhotocommentPage page.
@@ -16,6 +18,8 @@ import {DomSanitizationService} from "@angular/platform-browser";
   templateUrl: 'build/pages/photocomment/photocomment.html',
 })
 export class PhotocommentPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
   public  items;
   private local:LocalStorage;
   private loggedinuser;

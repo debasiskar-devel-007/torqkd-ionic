@@ -14,6 +14,8 @@ import {GroupsettingsPage} from "../groupsettings/groupsettings";
 import {statDetPage} from "../statdet/statdet";
 import '../../../node_modules/chart.js/src/chart.js';
 import { BaseChartComponent } from 'ng2-charts/ng2-charts';
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 
 /*
@@ -27,6 +29,8 @@ import { BaseChartComponent } from 'ng2-charts/ng2-charts';
   directives: [BaseChartComponent]
 })
 export class GroupstatPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
 
   private groupdetailspage = GroupdetailsPage;
   private groupmemberspage = GroupmembersPage;

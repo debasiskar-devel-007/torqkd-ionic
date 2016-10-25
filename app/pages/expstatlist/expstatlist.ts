@@ -13,6 +13,8 @@ import {ExpgrouplistPage} from "../expgrouplist/expgrouplist";
 import {statDetPage} from "../statdet/statdet";
 import '../../../node_modules/chart.js/src/chart.js';
 import { BaseChartComponent } from 'ng2-charts/ng2-charts';
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the ExpstatlistPage page.
@@ -25,6 +27,8 @@ import { BaseChartComponent } from 'ng2-charts/ng2-charts';
   directives: [BaseChartComponent]
 })
 export class ExpstatlistPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
 
   mySlideOptions = {
     initialSlide: 0,

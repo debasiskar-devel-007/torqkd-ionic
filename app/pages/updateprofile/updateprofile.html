@@ -1,20 +1,17 @@
-<!--
-  Generated template for the UpdateprofilePage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header class="login-header ">
   <ion-navbar class="login-top" hideBackButton>
     <div class="login-wrapper">
       <div class="mobile-top-con">
         <div class="mobile-menu show">
-          <button class="navmenul" menuToggle="left" hidden="true">
+          <button class="navmenur" (click)="openmenu()" menuToggle="right" hidden="false">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <button class="navmenul hide" menuToggle="left" hidden="true">
             <ion-icon name="menu"></ion-icon>
           </button>
         </div>
         <div class="logo">
-          <a href="#/index"> <img src="images/logo_main.png" alt="#"></a>
+          <a [navPush]="homepage"> <img src="images/logo_main.png" alt="#"></a>
         </div>
         <div class="logout">
           <img src="images/gear2.png">
@@ -27,6 +24,160 @@
 
 <ion-content padding>
 
-  This Page Is comming Soon !
+  <div class="experience-wrapper update-profile-page">
+    <div class="createevent-body">
+
+      <form angular-validator-submit="editProfile()" name="signUpForm" class="form-horizontal ng-pristine ng-valid-email ng-valid-angular-validator ng-valid ng-valid-required" novalidate="" angular-validator="">
+        <div class="left-part">
+          <h2>UPDATE YOUR PROFILE</h2>
+          <input ng-model="form.id" value="0" class="ng-pristine ng-untouched ng-valid" type="hidden">
+          <div class="form-group">
+            <div class="col-sm-10" style="width:100%; padding:0;">
+              <label>FIRST NAME</label>
+              <input id="UserManager_fname" name="UserManager[fname]" placeholder="FIRST NAME" validate-on="blur" class="form-control register_input ng-pristine ng-untouched ng-valid ng-valid-required" ng-model="form.fname" required-message="'First Name cannot be blank.'" required="" type="text">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-10" style="width:100%; padding:0;">
+              <label>LAST NAME</label>
+              <input id="UserManager_lname" name="UserManager[lname]" placeholder="LAST NAME" validate-on="blur" class="form-control register_input ng-pristine ng-untouched ng-valid ng-valid-required" ng-model="form.lname" required-message="'Last Name cannot be blank.'" required="" type="text">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-10" style="width:100%; padding:0;">
+              <label>EMAIL</label>
+              <input id="UserManager_email" name="UserManager[email]" placeholder="YOUR EMAIL" validate-on="blur" class="form-control register_input ng-pristine ng-untouched ng-valid-email ng-valid ng-valid-required" ng-model="form.email" required-message="'Email cannot be blank.'" invalid-message="'Enter valid email address.'" required="" type="email">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-10" style="width:100%; padding:0;">
+              <label>PASSWORD</label>
+              <input id="UserManager_password" value="" name="UserManager[password]" placeholder="PASSWORD" validate-on="dirty" class="form-control register_input ng-pristine ng-untouched ng-valid ng-valid-angular-validator" ng-model="form.password" validator="passwordValidator(form.password) === true" invalid-message="passwordValidator(form.password)" type="password">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-10" style="width:100%; padding:0;">
+              <label>CONFIRM PASSWORD</label>
+              <input id="UserManager_password2" name="UserManager[password2]" placeholder="CONFIRM PASSWORD" validate-on="dirty" class="form-control register_input ng-pristine ng-untouched ng-valid ng-valid-angular-validator" ng-model="form.password2" validator="form.password === form.password2 || form.password == ''" invalid-message="'Passwords do not match!'" type="password">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-10" style="width:100%; padding:0;">
+              <label>LOCATION</label>
+              <input id="UserManager_location" name="UserManager[location]" placeholder="LOCATION" class="form-control register_input ng-pristine ng-untouched ng-valid" ng-model="form.location" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-10" style="width:100%; padding:0;">
+              <label>CITY</label>
+              <input id="UserManager_city" name="UserManager[city]" placeholder="CITY" validate-on="blur" class="form-control register_input ng-pristine ng-untouched ng-valid ng-valid-required" ng-model="form.city" required-message="'City cannot be blank.'" required="" type="text">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-10" style="width:100%; padding:0;">
+              <label>COUNTRY</label>
+              <select id="UserManager_country" name="UserManager[country]" class="register_select form-control ng-pristine ng-untouched ng-valid ng-valid-required" validate-on="blur" ng-model="form.country" required-message="'Country cannot be blank.'" ng-change="changeCountry(form.country)" required="" ng-options="item.name for item in countrylist  track by item.id"><option value="" class="">SELECT YOUR COUNTRY</option><option value="14" label="Australia">Australia</option><option value="15" label="Austria">Austria</option><option value="24" label="Belgium">Belgium</option><option value="43" label="Canada">Canada</option><option value="81" label="Finland">Finland</option><option value="82" label="France">France</option><option value="91" label="Germany">Germany</option><option value="117" label="Ireland">Ireland</option><option value="119" label="Italy">Italy</option><option value="175" label="Netherlands">Netherlands</option><option value="178" label="New Zealand">New Zealand</option><option value="185" label="Norway">Norway</option><option value="198" label="Portugal">Portugal</option><option value="226" label="Spain">Spain</option><option value="233" label="Sweden">Sweden</option><option value="234" label="Switzerland">Switzerland</option><option value="253" label="United Kingdom">United Kingdom</option><option value="254" selected="selected" label="United States">United States</option></select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-10 ng-hide" ng-show="stateLoad" style="width:100%; padding:0; margin-top: 8px;"><img src="images/loading_list.gif"></div>
+            <div class="col-sm-10" ng-show="!stateLoad" style="width:100%; padding:0;">
+              <label>STATE</label>
+              <select id="UserManager_state" name="UserManager[state]" class="register_select form-control ng-pristine ng-untouched ng-valid ng-valid-required" validate-on="blur" ng-model="form.state" required-message="'State cannot be blank.'" required="" ng-options="item.name for item in statelist  track by item.id"><option value="" class="">SELECT YOUR STATE</option><option value="1609" label="Alabama">Alabama</option><option value="1682" label="Alaska">Alaska</option><option value="1683" label="Arizona">Arizona</option><option value="1684" label="Arkansas">Arkansas</option><option value="1685" selected="selected" label="California">California</option><option value="1686" label="Colorado">Colorado</option><option value="1687" label="Connecticut">Connecticut</option><option value="1688" label="Delaware">Delaware</option><option value="1689" label="Florida">Florida</option><option value="1690" label="Georgia">Georgia</option><option value="1691" label="Hawaii">Hawaii</option><option value="1692" label="Idaho">Idaho</option><option value="1693" label="Illinois">Illinois</option><option value="1694" label="Indiana">Indiana</option><option value="1695" label="Iowa">Iowa</option><option value="1696" label="Kansas">Kansas</option><option value="1697" label="Kentucky">Kentucky</option><option value="1698" label="Louisiana">Louisiana</option><option value="1699" label="Maine">Maine</option><option value="1700" label="Maryland">Maryland</option><option value="1728" label="Massachusetts">Massachusetts</option><option value="1701" label="Michigan">Michigan</option><option value="1702" label="Minnesota">Minnesota</option><option value="1703" label="Mississippi">Mississippi</option><option value="1745" label="Missouri">Missouri</option><option value="1704" label="Montana">Montana</option><option value="1705" label="Nebraska">Nebraska</option><option value="1706" label="Nevada">Nevada</option><option value="1710" label="New  York">New  York</option><option value="1707" label="New Hamsphire">New Hamsphire</option><option value="1708" label="New Jersey">New Jersey</option><option value="1709" label="New Mexico">New Mexico</option><option value="1711" label="North Carolina">North Carolina</option><option value="1712" label="North Dakota">North Dakota</option><option value="1713" label="Ohio">Ohio</option><option value="1714" label="Oklahoma">Oklahoma</option><option value="1715" label="Oregon">Oregon</option><option value="1716" label="Pennsylvania">Pennsylvania</option><option value="1717" label="Rhode Island">Rhode Island</option><option value="1718" label="South Carolina">South Carolina</option><option value="1719" label="South Dakota">South Dakota</option><option value="1720" label="Tennesse">Tennesse</option><option value="1721" label="Texas">Texas</option><option value="1722" label="Utah">Utah</option><option value="1723" label="Vermont">Vermont</option><option value="1724" label="Virginia">Virginia</option><option value="1725" label="Washington">Washington</option><option value="1726" label="West Virginia">West Virginia</option><option value="1727" label="Wisconsin">Wisconsin</option><option value="1729" label="Wyoming">Wyoming</option></select>
+            </div>
+          </div>
+
+          <div class="cropcontain">
+            <div class="imglist">
+              <img src="http://torqkd.com/uploads/user_image/thumb/498.jpg?version=1477402159712" class="newaddimg">
+            </div>
+            <div>
+              <input ng-show="isMobileApp" value="+" class="upload-btn1" ng-click="andriodUp()" type="button">
+              <img src="images/help.png" alt="#" class="help-icon">
+              <div class="clear"></div>
+            </div>
+
+            <input class="imgBtnCls" value="Crop" type="button">
+            <input class="imgBtnCls" value="Delete" type="button">
+          </div>
+
+          <div class="cropcontain">
+            <div class="imglist">
+              <img src="http://torqkd.com/uploads/user_image/background/thumb/498.png?version=1477402159712" class="newaddimg" width="350">
+            </div>
+            <div>
+              <input value="+" class="upload-btn1" ng-click="andriodUp1()" type="button">
+              <img src="images/help.png" alt="#" class="help-icon">
+              <div class="clear"></div>
+            </div>
+            <input class="imgBtnCls" value="Crop" type="button">
+            <input class="imgBtnCls" value="Delete" type="button">
+          </div>
+        </div>
+
+        <div class="editprofilemain">
+          <div style="display: block;margin-top:15px; position: relative;">
+            <span class="editsettingbtn" style="background: none; float: left; width:100%;  margin: 10px 0;">Privacy
+              <a href="javascript:void(0)" style="text-decoration:none; outline:none;">
+                <span style="font-size: 16px; letter-spacing: 0px;" class="">
+                  <img src="images/share1_icon_active.png" style="width:18px; margin-top:-2px;">
+                  <span style="margin-left: 3px;">Public</span>
+                </span>
+                <span><img src="images/ad2new.png" style="padding-left:4px;"></span>
+              </a>
+            </span>
+            <span class="editsettingbtn" style="background: none; float: left; width:100%; margin: 10px 0; color: #f7931d;">Blocking
+              <a style="font-size:16px!important; letter-spacing: 0; text-transform:uppercase;  border:none; font-weight:normal!important;">
+                <img src="images/gear.png" style="margin-top:-6px;">
+              </a>
+            </span>
+          </div>
+          <div style="clear: both;"></div>
+        </div>
+
+        <div class="right-part">
+          <h1>Select Sport</h1>
+          <div class="sports-table">
+            <div *ngFor="let n of sportlist; let i = index">
+              <h3> {{n.name}}</h3>
+              <ul>
+                <li *ngFor="let m of n.ch; let i = index">
+                  <a href="javascript:void(0);" style="margin-bottom: 0px;" (click)="selsports(m.id)" >
+                    <img  alt="#" src="http://torqkd.com/uploads/sports_image/thumb/{{m.image}}" style="max-width: none;">
+                  </a>
+                  <strong> {{m.name}}</strong>
+                </li>
+              </ul>
+              <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+
+        <button type="submit" class="updatebtn">UPDATE PROFILE</button>
+
+        <a [navPush]="profilepage" class="backbtn">BACK</a>
+      </form>
+
+    </div>
+    <div class="footer-menu1">
+      <span>&copy;TORKQ</span>
+      <span>|</span>
+      <span>
+                <a href="javascript:void(0);" (click)="showtermsploicy('terms')">TERMS </a>
+            </span>
+      <span>|</span>
+      <span>
+                <a href="javascript:void(0);" (click)="showtermsploicy('policy')">PRIVACY</a>
+            </span>
+    </div>
+  </div>
 
 </ion-content>

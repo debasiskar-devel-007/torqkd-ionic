@@ -13,6 +13,8 @@ import {socialtaglistPage} from "../socialtaglist/socialtaglist";
 import {FbcommentPage} from "../fbcomment/fbcomment";
 import {NotificationPage} from "../notification/notification";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 /*
   Generated class for the SinglepostPage page.
@@ -24,6 +26,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
   templateUrl: 'build/pages/singlepost/singlepost.html',
 })
 export class SinglepostPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
   private loggedinuser;
   private local:LocalStorage;
   private postId;

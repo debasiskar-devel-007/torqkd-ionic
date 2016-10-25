@@ -19,6 +19,7 @@ import { ActionSheetController } from 'ionic-angular';
 import '../../../node_modules/chart.js/src/chart.js';
 import { BaseChartComponent } from 'ng2-charts/ng2-charts';
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 //import {ProfilePage} from '../profile/profile'
 //import * as $ from "jquery";
@@ -34,6 +35,8 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
     directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES,BaseChartComponent]
 })
 export class profileStatPage {
+    public homepage = HomePage;
+    public updateprofilepage = UpdateprofilePage;
     @ViewChild(Nav) nav: Nav;
     @ViewChild(Content)
     content:Content;

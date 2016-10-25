@@ -4,6 +4,8 @@ import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {SinglepostPage} from "../singlepost/singlepost";
 import * as $ from "jquery";
+import {HomePage} from '../home/home';
+import {UpdateprofilePage} from '../updateprofile/updateprofile';
 
 
 /*
@@ -16,6 +18,8 @@ import * as $ from "jquery";
   templateUrl: 'build/pages/notification/notification.html',
 })
 export class NotificationPage {
+  public homepage = HomePage;
+  public updateprofilepage = UpdateprofilePage;
   private loggedinuser;
   private local:LocalStorage;
   private datalist3;
