@@ -7149,6 +7149,108 @@ code.has-numbering {
     width: 62px;
 }
 
+.add-event-page .createevent-body .left-part select {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 3px solid #97989a !important;
+    color: #000 !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 20px !important;
+    height: 40px !important;
+    padding: 4px !important;
+    width: 96% !important;
+}
+.add-event-page .createevent-body .left-part select option {
+    color: #000 !important;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 15px !important;
+    font-weight: normal;
+    line-height: 20px;
+    padding: 3px 20px;
+    white-space: nowrap;
+}
+
+.add-event-page .createevent-body .left-part .text-part {
+    font-size: 13px;
+    font-style: italic;
+    padding: 10px 0;
+}
+
+.add-event-page .createevent-body .left-part .form-part span{
+    display: block;
+    float: left;
+    padding-right: 10px;
+    text-align: left;
+    width: 50px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.add-event-page .time-div {
+    width: 100%;
+}
+.add-event-page .time-div #Event_start_time_hour {
+    float: left !important;
+    margin: 0 2% !important;
+    text-align: center !important;
+    width: 29% !important;
+}
+.add-event-page .time-div #Event_start_time_min {
+    float: left !important;
+    margin: 0 2% !important;
+    text-align: center !important;
+    width: 29% !important;
+}
+.add-event-page .time-div #Event_start_time_meridian {
+    float: left !important;
+    margin: 0 2% !important;
+    text-align: center !important;
+    width: 29% !important;
+}
+.add-event-page .time-div #Event_end_time_hour {
+    float: left !important;
+    margin: 0 2% !important;
+    text-align: center !important;
+    width: 29% !important;
+}
+.add-event-page .time-div #Event_end_time_min {
+    float: left !important;
+    margin: 0 2% !important;
+    text-align: center !important;
+    width: 29% !important;
+}
+.add-event-page .time-div #Event_end_time_meridian {
+    float: left !important;
+    margin: 0 2% !important;
+    text-align: center !important;
+    width: 29% !important;
+}
+
+.add-event-page .createevent-body .left-part .item {
+    background: #fff none repeat scroll 0 0;
+    border: 3px solid #97989a !important;
+    height: 45px !important;
+    margin-left: 0;
+    padding: 0 !important;
+    width: 96% !important;
+    border-radius: 4px;
+}
+
+.add-event-page .createevent-body .left-part .item ion-label{
+    padding: 0 0 0 15px;
+    text-align: left;
+}
+
+.add-event-page .createevent-body .event-btn {
+    background: rgba(0, 0, 0, 0) url("../images/submit_event.png") no-repeat scroll 0 0;
+    border: medium none;
+    cursor: pointer;
+    height: 45px;
+    margin: 20px 0;
+    width: 246px;
+}
+
 
 .register-body{
     background: rgba(0, 0, 0, 0) url("../images/join-bg.jpg") no-repeat fixed center center / cover;
@@ -7840,13 +7942,14 @@ code.has-numbering {
     display: block;
     margin: 0 auto 10px;
     padding: 2px;
-    width: 46px !important;
+    width: 58px !important;
+    height: 58px !important;
 }
 .update-profile-page .sports-table ul li a.activeimg {
     border: 4px solid #f8931f;
     box-shadow: 0 0 5px #888;
-    height: 46px;
-    width: 46px !important;
+    width: 58px !important;
+    height: 58px !important;
 }
 .update-profile-page .sports-table ul li strong {
     color: #58595b !important;
@@ -7876,6 +7979,11 @@ code.has-numbering {
     padding: 10px 20px 5px;
     text-transform: uppercase;
 }
+.update-profile-page .updatebtn:hover {
+    background: #f8931f none repeat scroll 0 0;
+    border: 4px solid #fff;
+}
+
 .update-profile-page .createevent-body .backbtn {
     color: #585b60;
     font-family: "veneerregular";
@@ -7935,4 +8043,298 @@ code.has-numbering {
     text-transform: uppercase;
 }
 
+.update-profile-page .createevent-body .left-part {
+    float: none;
+    width: 100%;
+}
+.update-profile-page .createevent-body .left-part h2 {
+    color: #f79213;
+    font-family: "veneerregular";
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    line-height: 36px;
+    margin: 0 !important;
+    padding: 0 0 20px !important;
+}
+.update-profile-page .createevent-body .left-part .control-group {
+    float: left;
+    padding: 0 !important;
+    width: 93%;
+}
+.update-profile-page .createevent-body .left-part .controls {
+    margin: 0;
+    padding: 0;
+}
+.update-profile-page .createevent-body .left-part .input1 {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 2px solid #97989a !important;
+    height: 33px !important;
+    padding: 4px !important;
+    width: 100% !important;
+}
+.update-profile-page .createevent-body .left-part .input2 {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 3px solid #97989a !important;
+    border-radius: 5px !important;
+    height: 70px !important;
+    width: 96.2% !important;
+}
+.update-profile-page .createevent-body .left-part .input3 {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 1px solid #97989a !important;
+    border-radius: 0 !important;
+    height: 25px !important;
+    margin: 15px 0 0 !important;
+    padding: 2px 0;
+    width: 80% !important;
+}
+.update-profile-page .createevent-body .left-part .text-part {
+    font-size: 13px;
+    font-style: italic;
+    padding: 10px 0;
+}
+.update-profile-page .createevent-body .left-part h3 {
+    color: #f79213;
+    font-family: "veneerregular";
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 22px;
+    margin: 0 !important;
+    padding: 20px 0 10px !important;
+}
+.update-profile-page .createevent-body .left-part .form-part {
+    margin: 20px 0;
+    width: 100%;
+}
+.createevent-body .left-part .form-part span {
+    display: block;
+    float: left;
+    line-height: 35px;
+    padding-right: 10px;
+    text-align: right;
+    width: 24px;
+}
+.update-profile-page .createevent-body .left-part .form-part .input-form {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 2px solid #97989a !important;
+    float: left !important;
+    height: 40px !important;
+    padding: 4px !important;
+    width: 90% !important;
+}
+.update-profile-page .createevent-body .left-part span .error {
+    color: #ff0000 !important;
+    display: inline !important;
+    line-height: 40px !important;
+}
+
+.update-profile-page .createevent-body label {
+    color: #4f4f51;
+    display: block !important;
+    font-family: reservation;
+    font-size: 20px;
+    font-style: normal !important;
+    font-weight: normal !important;
+    margin-bottom: 8px !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004) !important;
+    text-transform: uppercase !important;
+}
+
+.update-profile-page .createevent-body .left-part input[type="text"] {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 3px solid #97989a !important;
+    color: #000 !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 20px !important;
+    height: 40px !important;
+    padding: 4px !important;
+    width: 96% !important;
+    border-radius: 4px !important;
+}
+.update-profile-page .createevent-body .left-part input[type="password"] {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 3px solid #97989a !important;
+    color: #000 !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 20px !important;
+    height: 40px !important;
+    margin-bottom: 20px;
+    padding: 4px !important;
+    width: 96% !important;
+    border-radius: 4px !important;
+}
+.update-profile-page .createevent-body .left-part input[type="email"] {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 3px solid #97989a !important;
+    color: #000 !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 20px !important;
+    height: 40px !important;
+    margin-bottom: 20px;
+    padding: 4px !important;
+    width: 96% !important;
+    border-radius: 4px !important;
+}
+
+.update-profile-page .createevent-body .left-part select {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 3px solid #97989a !important;
+    color: #000 !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 20px !important;
+    height: 40px !important;
+    padding: 4px !important;
+    width: 96% !important;
+    border-radius: 4px !important;
+}
+.update-profile-page .createevent-body .left-part select option {
+    color: #000 !important;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 15px !important;
+    font-weight: normal;
+    line-height: 20px;
+    padding: 3px 20px;
+    white-space: nowrap;
+}
+
+.block-page{
+    background: #DFE2E2 none repeat scroll 0 0;
+}
+
+.block-page scroll-content{
+    margin: 20px 0 0 !important;
+}
+
+.block-page .block-page-wrapper{
+    width: 96%;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.block-page .settingswrapper h4 {
+    color: #f7941e;
+    font-family: veneerregular;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+}
+.block-page .settingstext {
+    color: #333 !important;
+    font-size: 14px !important;
+    line-height: 22px;
+    padding: 10px 0;
+}
+.block-page .settingstablewrapper {
+    background: #ede8e8 none repeat scroll 0 0;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    margin: 10px 0 20px;
+    padding: 15px 2%;
+    width: 100%;
+}
+.block-page .settingstablewrapper ul {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    list-style: outside none none;
+}
+.block-page .settingstablewrapper li {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    list-style: outside none none;
+}
+.block-page .settingstablewrapper a {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #333;
+    list-style: outside none none;
+}
+.block-page .settingstablewrapper .blockuserdiv {
+    margin: 0 auto;
+    width: 300px;
+}
+.block-page .settingstablewrapper .blockuserdiv span {
+    color: #333;
+    display: block;
+    float: left;
+    font-weight: bold;
+    padding: 5px 0 0;
+    width: 80px;
+}
+.block-page .settingstablewrapper .blockuserdiv input[type="text"] {
+    background: #f1f1f3 none repeat scroll 0 0 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 2px !important;
+    color: #333 !important;
+    float: left;
+    height: 30px !important;
+    padding: 5px;
+    width: 140px !important;
+}
+.block-page .settingstablewrapper .blockuserdiv input[type="button"] {
+    background: #f7941e none repeat scroll 0 0;
+    border: 2px solid #fff;
+    box-shadow: none;
+    color: #58595b !important;
+    display: inline-block;
+    float: right;
+    font-family: veneerregular;
+    font-size: 20px !important;
+    height: 30px !important;
+    margin: 0;
+    padding: 2px 9px 3px;
+}
+
+
+.block-page  ion-list > .item:first-child{
+    border-top: 1px solid #ffffff;
+}
+
+.block-page .item{
+    background: none;
+    border-bottom: 1px solid #ffffff;
+}
+
+
+
+
+.block-list-page scroll-content{
+    margin: 20px 0 0 !important;
+}
+
+.block-list-page ion-list > .item:first-child{
+    border-top: 1px solid #ffffff;
+}
+
+.block-list-page  ion-avatar img{
+    border-radius: 0;
+}
+
+.block-list-page ion-label{
+    text-align: left;
+}
+
+.block-list-page .item{
+    background: none;
+    border-bottom: 1px solid #ffffff;
+}
+
+.block-list-page .item h2{
+    display: inline;
+    float: left;
+}
+.block-list-page ion-label input{
+    background: #f7941e none repeat scroll 0 0;
+    border: 2px solid #fff;
+    box-shadow: none;
+    color: #58595b !important;
+    display: inline-block;
+    float: right;
+    font-family: veneerregular;
+    font-size: 20px !important;
+    height: 30px !important;
+    margin: 0;
+    padding: 2px 9px 3px;
+}
 /***********************Code By Samsuj [end]**********************************/

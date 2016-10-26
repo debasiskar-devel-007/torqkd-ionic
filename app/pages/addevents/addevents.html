@@ -31,22 +31,30 @@
       <div class="left-part">
 
         <h2 class="ng-binding">Create Event</h2>
-        <form angular-validator-submit="submiteventForm()" name="eventForm" class="form-horizontal ng-pristine ng-invalid ng-invalid-required ng-valid-date ng-valid-url" novalidate="" angular-validator="">
+        <form novalidate [formGroup]="addEventForm" (ngSubmit)="formsubmit(addEventForm.value)">
           <div class="form-group">
             <div class="col-sm-10" style="width:100%; padding:0; margin-bottom:20px;">      <span style="float: right; display:block; width: 10px; color:#ff0000; margin-top:15px; font-size:16px; ">*</span>
-              <input id="Event_name" name="Event[name]" placeholder="EVENT NAME" validate-on="blur" class="form-control input1 ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="form.name" required-message="'Name cannot be blank.'" required="" type="text">
+              <input [formControl]="addEventForm.controls['name']" type="text" placeholder="EVENT NAME" class="form-control input1">
+              <div *ngIf ="addEventForm.controls['name'].touched">
+                <div *ngIf ="!addEventForm.controls['name'].valid" class = "alert alert-danger">
+                  <strong>Name is required</strong>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-sm-10" style="width:100%; padding:0;">
-              <textarea id="Event_description" name="Event[description]" class="form-control input2 ng-pristine ng-untouched ng-valid" placeholder="DESCRIPTION" ng-model="form.description"></textarea>
+              <textarea [formControl]="addEventForm.controls['description']" placeholder="DESCRIPTION" class="form-control input2"></textarea>
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-sm-10" style="width:100%; padding:0;">
-              <select id="UserManager_group_id" name="UserManager[group_id]" class="form-control input10 ng-pristine ng-untouched ng-valid" ng-model="form.group_id" ng-options="item.name for item in groupList  track by item.id"><option value="" class="">GROUP EVENT?</option><option value="2" label="test group">test group</option><option value="3" label="world cup ">world cup </option><option value="4" label="arwewe">arwewe</option><option value="5" label="php developer">php developer</option><option value="6" label="test group">test group</option><option value="7" label="bhaskar testing">bhaskar testing</option><option value="8" label="Big Fun on the Run!">Big Fun on the Run!</option><option value="9" label="web design">web design</option><option value="10" label="samgroup">samgroup</option><option value="11" label="Test group 7-15">Test group 7-15</option><option value="12" label="New group updated 123">New group updated 123</option><option value="13" label="Cherry gogo">Cherry gogo</option><option value="14" label="new group">new group</option><option value="15" label="bcvbc">bcvbc</option><option value="16" label="xcvxc">xcvxc</option><option value="17" label="Alina's Group">Alina's Group</option><option value="18" label="xcvxc">xcvxc</option><option value="19" label="xcvxc">xcvxc</option><option value="20" label="zzzz">zzzz</option><option value="21" label="Lannah's Test Group updated">Lannah's Test Group updated</option><option value="22" label="Run Baby Run">Run Baby Run</option><option value="23" label="Ride with me">Ride with me</option><option value="24" label="Testing Group">Testing Group</option><option value="25" label="dsf dsfs">dsf dsfs</option><option value="26" label="dsf dsfs">dsf dsfs</option><option value="27" label="New ionic">New ionic</option></select>
+              <select class="form-control input10" [formControl]="addEventForm.controls['group_id']">
+                <option value="" class="">GROUP EVENT?</option>
+                <option *ngFor="let item of grouplist; let i = index" value="{{item.id}}">{{item.name}}</option>
+              </select>
 
 
             </div>
@@ -66,105 +74,62 @@
               <span>Date:</span>
               <div class="form-group">
                 <div class="col-sm-10" style="width:100%; padding:0;">
-
-                  <input id="Event_from_date" name="Event[from_date]" placeholder="FROM DATE" validate-on="blur" class="form-control input-form ng-pristine ng-untouched ng-isolate-scope ng-invalid ng-invalid-required ng-valid-date" ng-model="form.from_date" datepicker-popup="MM/dd/yyyy" is-open="opened" ng-required="true" close-text="Close" show-weeks="false" min-date="minDate" max-date="maxDate" ng-blur="setDate()" ng-focus="open($event)" required-message="'Date cannot be blank.'" required="required" type="text"><!-- ngIf: isOpen -->
+                  <ion-item>
+                    <ion-label>FROM DATE</ion-label>
+                    <ion-datetime displayFormat="MM/DD/YYYY" [formControl]="addEventForm.controls['from_date']" class="form-control input-form" max="{{max}}"></ion-datetime>
+                    </ion-item>
+                    <div *ngIf ="addEventForm.controls['from_date'].touched">
+                      <div *ngIf ="!addEventForm.controls['from_date'].valid" class = "alert alert-danger">
+                        <strong>Start date is required</strong>
+                      </div>
+                    </div>
                 </div>
               </div>
               <span>To:</span>
               <div class="form-group">
                 <div class="col-sm-10" style="width:100%; padding:0;">
-
-                  <input id="Event_to_date" name="Event[to_date]" placeholder="TO DATE" validate-on="blur" class="form-control input-form ng-pristine ng-untouched ng-isolate-scope ng-invalid ng-invalid-required ng-valid-date" ng-model="form.to_date" datepicker-popup="MM/dd/yyyy" is-open="opened1" ng-required="true" close-text="Close" show-weeks="false" min-date="minDate1" ng-blur="setDate1()" ng-focus="open1($event)" required-message="'Date cannot be blank.'" required="required" type="text"><!-- ngIf: isOpen -->
+                  <ion-item>
+                    <ion-label>TO DATE</ion-label>
+                    <ion-datetime displayFormat="MM/DD/YYYY" [formControl]="addEventForm.controls['to_date']" class="form-control input-form" max="{{max}}"></ion-datetime>
+                    </ion-item>
+                  <div *ngIf ="addEventForm.controls['to_date'].touched">
+                    <div *ngIf ="!addEventForm.controls['to_date'].valid" class = "alert alert-danger">
+                      <strong>End date is required</strong>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="clear"></div>
-              <span ng-show="!form.checked">Time:</span>
-              <div class="form-group">
+              <span *ngIf="allday == 0">Time:</span>
+              <div *ngIf="allday == 0" class="form-group">
                 <div class="col-sm-10" style="width:100%; padding:0;">
+                  <ion-item>
+                    <ion-label>START TIME</ion-label>
+                    <ion-datetime displayFormat="hh:mm A" [formControl]="addEventForm.controls['start_time']" class="form-control input-form"></ion-datetime>
+                  </ion-item>
 
-                  <!--<input ng-if="!form.checked" type="text" id="Event_start_time" name="Event[start_time]" placeholder="START TIME"
-                         validate-on="blur"
-                         class = "form-control input-form"
-                         ng-model = "form.start_time"
-                         required-message="'TIME cannot be blank.'"
-                         required>-->
-                  <div class="time-div">
-
-                    <select ng-show="!form.checked" id="Event_start_time_hour" name="Evet[start_time_hour]" class="form-control input10 ng-pristine ng-untouched ng-valid" ng-model="form.start_time_hour">
-                      <option value="01">01</option>
-                      <option value="02">02</option>
-                      <option value="03">03</option>
-                      <option value="04">04</option>
-                      <option value="05">05</option>
-                      <option value="06">06</option>
-                      <option value="07">07</option>
-                      <option value="08">08</option>
-                      <option value="09">09</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                    </select>
-                    <select ng-show="!form.checked" id="Event_start_time_min" name="Evet[start_time_min]" class="form-control input10 ng-pristine ng-untouched ng-valid" ng-model="form.start_time_min">
-                      <option value="00">00</option>
-                      <option value="15">15</option>
-                      <option value="30">30</option>
-                      <option value="45">45</option>
-                    </select>
-                    <select ng-show="!form.checked" id="Event_start_time_meridian" name="Evet[start_time_meridian]" class="form-control input10 ng-pristine ng-untouched ng-valid" ng-model="form.start_time_meridian">
-                      <option value="AM">AM</option>
-                      <option value="PM">PM</option>
-                    </select>
-
-                    <div class="clear"></div>
-                  </div>
                 </div>
               </div>
 
-              <span ng-show="!form.checked">To:</span>
-              <div class="form-group">
+              <span  *ngIf="allday == 0">To:</span>
+              <div *ngIf="allday == 0" class="form-group">
                 <div class="col-sm-10" style="width:100%; padding:0;">
 
-                  <!--<input ng-if="!form.checked" type="text" id="Event_end_time" name="Event[end_time]" placeholder="END TIME"
-                         validate-on="blur"
-                         class = "form-control input-form"
-                         ng-model = "form.end_time"
-                         required-message="'TIME cannot be blank.'"
-                         required>-->
-                  <div class="time-div">
-
-                    <select ng-show="!form.checked" id="Event_end_time_hour" name="Evet[end_time_hour]" class="form-control input10 ng-pristine ng-untouched ng-valid" ng-model="form.end_time_hour">
-                      <option value="01">01</option>
-                      <option value="02">02</option>
-                      <option value="03">03</option>
-                      <option value="04">04</option>
-                      <option value="05">05</option>
-                      <option value="06">06</option>
-                      <option value="07">07</option>
-                      <option value="08">08</option>
-                      <option value="09">09</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                    </select>
-                    <select ng-show="!form.checked" id="Event_end_time_min" name="Evet[end_time_min]" class="form-control input10 ng-pristine ng-untouched ng-valid" ng-model="form.end_time_min">
-                      <option value="00">00</option>
-                      <option value="15">15</option>
-                      <option value="30">30</option>
-                      <option value="45">45</option>
-                    </select>
-                    <select ng-show="!form.checked" id="Event_end_time_meridian" name="Evet[end_time_meridian]" class="form-control input10 ng-pristine ng-untouched ng-valid" ng-model="form.end_time_meridian">
-                      <option value="AM">AM</option>
-                      <option value="PM">PM</option>
-                    </select>
-                    <div class="clear"></div>
-                  </div>
+                  <ion-item>
+                    <ion-label>END TIME</ion-label>
+                    <ion-datetime displayFormat="hh:mm A" [formControl]="addEventForm.controls['end_time']" class="form-control input-form"></ion-datetime>
+                  </ion-item>
 
                 </div>
               </div>
 
               <div class="clear"></div><br>
 
-              All day&nbsp;&nbsp;<input ng-model="form.checked" value="1" ng-checked="form.all_day" class="ng-pristine ng-untouched ng-valid" type="checkbox">
+              <ion-item style="border: none !important; background: none;">
+                <ion-label>All day</ion-label>
+                <ion-checkbox [formControl]="addEventForm.controls['all_day']" (ionChange)="handleChange($event)"></ion-checkbox>
+              </ion-item>
+
             </div>
           </div>
 
@@ -175,7 +140,12 @@
             <div class="form-group">
               <div class="col-sm-10" style="width:100%; padding:0; margin-bottom:20px;">
                 <span style="float: right; display:block; width: 10px; color:#ff0000; margin-top:15px; font-size:16px; ">*</span>
-                <input id="Event_location" name="Event[location]" placeholder="LOCATION NAME" validate-on="blur" class="form-control input1 ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="form.location" required-message="'Location cannot be blank.'" required="" type="text">
+                <input [formControl]="addEventForm.controls['location']" type="text" placeholder="LOCATION NAME" class="form-control input1">
+                <div *ngIf ="addEventForm.controls['location'].touched">
+                  <div *ngIf ="!addEventForm.controls['location'].valid" class = "alert alert-danger">
+                    <strong>Location is required</strong>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -184,7 +154,12 @@
 
             <div class="form-group">
               <div class="col-sm-10" style="width:100%; padding:0; margin-bottom:20px;">      <span style="float: right; display:block; width: 10px; color:#ff0000; margin-top:15px; font-size:16px; ">*</span>
-                <input id="Event_address" name="Event[address]" placeholder="ADDRESS" validate-on="blur" class="form-control input1 ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="form.address" required-message="'Address cannot be blank.'" required="" type="text">
+                <input [formControl]="addEventForm.controls['address']" type="text" placeholder="ADDRESS" class="form-control input1">
+                <div *ngIf ="addEventForm.controls['address'].touched">
+                  <div *ngIf ="!addEventForm.controls['address'].valid" class = "alert alert-danger">
+                    <strong>Address is required</strong>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -192,7 +167,12 @@
 
             <div class="form-group">
               <div class="col-sm-10" style="width:100%; padding:0; margin-bottom:20px;">      <span style="float: right; display:block; width: 10px; color:#ff0000; margin-top:15px; font-size:16px; ">*</span>
-                <input id="Event_city" name="Event[city]" placeholder="CITY" validate-on="blur" class="form-control input1 ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="form.city" required-message="'City cannot be blank.'" required="" type="text">
+                <input [formControl]="addEventForm.controls['city']" type="text" placeholder="CITY" class="form-control input1">
+                <div *ngIf ="addEventForm.controls['city'].touched">
+                  <div *ngIf ="!addEventForm.controls['city'].valid" class = "alert alert-danger">
+                    <strong>City is required</strong>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -201,7 +181,7 @@
 
             <div class="form-group">
               <div class="col-sm-10" style="width:100%; padding:0; margin-bottom:20px;">
-                <input id="Event_zip" name="Event[zip]" placeholder="ZIP" class="form-control input1 ng-pristine ng-untouched ng-valid" ng-model="form.zip" type="text">
+                <input [formControl]="addEventForm.controls['zip']" type="text" placeholder="ZIP" class="form-control input1">
               </div>
             </div>
 
@@ -210,7 +190,16 @@
             <div class="form-group">
               <div class="col-sm-10" style="width:100%; padding:0; margin-bottom:20px;">      <span style="float: right; display:block; width: 10px; color:#ff0000; margin-top:15px; font-size:16px; ">*</span>
 
-                <select id="Event_country" name="Evet[country]" class="form-control input10 ng-pristine ng-untouched ng-invalid ng-invalid-required" validate-on="blur" ng-model="form.country" required-message="'Country cannot be blank.'" required="" ng-options="item.name for item in countrylist  track by item.id" ng-change="changeCountry(form.country)"><option value="" class="">SELECT YOUR COUNTRY</option><option value="14" label="Australia">Australia</option><option value="15" label="Austria">Austria</option><option value="24" label="Belgium">Belgium</option><option value="43" label="Canada">Canada</option><option value="81" label="Finland">Finland</option><option value="82" label="France">France</option><option value="91" label="Germany">Germany</option><option value="117" label="Ireland">Ireland</option><option value="119" label="Italy">Italy</option><option value="175" label="Netherlands">Netherlands</option><option value="178" label="New Zealand">New Zealand</option><option value="185" label="Norway">Norway</option><option value="198" label="Portugal">Portugal</option><option value="226" label="Spain">Spain</option><option value="233" label="Sweden">Sweden</option><option value="234" label="Switzerland">Switzerland</option><option value="253" label="United Kingdom">United Kingdom</option><option value="254" label="United States">United States</option></select>
+
+                <select class="form-control input10" [formControl]="addEventForm.controls['country']" (change)="changecountry($event.target.value)">
+                  <option value="" class="">SELECT YOUR COUNTRY</option>
+                  <option *ngFor="let item of countrylist; let i = index" value="{{item.id}}">{{item.name}}</option>
+                </select>
+                <div *ngIf ="addEventForm.controls['country'].touched">
+                  <div *ngIf ="!addEventForm.controls['country'].valid">
+                    <label class="control-label has-error validationMessage">Country cannot be blank.</label>
+                  </div>
+                </div>
 
 
               </div>
@@ -220,7 +209,16 @@
             <div class="form-group">
               <div class="col-sm-10" style="width:100%; padding:0; margin-bottom:20px;">      <span style="float: right; display:block; width: 10px; color:#ff0000; margin-top:15px; font-size:16px; ">*</span>
 
-                <select id="Event_state" name="Evet[state]" class="form-control input10 ng-pristine ng-untouched ng-invalid ng-invalid-required" validate-on="blur" ng-model="form.state" required-message="'State cannot be blank.'" required="" ng-options="item.name for item in statelist  track by item.id"><option value="" class="">SELECT YOUR STATE</option></select>
+                <select class="form-control input10" [formControl]="addEventForm.controls['state']">
+                  <option value="" class="">SELECT YOUR STATE</option>
+                  <option *ngFor="let item of statelist; let i = index" value="{{item.id}}">{{item.name}}</option>
+                </select>
+
+                <div *ngIf ="addEventForm.controls['state'].touched">
+                  <div *ngIf ="!addEventForm.controls['state'].valid">
+                    <label class="control-label has-error validationMessage">State cannot be blank.</label>
+                  </div>
+                </div>
 
 
               </div>
@@ -230,20 +228,20 @@
 
             <div class="form-group">
               <div class="col-sm-10" style="width:100%; padding:0;">
-                <input id="Event_register_url" name="Event[register_url]" placeholder="REGISTRATION URL" validate-on="blur" class="form-control input1 ng-pristine ng-untouched ng-valid ng-valid-url" invalid-message="'Please Enter URL.'" ng-model="form.register_url" type="url">
+                <input [formControl]="addEventForm.controls['register_url']" type="text" placeholder="REGISTRATION URL" class="form-control input1">
               </div>
             </div>
 
           </div>
 
-          <h3>Event Photo </h3>
+          <!--<h3>Event Photo </h3>
           <div class="uploadbox" style="position:relative;">
             <div id="blah"> <img ng-show="eventImage" src="" class="ng-hide"></div>
             <input value="+" class="upload-btn ng-pristine ng-untouched ng-valid" ngf-drop="" ngf-select="" ng-model="files" ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" ngf-multiple="false" ngf-allow-dir="true" ngf-accept="'image/*'" ngf-drop-available="dropAvailable" ngf-capture="camera" type="button">
             <a rel="tooltip" title="Please Upload An Image Bigger Than 600X300" style=" margin-left:25px;"><img src="images/help.png"></a>
 
 
-          </div>
+          </div>-->
 
 
 

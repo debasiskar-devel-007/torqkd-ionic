@@ -60,7 +60,6 @@ export class SignupaddimagePage {
   }
 
   addPhoto(type){
-    alert()
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Upload Image',
       cssClass : 'photoSheet',
@@ -102,7 +101,6 @@ export class SignupaddimagePage {
 
   uploadpic2(type){
 
-    alert(this.userid);
 
     const fileTransfer = new Transfer();
     var options: any;
@@ -190,7 +188,6 @@ export class SignupaddimagePage {
 
   uploadpic(type){
 
-    alert(this.userid);
 
     const fileTransfer = new Transfer();
     var options: any;
@@ -222,7 +219,6 @@ export class SignupaddimagePage {
 
             this._http.post(link, data5)
                 .subscribe(data11 => {
-                  alert(data11.text());
                   if(type == 1)
                     this.filepath = data11.text();
                   if(type == 2)
