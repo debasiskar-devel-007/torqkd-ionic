@@ -69,7 +69,6 @@ export class EventmapPage {
     let markers = new Array();
     let bounds = new Array();
     let markerp = new Array();
-    let marker;
 
     var myOptions = {
       zoom: 10,
@@ -90,13 +89,10 @@ export class EventmapPage {
 
     for(n in this.items.markers){
         var mdata = this.items.markers[n];
-      var curP = new google.maps.LatLng(mdata.latitude,mdata.longitude);
+      this.placemarker(map,mdata);
 
-      new google.maps.Marker({
-        map: map,
-        position: curP,
-        icon:'http://torqkd.com/images/map-icon.png',
-      });
+
+
     }
 
   }
@@ -108,6 +104,33 @@ export class EventmapPage {
     });
 
     modal.present();
+  }
+
+  placemarker(map,mdata){
+    var curP = new google.maps.LatLng(mdata.latitude,mdata.longitude);
+
+    var contentString = '<div class="event-infowindow">\
+                        <h1 id="firstHeading" class="firstHeading">\
+                        '+mdata.name+'<br/>\
+                    <span>'+mdata.address+'</span></h1>\
+                    <div>'+mdata.date+'</div>\
+                        </div>';
+
+    var marker = new google.maps.Marker({
+      map: map,
+      position: curP,
+      icon:'http://torqkd.com/images/map-icon.png',
+      //title:address[statusd[x].id]
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+
   }
 
 

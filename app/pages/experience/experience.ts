@@ -18,6 +18,7 @@ import {FbcommentPage} from "../fbcomment/fbcomment";
 import {TwcommentPage} from "../twcomment/twcomment";
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
+import {SportsPage} from '../sports/sports';
 
 /*
   Generated class for the ExperiencePage page.
@@ -31,6 +32,7 @@ import {UpdateprofilePage} from '../updateprofile/updateprofile';
 export class ExperiencePage {
     public homepage = HomePage;
     public updateprofilepage = UpdateprofilePage;
+    public sportspage = SportsPage;
 
   mySlideOptions = {
     initialSlide: 0,
@@ -484,12 +486,11 @@ export class ExperiencePage {
                                     Facebook.showDialog(obj).then((res) => {
                                         let toast = this.toastCtrl.create({
                                             message: 'Posted Successfully On Facebook',
-                                            duration: 3000
+                                            duration: 3000,
+                                            position : 'middle',
+                                            cssClass : 'social-share-success'
                                         });
 
-                                        toast.onDidDismiss(() => {
-                                            this.navCtrl.pop();
-                                        });
 
                                         toast.present();
                                     });
@@ -520,13 +521,17 @@ export class ExperiencePage {
                                         .subscribe(res => {
                                             let toast = this.toastCtrl.create({
                                                 message: 'Posted Successfully On Facebook',
-                                                duration: 3000
+                                                duration: 3000,
+                                                position : 'middle',
+                                                cssClass : 'social-share-success'
                                             });
                                             toast.present();
                                         }, error => {
                                             let toast = this.toastCtrl.create({
                                                 message: 'An Error occured in FB Share',
-                                                duration: 3000
+                                                duration: 3000,
+                                                position : 'middle',
+                                                cssClass : 'social-share-success'
                                             });
                                             toast.present();
                                         });

@@ -23,6 +23,7 @@ import {SportsPage} from './pages/sports/sports';
 import {ExperiencePage} from './pages/experience/experience';
 import {LogoutPage} from './pages/logout/logout';
 import {PhotoPage} from './pages/photo/photo';
+import {Http, Headers} from "@angular/http";
 
 
 @Component({
@@ -31,13 +32,17 @@ import {PhotoPage} from './pages/photo/photo';
 class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  private submenuopen = 0;
+
   // make HelloIonicPage the root (or first) page
   rootPage: any = ProfilePage;
   pages: Array<{title: string, component: any}>;
 
+  private sportslist;
+
   constructor(
     public platform: Platform,
-    public menu: MenuController
+    public menu: MenuController,private _http: Http
   ) {
     this.initializeApp();
 
@@ -64,6 +69,24 @@ class MyApp {
       { title: 'Logout', component: LogoutPage },
 
     ];
+
+
+    /***************sport slider [start]********************/
+    var link1 = 'http://torqkd.com/user/ajs2/GetParentSports';
+    var data1 = {};
+
+    this._http.post(link1, data1)
+        .subscribe(res1 => {
+
+          this.sportslist = res1.json();
+
+        }, error => {
+          console.log("Oooops!");
+        });
+    /***************sport slider [end]********************/
+
+
+
   }
 
   initializeApp() {
@@ -86,11 +109,35 @@ class MyApp {
   }
 
   openPage(page) {
+    this.submenuopen = 0;
+    if(page.title == 'Sports'){
+      this.submenuopen = 1 - this.submenuopen;
+      return false;
+    }
+    this.submenuopen = 0;
     // close the menu when clicking a link from the menu
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+
   }
+
+  showReorder(item){
+    if(item.title == 'Sports'){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  opensportspage(id){
+    this.submenuopen = 0;
+    this.menu.close();
+    this.nav.push(SportsPage, { id : id});
+  }
+
+
+
 }
 
 ionicBootstrap(MyApp);

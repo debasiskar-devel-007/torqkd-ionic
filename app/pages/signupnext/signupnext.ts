@@ -52,11 +52,9 @@ export class SignupnextPage {
           .subscribe(res => {
             let toast = this.toastCtrl.create({
               message: 'Mail sent successfully.',
-              duration: 3000
-            });
-
-            toast.onDidDismiss(() => {
-              this.navCtrl.pop();
+              duration: 3000,
+              position : 'middle',
+              cssClass : 'social-share-success'
             });
 
             toast.present();

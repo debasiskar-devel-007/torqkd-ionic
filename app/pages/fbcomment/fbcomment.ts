@@ -50,7 +50,9 @@ export class FbcommentPage {
      .subscribe(res => {
        let toast = this.toastCtrl.create({
          message: 'Posted Successfully On Facebook',
-         duration: 3000
+         duration: 3000,
+           position : 'middle',
+           cssClass : 'social-share-success'
        });
 
          toast.onDidDismiss(() => {
@@ -64,7 +66,9 @@ export class FbcommentPage {
      }, error => {
        let toast = this.toastCtrl.create({
          message: 'An Error occured in FB Share',
-         duration: 3000
+         duration: 3000,
+           position : 'middle',
+           cssClass : 'social-share-success'
        });
 
          toast.onDidDismiss(() => {

@@ -33,7 +33,7 @@
                     <div class="h2text">{{spitem.sport_name}}</div>
                     <span>
                         <div class="text-div">{{spitem.tag}}</div>
-                        <div class="more"><a href="javascript:void(0)">MORE »</a> </div>
+                        <div class="more"><a href="javascript:void(0)" [navPush]="sportspage" [navParams]="{id:spitem.id}">MORE »</a> </div>
                         <div class="clear"></div>
                     </span>
 
