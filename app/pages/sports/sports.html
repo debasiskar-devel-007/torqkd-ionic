@@ -37,18 +37,18 @@
       <h4>Community:</h4>
       <ul>
         <li *ngFor="let uItem of sportdet.community_pople; let i = index" class="expgallery">
-          <img src="{{uItem.image}}" class=" sport_community" ng-click="userDet(uItem)" style="cursor: pointer;" />
+          <img src="{{uItem.image}}" class=" sport_community" style="cursor: pointer;" />
         </li>
       </ul>
     </div>
 
     <div class="see-btn-spot" *ngIf="sportdet">
-      <a href="javascript:void(0)"  >see more</a>
+      <a href="javascript:void(0)"  (click)="seemorepeople()">see more</a>
     </div>
 
 
     <div class="sport-text-contain"  *ngIf="sportdet">
-      <h2>RUN</h2>
+      <h2>{{sportdet.sport_det.sport_name}}</h2>
       <p> {{spdescription}}
         <a href="javascript:void(0)" class="color3" *ngIf="isExpanded == 1" (click)="lessdesp()"><strong>  &lt;&lt; Close</strong></a>
         <a href="javascript:void(0)" class="color3" *ngIf="isExpanded == 0" (click)="moredesp()"><strong>  More &gt;&gt;</strong></a>
@@ -212,6 +212,19 @@
 
       </div>
     </div>
+
+      <div class="ch-slider">
+          <ion-slides [options]="mySlideOptions5">
+              <ion-slide *ngFor="let item of spimagelist; let i = index" class="slides">
+                  <img src="http://torqkd.com/uploads/sports_image/additional/thumb/{{item.image}}">
+                  <h2>{{item.sport_name}}</h2>
+                  <span>
+                       <div class="more"><a href="javascript:void(0);" [navPush]="sportspage" [navParams]="{id:item.id}">MORE »</a> </div>
+                       <div class="clear"></div>
+                    </span>
+              </ion-slide>
+          </ion-slides>
+      </div>
 
 
     <div class="stats-slider-bottom">

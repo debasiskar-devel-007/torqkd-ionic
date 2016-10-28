@@ -8,7 +8,7 @@ import {ProfilePage} from "../profile/profile";
 import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,ActionSheetController} from "ionic-angular";
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators,FormControl} from "@angular/forms";
 import {ControlGroup, Control} from "@angular/common";
-import {ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions,MediaCapture,ScreenOrientation, Transfer,Camera,StreamingMedia, StreamingVideoOptions} from 'ionic-native';
+import {ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions,MediaCapture,ScreenOrientation, Transfer,Camera,StreamingMedia, StreamingVideoOptions , Crop} from 'ionic-native';
 /*
   Generated class for the UpdateprofilePage page.
 
@@ -36,6 +36,9 @@ export class UpdateprofilePage {
     public filepath1;
     public profimg_name;
     public backimg_name;
+    public filepathorig;
+    public filepath1orig;
+    public cropimagepath;
 
 
   constructor(private navCtrl: NavController,public modalCtrl: ModalController,private _http: Http,public fb: FormBuilder,public actionSheetCtrl: ActionSheetController) {
@@ -176,6 +179,9 @@ export class UpdateprofilePage {
 
             this.profimg_name = userdetails.profileImgName;
             this.backimg_name = userdetails.backImgName;
+
+            this.filepathorig = userdetails.profileOrigImg;
+            this.filepath1orig = userdetails.OrigbackImg;
 
           this.changecountry(userdetails.country);
 
@@ -379,8 +385,11 @@ export class UpdateprofilePage {
                     this._http.post(link, data5)
                         .subscribe(data11 => {
                             if(type == 1){
-                                this.profimg_name = this.loggedinuser+'.jpg';
-                                this.filepath = data11.text();
+                                var data55 = data11.json();
+
+                                this.profimg_name = data55.profileImgName;
+                                this.filepath = data55.profileImg;
+                                this.filepathorig = data55.profileOrigImgName;
                             }
                             if(type == 2){
                                 this.backimg_name = this.loggedinuser+'.jpg';
@@ -445,10 +454,12 @@ export class UpdateprofilePage {
         options = {
             fileKey: 'file',
             //fileName: this.imagepath.toString().replace('file:///data/data/com.ionicframework.demo866280/cache/',''),
-            fileName: this.imagepath.toString().replace('file:///data/data/com.ionicframework.torkq502502/cache/',''),
+            fileName: this.imagepath.toString().replace('file:///data/data/com.gratitube/cache/',''),
             headers: {}
 
         }
+
+
         //fileTransfer.upload(this.imagepath, "http://torqkd.com/user/ajs2/testfileupload", options)
         fileTransfer.upload(this.imagepath, "http://166.62.34.31:2/uploads", options)
             .then((data) => {
@@ -470,8 +481,12 @@ export class UpdateprofilePage {
                     this._http.post(link, data5)
                         .subscribe(data11 => {
                             if(type == 1){
-                                this.profimg_name = this.loggedinuser+'.jpg';
-                                this.filepath = data11.text();
+
+                                var data55 = data11.json();
+
+                                this.profimg_name = data55.profileImgName;
+                                this.filepath = data55.profileImg;
+                                this.filepathorig = data55.profileOrigImgName;
                             }
                             if(type == 2){
                                 this.backimg_name = this.loggedinuser+'.jpg';
@@ -512,7 +527,108 @@ export class UpdateprofilePage {
                 }
             }, error => {
                 console.log("Oooops!");
-            });    }
+            });
+    }
+
+
+    opencrop(type){
+        const fileTransfer = new Transfer();
+
+        var options: any;
+
+        options = {
+            headers: {}
+
+        }
+
+        var fname = getfilename(this.filepathorig);
+
+
+
+        fileTransfer.download(this.filepathorig, "file:///data/data/com.gratitube/cache/"+fname,true, options)
+            .then((data) => {
+                // success
+
+                this.imagepath = data.nativeURL;
+
+                Crop.crop(this.imagepath, {quality: 95})
+                    .then(
+
+                        newImage => {
+                            this.cropimagepath=newImage;
+                            this.filepath= 'images/fileloader.gif';
+                            this.uploadpiccrop();
+                            console.log("new image path is: " + newImage);
+
+                        },
+                        error => {
+                            console.error("Error cropping image", error)
+                        }
+                    );
+
+
+            }, (err) => {
+                // error
+                alert(JSON.stringify(err));
+            })
+
+    }
+
+    uploadpiccrop(){
+
+        const fileTransfer = new Transfer();
+        var options: any;
+
+        options = {
+            fileKey: 'file',
+            fileName: getfilename(this.cropimagepath),
+            headers: {}
+
+        }
+        //fileTransfer.upload(this.imagepath, "http://torqkd.com/user/ajs2/testfileupload", options)
+        fileTransfer.upload(this.cropimagepath, "http://166.62.34.31:2/uploads", options)
+            .then((data) => {
+                // success
+
+                var data1:any = JSON.parse(data.response);
+
+
+
+                if(data1.error_code == 0){
+                    var link = 'http://torqkd.com/user/ajs2/movecropprofileimage';
+                    var data5 = {file_name: data1.filename,userid:this.loggedinuser};
+
+
+
+                    this._http.post(link, data5)
+                        .subscribe(data11 => {
+                                this.filepath = data11.text();
+                        }, error => {
+                            console.log("Oooops!");
+                        });
+                }else{
+                    alert('error occured');
+                }
+
+
+
+            }, (err) => {
+                // error
+                alert(err);
+                //this.statuscancel();
+            })
+    }
+
+
+
+
 
 
 }
+
+
+function getfilename(path){
+    path = path.substring(path.lastIndexOf("/")+ 1);
+    return (path.match(/[^.]+(\.[^?#]+)?/) || [])[0];
+}
+

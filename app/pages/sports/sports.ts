@@ -18,6 +18,7 @@ import {FbcommentPage} from "../fbcomment/fbcomment";
 import {TwcommentPage} from "../twcomment/twcomment";
 import {TorqkdtvPage} from "../torqkdtv/torqkdtv";
 import {PhotoPage} from "../photo/photo";
+import {SportspeoplePage} from "../sportspeople/sportspeople";
 import {Splashscreen, InAppBrowser,YoutubeVideoPlayer,StreamingMedia, StreamingVideoOptions,Facebook} from "ionic-native";
 
 
@@ -31,11 +32,16 @@ import {Splashscreen, InAppBrowser,YoutubeVideoPlayer,StreamingMedia, StreamingV
   templateUrl: 'build/pages/sports/sports.html',
 })
 export class SportsPage {
-  mySlideOptions1 = {
-    initialSlide: 0,
-    loop: true,
-    autoplay:4000
-  };
+    mySlideOptions5 = {
+        initialSlide: 0,
+        loop: true,
+        autoplay:6000
+    };
+    mySlideOptions1 = {
+        initialSlide: 0,
+        loop: true,
+        autoplay:4000
+    };
 
   mySlideOptions2 = {
   initialSlide: 0,
@@ -52,6 +58,7 @@ export class SportsPage {
   private sportdet;
 
 
+  public sportspage = SportsPage;
   public sportseventpage = SportsEventPage;
   public sportsgrouppage = SportsGroupPage;
   public sportsstatpage = SportsStatPage;
@@ -76,6 +83,8 @@ export class SportsPage {
   private statusdata;
 
   private accessToken;
+
+    private spimagelist;
 
 
   constructor(private navCtrl: NavController,private _navParams: NavParams,public platform: Platform,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController,public toastCtrl: ToastController) {
@@ -105,7 +114,17 @@ export class SportsPage {
     });
 
 
+    this.getsportDet();
+    this.getgetProfilebanners();
+    this.getspImagelist();
 
+
+
+
+
+  }
+
+  getsportDet(){
     /************************sports details[start]***********************/
     var link2 = 'http://torqkd.com/user/ajs2/sportDet';
     var data2 = {id: this.sportsid};
@@ -120,9 +139,11 @@ export class SportsPage {
           this.spdescription = spdescrip.substring(0, 200);
         }, error => {
           console.log("Oooops!");
-        });    /************************sports details[end]***********************/
+        });
+    /************************sports details[end]***********************/
+  }
 
-
+  getgetProfilebanners(){
     /***************banner slider [start]********************/
     var link21 = 'http://torqkd.com/user/ajs2/getProfilebanners';
     var data21 = {pageid: 2,sp_id:this.sportsid};
@@ -137,9 +158,22 @@ export class SportsPage {
           console.log("Oooops!");
         });
     /***************banner slider [end]********************/
+  }
+
+  getspImagelist(){
+    /***************sp image [start]********************/
+    var link211 = 'http://torqkd.com/user/ajs2/spImagelist';
+    var data211 = {id:this.sportsid};
 
 
 
+    this._http.post(link211, data211)
+        .subscribe(res211 => {
+          this.spimagelist=res211.json();
+        }, error => {
+          console.log("Oooops!");
+        });
+    /***************sp image [end]********************/
   }
 
   openmenu(){
@@ -599,6 +633,15 @@ export class SportsPage {
   }
 
 
+
+  seemorepeople(id){
+    let modal = this.modalCtrl.create(SportspeoplePage, {
+      "id": this.sportsid,
+    });
+
+    modal.present();
+
+  }
 
 
 }

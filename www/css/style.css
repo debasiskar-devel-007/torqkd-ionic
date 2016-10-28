@@ -496,13 +496,13 @@ ion-slides {
     margin-bottom: 0px;height:auto;
 }
 .Stats-slider-bottom-contain1 img{
-    width: 100%;    max-height: inherit !important; height: 200px;
+    width: 100%;    height:auto;
 }
 .Stats-slider-bottom-contain2{
     height: auto; width: 90%; overflow: hidden;
 }
 .Stats-slider-bottom-contain2 img{
-    width: 100%;    max-height: inherit !important; height: 200px;
+    width: 100%; height:auto;
 }
 
 .video-container-wrapper {
@@ -8616,6 +8616,178 @@ code.has-numbering {
     .sports-details-page .people-div {
         height: 138px;
     }
+}
+
+
+.sports-details-page .ch-slider .slides {
+    border: 5px solid #fff;
+    list-style-type: none;
+    margin: 0 0 15px;
+    overflow: hidden;
+    position: relative;
+}
+.sports-details-page .ch-slider .slides img {
+    width: 100%;
+}
+.sports-details-page .ch-slider .slides h2 {
+    color: #fff;
+    font-family: "veneerregular" !important;
+    font-size: 38px;
+    font-weight: normal;
+    left: 7px;
+    letter-spacing: 5px;
+    position: absolute;
+    text-shadow: 2px 2px 5px #333;
+    text-transform: uppercase;
+    top: 7px;
+    width: 100px;
+}
+.sports-details-page .ch-slider .slides .more {
+    bottom: 9px;
+    color: #f39221 !important;
+    font-family: "veneerregular" !important;
+    font-size: 17px !important;
+    position: absolute;
+    right: 2px;
+    width: 64px !important;
+}
+.sports-details-page .ch-slider .slides .more a {
+    color: #f39221 !important;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px #333;
+}
+.sports-details-page .ch-slider .slides .more a:hover {
+    text-decoration: none;
+}
+.sports-user-list{
+    background: #DFE2E2 none repeat scroll 0 0;
+}
+
+.sports-user-list scroll-content{
+    margin: 20px 0 0 !important;
+}
+
+.sports-user-list .people-div2 {
+    background: #fff none repeat scroll 0 0;
+    color: #f7941d;
+    font-family: "veneerregular" !important;
+    font-size: 18px;
+    margin: 30px auto 0;
+    padding: 15px 2%;
+    width: 86%;
+}
+.sports-user-list .people-div2 .close {
+    display: none;
+}
+.sports-user-list .people-div2 .meParent {
+    border: medium none !important;
+    display: block;
+    float: left !important;
+    margin: 0 2px 10px 0;
+    padding: 0 0 10px;
+    position: relative;
+    width: 50% !important;
+}
+.sports-user-list .people-div2 ul {
+    border-bottom: 1px solid #e7e9ef;
+    padding: 14px 0 20px;
+}
+.sports-user-list .people-div2 ul li {
+    list-style: outside none none;
+}
+.sports-user-list .people-div2 ul li span {
+    display: block;
+    height: 100%;
+    left: 0;
+    letter-spacing: normal !important;
+    padding: 0;
+    position: inherit;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+.sports-user-list .people-div2 ul li span a {
+    color: #4f4f51;
+    display: block;
+    font-family: reservation;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: normal !important;
+    margin: -4px 0 0;
+    padding: 0 0 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100% !important;
+}
+.sports-user-list .people-div2 .mobpimg {
+    display: block;
+    float: left;
+    border: 1px solid #f79213;
+}
+.sports-user-list .people-div2 .holist2 {
+    display: block;
+    float: left !important;
+    margin-left: 0 !important;
+    padding-left: 10px;
+    width: 55% !important;
+}
+.sports-user-list .people-div2 .holist2 h2 {
+    color: #4f4f51;
+    display: block;
+    font-family: "veneerregular" !important;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: normal !important;
+    margin: 0;
+    padding: 0 0 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100% !important;
+}
+.sports-user-list .people-div2 .holist2 h2 a {
+    color: #4f4f51;
+}
+.sports-user-list .people-div2 .pimg1 {
+    display: none;
+}
+.sports-user-list .people-div2 .hover_img {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    display: block;
+    margin-left: -22px;
+}
+.sports-user-list .people-div2 .plno {
+    background: #000 none repeat scroll 0 0;
+    clear: both;
+    color: #f7921d;
+    display: block;
+    float: none;
+    font-size: 12px;
+    font-weight: bold;
+    height: 23px;
+    line-height: 15px;
+    margin: 10px 9px 0 0 !important;
+    overflow: hidden;
+    padding: 5px;
+    text-align: center;
+    width: 35px;
+}
+.sports-user-list .people-div2 .view-btn1 {
+    bottom: 8px !important;
+    color: #f79213 !important;
+    display: block !important;
+    font-family: "veneerregular" !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    line-height: 32px !important;
+    padding: 0 !important;
+    position: inherit !important;
+    text-align: left;
+    text-decoration: none !important;
+    width: 80px !important;
+}
+.sports-user-list .people-div2 .holist2 img {
+    margin: 0 4px 4px 0;
 }
 
 
