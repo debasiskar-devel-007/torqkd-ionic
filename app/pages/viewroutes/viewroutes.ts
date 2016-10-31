@@ -5,6 +5,7 @@ import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
+import {AddroutesPage} from '../addroutes/addroutes';
 
 /*
   Generated class for the ViewroutesPage page.
@@ -18,6 +19,7 @@ import {UpdateprofilePage} from '../updateprofile/updateprofile';
 export class ViewroutesPage {
     public homepage = HomePage;
     public updateprofilepage = UpdateprofilePage;
+    public addroutespage = AddroutesPage;
   private loggedinuser;
   private local:LocalStorage;
   private userImage;

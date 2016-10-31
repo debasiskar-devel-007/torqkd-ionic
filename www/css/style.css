@@ -5109,6 +5109,30 @@ code.has-numbering {
     padding: 0 0 0 2%;
     width: 100%;
 }
+
+.photo-page .photosheading .Photoadd {
+    border-left: 10px solid #DFE2E2;
+    color: #f7941e;
+    display: block;
+    float: right;
+    font-size: 38px !important;
+    height: 50px;
+    line-height: 56px;
+    text-align: center;
+    width: 60px;
+}
+.photo-page .photosheading .Photoadd a {
+    color: #f7941e;
+    display: block;
+}
+
+.photo-page .photosheading .Photoadd input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    display: block;
+    width: 100%;
+}
+
 .photo-page .photoalbumwrapper{
     display: block;
     margin: 20px auto;
@@ -8791,4 +8815,301 @@ code.has-numbering {
 }
 
 
+.photo-page .status-input .lrotbtn {
+    border: medium none;
+    box-shadow: 0 0 2px #888;
+    cursor: pointer;
+    float: left;
+    margin-bottom: 10px;
+}
+.photo-page .status-input .rrotbtn {
+    border: medium none;
+    box-shadow: 0 0 2px #888;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 10px;
+}
+
+
+.add-route-page .header_msg , .add-route-page2 .header_msg {
+    background: rgba(0, 0, 0, 0) url("../images/heading.png") repeat-x scroll 0 0;
+    color: #fff;
+    font-family: veneerregular;
+    font-size: 26px;
+    font-weight: normal;
+    height: 54px;
+    line-height: 58px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.add-route-page #sports_div {
+    background: rgba(0, 0, 0, 0) url("../images/menudiv.png") repeat-x scroll 0 0;
+    cursor: pointer;
+    font-family: veneerregular;
+    font-size: 26px;
+    height: 64px !important;
+    line-height: 70px;
+    margin: 0;
+    padding: 0 0 0 4%;
+    width: 100%;
+}
+.add-route-page #loc_h_div {
+    background: rgba(0, 0, 0, 0) url("../images/menudiv.png") repeat-x scroll 0 0;
+    cursor: pointer;
+    font-family: veneerregular;
+    font-size: 26px;
+    height: 64px !important;
+    line-height: 70px;
+    margin: 0;
+    padding: 0 0 0 4%;
+    width: 100%;
+}
+.add-route-page .sp_list {
+    color: #404041;
+    font-family: reservation;
+    font-size: 16px;
+    list-style-type: none;
+    margin: 0 !important;
+    padding: 10px 0 !important;
+    position: relative;
+}
+
+.add-route-page .sp_list li {
+    border-bottom: 1px solid #ccc;
+    color: #aaa;
+    line-height: 40px;
+    margin: 0 !important;
+    padding: 0;
+}
+.add-route-page .sp_list li div {
+    border-bottom: 1px solid #ccc;
+}
+
+.add-route-page .sp_list li ul li {
+    list-style: none;
+    color: #333333;
+}
+
+
+
+.add-route-page .sp_list li.sp_li {
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 !important;
+    min-width: 100%;
+    padding: 0;
+}
+.add-route-page .sp_list li.sp_sel_li {
+    color: #ff971b;
+}
+.add-route-page .sp_sel_li {
+    background: rgba(0, 0, 0, 0) url("../images/success2.png") no-repeat scroll left center;
+    color: #404041 !important;
+    padding: 0 0 0 14px !important;
+}
+.add-route-page #sportsName {
+    color: #7f8080;
+    display: block;
+    font-size: 22px;
+    margin: -74px 17px 0 0;
+    text-align: right;
+}
+
+.add-route-page .arrowTog {
+    background: rgba(0, 0, 0, 0) url("../images/ad2.png") no-repeat scroll 180px center !important;
+    display: block;
+}
+.add-route-page .arrowImg {
+    background: rgba(0, 0, 0, 0) url("../images/ar2.png") no-repeat scroll 180px center;
+    display: block;
+}
+
+.add-route-page .foo-div2 .stbtn {
+    background: #f7931e none repeat scroll 0 0;
+    border: 3px solid #fff;
+    color: #404041;
+    display: block;
+    float: none;
+    font-family: veneerregular;
+    font-size: 24px;
+    height: 43px;
+    line-height: 41px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+}
+
+.add-route-page .sportsName {
+    color: #7f8080;
+    display: block;
+    font-size: 22px;
+    margin: -74px 17px 0 0;
+    text-align: right;
+}
+
+.add-route-page .loc_div input {
+    background: #fff none repeat scroll 0 0 !important;
+    border: 3px solid #97989a !important;
+    border-radius: 5px !important;
+    display: block;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    height: 44px !important;
+    margin-top: 18px;
+    padding: 6px !important;
+    width: 100% !important;
+}
+
+
+.add-route-page2 .map-canvas {
+    height: 100%;
+    margin: 0px;
+    width:100%;
+    padding: 0px;
+
+    position: absolute;
+}
+
+.add-route-page2 .bott-div {
+    width: 100%;
+}
+.add-route-page2 .bott-div .distance {
+    border-right: 2px solid #aeaeae;
+    float: left;
+    margin-top: 10px;
+    padding-right: 2%;
+    text-align: center;
+    width: 31%;
+}
+.add-route-page2 .bott-div .timer {
+    border-right: 2px solid #aeaeae;
+    float: left;
+    margin-top: 10px;
+    padding-right: 2%;
+    text-align: center;
+    width: 30%;
+}
+.add-route-page2 .bott-div .avg {
+    float: right;
+    margin-top: 10px;
+    text-align: center;
+    width: 33%;
+}
+.add-route-page2 .bott-div h1 {
+    color: #8d8d8d;
+    font-family: reservation;
+    font-size: 14px;
+    font-weight: normal;
+    height: auto;
+    margin: 0;
+    padding: 5px 0 10px;
+    text-transform: uppercase;
+}
+.add-route-page2 .bott-div h2 {
+    color: #8d8d8d;
+    font-family: reservation;
+    font-size: 11px;
+    font-weight: normal;
+    height: auto;
+    margin: 0;
+    padding: 10px 0 5px;
+    text-transform: uppercase;
+}
+.add-route-page2 .bott-div span {
+    color: #2c2926;
+    font-family: "veneerregular";
+    font-size: 28px;
+    padding-top: 5px;
+}
+.add-route-page2 .bott-arrow {
+    float: left;
+    margin: 0 0 10px;
+    padding-left: 0;
+    width: 150px;
+}
+.add-route-page2 .bott-arrow #sw_start {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("../images/startb.png");
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 60px auto !important;
+    border: medium none;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 0;
+    height: 60px !important;
+    margin: 0 4px;
+    width: 60px !important;
+}
+.add-route-page2 .bott-arrow #sw_pause {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("../images/Pauseb.png");
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 60px auto !important;
+    border: medium none;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 0;
+    height: 60px !important;
+    margin: 0 4px;
+    width: 60px !important;
+}
+.add-route-page2 .bott-arrow #sw_stop {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("../images/stopb.png");
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 60px auto !important;
+    border: medium none;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 0;
+    height: 60px !important;
+    margin: 0 4px;
+    width: 60px !important;
+}
+.add-route-page2 .bott-arrow #sw_reset {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("../images/resatb.png");
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 60px auto !important;
+    border: medium none;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 0;
+    height: 60px !important;
+    margin: 0 4px;
+    width: 60px !important;
+}
+.add-route-page2 .routebtn {
+    background: #f7931e none repeat scroll 0 0;
+    border: 3px solid #fff;
+    color: #404041;
+    display: block;
+    float: right;
+    font-family: veneerregular;
+    font-size: 24px;
+    height: 44px;
+    line-height: 42px;
+    margin: 10px 0 0;
+    padding: 0 20px;
+    width: 116px;
+}
 /***********************Code By Samsuj [end]**********************************/

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform} from "ionic-angular";
+import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,ActionSheetController} from "ionic-angular";
 import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import {VideodetPage} from "../videodet/videodet";
@@ -9,6 +9,8 @@ import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
+
+import {ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions,MediaCapture,ScreenOrientation, Transfer,Camera,StreamingMedia, StreamingVideoOptions} from 'ionic-native';
 
 /*
   Generated class for the AlbumvideoPage page.
@@ -29,7 +31,17 @@ export class AlbumvideoPage {
   public profilepage = ProfilePage;
   private userImage;
 
-  constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController) {
+
+  public isStatusInput = false;
+  public statusText = '';
+  public share_with = 1;
+  public filepath;
+  public imagepath;
+  public statusvalue;
+  public videopath;
+
+
+  constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController,public actionSheetCtrl: ActionSheetController) {
     this.userImage = 'http://torqkd.com/uploads/user_image/thumb/default.jpg';
     
     this.local = new Storage(LocalStorage);
@@ -86,4 +98,224 @@ export class AlbumvideoPage {
 
     modal.present();
   }
+
+
+  addhideclass(hparam){
+    if(typeof (hparam) == 'undefined'){
+      return 'hide';
+    }else{
+      if(!hparam){
+        return 'hide';
+      }
+    }
+
+    return '';
+  }
+
+  changestatustext(keyval){
+    this.statusText = keyval;
+  }
+
+  changesharewith(ev){
+    this.share_with = ev;
+  }
+
+  addVideo(){
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Upload Video',
+      cssClass : 'photoSheet',
+      buttons: [
+        {
+          text: 'Camera',
+          icon: 'videocam',
+          handler: () => {
+            this.opencameraforvideo();
+          }
+        },{
+          text: 'Gallery',
+          icon: 'film',
+          handler: () => {
+            this.openvideobowse();
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  opencameraforvideo(){
+
+    let options: CaptureVideoOptions = { limit: 1 };
+    MediaCapture.captureVideo(options)
+        .then(
+            (data: MediaFile[]) => {
+
+              this.videopath = data[0]['fullPath'];
+              this.isStatusInput = true;
+
+              this.uploadvideo();
+
+            },
+            (err: CaptureError) => {
+              alert(err)
+
+
+
+            }
+        );
+  }
+
+
+  uploadvideo(){
+
+
+    const fileTransfer = new Transfer();
+    var options: any;
+
+    options = {
+      fileKey: 'file',
+      //fileName: this.imagepath.toString().replace('file:///data/data/com.ionicframework.demo866280/cache/',''),
+      fileName: this.videopath.toString().replace('file:/storage/emulated/0/DCIM/Camera/',''),
+      headers: {}
+
+    }
+    //fileTransfer.upload(this.imagepath, "http://torqkd.com/user/ajs2/testfileupload", options)
+    fileTransfer.upload(this.videopath, "http://166.62.34.31:2/uploads", options)
+        .then((data) => {
+          // success
+
+          var data1:any = JSON.parse(data.response);
+
+
+          if(data1.error_code == 0){
+            this.statusvalue = data1.filename;
+            var link = 'http://torqkd.com/user/ajs2/movevdofile';
+            var data5 = {file_name: data1.filename,folder_name : 'video/converted'};
+
+
+
+            this._http.post(link, data5)
+                .subscribe(data11 => {
+                  console.log("Oooops!");
+                }, error => {
+                  console.log("Oooops!");
+                });
+
+
+
+          }else{
+            alert('error occured');
+          }
+
+
+
+        }, (err) => {
+          // error
+          alert(JSON.stringify(err));
+          //this.statuscancel();
+        })
+  }
+
+
+  openvideobowse(){
+    var options = {
+      quality: 50,
+      //destinationType: Camera.FILE_URI,
+      sourceType: 0,
+      mediaType:1
+    };
+
+    Camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+
+      this.videopath = imageData;
+      this.isStatusInput = true;
+
+
+
+    }, (err) => {
+      alert(JSON.stringify(err));
+    });
+  }
+
+  uploadvideo1(status_id){
+
+    const fileTransfer = new Transfer();
+    var options: any;
+
+    options = {
+      fileKey: 'file',
+      //fileName: this.imagepath.toString().replace('file:///data/data/com.ionicframework.demo866280/cache/',''),
+      fileName: this.videopath.toString().replace('/storage/emulated/0/DCIM/Camera/',''),
+      headers: {}
+
+    }
+    //fileTransfer.upload(this.imagepath, "http://torqkd.com/user/ajs2/testfileupload", options)
+    fileTransfer.upload(this.videopath, "http://166.62.34.31:2/uploads", options)
+        .then((data) => {
+          // success
+
+          var data1:any = JSON.parse(data.response);
+
+
+          if(data1.error_code == 0){
+            this.statusvalue = data1.filename;
+            var link = 'http://torqkd.com/user/ajs2/movevdofile';
+            var data5 = {file_name: data1.filename, folder_name : 'video/converted'};
+
+            this._http.post(link, data5)
+                .subscribe(data11 => {
+                  console.log("Oooops!");
+                }, error => {
+                  console.log("Oooops!");
+                });
+
+                 }else{
+            alert('error occured');
+          }
+
+
+
+        }, (err) => {
+          // error
+          alert(JSON.stringify(err));
+          //this.statuscancel();
+        })
+  }
+
+  postcancel(){
+    this.isStatusInput = false;
+    this. statusText = '';
+    this.share_with = 1;
+    this.filepath='';
+    this.imagepath='';
+    this.videopath='';
+    this.statusvalue='';
+  }
+
+  postStatus(){
+    var link = 'http://torqkd.com/user/ajs2/addAlbum';
+    var data = {'value':this.statusvalue,'user_id':this.loggedinuser,'share_with':this.share_with,'type':'video','msg':this.statusvalue};
+
+    this._http.post(link, data)
+        .subscribe(data => {
+      //    this.photolist.splice(0, 0,data.json());
+
+          this.isStatusInput = false;
+          this. statusText = '';
+          this.share_with = 1;
+          this.filepath='';
+          this.imagepath='';
+          this.videopath='';
+          this.statusvalue='';
+
+        }, error => {
+          console.log("Oooops!");
+        });
+  }
+
+
+
 }

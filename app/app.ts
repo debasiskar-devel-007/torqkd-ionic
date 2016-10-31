@@ -58,7 +58,7 @@ class MyApp {
       { title: 'View Routes', component: ViewroutesPage },
       { title: 'Add Events', component: AddeventsPage },
       { title: 'Add Groups', component: AddgroupsPage },
-      { title: 'Add Routes', component: AddgroupsPage },
+      { title: 'Add Routes', component: AddroutesPage },
       { title: 'Forum', component: ForumPage },
       { title: 'Daily Poll', component: DailypollPage },
       { title: 'Event Map', component: EventmapPage },
