@@ -113,11 +113,12 @@ export class FriendsPage {
 
 
   godetails(item){
-    let modal = this.modalCtrl.create(UserpopupPage, {
+    /*let modal = this.modalCtrl.create(UserpopupPage, {
       "item": item , "redirectpage" : 'friends'
     });
 
-    modal.present();
+    modal.present();*/
+    this.navCtrl.push(UserpopupPage, { "item": item , "redirectpage" : 'friends'});
   }
 
   showtermsploicy(type){

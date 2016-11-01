@@ -9112,4 +9112,71 @@ code.has-numbering {
     padding: 0 20px;
     width: 116px;
 }
+
+.friends-profile .top-banner-contain{
+    width:100%;
+    position:relative;
+}
+.friends-profile .userbanner2{ width:93%; float:right; max-height:340px; overflow:hidden; }
+
+.friends-profile .userbanner2 img{ width:100%; background:none; background-size:80%; }
+
+.friends-profile .usercontain2{ width:120px; position:absolute; left:0; top:14px;}
+
+.friends-profile .usercontain2 .user-contain2-img{ width:112px; border:solid 4px #f7931e;}
+
+.friends-profile .usercontain2 .user-contain2-img img{ width:100%; background:none; background-size:80%;}
+
+.friends-profile .usercontain2 h2 {
+    color: #58595b;
+    font-family: "veneerregular" !important;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 15px;
+    overflow: hidden !important;
+    margin:10px 0; padding:0;
+    width:88px;
+}
+
+.friends-profile .usericonimage{
+    margin-top:3px;
+}
+
+@media screen and (max-width:1024px) {
+    .friends-profile .userbanner2{ width:88%; float:right;}
+}
+
+@media screen and (max-width:850px) {
+    .friends-profile .userbanner2{ width:86%; float:right;}
+}
+
+@media screen and (max-width:720px) {
+    .friends-profile .userbanner2{ width:86%; float:right;}
+    .friends-profile .usercontain2{ width:100px; position:absolute; left:0; top:0;}
+    .friends-profile .usercontain2 .user-contain2-img{ width:92px; border:solid 4px #f7931e;}
+    .friends-profile .usercontain2 .user-contain2-img img{ width:100%;}
+}
+
+@media screen and (max-width:620px) {
+    .friends-profile .userbanner2{ width:84%; float:right;}
+}
+
+@media screen and (max-width:560px) {
+    .friends-profile .usercontain2 {width: 80px; position: absolute; left: 0; top: 0;}
+    .friends-profile .usercontain2 .user-contain2-img { width: 86px; border: solid 4px #f7931e;}
+    .friends-profile .usercontain2 .user-contain2-img img { width: 100%;}
+}
+
+@media screen and (max-width:480px) {
+    .friends-profile .userbanner2{ width:80%; float:right;}
+    .friends-profile .usercontain2{ width:22%;}
+    .friends-profile .usercontain2 .user-contain2-img{ width:88%;  max-height:80px; overflow:hidden;}
+}
+
+
+
+
+
+
+
 /***********************Code By Samsuj [end]**********************************/

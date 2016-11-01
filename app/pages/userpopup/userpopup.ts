@@ -5,6 +5,7 @@ import {Http, Headers} from "@angular/http";
 import {ProfilePage} from "../profile/profile";
 import {FriendsPage} from "../friends/friends";
 import {CommunityPage} from "../community/community";
+import {FriendsProfilePage} from "../friendsprofile/friendsprofile";
 
 /*
   Generated class for the UserpopupPage page.
@@ -20,6 +21,7 @@ export class UserpopupPage {
   private item;
   private ptype;
   public profilepage = ProfilePage;
+  public friendsprofilepage = FriendsProfilePage;
     private local:LocalStorage;
 
   constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http) {
@@ -90,6 +92,10 @@ export class UserpopupPage {
             }, error => {
                 console.log("Oooops!");
             });
+    }
+
+    goprofile(item){
+        this.navCtrl.push(FriendsProfilePage, { userid:item.id});
     }
 
 

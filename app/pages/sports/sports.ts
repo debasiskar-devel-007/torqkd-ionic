@@ -20,6 +20,7 @@ import {TorqkdtvPage} from "../torqkdtv/torqkdtv";
 import {PhotoPage} from "../photo/photo";
 import {SportspeoplePage} from "../sportspeople/sportspeople";
 import {Splashscreen, InAppBrowser,YoutubeVideoPlayer,StreamingMedia, StreamingVideoOptions,Facebook} from "ionic-native";
+import {FriendsProfilePage} from "../friendsprofile/friendsprofile";
 
 
 /*
@@ -76,6 +77,7 @@ export class SportsPage {
   public autoplay = true;
   private torqkdtvpage = TorqkdtvPage;
   private photopage = PhotoPage;
+  public friendsprofilepage = FriendsProfilePage;
 
   private cdatetime;
 
@@ -634,13 +636,13 @@ export class SportsPage {
 
 
 
-  seemorepeople(id){
-    let modal = this.modalCtrl.create(SportspeoplePage, {
+  seemorepeople(){
+    /*let modal = this.modalCtrl.create(SportspeoplePage, {
       "id": this.sportsid,
     });
 
-    modal.present();
-
+    modal.present();*/
+    this.navCtrl.push(SportspeoplePage, { "id": this.sportsid});
   }
 
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams } from 'ionic-angular';
+import { NavController,NavParams,LoadingController } from 'ionic-angular';
 import { ScreenOrientation } from 'ionic-native';
 import {Http, Headers} from "@angular/http";
 
@@ -16,8 +16,9 @@ export class CommonPopupPage {
   private type;
   private content;
 
-  constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http) {
+  constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http,public loadingCtrl: LoadingController) {
     this.type=this._navParams.get("type");
+
 
     var link = 'http://torqkd.com/user/ajs2/getTermsNpolicy/type/'+this.type;
     var data = {type: this.type};

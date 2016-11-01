@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform} from "ionic-angular";
+import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,NavParams} from "ionic-angular";
 import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import * as $ from "jquery";
@@ -23,31 +23,60 @@ export class MysportsPage {
   private local:LocalStorage;
   private userImage;
   private itemlist;
+  private userid;
+  private userdetails;
 
-  constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController) {
-    this.local = new Storage(LocalStorage);
+  constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController,private _navParams: NavParams) {
 
-    this.local.get('userinfo').then((value) => {
-      this.loggedinuser=JSON.parse(value).id;
+    this.userid=this._navParams.get("userid");
 
+    if(typeof (this.userid) != 'undefined'){
+      this.getuserdetails();
       this.getsports();
+    }else{
+      this.local = new Storage(LocalStorage);
 
-      if(value!=null) {
-        this.userImage = JSON.parse(value).user_image;
-      }
-      else{
-        $('ion-content').removeClass('hide');
-      }
-    });
-  }
+      this.local.get('userinfo').then((value) => {
+        if(value!=null) {
+          this.loggedinuser=JSON.parse(value).id;
+          this.userid=JSON.parse(value).id;
+
+          this.getuserdetails();
+          this.getsports();
+
+        }else{
+          this.loggedinuser = 0;
+        }
+      }).catch((err)=>{
+        this.loggedinuser = 0;
+      });
+    }
+
+}
 
   openmenu(){
     $('.navmenul').click();
   }
 
+  getuserdetails(){
+    var link1 = 'http://torqkd.com/user/ajs2/getuserdetailsnew';
+    var data1 = {userid: this.userid};
+
+    this._http.post(link1, data1)
+        .subscribe(data => {
+          if(data.json()==null){
+            return;
+          }else{
+            this.userdetails=data.json();
+          }
+        }, error => {
+          console.log("Oooops!");
+        });
+  }
+
   getsports(){
     var link = 'http://torqkd.com/user/ajs2/usersportsnew';
-    var data = {userid : this.loggedinuser };
+    var data = {userid : this.userid };
 
 
 

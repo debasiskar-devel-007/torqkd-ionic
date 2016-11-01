@@ -7,6 +7,8 @@ import {Http, Headers} from "@angular/http";
 import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform} from "ionic-angular";
 //import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
+import {ForgotPass1Page} from "../forgotpass1/forgotpass1";
+import {SignupPage} from "../signup/signup";
 
 /*
   Generated class for the LoginPage page.
@@ -28,6 +30,8 @@ export class LoginPage {
   private nav:NavController;
   private local:LocalStorage;
   profilePage=ProfilePage;
+  private forgotpass1page=ForgotPass1Page;
+  private signuppage=SignupPage;
 
   constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http,public modalCtrl: ModalController) {
     this.loginForm = fb.group({

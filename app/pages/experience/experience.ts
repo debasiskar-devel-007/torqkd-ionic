@@ -63,6 +63,7 @@ export class ExperiencePage {
     private loggedinuser;
     private local:LocalStorage;
     public autoplay = true;
+
     private torqkdtvpage = TorqkdtvPage;
     private photopage = PhotoPage;
 

@@ -19,7 +19,7 @@
         <span style="display: block; outline: 0 none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%; margin-bottom: 7px;" class="uname22455342" tabindex="-1">{{item.user_name}}</span>
         <div class="clear"></div>
         <img width="25" *ngFor="let spitem of item.sports | slice:0:5; let i = index" alt="#" src="{{spitem.imag_name}}">
-        <a href="javascript:void(0);" class="sdfsd" *ngIf="item.frnd_type == 4"> View Profile</a>
+        <a href="javascript:void(0);" class="sdfsd" *ngIf="item.frnd_type == 4"  (click)="goprofile(item)"> View Profile</a>
         <a href="javascript:void(0);" class="sdfsd" *ngIf="item.frnd_type == 1" (click)="cancelreq()"> Cancel Requst</a>
         <a href="javascript:void(0);" class="sdfsd" *ngIf="item.frnd_type == 2" (click)="acceptreq()"> Accept</a>
         <a href="javascript:void(0);" class="sdfsd" *ngIf="item.frnd_type == 0" (click)="frndconnect()"> Connect+</a>

@@ -36,7 +36,7 @@ export class SignupPage {
 
     this.local.get('newUserId').then((value) => {
       if(value!=null) {
-        this.navCtrl.push(SignupaddimagePage);
+      //  this.navCtrl.push(SignupaddimagePage);
       }
     });
 
