@@ -192,7 +192,7 @@ export class GroupstatPage {
   }
   launch(url){
 
-    InAppBrowser.open(url,  '_system', 'location=yes');
+    let browser = new InAppBrowser(url, '_system');
   }
   showtermsploicy(type){
     let modal = this.modalCtrl.create(CommonPopupPage, {

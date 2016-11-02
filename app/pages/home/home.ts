@@ -9,6 +9,7 @@ import {Toast} from 'ionic-native';
 import {CommonPopupPage} from "../commonpopup/commonpopup";
 import {ExperiencePage} from "../experience/experience";
 import {SignupPage} from "../signup/signup";
+import {SignupnextPage} from "../signupnext/signupnext";
 
 ///import {} from 'ionic-native';
 //import {StreamingMedia} from 'ionic-native';
@@ -29,6 +30,7 @@ export class HomePage {
   //private router:Router;
   public experiencepage = ExperiencePage;
   public signuppage = SignupPage;
+  public signupnextpage = SignupnextPage;
 
   constructor(private navCtrl: NavController ,public modalCtrl: ModalController , public  platform: Platform) {
     //this.local=null;

@@ -30,14 +30,14 @@
 
         <h6 id="inviteDiv">INVITE FRIENDS VIA YOUR ONLINE ADDRESS BOOK</h6>
 
-        <select id="social_select" ng-model="social_select" class="ng-pristine ng-untouched ng-valid">
-          <option value="" data-original-title="">SELECT SERVICE</option>
-          <option value="fb" data-original-title="">FACEBOOK</option>
-          <option value="tw" data-original-title="">TWITTER</option>
+        <select id="social_select" (change)="cngsocialselect($event.target.value)">
+          <option value="" class="">SELECT SERVICE</option>
+          <option value="fb">FACEBOOK</option>
+          <option value="tw">TWITTER</option>
         </select>
 
 
-        <input class="see-btn2" value="INVITE" ng-click="social_share()" name="inviter_submit" data-original-title="" type="button">
+        <input class="see-btn2" value="INVITE" (click)="social_share()" name="inviter_submit" type="button">
         <div style="clear:both;"></div>
 
         <input class="activities-submit" (click)="next_n()" value="next step" type="button">

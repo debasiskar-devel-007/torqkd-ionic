@@ -8,6 +8,7 @@ import {SignupaddimagePage} from "../signupaddimage/signupaddimage";
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators,FormControl} from "@angular/forms";
 import {Http, Headers} from "@angular/http";
 import {ControlGroup, Control} from "@angular/common";
+import {Facebook,InAppBrowser} from 'ionic-native';
 
 /*
   Generated class for the SignupnextPage page.
@@ -21,6 +22,8 @@ import {ControlGroup, Control} from "@angular/common";
 export class SignupnextPage {
   private signUpForm:FormGroup;
   public homepage = HomePage;
+  private social_type = '';
+  private accessToken;
 
   constructor(private navCtrl: NavController,public modalCtrl: ModalController,public fb: FormBuilder,private _http: Http,public toastCtrl: ToastController) {
     this.signUpForm = fb.group({
@@ -63,6 +66,47 @@ export class SignupnextPage {
           });
 
 
+    }
+  }
+
+
+  cngsocialselect(social_type){
+    this.social_type = social_type;
+  }
+
+  social_share(){
+    if(this.social_type == 'fb'){
+      Facebook.login(["email","public_profile"]).then((result) => {
+
+        if(result.status == 'connected'){
+          this.accessToken = result.authResponse.accessToken;
+            var obj = {
+              method: 'feed',
+              link: 'http://torkq.com'
+            };
+            Facebook.showDialog(obj).then((res) => {
+              let toast = this.toastCtrl.create({
+                message: 'Posted Successfully On Facebook',
+                duration: 3000,
+                position : 'middle',
+                cssClass : 'social-share-success'
+              });
+
+              toast.present();
+            });
+
+
+
+
+
+        }else{
+          alert('An Error occured in FB Login');
+        }
+
+      });
+    }
+    if(this.social_type == 'tw'){
+      let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare1', '_blank');
     }
   }
 

@@ -139,8 +139,7 @@ export class ExperiencePage {
   }
 
     launch(url){
-
-        InAppBrowser.open(url,  '_system', 'location=yes');
+        let browser = new InAppBrowser(url, '_system');
     }
 
   openmenu(){
@@ -589,7 +588,10 @@ export class ExperiencePage {
                             });
                             modal.present();
                         }else{
-                            inAppBrowserRef = InAppBrowser.open('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com='+item.msg+'&userid='+this.loggedinuser+'&type=text',  '_blank', 'location=no');
+                          //  inAppBrowserRef = InAppBrowser.open('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com='+item.msg+'&userid='+this.loggedinuser+'&type=text',  '_blank', 'location=no');
+
+                            let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com='+item.msg+'&userid='+this.loggedinuser+'&type=text', '_blank');
+
                         }
 
                     }
@@ -598,7 +600,9 @@ export class ExperiencePage {
                     text: '',
                     handler: () => {
                         var inAppBrowserRef;
-                        inAppBrowserRef = InAppBrowser.open('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.s_img+'&description=',  '_blank', 'location=no');
+                    //    inAppBrowserRef = InAppBrowser.open('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.s_img+'&description=',  '_blank', 'location=no');
+
+                        let browser = new InAppBrowser('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.s_img+'&description=', '_blank');
                     }
                 },
                 {

@@ -131,7 +131,7 @@ export class ExpeventlistPage {
 
   launch(url){
 
-    InAppBrowser.open(url,  '_system', 'location=yes');
+    let browser = new InAppBrowser(url, '_system');
   }
 
   openmenu(){

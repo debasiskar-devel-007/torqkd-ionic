@@ -163,7 +163,9 @@ export class PhotodetsocialPage {
 
             var inAppBrowserRef;
 
-            inAppBrowserRef = InAppBrowser.open('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com=&userid='+this.loggedinuser+'&type=statImg',  '_blank', 'location=no');
+           // inAppBrowserRef = InAppBrowser.open('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com=&userid='+this.loggedinuser+'&type=statImg',  '_blank', 'location=no');
+
+            let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com=&userid='+this.loggedinuser+'&type=statImg', '_blank');
 
           }
         },
@@ -171,7 +173,9 @@ export class PhotodetsocialPage {
           text: '',
           handler: () => {
             var inAppBrowserRef;
-            inAppBrowserRef = InAppBrowser.open('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.img_src+'&description=',  '_blank', 'location=no');
+           // inAppBrowserRef = InAppBrowser.open('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.img_src+'&description=',  '_blank', 'location=no');
+
+            let browser = new InAppBrowser('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.img_src+'&description=', '_blank');
           }
         },
         {

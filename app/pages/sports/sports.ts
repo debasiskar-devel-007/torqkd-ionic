@@ -190,6 +190,10 @@ export class SportsPage {
     modal.present();
   }
 
+  launch(url){
+    let browser = new InAppBrowser(url, '_system');
+  }
+
   moredesp(){
     this.isExpanded = 1;
     this.spdescription = this.sportdet.sport_det.sport_desc;
@@ -561,7 +565,11 @@ export class SportsPage {
               });
               modal.present();
             }else{
-              inAppBrowserRef = InAppBrowser.open('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com='+item.msg+'&userid='+this.loggedinuser+'&type=text',  '_blank', 'location=no');
+             // inAppBrowserRef = InAppBrowser.open('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com='+item.msg+'&userid='+this.loggedinuser+'&type=text',  '_blank', 'location=no');
+
+
+              let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+item.value+'&page=profile&com='+item.msg+'&userid='+this.loggedinuser+'&type=text', '_blank');
+
             }
 
           }
@@ -570,7 +578,9 @@ export class SportsPage {
           text: '',
           handler: () => {
             var inAppBrowserRef;
-            inAppBrowserRef = InAppBrowser.open('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.s_img+'&description=',  '_blank', 'location=no');
+          //  inAppBrowserRef = InAppBrowser.open('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.s_img+'&description=',  '_blank', 'location=no');
+
+            let browser = new InAppBrowser('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.s_img+'&description=', '_blank');
           }
         },
         {

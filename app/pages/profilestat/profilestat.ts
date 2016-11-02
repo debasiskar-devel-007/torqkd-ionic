@@ -265,10 +265,8 @@ export class profileStatPage {
 
 
     launch(url){
-/*
-        let browser = new InAppBrowser();
-        InAppBrowser.open(url, "_system", "location=true");
-*/    }
+        let browser = new InAppBrowser(url, '_system');
+    }
 
     openmenu(){
         $('.navmenul').click();
