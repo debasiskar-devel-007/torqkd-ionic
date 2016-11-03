@@ -228,7 +228,11 @@ export class GroupdetailsPage {
             },
             disableDefaultUI: true
           }
-          map[statusd[x].id] = new google.maps.Map(document.getElementById('map22'+statusd[x].id), myOptions);
+
+          var elems = document.getElementsByClassName('map-canvas-group'+statusd[x].id);
+          var elemlength = elems.length;
+
+          map[statusd[x].id] = new google.maps.Map(elems[elemlength-1], myOptions);
 
 
           poly[statusd[x].id] = new google.maps.Polyline({

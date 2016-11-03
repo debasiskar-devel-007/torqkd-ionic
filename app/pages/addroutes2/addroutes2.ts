@@ -47,6 +47,7 @@ export class Addroutes2Page {
   public longitude_loc;
 
   public isStart=false;
+  public isStart1=false;
 
 
   public location;
@@ -59,6 +60,9 @@ export class Addroutes2Page {
   public avg_sec=0;
   public avg_min=0;
   public avg_hour=0;
+
+  public isMapLoad = false;
+
 
 
   constructor(private navCtrl: NavController,public modalCtrl: ModalController,private _http: Http,public actionSheetCtrl: ActionSheetController,public sanitizer:DomSanitizationService,public params: NavParams) {
@@ -135,6 +139,8 @@ export class Addroutes2Page {
 
   loadmap(){
 
+    this.isMapLoad = true;
+
 
 
       this.bounds = new google.maps.LatLngBounds();
@@ -169,6 +175,8 @@ export class Addroutes2Page {
         icon:'http://torqkd.com/images/map-icon.png',
         //title:address[statusd[x].id]
       });
+
+    this.location_arr.push(this.center);
 
 
 
@@ -268,7 +276,7 @@ export class Addroutes2Page {
   trackpath(){
 
 
-      this.location = Geolocation.watchPosition({maximumAge: 3000, timeout: 5000, enableHighAccuracy: true});
+      this.location = Geolocation.watchPosition({maximumAge: 3000, timeout: 3000, enableHighAccuracy: true});
       this.location.subscribe((data) => {
 
         if(this.isStart){
@@ -372,13 +380,15 @@ export class Addroutes2Page {
 
   start(){
 
-   this.isStart =true;
-    this.trackpath();
-    this.setTimer();
-
-    if(this.location_arr.length == 0){
+    if(!this.isStart1){
+      this.isStart1 =true;
+      this.location_arr = [];
       this.marker.setMap(null);
+      this.trackpath();
     }
+
+    this.isStart =true;
+    this.setTimer();
 
   }
 
@@ -408,6 +418,11 @@ export class Addroutes2Page {
   }
 
   addRoutes(){
+
+    this.isStart = false;
+    this.isStart1 = false;
+
+
     var duration = this.formattimer(this.hour)+':'+this.formattimer(this.min)+':'+this.formattimer(this.sec);
 
     var link = 'http://torqkd.com/user/ajs2/addRoutes';

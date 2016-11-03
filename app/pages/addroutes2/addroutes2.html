@@ -63,7 +63,7 @@
       </div>
 
       <div style="clear:both;"></div>
-      <div style="width:277px; padding-left:2%; margin:15px auto; ">
+      <div style="width:277px; padding-left:2%; margin:15px auto; " *ngIf="isMapLoad">
         <div class="bott-arrow" ng-show="isSinglePoint == 0">
           <input type="button" value="Start" id="sw_start" (click)="start()" *ngIf="!isStart" style="width:60px; height:60px;" />
           <input style="display:none;" type="button" value="Pause" id="sw_pause" (click)="pause()" *ngIf="isStart"  style="width:60px; height:60px;"/>

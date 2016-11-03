@@ -348,10 +348,12 @@ export class ProfilePage {
                     locations[statusd[x].id]=(statusd[x].routes.location);
                     markerp[statusd[x].id]=(statusd[x].routes.marker);
 
+                    var curP = new google.maps.LatLng(markerp[statusd[x].id][0]['latitude'], markerp[statusd[x].id][0]['longitude']);
+
 
                     var myOptions = {
                         zoom: 10,
-                        center: new google.maps.LatLng(52.21454000000001, 0.14044490000003407),
+                        center: curP,
                         mapTypeId: google.maps.MapTypeId.HYBRID,
                         scrollwheel:false,
                         mapTypeControlOptions: {
@@ -359,7 +361,12 @@ export class ProfilePage {
                         },
                         disableDefaultUI: true
                     }
-                    map[statusd[x].id] = new google.maps.Map(document.getElementById('map22'+statusd[x].id), myOptions);
+
+
+                    var elems = document.getElementsByClassName('map-canvas-profile'+statusd[x].id);
+                    var elemlength = elems.length;
+
+                    map[statusd[x].id] = new google.maps.Map(elems[elemlength-1], myOptions);
 
 
                     poly[statusd[x].id] = new google.maps.Polyline({
@@ -378,7 +385,7 @@ export class ProfilePage {
                             var stptggg = locations[statusd[x].id][n];
                             var setcarr = new Array();
 
-                            var curP = new google.maps.LatLng(locations[statusd[x].id][n]['latitude'] , locations[statusd[x].id][n]['longitude']);
+
 
                             bounds[statusd[x].id].extend(curP);
 
@@ -438,13 +445,6 @@ export class ProfilePage {
 
 
     onPageScroll(event) {
-        console.log(event.target.scrollTop);
-        console.log('hh'+$('.login-header').height());
-        if($('ion-header').height() < event.target.scrollTop) {
-
-
-        }
-
     }
 
     ngAfterViewInit() {
@@ -457,11 +457,11 @@ export class ProfilePage {
     makeGetRequest() {
         this._http.get("https://httpbin.org/ip")
             .subscribe(data => {
-                console.log(data.json());
+              //  console.log(data.json());
                 // /alert(data.json());
                 //this.nav.present(alert);
             }, error => {
-                console.log(JSON.stringify(error.json()));
+               // console.log(JSON.stringify(error.json()));
             });
     }
 
@@ -499,7 +499,7 @@ export class ProfilePage {
         return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+url);
     }
     updatelike(itemid){
-        console.log(itemid);
+       // console.log(itemid);
 
         var link1 = 'http://torqkd.com/user/ajs2/likestatus/id/'+itemid+'/userid/'+this.loggedinuser;
         //var data = $.param({email: event.email,password:event.password});
@@ -520,8 +520,8 @@ export class ProfilePage {
                 else{
 
 
-                    console.log(data.json());
-                    console.log(this.statusdata);
+                    //console.log(data.json());
+                   // console.log(this.statusdata);
                     var x;
                     for(x in this.statusdata){
                         if(this.statusdata[x].id==itemid){

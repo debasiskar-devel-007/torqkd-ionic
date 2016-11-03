@@ -120,7 +120,8 @@ export class AddroutesPage {
       return false;
     }
 
-    this.navCtrl.push(Addroutes2Page, {sportsId: this.sportsId ,locationName : this.locationName });
+   // this.navCtrl.push(Addroutes2Page, {sportsId: this.sportsId ,locationName : this.locationName });
+    this.navCtrl.setRoot(Addroutes2Page, {sportsId: this.sportsId ,locationName : this.locationName });
 
   }
 
