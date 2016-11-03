@@ -11,27 +11,25 @@
                         </button>
                     </div>
                     <div class="logo">
-                        <a href="#/index"> <img src="images/logo_main.png" alt="#"></a>
+                        <a href="javascript:void(0)"> <img src="images/logo_main.png" alt="#"></a>
                     </div>
                     <div class="logout">
-                        <img src="images/gear2.png">
+                        <a [navPush]="updateprofilepage"><img src="images/gear2.png"></a>
                     </div>
                 </div>
             </div>
     </ion-navbar>
 </ion-header>
 
-<ion-content  style="background-color: #ffaf36;height:800px">
-</ion-content>
 
-<ion-content padding class="getting-started contentwrapper has-header hide has-subheader" fullscreen>
+<ion-content padding class="getting-started contentwrapper has-header hide has-subheader">
 
 
     <div class="experience-wrapper">
         <div class="movile-tab-body">
             <ul>
-                <li><a href="javascript:void(0)">GPS</a></li>
-                <li class="ng-hide"><a href="javascript:void(0)">CAMERA</a></li>
+                <li><a href="javascript:void(0)" [navPush]="addroutespage">GPS</a></li>
+                <li class="ng-hide"><a href="javascript:void(0)" (click)="opencamera5()">CAMERA</a></li>
                 <!--<li class="ng-hide"><input type="button" value="CAMERA" class="browsebtn">
                 </li>-->
             </ul>
@@ -63,136 +61,86 @@
                         </table>
 
                 </ion-slide>
-                <!--<ion-slide class="Stats-slider-contain">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#DFE2E2 !important;">
-                        <tbody>
-                        <tr>
-                            <th colspan="4" class="ng-binding">BUNGEE</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="strongtext ng-binding">1.00</div><div class="spantext">Distance</div>
-                            </td>
-                            <td>
-                                <div class="strongtext ng-binding">00:06:57</div><div class="spantext">Time</div>
-                            </td>
-                            <td>
-                                <div class="strongtext ng-binding">3</div><div class="spantext">Activities</div>
-                            </td>
-                            <td>
-                                <div class="strongtext ng-binding">0</div><div class="spantext">Events</div>
-                            </td>
-                        </tr>
-                        </tbody></table>
-                </ion-slide>
-                <ion-slide class="Stats-slider-contain">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#DFE2E2 !important;">
-                        <tbody><tr>
-                            <th colspan="4" class="ng-binding">CLIFF</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="strongtext ng-binding">0.82</div><div class="spantext">Distance</div>
-                            </td>
-                            <td>
-                                <div class="strongtext ng-binding">00:05:13</div><div class="spantext">Time</div>
-                            </td>
-                            <td>
-                                <div class="strongtext ng-binding">1</div><div class="spantext">Activities</div>
-                            </td>
-                            <td>
-                                <div class="strongtext ng-binding">0</div><div class="spantext">Events</div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </ion-slide>
-                <ion-slide class="Stats-slider-contain">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#DFE2E2 !important;">
-                        <tbody>
-                        <tr>
-                            <th colspan="4" class="ng-binding">BASE</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="strongtext ng-binding">0.71</div><div class="spantext">Distance</div>
-                            </td>
-                            <td>
-                                <div class="strongtext ng-binding">00:03:38</div><div class="spantext">Time</div>
-                            </td>
-                            <td>
-                                <div class="strongtext ng-binding">1</div><div class="spantext">Activities</div>
-                            </td>
-                            <td>
-                                <div class="strongtext ng-binding">0</div><div class="spantext">Events</div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </ion-slide>-->
             </ion-slides>
         </div>
         <div class="status-menu">
             <div class="text-box" id="text-box">
-                <textarea placeholder="STATUS UPDATE"></textarea>
+                <img id="loading_indicator" ngClass="{{addhideclass(getExactRunning)}}" src="images/ajax_loading.gif" width="16" height="11">
+                <div class="highlightTextarea" style="float: none; vertical-align: text-bottom; width: 100%; height: 58px ! important;">
+                    <div class="highlightTextarea-container" style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; padding: 0px; top: 0px; left: 0px; width: 88%; height: 58px;">
+                        <div class="highlightTextarea-highlighter" style="font-size: 15px; font-family: Arial,Helvetica,sans-serif; font-style: normal; font-weight: 400; font-variant: normal; font-stretch: normal; vertical-align: text-bottom; word-spacing: 0px; text-align: start; letter-spacing: 0px; text-rendering: optimizelegibility; width: 88px; height: 58px; top: 0px; left: 0px;">
+
+                        </div>
+                    </div>
+                    <div class="statusuparea" id="statusuparea" contenteditable="true" (focus)="isStatusInput = true" placeholder="STATUS UPDATE" (keypress)="texthighlight($event)" (keydown)="texthighlight($event)" (keyup)="texthighlight($event); changestatustext($event.target.innerText);" style="position: absolute; left: 0; top: 0;"></div>
+                </div>
+
             </div>
             <div class="menu1">
-                <a href="javascript:void(0);" ng-click="addVideo()" style="color: #fff;">+<br>VIDEO</a>
+                <a href="javascript:void(0);" (click)="openvideodiv()" style="color: #fff;">+<br>VIDEO</a>
             </div>
             <div class="menu2">
-                <a href="javascript:void(0);" (click)="openphotobowse()"  ng-click="addPhoto()" style="color: #fff;">+<br>Photo</a>
+                <a href="javascript:void(0);" (click)="openphotodiv()" style="color: #fff;">+<br>Photo</a>
             </div>
             <div class="clear"></div>
         </div>
-        <div class="status-input hide" id="statusinput">
-            <div ng-show="isStatusInput">
-                <tags-input ng-show="showTag" placeholder="Who are with you?">
-                    <div class="host">
-                        <div class="tags">
-                            <ul class="tag-list"></ul>
-                            <input class="input searchbox" type="text" placeholder="Who are with you?">
-                            <span class="input" style="visibility: hidden; width: auto; white-space: pre; display: none;">Who are with you?</span>
-                        </div>
-                    </div>
-                </tags-input>
-                    <a href="javascript:void(0);" ng-click="showTag = true"><img src="images/adduser_new2.png" width="25" height="17" style="display:inline; width: 25px; margin:5px 0 0 14px;"></a>
+        <div id="extracted_url"></div>
+        <div class="status-input" id="statusinput">
+            <div ngClass="{{addhideclass(isStatusInput)}}">
+                <a href="javascript:void(0);" (click)="showtagPeople()"><img src="images/adduser_new2.png" width="25" height="17" style="display:inline; width: 25px; margin:5px 0 0 14px;"></a>
             </div>
 
-            <div ng-show="isPhoto" style="padding-bottom: 15px;" class=" browsephoto hide">
-                <input ng-show="!isMobileApp" type="button" class="browsebtn" value="Click To Browse"><br>
-                <img class="photopreview" src="" height="300" width="300">
-                <!--<a ng-show="isMobileApp" class="browsebtn ng-hide" style="display:block;" href="http://torqkd.com/upload/">Click To Browse</a>-->
+            <div *ngIf="isPhoto" style="padding-bottom: 15px;" class=" browsephoto">
+                <input type="button" class="browsebtn" value="Click To Browse" (click)="addPhoto()">
+            </div>
+            <div *ngIf="photoval" class="ng-scope">
+                <img *ngIf="filepath"  [src]="filepath" />
             </div>
 
-            <div ng-show="isVideo" class="ng-hide hide videobrowse">
+            <div *ngIf="isVideo" class="videobrowse">
                     <form name="signUpForm" id="signUpForm" class="form-horizontal ng-pristine ng-valid">
-                        <input type="text" placeholder="Type to search YouTube" ng-model="youtubeTxt" class="searchbox"><br>
-                        <input type="submit" value="search" class="searchbtn">
+                        <input type="text" placeholder="Type to search YouTube" (keyup)="getytsearchkey($event.target.value)" class="searchbox"><br>
+                        <input type="button" value="search" class="searchbtn" (click)="ytvideoseacrh()">
                     </form>
                     <div class="btnor">OR</div>
-                    <input class="browsebtn" type="button" value="Click To Browse">
+                    <input class="browsebtn" type="button" value="Click To Browse" (click)="addVideo()">
            </div>
-            <div ng-show="isStatusInput" class="">
+            <div *ngIf="videoval">
+                <video width="100%" controls *ngIf="videopath">
+                    <source [src]="videopath" type="video/mp4">
+                </video>
+            </div>
+            <div *ngIf="youtubeval" class="youtubeVideo2">
+                <div style="margin-bottom:10px; position: relative;" (click)="launchVideo1(statusvalue)">
+                    <img src="https://i.ytimg.com/vi/{{statusvalue}}/mqdefault.jpg" width="100%">
+                    <img src="images/youtube-playbtn.png" class="paly_video" style="cursor:pointer;">
+                </div>
+            </div>
+            <div ngClass="{{addhideclass(isStatusInput)}}">
               <div>
-                    <select id="share_with">
+                    <select id="share_with" (change)="changesharewith($event.target.value)">
                         <option value="1">Community</option>
                         <option value="2">Friends</option>
                         <option value="3">Friends Of Friends</option>
                         <option value="4">Private Me Only</option>
                     </select>
-                    <button class="postbtn1">cancel</button>
-                    <button class="postbtn2">post</button>
+
+                  <input class="lrotbtn" *ngIf="photoval" (click)="imgRotate(1)" style="background: transparent url('images/rtal.png') no-repeat scroll 0% 0% ! important; height: 32px; width: 112px;" type="button">
+                  <input class="rrotbtn" *ngIf="photoval" (click)="imgRotate(2)" style="background: transparent url('images/rtar.png') no-repeat scroll 0% 0% ! important; height: 32px; width: 112px;" type="button">
+                    <button class="postbtn1" (click)="statuscancel()">cancel</button>
+                    <button class="postbtn2" (click)="statusupdate()">post</button>
                     <div class="clear"></div>
               </div>
            </div>
         </div>
         <div class="clear"></div>
+
         <div id="tabs">
             <div class="btntablist">
                 <button class="btntab active">Social</button>
-                <button class="btntab">Events</button>
-                <button class="btntab">Groups</button>
-                <button class="btntab">stats</button>
+                <button class="btntab" [navPush]="profileeventlistpage">Events</button>
+                <button class="btntab" [navPush]="profilegrouppage">Groups</button>
+                <button class="btntab" [navPush]="profilestatpage">stats</button>
             </div>
             <div id="mainView">
                 <div class="blog1" *ngFor="let item of statusdata; let i = index" >
@@ -200,13 +148,18 @@
                         <img width="50" height="50" alt="" src="{{item.user_image}}?v={{index}}">
                         <div class="mobile-name-view">
                             <strong>{{item.user_name}}</strong>
+                            <a style="color: #333333 !important;" *ngIf="item.tagpeople.length"> - with </a>
+                            <a  *ngIf="item.tagpeople.length" href="javascript:void(0);" style="font-weight: bold; color: #333333 !important;">{{item.tagpeople1}}</a>
+                            <a style="color: #333333 !important;" *ngIf="item.tagpeople.length > 1"> and </a>
+                            <a *ngIf="item.tagpeople.length == 2" href="javascript:void(0)" style="font-weight: bold; color: #333333 !important;">{{item.tagpeople2}}</a>
+                            <a *ngIf="item.tagpeople.length > 2" href="javascript:void(0)" style="font-weight: bold; color: #333333 !important;" (click)="showtagPeople1(item)">{{item.tagpeople.length-1}} others</a>
                             <br>
                             <span>{{item.timespan}}</span>
                         </div>
                         <div class="clear"></div>
-                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11">
+                        <img class="closeBtn" src="images/deletebutton.png" width="11" height="11" style="display: block; cursor: pointer;" *ngIf="item.user_id == item.c_user" (click)="delstatus(item)">
                     </div>
-                    <div class="text-contain" *ngIf=" item.type=='' " innerHTML="{{item.msg}}">
+                    <div class="text-contain1" *ngIf="item.msg" innerHTML="{{item.msg}}">
                         <!--<a href="http://lipsum.com/" target="_blank">http://lipsum.com/</a>
                         <div class="extracted_url extracted_url2">
                             <div class="extracted_thumb">
@@ -223,19 +176,21 @@
                         </div>-->
                     </div>
                     <div class="text-contain" *ngIf=" item.type=='image' ">
-
                         <div class="blogimg">
-                            <img style="position:absolute; margin-top:-2px;" alt="" src="images/arrow.png" width="54" height="28">
-                            <img src="images/createimage1.jpg" style="cursor: pointer;" alt="" class="imgresponsive">
+                            <img style="position:absolute; margin-top:-2px; background: none;" alt="" src="images/arrow.png" width="54" height="28">
+                            <img src="{{item.s_img}}?version={{cdatetime}}" style="cursor: pointer;" alt="" class="imgresponsive" (click)="showPhotoDetails(item)">
                         </div>
                     </div>
-                    <div class="text-contain" *ngIf=" item.type=='youtube' ">
-
-                        <div class="blogimg"  ng-if="item.type=='youtube'" style="position: relative;" id="youtubeBody{{item.id}}">
+                    <div class="text-contain" *ngIf="item.type=='youtube' ">
+                        <div class="blogimg"  style="position: relative;">
                             <!--<youtube-video class="embed-responsive-item" video-id="item.value"></youtube-video>-->
-                            <img src="http://torqkd.com/user/ajs1/createimage?image={{item.s_img}}" width="100%">
-                            <img src="images/youplay.png" width="20%" class="paly_video" ng-click="showYoutubevdo(item.id,item.value)" style="cursor:pointer; width: 20%; z-index: 100; top: 40%; position: absolute; left: 40%;">
+                            <img src="http://torqkd.com/user/ajs1/createimage?image={{item.s_img}}" width="100%" (click)="launchVideo1(item.value)">
+                            <img src="images/youplay.png" width="20%" class="paly_video" style="cursor:pointer; width: 20%; z-index: 100; top: 40%; position: absolute; left: 40%;" (click)="launchVideo1(item.value)">
+
+                            <!--<iframe width="99%" height="99%" src='https://www.youtube.com/embed/{{item.value}}' frameborder="0" allowfullscreen></iframe>-->
                         </div>
+
+
                     </div>
 
                     <div class="text-contain" *ngIf=" item.type=='route' ">
@@ -262,7 +217,8 @@
 
                             </div>
                         </div>
-                        <div style="height: 400px;width: 100%" class="blogimg"  id="map{{item.id}}" >
+                        <div class="clear"></div>
+                        <div style="height: 400px;width: 100%;" class="blogimg"  id="map22{{item.id}}" >
 
                         </div>
 
@@ -283,25 +239,53 @@
                             <ul>
                                 <li class="commend-div">
                                     <a href="javascript:void(0);">
-                                        <img src="images/n1.png" alt="" height="20" width="20">
+                                        <img src="images/n1.png" (click)="toogleComment(item)" alt="" height="20" width="20">
                                     </a>
                                 </li>
-                                <li><a href="javascript:void(0);"><img ng-src="images/n2.png" alt="" width="20" height="20" src="images/n2.png"></a></li>
-                                <li><a href="javascript:void(0);"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
+                                <li><a href="javascript:void(0);">
+                                    <img ng-src="images/n2.png" *ngIf="item.is_like==0" alt="" width="20" height="20" (click)="updatelike(item.id)" src="images/n2.png">
+                                    <img *ngIf="item.is_like==1" class="fbactive" alt="" width="20" height="20"  (click)="updatelike(item.id)" src="images/n2-1.png">
+                                </a></li>
+                                <li><a href="javascript:void(0);" (click)="showSocilaShareList(item)"><img src="images/n3.png" alt="" width="20" style="margin-top:2px;"></a></li>
                             </ul>
                             <div class="clear"></div>
                         </div>
                         <div class="like-con2">
-                            <span class="dropdown">
-                                <a data-toggle="dropdown"><img src="images/share3_icon_active.png"><img src="images/ad2new.png" style="padding-left:4px;"></a>
-                               <!-- <ul class="dropdown-menu">
-                                    <li><a href="#">HTML</a></li>
-                                    <li><a href="#">CSS</a></li>
-                                    <li><a href="#">JavaScript</a></li>
-                                </ul>-->
+                            <span *ngIf="loggedinuser == item.user_id" style="width:auto; display:inline; padding:0 4px; width:44px; float:none;">
+                                <a href="javascript:void(0)" style="text-decoration:none; outline:none; float:none;" (click)="changesharewithhtml(item)">
+                                    <img src="images/share1_icon_active.png" style="width:18px; margin-top:-2px;" *ngIf="item.share_with==1">
+                                    <img src="images/share2_icon_active.png" style="width:15px; margin-top:0px;"  *ngIf="item.share_with==2">
+                                    <img src="images/share3_icon_active.png" style="width:18px; margin-top:0px;" *ngIf="item.share_with==3">
+                                    <img src="images/share4_icon_active.png" style="width:12px; margin-top:0px;" *ngIf="item.share_with==4">
+                                    <img src="images/ad2new.png" style="padding-bottom:4px;">
+                                </a>
                             </span>
-                            <label>{{item.like_no}} LIKE -  {{item.comment_no}}</label>
-                            <a href="javascript:void(0);"> &nbsp; Comment</a>
+                            <span style="width:auto; display:inline; padding:0 4px; float:none;" *ngIf="loggedinuser != item.user_id">
+                                <a href="javascript:void(0)" style="text-decoration:none; outline:none; float:none;">
+                                    <img src="images/share1_icon_active.png" style="width:18px; margin-top:-2px;" *ngIf="item.share_with==1">
+                                    <img src="images/share2_icon_active.png" style="width:15px; margin-top:0px;"  *ngIf="item.share_with==2">
+                                    <img src="images/share3_icon_active.png" style="width:18px; margin-top:0px;" *ngIf="item.share_with==3">
+                                    <img src="images/share4_icon_active.png" style="width:12px; margin-top:0px;" *ngIf="item.share_with==4">
+                                </a>
+                            </span>
+                            <label style=" float:none;">{{item.like_no}} LIKE -  {{item.comment_no}}</label>
+                            <a href="javascript:void(0);" (click)="toogleComment(item)" style=" float:none;"> &nbsp; Comment</a>
+                        </div>
+                        <div class="commend-box-pro hide" style="padding-left: 0px; padding-right: 0px; display: block;">
+                            <div class="commendboxpro">
+                                <div class="profile-img2" style="width: 38px; margin: 0 5px 0 0;">
+                                    <img src="images/imgcomment.jpg">
+                                </div>
+                                <div class="popup-text-box1">
+                                    <div class="commentemo">
+                                        <div class="commentemoinnertextarea" contenteditable="true"></div>
+                                        <a href="javascript:void(0)">
+                                            <img src="images/emo.png" width="22" height="22" class="emocss" style="background:none; width:22px;">
+                                        </a>
+                                        <a class="mob-post2" href="javascript:void(0);" style="margin-top:8px; margin-right:0px;">POST</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -644,10 +628,15 @@
 
                 <span class="empty"></span>
                 <div class="viewMore">
-                    <a href="javascript:void(0);" ng-click="viewMoreStatus()" class="">View More</a>
+                    <a href="javascript:void(0);" (click)="ionViewDidEnter()" class="">View More</a>
                 </div>
             </div>
+
+
+
+
         </div>
+
         <div class="stats-slider-bottom">
             <ion-slides [options]="mySlideOptions2">
                 <ion-slide *ngFor="let item of banner1data; let i = index" class="Stats-slider-bottom-contain1">
@@ -667,26 +656,25 @@
             </ion-slides>
         </div>
 </div>
-<!--        <p>
-            This starter project is our way of helping you get a functional app running in record time.
-        </p>
-        <p>
-            Follow along on the tutorial section of the Ionic docs!
-        </p>
-        <p>
-            <button primary menuToggle>Toggle Menu</button>
-        </p>-->
 
 
-
-
-
-
+    <div class="footer-menu1">
+        <span>©TORKQ</span>
+        <span>|</span>
+        <span>
+            <a href="javascript:void(0);" (click)="showtermsploicy('terms')">TERMS </a>
+        </span>
+        <span>|</span>
+        <span>
+            <a href="javascript:void(0);" (click)="showtermsploicy('policy')">PRIVACY</a>
+        </span>
+    </div>
 
 
 
 </ion-content>
 
+<!--
 
 <ion-footer>
 
@@ -701,4 +689,4 @@
 <a href="javascript:void(0);" ng-click="showtermsploicy('policy')">PRIVACY</a>
 </span>
 </div>
-</ion-footer>
+</ion-footer>-->
