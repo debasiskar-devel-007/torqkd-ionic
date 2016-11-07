@@ -17,7 +17,7 @@
     <ion-list>
 
       <ion-item>
-        <ion-textarea rows="6" placeholder="Write a comment..." id="twcom"></ion-textarea>
+        <ion-textarea rows="6" placeholder="Write a comment..." id="twcom" (keyup)="getytsearchkey($event.target.value)"></ion-textarea>
       </ion-item>
 
     </ion-list>

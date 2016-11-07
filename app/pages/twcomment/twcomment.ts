@@ -18,6 +18,7 @@ import { InAppBrowser} from "ionic-native";
 export class TwcommentPage {
   private item;
   private loggedinuser;
+  public msg:string = '';
 
   constructor(private navCtrl: NavController,private _navParams: NavParams,private _http: Http,public alertCtrl: AlertController,public toastCtrl: ToastController) {
     this.item=this._navParams.get("item");
@@ -32,15 +33,25 @@ export class TwcommentPage {
     this.navCtrl.pop();
   }
 
-  posttw(){
-    var fbcom = $('#twcom textarea').val();
+  getytsearchkey(msg){
+    this.msg = msg;
+  }
 
-    var inAppBrowserRef;
+  posttw(){
+
 
     if(this.item.type == 'image') {
-      inAppBrowserRef = InAppBrowser.open('http://torqkd.com/user/ajs2/twittershare2?image='+this.item.value+'&page=profile&com='+fbcom+'&userid='+this.loggedinuser+'&type=statImg',  '_blank', 'location=no');
+
+      let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+this.item.value+'&page=profile&com='+this.msg+'&userid='+this.loggedinuser+'&type=statImg',  '_blank');
+    }else if(this.item.type == 'mp4') {
+
+      let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+this.item.value+'&page=profile&com='+this.msg+'&userid='+this.loggedinuser+'&type='+this.item.type,  '_blank');
+    }else if(this.item.type == 'youtube') {
+
+      let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+this.item.value+'&page=profile&com='+this.msg+'&userid='+this.loggedinuser+'&type='+this.item.type,  '_blank');
     }else{
-      inAppBrowserRef = InAppBrowser.open('http://torqkd.com/user/ajs2/twittershare2?image='+this.item.value+'&page=profile&com='+fbcom+'&userid='+this.loggedinuser+'&type=text',  '_blank', 'location=no');
+
+      let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+this.item.value+'&page=profile&com='+this.msg+'&userid='+this.loggedinuser+'&type=text',  '_blank');
     }
 
 

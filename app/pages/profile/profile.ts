@@ -94,6 +94,10 @@ export class ProfilePage {
     public status_id;
     public ytsearchkey = '';
 
+
+    public isRotate;
+    public rotating;
+
     mySlideOptions = {
         initialSlide: 0,
         loop: true,
@@ -175,9 +179,9 @@ export class ProfilePage {
                 }
                 else{
 
-                    console.log(data.json());
-                    console.log(data.json().banner1);
-                    console.log(data.json().banner2);
+                   // console.log(data.json());
+                   // console.log(data.json().banner1);
+                   // console.log(data.json().banner2);
                     this.banner1data=data.json().banner1;
                     this.banner2data=data.json().banner2;
                     //console.log(data.json());
@@ -193,7 +197,7 @@ export class ProfilePage {
 
         this.local.get('userinfo').then((value) => {
             this.loggedinuser=JSON.parse(value).id;
-            console.log(JSON.parse(value).id);
+           // console.log(JSON.parse(value).id);
             if(value!=null) {
 
                 //this.navpage();
@@ -273,9 +277,10 @@ export class ProfilePage {
         if (Splashscreen) {
             setTimeout(() => {
                 Splashscreen.hide();
-            }, 100);
+            }, 10);
         }
-        console.log(this.isloggedin);
+
+     //   console.log(this.isloggedin);
         if(!this.isloggedin)this.navCtrl.setRoot(HomePage);
         else{
 
@@ -298,8 +303,8 @@ export class ProfilePage {
                     else{
 
 
-                        console.log(data.json());
-                        console.log(data.json().statdet);
+                      //  console.log(data.json());
+                     //   console.log(data.json().statdet);
                         //console.log(data.json().banner2);
                         this.statdata=data.json().statdet;
                         let v;
@@ -327,7 +332,8 @@ export class ProfilePage {
 
 
     loadmaps(statusd){
-        setTimeout(function () {
+
+        setTimeout(() => {
 
             var x;
             let map = new Array();
@@ -424,9 +430,12 @@ export class ProfilePage {
 
                 }
             }
-        },5000);
+        }, 5000);
+
 
     }
+
+
 
     launch(url){
 
@@ -686,7 +695,7 @@ export class ProfilePage {
         if(match_url.test(strss) && (event.keyCode == 13 || event.keyCode == 32) && !this.getExactRunning){
             this.getExactRunning = true;
             var extracted_url = strss.match(match_url)[0];
-            console.log(extracted_url);
+           // console.log(extracted_url);
             var headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded');
             var link = 'http://torqkd.com/user/ajs2/extratcUrl';
@@ -837,6 +846,20 @@ export class ProfilePage {
         if(this.statustype == 'mp41'){
             this.statustype = 'video';
             this.localvideoupload1();
+
+            return false;
+        }
+
+        if(this.statustype == 'cameraphoto'){
+            this.statustype = 'image';
+            this.cameraimgupload2();
+
+            return false;
+        }
+
+        if(this.statustype == 'cameraphoto1'){
+            this.statustype = 'image';
+            this.cameraimgupload21();
 
             return false;
         }
@@ -1022,23 +1045,23 @@ export class ProfilePage {
 
                         if(item.type == 'image'){
                             let modal = this.modalCtrl.create(TwcommentPage, {
-                                "item": item, "accessToken" : this.accessToken
+                                "item": item, "loggedinuser" : this.loggedinuser
                             });
                             modal.present();
                         }else if(item.type == 'route'){
                             let modal = this.modalCtrl.create(TwcommentPage, {
-                                "item": item, "accessToken" : this.accessToken
+                                "item": item, "loggedinuser" : this.loggedinuser
                             });
                             modal.present();
                         }else if(item.type == 'mp4'){
                             let modal = this.modalCtrl.create(TwcommentPage, {
-                                "item": item, "accessToken" : this.accessToken
+                                "item": item, "loggedinuser" : this.loggedinuser
                             });
                             modal.present();
 
                         }else if(item.type == 'youtube'){
                             let modal = this.modalCtrl.create(TwcommentPage, {
-                                "item": item, "accessToken" : this.accessToken
+                                "item": item, "loggedinuser" : this.loggedinuser
                             });
                             modal.present();
                         }else{
@@ -1136,19 +1159,90 @@ export class ProfilePage {
         MediaCapture.captureImage(options)
             .then(
                 (data: MediaFile[]) => {
-                    this.imagepath=data[0]['fullPath'];
-                    this.filepath= 'images/fileloader.gif';
+                    this.imagepath= data[0]['fullPath'];
+                    this.filepath = data[0]['fullPath'];
                     this.isPhoto = false;
                     this.isStatusInput = true;
                     this.photoval = true;
-                    this.uploadpic2();
+                    this.statustype = 'cameraphoto';
+
+                    this.isRotate = 0;
+
+
+                   // this.uploadpic2();
                 },
                 (err: CaptureError) => {
                 }
             );
     }
 
-    uploadpic2(){
+    cameraimgupload2(){
+        var msg = this.statusText;
+
+        var link = 'http://torqkd.com/user/ajs2/storelocalfilepath';
+        var data = {'msg':msg,'msg1':this.statusText1,'share_with':this.share_with,'group_id':0,'type':'image','value':'','is_status':1,tagpeople:this.tagpeople,'sess_user':this.loggedinuser,localfilepath:this.filepath};
+
+        this._http.post(link, data)
+            .subscribe(data2 => {
+
+                $('#text-box').find('.highlightTextarea-highlighter').html('');
+                $('.highlightTextarea').css('height',58);
+                $('.highlightTextarea-container').css('height',58);
+                $('.highlightTextarea-highlighter').css('height',58);
+                this.isStatusInput = false;
+                this.photoval = false;
+
+                $('#statusuparea').text('');
+                $( '#extracted_url' ).html('');
+
+
+                this.status_id = data2.text();
+                this.statustype = '';
+
+
+                var status_id = data2.text();
+
+                this.uploadpic2(status_id);
+
+            }, error => {
+                console.log("Oooops!");
+            });
+    }
+
+    cameraimgupload21(){
+        var msg = this.statusText;
+
+        var link = 'http://torqkd.com/user/ajs2/storelocalfilepath';
+        var data = {'msg':msg,'msg1':this.statusText1,'share_with':this.share_with,'group_id':0,'type':'image','value':'','is_status':1,tagpeople:this.tagpeople,'sess_user':this.loggedinuser,localfilepath:this.filepath};
+
+        this._http.post(link, data)
+            .subscribe(data2 => {
+
+                $('#text-box').find('.highlightTextarea-highlighter').html('');
+                $('.highlightTextarea').css('height',58);
+                $('.highlightTextarea-container').css('height',58);
+                $('.highlightTextarea-highlighter').css('height',58);
+                this.isStatusInput = false;
+                this.photoval = false;
+
+                $('#statusuparea').text('');
+                $( '#extracted_url' ).html('');
+
+
+                this.status_id = data2.text();
+                this.statustype = '';
+
+
+                var status_id = data2.text();
+
+                this.uploadpic(status_id);
+
+            }, error => {
+                console.log("Oooops!");
+            });
+    }
+
+    uploadpic2(status_id){
 
         const fileTransfer = new Transfer();
         var options: any;
@@ -1167,8 +1261,6 @@ export class ProfilePage {
 
                 var data1:any = JSON.parse(data.response);
 
-
-
                 if(data1.error_code == 0){
                     this.statusvalue = data1.filename;
                     var link = 'http://torqkd.com/user/ajs2/movefile';
@@ -1178,8 +1270,50 @@ export class ProfilePage {
 
                     this._http.post(link, data5)
                         .subscribe(data11 => {
-                            this.statustype = 'image';
-                            this.filepath = data11.text();
+
+
+                            var link = 'http://torqkd.com/user/ajs2/statusUpdate';
+                            var data511 = {'value':data1.filename,'status_id':status_id};
+
+                            this._http.post(link, data511)
+                                .subscribe(data => {
+                                    this.statusdata.splice(0, 0,data.json());
+                                    this.loadmaps(this.statusdata);
+                                    this.socialfeedoffset+=1;
+
+                                    $('#text-box').find('.highlightTextarea-highlighter').html('');
+                                    $('.highlightTextarea').css('height',58);
+                                    $('.highlightTextarea-container').css('height',58);
+                                    $('.highlightTextarea-highlighter').css('height',58);
+                                    this.isStatusInput = false;
+
+                                    $('#statusuparea').text('');
+                                    $( '#extracted_url' ).html('');
+
+                                    this.statusText = '';
+                                    this.statusText1 = '';
+                                    this.statustype = '';
+                                    this.statusvalue = '';
+                                    this.tagpeople = '';
+
+                                    this.filepath = '';
+                                    this.imagepath = '';
+                                    this.videopath = '';
+                                    this.isPhoto = false;
+                                    this.isVideo = false;
+                                    this.photoval = false;
+                                    this.videoval = false;
+                                    this.youtubeval = false;
+
+                                    this.status_id = 0;
+
+                                }, error => {
+                                    console.log("Oooops!");
+                                });
+
+
+
+
                         }, error => {
                             console.log("Oooops!");
                         });
@@ -1218,12 +1352,15 @@ export class ProfilePage {
         ImagePicker.getPictures(options).then((results) => {
             for (var i = 0; i < results.length; i++) {
                 this.imagepath=results[i];
-                this.filepath= 'images/fileloader.gif';
+                this.filepath= results[i];
                 this.isPhoto = false;
                 this.isStatusInput = true;
                 this.photoval = true;
 
-                this.uploadpic();
+                this.statustype = 'cameraphoto1';
+                this.isRotate = 0;
+
+
             }
         }, (err) => {
 
@@ -1232,7 +1369,7 @@ export class ProfilePage {
         });
     }
 
-    uploadpic(){
+    uploadpic(status_id){
 
 
         const fileTransfer = new Transfer();
@@ -1263,8 +1400,46 @@ export class ProfilePage {
 
                     this._http.post(link, data5)
                         .subscribe(data11 => {
-                            this.statustype = 'image';
-                            this.filepath = data11.text();
+
+                            var link = 'http://torqkd.com/user/ajs2/statusUpdate';
+                            var data511 = {'value':data1.filename,'status_id':status_id};
+
+                            this._http.post(link, data511)
+                                .subscribe(data => {
+                                    this.statusdata.splice(0, 0,data.json());
+                                    this.loadmaps(this.statusdata);
+                                    this.socialfeedoffset+=1;
+
+                                    $('#text-box').find('.highlightTextarea-highlighter').html('');
+                                    $('.highlightTextarea').css('height',58);
+                                    $('.highlightTextarea-container').css('height',58);
+                                    $('.highlightTextarea-highlighter').css('height',58);
+                                    this.isStatusInput = false;
+
+                                    $('#statusuparea').text('');
+                                    $( '#extracted_url' ).html('');
+
+                                    this.statusText = '';
+                                    this.statusText1 = '';
+                                    this.statustype = '';
+                                    this.statusvalue = '';
+                                    this.tagpeople = '';
+
+                                    this.filepath = '';
+                                    this.imagepath = '';
+                                    this.videopath = '';
+                                    this.isPhoto = false;
+                                    this.isVideo = false;
+                                    this.photoval = false;
+                                    this.videoval = false;
+                                    this.youtubeval = false;
+
+                                    this.status_id = 0;
+
+                                }, error => {
+                                    console.log("Oooops!");
+                                });
+
                         }, error => {
                             console.log("Oooops!");
                         });
@@ -1282,6 +1457,70 @@ export class ProfilePage {
     }
 
     imgRotate(type){
+
+        this.statustype = 'image';
+
+        if(this.isRotate == 0){
+            const fileTransfer = new Transfer();
+            var options: any;
+
+            this.rotating = true;
+
+            options = {
+                fileKey: 'file',
+                //fileName: this.imagepath.toString().replace('file:///data/data/com.ionicframework.demo866280/cache/',''),
+                fileName: this.imagepath.substring(this.imagepath.lastIndexOf('/')+1),
+                headers: {}
+
+            }
+            //fileTransfer.upload(this.imagepath, "http://torqkd.com/user/ajs2/testfileupload", options)
+            fileTransfer.upload(this.imagepath, "http://166.62.34.31:2/uploads", options)
+                .then((data) => {
+                    // success
+
+                    var data1:any = JSON.parse(data.response);
+
+                    if(data1.error_code == 0){
+                        this.statusvalue = data1.filename;
+                        var link = 'http://torqkd.com/user/ajs2/movefile';
+                        var data5 = {file_name: data1.filename,folder_name : 'status_img'};
+
+
+
+                        this._http.post(link, data5)
+                            .subscribe(data11 => {
+
+
+                                this.statusvalue = data1.filename;
+
+                                this.imgRotate2(type);
+
+                                this.isRotate = 1;
+
+
+                            }, error => {
+                                console.log("Oooops!");
+                            });
+                    }else{
+                        alert('error occured');
+                    }
+
+
+
+                }, (err) => {
+                    // error
+                    alert(err);
+                    //this.statuscancel();
+                })
+        }else {
+            this.imgRotate2(type);
+        }
+
+
+
+    }
+
+    imgRotate2(type){
         var link = 'http://torqkd.com/user/ajs2/rotateleftnew';
         var data5 = {file_name: this.statusvalue,folder_name : 'status_img',arg : type};
 
@@ -1290,6 +1529,7 @@ export class ProfilePage {
         this._http.post(link, data5)
             .subscribe(data11 => {
                 this.filepath = data11.text();
+                this.rotating = false;
             }, error => {
                 console.log("Oooops!");
             });

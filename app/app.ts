@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {ionicBootstrap, Platform, MenuController, Nav} from 'ionic-angular';
+import {ionicBootstrap, Platform, MenuController, Nav,Storage, LocalStorage} from 'ionic-angular';
 import {StatusBar, Splashscreen} from 'ionic-native';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
@@ -35,16 +35,31 @@ class MyApp {
   private submenuopen = 0;
 
   // make HelloIonicPage the root (or first) page
-  rootPage: any = ProfilePage;
+  private rootPage;
   pages: Array<{title: string, component: any}>;
 
   private sportslist;
+  private local:LocalStorage;
+
 
   constructor(
     public platform: Platform,
     public menu: MenuController,private _http: Http
   ) {
     this.initializeApp();
+
+    this.local = new Storage(LocalStorage);
+
+    this.local.get('userinfo').then((value) => {
+      if(value!=null) {
+        this.rootPage = ProfilePage;
+      }
+      else{
+        this.rootPage = HomePage;
+      }
+    }).catch((err)=>{
+      this.rootPage = HomePage;
+    });
 
     // set our app's pages
     this.pages = [
@@ -93,11 +108,11 @@ class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      if (Splashscreen) {
+      /*if (Splashscreen) {
         setTimeout(() => {
           Splashscreen.hide();
         }, 100);
-      }
+      }*/
 
       if (StatusBar) {
         // hide StatusBar using cordova-plugin-statusbar

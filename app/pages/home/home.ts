@@ -105,15 +105,12 @@ export class HomePage {
 
   ionViewDidEnter() {
 
-
-    console.log('ionViewDidEnter');
-
     if (Splashscreen) {
       setTimeout(() => {
         Splashscreen.hide();
-      }, 100);
+      }, 10);
     }
-    console.log(this.isloggedin);
+
     if(this.isloggedin)this.navCtrl.setRoot(ProfilePage);
 
   }

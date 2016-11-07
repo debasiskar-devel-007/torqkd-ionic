@@ -93,7 +93,8 @@
             <div *ngIf="isPhoto" style="padding-bottom: 15px;" class=" browsephoto">
                 <input type="button" class="browsebtn" value="Click To Browse" (click)="addPhoto()">
             </div>
-            <div *ngIf="photoval" class="ng-scope">
+            <div  *ngIf="photoval" style="position: relative;">
+                <img *ngIf="rotating" src="images/loading_list.gif" style="position: absolute;top:50%; left: 56px;">
                 <img *ngIf="filepath"  [src]="filepath" />
             </div>
 
@@ -218,7 +219,7 @@
                             </div>
                         </div>
                         <div class="clear"></div>
-                        <div style="height: 400px;width: 100%;" class="blogimg map-canvas-profile{{item.id}}"  id="map22{{item.id}}" >
+                        <div style="height: 400px;width: 100%;" class="map-canvas-profile{{item.id}}"  id="map22{{item.id}}" >
 
                         </div>
 
@@ -669,7 +670,6 @@
             <a href="javascript:void(0);" (click)="showtermsploicy('policy')">PRIVACY</a>
         </span>
     </div>
-
 
 
 </ion-content>
