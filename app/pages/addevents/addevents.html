@@ -71,11 +71,11 @@
 
           <div class="form-part">
             <div class="when-form">
-              <span>Date:</span>
+              <!--<span>Date:</span>-->
               <div class="form-group">
-                <div class="col-sm-10" style="width:100%; padding:0;">
+                <div class="col-sm-10 event-date" style="width:100%; padding:0;">
                   <ion-item>
-                    <ion-label>FROM DATE</ion-label>
+                    <ion-label>START DATE</ion-label>
                     <ion-datetime displayFormat="MM/DD/YYYY" [formControl]="addEventForm.controls['from_date']" class="form-control input-form" max="{{max}}"></ion-datetime>
                     </ion-item>
                     <div *ngIf ="addEventForm.controls['from_date'].touched">
@@ -85,11 +85,11 @@
                     </div>
                 </div>
               </div>
-              <span>To:</span>
+              <!--<span>To:</span>-->
               <div class="form-group">
-                <div class="col-sm-10" style="width:100%; padding:0;">
+                <div class="col-sm-10 event-date" style="width:100%; padding:0;">
                   <ion-item>
-                    <ion-label>TO DATE</ion-label>
+                    <ion-label>END DATE</ion-label>
                     <ion-datetime displayFormat="MM/DD/YYYY" [formControl]="addEventForm.controls['to_date']" class="form-control input-form" max="{{max}}"></ion-datetime>
                     </ion-item>
                   <div *ngIf ="addEventForm.controls['to_date'].touched">
@@ -100,9 +100,9 @@
                 </div>
               </div>
               <div class="clear"></div>
-              <span *ngIf="allday == 0">Time:</span>
+              <!--<span *ngIf="allday == 0">Time:</span>-->
               <div *ngIf="allday == 0" class="form-group">
-                <div class="col-sm-10" style="width:100%; padding:0;">
+                <div class="col-sm-10 event-date" style="width:100%; padding:0;">
                   <ion-item>
                     <ion-label>START TIME</ion-label>
                     <ion-datetime displayFormat="hh:mm A" [formControl]="addEventForm.controls['start_time']" class="form-control input-form"></ion-datetime>
@@ -111,9 +111,9 @@
                 </div>
               </div>
 
-              <span  *ngIf="allday == 0">To:</span>
+              <!--<span  *ngIf="allday == 0">To:</span>-->
               <div *ngIf="allday == 0" class="form-group">
-                <div class="col-sm-10" style="width:100%; padding:0;">
+                <div class="col-sm-10 event-date" style="width:100%; padding:0;">
 
                   <ion-item>
                     <ion-label>END TIME</ion-label>
@@ -123,9 +123,9 @@
                 </div>
               </div>
 
-              <div class="clear"></div><br>
+              <div class="clear"></div>
 
-              <ion-item style="border: none !important; background: none;">
+              <ion-item style="border: none !important; height : 22px !important;" class="add-event-chk">
                 <ion-label>All day</ion-label>
                 <ion-checkbox [formControl]="addEventForm.controls['all_day']" (ionChange)="handleChange($event)"></ion-checkbox>
               </ion-item>

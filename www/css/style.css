@@ -1553,22 +1553,22 @@ video {
     width:275px;
     font-family: "veneerregular";
     border: 5px solid #f7941e;
-    border-bottom: none;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+
 }
 .socilashareactionsheet .action-sheet-wrapper .action-sheet-group{
     background: #FFFFFF none repeat scroll 0 0;
 }
 .socilashareactionsheet .action-sheet-wrapper .action-sheet-title{
     color: #424242;
-    border-bottom: 1px solid #9a9a9c;
+    /*border-bottom: 1px solid #9a9a9c;*/
     font-size: 24px;
 
     display: none;
 }
 .socilashareactionsheet .action-sheet-wrapper .action-sheet-button{
     color: #424242;
-    border-bottom: 1px solid #9a9a9c;
+    /*border-bottom: 1px solid #9a9a9c;*/
     margin-bottom: 0 !important;
 }
 .socilashareactionsheet .action-sheet-button:nth-child(2){
@@ -5354,7 +5354,7 @@ code.has-numbering {
     background: #ffffff none repeat scroll 0 0;
     margin: 10px auto;
     padding: 4%;
-    width: 92%;
+    width: 100%;
 }
 .view-route-page .routes-body-contain .routes-wrapper .routes-row {
     border-bottom: 2px solid #bcbec0;
@@ -7142,22 +7142,21 @@ code.has-numbering {
 .add-group-page .createevent-body .sports-table ul li, .add-event-page .createevent-body .sports-table ul li {
     display: block;
     float: left;
-    height: 68px;
+    height: 50px;
     margin: 0 8px 35px 0 !important;
-    width: 62px;
+    width: 50px;
+    line-height: 0;
 }
 .add-group-page .createevent-body .sports-table ul li a, .add-event-page .createevent-body .sports-table ul li a {
     border: 2px solid #ebebeb;
     display: block;
     margin: 0 auto 10px;
     padding: 2px;
-    width: 46px !important;
+   /* width: 46px !important;*/
 }
 .add-group-page .createevent-body .sports-table ul li a.activeimg, .add-event-page .createevent-body .sports-table ul li a.activeimg{
     border: 4px solid #f8931f;
     box-shadow: 0 0 5px #888;
-    height: 46px;
-    width: 46px !important;
 }
 .add-group-page .createevent-body .sports-table ul li strong,.add-event-page .createevent-body .sports-table ul li strong {
     color: #58595b !important;
@@ -7176,7 +7175,7 @@ code.has-numbering {
 .add-event-page .createevent-body .left-part select {
     background: #fff none repeat scroll 0 0 !important;
     border: 3px solid #97989a !important;
-    color: #000 !important;
+    color: #97989a !important;
     font-family: Arial,Helvetica,sans-serif !important;
     font-size: 20px !important;
     height: 40px !important;
@@ -7275,6 +7274,38 @@ code.has-numbering {
     width: 246px;
 }
 
+.add-event-page .event-date{
+    margin-bottom: 20px;
+}
+
+.add-event-page .event-date ion-label{
+    color: #97989a !important;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px !important;
+}
+.add-event-page .add-event-chk{
+    background: none !important;
+    min-height: auto;
+    display: table;
+    margin: -11px 0;
+}
+
+.add-event-page .add-event-chk ion-checkbox{
+    margin-right: 0;
+    display: table-cell;
+    vertical-align: middle;
+    width: 15px;
+}
+
+.add-event-page .add-event-chk .item-inner{
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 5px;
+}
+
+.add-event-page .add-event-chk ion-label{
+    padding-left: 5px !important;
+}
 
 .register-body{
     background: rgba(0, 0, 0, 0) url("../images/join-bg.jpg") no-repeat fixed center center / cover;

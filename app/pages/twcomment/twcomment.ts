@@ -43,6 +43,9 @@ export class TwcommentPage {
     if(this.item.type == 'image') {
 
       let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+this.item.value+'&page=profile&com='+this.msg+'&userid='+this.loggedinuser+'&type=statImg',  '_blank');
+    }else if(this.item.type == 'route') {
+
+      let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+this.item.routes.image_name+'&page=profile&com='+this.msg+'&userid='+this.loggedinuser+'&type='+this.item.type,  '_blank');
     }else if(this.item.type == 'mp4') {
 
       let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+this.item.value+'&page=profile&com='+this.msg+'&userid='+this.loggedinuser+'&type='+this.item.type,  '_blank');

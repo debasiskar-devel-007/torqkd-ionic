@@ -8,7 +8,10 @@ import {ProfilePage} from "../profile/profile";
 import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,ActionSheetController} from "ionic-angular";
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators,FormControl} from "@angular/forms";
 import {ControlGroup, Control} from "@angular/common";
-import {ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions,MediaCapture,ScreenOrientation, Transfer,Camera,StreamingMedia, StreamingVideoOptions , Crop} from 'ionic-native';
+import {
+    ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions, MediaCapture, ScreenOrientation,
+    Transfer, Camera, StreamingMedia, StreamingVideoOptions, Crop
+} from 'ionic-native';
 /*
   Generated class for the UpdateprofilePage page.
 
@@ -425,7 +428,11 @@ export class UpdateprofilePage {
             height: 0,
 
             // quality of resized image, defaults to 100
-            quality: 90
+            quality: 90,
+            targetWidth: 300,
+            targetHeight: 150,
+            allowEdit:true,
+            correctOrientation: false
         };
 
         //noinspection TypeScriptUnresolvedFunction
@@ -438,6 +445,9 @@ export class UpdateprofilePage {
                     this.filepath1= 'images/fileloader.gif';
 
                 this.uploadpic(type);
+
+
+
             }
         }, (err) => {
 

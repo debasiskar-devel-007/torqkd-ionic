@@ -48,6 +48,8 @@ class MyApp {
   ) {
     this.initializeApp();
 
+
+
     this.local = new Storage(LocalStorage);
 
     this.local.get('userinfo').then((value) => {

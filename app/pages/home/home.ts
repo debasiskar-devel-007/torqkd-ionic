@@ -35,6 +35,12 @@ export class HomePage {
   constructor(private navCtrl: NavController ,public modalCtrl: ModalController , public  platform: Platform) {
     //this.local=null;
 
+    if (Splashscreen) {
+      setTimeout(() => {
+        Splashscreen.hide();
+      }, 10);
+    }
+
     this.local = new Storage(LocalStorage);
 
     this.local.get('userinfo').then((value) => {

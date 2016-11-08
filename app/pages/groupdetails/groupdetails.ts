@@ -20,6 +20,7 @@ import {FbcommentPage} from "../fbcomment/fbcomment";
 import {TwcommentPage} from "../twcomment/twcomment";
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
+import {RouteDetailsPage} from '../routedetails/routedetails';
 
 /*
   Generated class for the GroupdetailsPage page.
@@ -350,7 +351,14 @@ export class GroupdetailsPage {
     modal.present();
 
   }
+  showRouteDetails(item){
+    let modal = this.modalCtrl.create(RouteDetailsPage, {
+      "item": item,
+    });
 
+    modal.present();
+
+  }
   launchVideo(url,poster) {
     let options: StreamingVideoOptions = {
       successCallback: () => {  },

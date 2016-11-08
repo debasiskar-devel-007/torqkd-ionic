@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,AlertController} from "ionic-angular";
+import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,AlertController, ToastController} from "ionic-angular";
 import {Http, Headers} from "@angular/http";
+import {Splashscreen, InAppBrowser, Facebook} from "ionic-native";
 import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
 import {HomePage} from '../home/home';
@@ -28,7 +29,7 @@ export class ViewroutesPage {
   private totatcount;
   private noofroutes;
 
-  constructor(private navCtrl: NavController,private _http: Http,public alertCtrl: AlertController,public modalCtrl: ModalController) {
+  constructor(private navCtrl: NavController,private _http: Http,public alertCtrl: AlertController,public modalCtrl: ModalController, public toastCtrl: ToastController) {
     this.local = new Storage(LocalStorage);
 
     this.local.get('userinfo').then((value) => {
@@ -216,6 +217,39 @@ export class ViewroutesPage {
         });
 
         modal.present();
+    }
+
+    fbShare(item){
+        Facebook.login(["email","public_profile"]).then((result) => {
+            if(result.status == 'connected'){
+
+                var obj = {
+                    method: "share",
+                    href: 'http://torkq.com/singlepost.php?id=0&route_image='+item.image_name,
+                    display : 'popup'
+                };
+                Facebook.showDialog(obj).then((res) => {
+                    let toast = this.toastCtrl.create({
+                        message: 'Posted Successfully On Facebook',
+                        duration: 3000,
+                        position : 'middle',
+                        cssClass : 'social-share-success'
+                    });
+
+                    toast.present();
+                });
+            }else{
+                alert('An Error occured in FB Login');
+            }
+        })
+    }
+
+    twShare(item){
+        let browser = new InAppBrowser('http://torqkd.com/user/ajs2/twittershare2?image='+item.image_name+'&page=profile&com=&userid=0&type=route',  '_blank');
+    }
+
+    prShare(item){
+        let browser = new InAppBrowser('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.image_path+'&description=', '_blank');
     }
 
 

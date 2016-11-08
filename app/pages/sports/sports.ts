@@ -21,6 +21,7 @@ import {PhotoPage} from "../photo/photo";
 import {SportspeoplePage} from "../sportspeople/sportspeople";
 import {Splashscreen, InAppBrowser,YoutubeVideoPlayer,StreamingMedia, StreamingVideoOptions,Facebook} from "ionic-native";
 import {FriendsProfilePage} from "../friendsprofile/friendsprofile";
+import {RouteDetailsPage} from '../routedetails/routedetails';
 
 
 /*
@@ -218,7 +219,7 @@ export class SportsPage {
             this.statusdata=this.statusdata.concat(data.json().status);
           else this.statusdata=(data.json().status);
 
-          this.loadmaps1(this.statusdata);
+        //  this.loadmaps1(this.statusdata);
           this.socialfeedoffset+=5;
         }, error => {
           console.log("Oooops!");
@@ -380,7 +381,14 @@ export class SportsPage {
     modal.present();
 
   }
+  showRouteDetails(item){
+    let modal = this.modalCtrl.create(RouteDetailsPage, {
+      "item": item,
+    });
 
+    modal.present();
+
+  }
   launchVideo(url,poster) {
     let options: StreamingVideoOptions = {
       successCallback: () => {  },

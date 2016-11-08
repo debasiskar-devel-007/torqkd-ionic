@@ -77,7 +77,8 @@
                   <div class="text-contain" *ngIf=" item.type=='image' ">
                       <div class="blogimg">
                           <img style="position:absolute; margin-top:-2px; background: none;" alt="" src="images/arrow.png" width="54" height="28">
-                          <img src="{{item.s_img}}?version={{cdatetime}}" style="cursor: pointer;" alt="" class="imgresponsive" (click)="showPhotoDetails(item)">
+                          <!--<img src="{{item.s_img}}?version={{cdatetime}}" style="cursor: pointer;" alt="" class="imgresponsive" (click)="showPhotoDetails(item)">-->
+                          <img src="http://torqkd.com/user/ajs1/createimage?image={{item.s_img}}&version={{cdatetime}}" style="cursor: pointer;" alt="" class="imgresponsive" (click)="showPhotoDetails(item)">
                       </div>
                   </div>
                   <div class="text-contain" *ngIf="item.type=='youtube' ">
@@ -95,30 +96,34 @@
                   <div class="text-contain" *ngIf=" item.type=='route' ">
 
                       <div class="rowone">
-                          ROAD <br>
-                          <img src="images/1397129075.png" style="max-width: 46px;" alt="">
+                          {{item.routes.sport_name}} <br>
+                          <img src="{{item.routes.sport_image}}" style="max-width: 46px;" alt="">
                       </div>
                       <div class="rowtwo">
                           <h2>{{item.routes.route_name}}</h2>
                           <div class="date-contain">
                               <h5>
                                   <span>DATE</span><br>
-                                  08/26/2016
+                                  {{item.routes.date}}
                               </h5>
                               <h5>
                                   <span>TIME</span><br>
-                                  00:04:01
+                                  {{item.routes.duration}}
                               </h5>
                               <h5>
                                   <span>DISTANCE</span><br>
-                                  1.200 miles
+                                  {{item.routes.distance}} miles
                               </h5>
 
                           </div>
                       </div>
                       <div class="clear"></div>
-                      <div style="height: 400px;width: 100%;" class="blogimg map-canvas-exp{{item.id}}"  id="map22{{item.id}}" >
+                      <!--<div style="height: 400px;width: 100%;" class="blogimg map-canvas-exp{{item.id}}"  id="map22{{item.id}}" >
 
+                      </div>-->
+
+                      <div>
+                          <img src="http://torqkd.com/user/ajs1/createimage?image={{item.routes.image_path}}" (click)="showRouteDetails(item)">
                       </div>
 
 

@@ -19,6 +19,7 @@ import {TwcommentPage} from "../twcomment/twcomment";
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
 import {SportsPage} from '../sports/sports';
+import {RouteDetailsPage} from '../routedetails/routedetails';
 
 /*
   Generated class for the ExperiencePage page.
@@ -241,7 +242,7 @@ export class ExperiencePage {
                     this.statusdata=this.statusdata.concat(data.json().status);
                 else this.statusdata=(data.json().status);
 
-                this.loadmaps1(this.statusdata);
+               // this.loadmaps1(this.statusdata);
                 this.socialfeedoffset+=5;
             }, error => {
                 console.log("Oooops!");
@@ -404,6 +405,15 @@ export class ExperiencePage {
 
     }
 
+    showRouteDetails(item){
+        let modal = this.modalCtrl.create(RouteDetailsPage, {
+            "item": item,
+        });
+
+        modal.present();
+
+    }
+
     launchVideo(url,poster) {
         let options: StreamingVideoOptions = {
             successCallback: () => {  },
@@ -499,7 +509,21 @@ export class ExperiencePage {
                                         toast.present();
                                     });
                                 }else if(item.type == 'route'){
-                                    alert('route');
+                                    var obj = {
+                                        method: "share",
+                                        href: 'http://torkq.com/singlepost.php?id='+this.loggedinuser+'&route_image='+item.routes.image_name,
+                                        display : 'popup'
+                                    };
+                                    Facebook.showDialog(obj).then((res) => {
+                                        let toast = this.toastCtrl.create({
+                                            message: 'Posted Successfully On Facebook',
+                                            duration: 3000,
+                                            position : 'middle',
+                                            cssClass : 'social-share-success'
+                                        });
+
+                                        toast.present();
+                                    });
                                 }else if(item.type == 'mp4'){
 //                                    var link = 'http://torqkd.com/user/ajs2/postfbvideo';
 //                                    var data = {'accessToken':this.accessToken,'com':item.msg,'value':item.value};

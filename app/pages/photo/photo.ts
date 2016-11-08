@@ -62,7 +62,7 @@ export class PhotoPage {
   }
 
   getsanitizerstyle(imgsrc){
-    return this.sanitizer.bypassSecurityTrustStyle('url(' + imgsrc + ')');
+    return this.sanitizer.bypassSecurityTrustStyle('url(http://torqkd.com/user/ajs1/createimage?image=' + imgsrc + ')');
   }
 
   showPhotoDetails(item){

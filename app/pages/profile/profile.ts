@@ -32,6 +32,8 @@ import {ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoO
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
 import {YtvdoListPage} from '../ytvdolist/ytvdolist';
 import {AddroutesPage} from '../addroutes/addroutes';
+import {RouteDetailsPage} from '../routedetails/routedetails';
+
 
 /*
  Generated class for the LoginPage page.
@@ -143,27 +145,12 @@ export class ProfilePage {
 
         });
 
-        /* this._http.get("http://torqkd.com/user/ajs2/getAllBanner")
-        .subscribe(data => {
-          console.log(data.json());
-          // /alert(data.json());
-          //this.nav.present(alert);
-        }, error => {
-          console.log(JSON.stringify(error.json()));
-        });*/
-
-
-
         this.socialfeedoffset=0;
         this.statusdata=new Array();
 
 
-        //var headers = new Headers();
-        //headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
         var link = 'http://torqkd.com/user/ajs2/getProfilebanners';
-        //var data = $.param({email: event.email,password:event.password});
-        //var data = JSON.stringify({email: event.email,password:event.password});
         var data = {pageid: 3,sp_id:0};
 
 
@@ -196,51 +183,17 @@ export class ProfilePage {
         this.local = new Storage(LocalStorage);
 
         this.local.get('userinfo').then((value) => {
+
             this.loggedinuser=JSON.parse(value).id;
-           // console.log(JSON.parse(value).id);
             if(value!=null) {
-
-                //this.navpage();
                 this.isloggedin=true;
-
-                //return;
-                // /$('.exp').click();
-                //alert(value);
-                //this.router.navigate(['<aliasInRouteConfig>']);
+                $('.has-header').removeClass('hide');
             }
             else{
                 $('ion-content').removeClass('hide');
                 this.isloggedin=false;
             }
         });
-
-        this.local = new Storage(LocalStorage);
-
-        this.local.get('userinfo').then((value) => {
-            //alert(value)
-            if(value!=null) {
-
-                //this.navpage();
-                this.isloggedin=true;
-                $('.has-header').removeClass('hide');
-                //this.loadStatus();
-                //$('.navmenur').addClass('hide');
-                //$('.navmenul').removeClass('hide');
-
-                //return;
-                // /$('.exp').click();
-                //alert(value);
-                //this.router.navigate(['<aliasInRouteConfig>']);
-            }
-            else{
-
-                this.isloggedin=false;
-            }
-        });
-
-
-
-
 
     }
 
@@ -313,7 +266,7 @@ export class ProfilePage {
                             this.statusdata=this.statusdata.concat(data.json().status);
                         else this.statusdata=(data.json().status);
 
-                        this.loadmaps(this.statusdata);
+                        //this.loadmaps(this.statusdata);
                         this.socialfeedoffset+=15;
 
                     }
@@ -885,7 +838,7 @@ export class ProfilePage {
                 this._http.post(link, data)
                     .subscribe(data => {
                         this.statusdata.splice(0, 0,data.json());
-                        this.loadmaps(this.statusdata);
+                        //this.loadmaps(this.statusdata);
                         this.socialfeedoffset+=1;
 
                         $('#text-box').find('.highlightTextarea-highlighter').html('');
@@ -957,7 +910,21 @@ export class ProfilePage {
                                         toast.present();
                                     });
                                 }else if(item.type == 'route'){
-                                    alert('route');
+                                    var obj = {
+                                        method: "share",
+                                        href: 'http://torkq.com/singlepost.php?id='+this.loggedinuser+'&route_image='+item.routes.image_name,
+                                        display : 'popup'
+                                    };
+                                    Facebook.showDialog(obj).then((res) => {
+                                        let toast = this.toastCtrl.create({
+                                            message: 'Posted Successfully On Facebook',
+                                            duration: 3000,
+                                            position : 'middle',
+                                            cssClass : 'social-share-success'
+                                        });
+
+                                        toast.present();
+                                    });
                                 }else if(item.type == 'mp4'){
 //                                    var link = 'http://torqkd.com/user/ajs2/postfbvideo';
 //                                    var data = {'accessToken':this.accessToken,'com':item.msg,'value':item.value};
@@ -1107,6 +1074,15 @@ export class ProfilePage {
 
     showPhotoDetails(item){
         let modal = this.modalCtrl.create(PhotodetsocialPage, {
+            "item": item,
+        });
+
+        modal.present();
+
+    }
+
+    showRouteDetails(item){
+        let modal = this.modalCtrl.create(RouteDetailsPage, {
             "item": item,
         });
 
@@ -1278,7 +1254,7 @@ export class ProfilePage {
                             this._http.post(link, data511)
                                 .subscribe(data => {
                                     this.statusdata.splice(0, 0,data.json());
-                                    this.loadmaps(this.statusdata);
+                                    //this.loadmaps(this.statusdata);
                                     this.socialfeedoffset+=1;
 
                                     $('#text-box').find('.highlightTextarea-highlighter').html('');
@@ -1407,7 +1383,7 @@ export class ProfilePage {
                             this._http.post(link, data511)
                                 .subscribe(data => {
                                     this.statusdata.splice(0, 0,data.json());
-                                    this.loadmaps(this.statusdata);
+                                   // this.loadmaps(this.statusdata);
                                     this.socialfeedoffset+=1;
 
                                     $('#text-box').find('.highlightTextarea-highlighter').html('');
@@ -1680,7 +1656,7 @@ export class ProfilePage {
                     this._http.post(link, data511)
                         .subscribe(data => {
                             this.statusdata.splice(0, 0,data.json());
-                            this.loadmaps(this.statusdata);
+                            //this.loadmaps(this.statusdata);
                             this.socialfeedoffset+=1;
 
                             $('#text-box').find('.highlightTextarea-highlighter').html('');
@@ -1750,7 +1726,7 @@ export class ProfilePage {
                 this._http.post(link, data5)
                     .subscribe(data => {
                         this.statusdata.splice(0, 0,data.json());
-                        this.loadmaps(this.statusdata);
+                       // this.loadmaps(this.statusdata);
                         this.socialfeedoffset+=1;
 
                         $('#text-box').find('.highlightTextarea-highlighter').html('');
@@ -1892,7 +1868,7 @@ export class ProfilePage {
                     this._http.post(link, data511)
                         .subscribe(data => {
                             this.statusdata.splice(0, 0,data.json());
-                            this.loadmaps(this.statusdata);
+                            //this.loadmaps(this.statusdata);
                             this.socialfeedoffset+=1;
 
                             $('#text-box').find('.highlightTextarea-highlighter').html('');
@@ -1989,7 +1965,7 @@ export class ProfilePage {
     }
 
     dfsdfsd(){
-        let browser = new InAppBrowser('https://ionic.io', '_blank');
+        alert(1);
     }
 }
 
