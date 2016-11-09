@@ -7,6 +7,7 @@ import {CommonPopupPage} from "../commonpopup/commonpopup";
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
 import {AddroutesPage} from '../addroutes/addroutes';
+import {RouteDetailsPage} from '../routedetails/routedetails';
 
 /*
   Generated class for the ViewroutesPage page.
@@ -64,10 +65,10 @@ export class ViewroutesPage {
 
           if(this.routesoffset > 0){
             this.routesdata=this.routesdata.concat(routeslist);
-              this.loadmaps(routeslist);
+              //this.loadmaps(routeslist);
           }else{
             this.routesdata = routeslist;
-              this.loadmaps(routeslist);
+              //this.loadmaps(routeslist);
           }
 
           this.routesoffset = parseInt(this.routesoffset)+5;
@@ -250,6 +251,15 @@ export class ViewroutesPage {
 
     prShare(item){
         let browser = new InAppBrowser('http://pinterest.com/pin/create/button/?url=http://torkq.com/&media='+item.image_path+'&description=', '_blank');
+    }
+
+    showRouteDetails(item){
+        let modal = this.modalCtrl.create(RouteDetailsPage, {
+            "item": item,
+        });
+
+        modal.present();
+
     }
 
 

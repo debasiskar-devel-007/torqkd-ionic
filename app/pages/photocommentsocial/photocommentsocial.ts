@@ -86,7 +86,7 @@ export class PhotocommentsocialPage {
   delcomment(item){
     let confirm = this.alertCtrl.create({
       title: '',
-      message: 'Are you sure delete this comment?',
+      message: 'ARE YOU SURE YOU WANT TO DELETE THIS COMMENT?',
       buttons: [
         {
           text: 'OK',

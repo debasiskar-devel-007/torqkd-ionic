@@ -383,7 +383,7 @@ export class SportsPage {
   }
   showRouteDetails(item){
     let modal = this.modalCtrl.create(RouteDetailsPage, {
-      "item": item,
+      "item": item.routes,
     });
 
     modal.present();

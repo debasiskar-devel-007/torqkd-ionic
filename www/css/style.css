@@ -1142,6 +1142,7 @@ video {
     line-height: 22px;
     margin: 0 !important;
     padding-bottom: 8px;
+    float: left;
 }
 #tabs .text-contain .rowtwo .date-contain h5 span {
     color: #929497;
@@ -1374,19 +1375,60 @@ video {
     font-family: "veneerregular";
     font-size: 18px;
     line-height: 22px;
-    margin-bottom: 10px;
-    margin-top: 66px;
+    margin-bottom: 0px;
+    margin-top: 10px;
     text-transform: uppercase;
-    width: 45%;
+    width: 100%;
+}
+
+#mainView .blog1 .text-contain .rowone .sport-area{
+    float: left;
+    margin-right: 25px;
+}
+
+
+#mainView .blog1 .text-contain .rowone h2{
+    color: #616564;
 }
 
 #mainView .blog1 .text-contain .rowtwo {
-    margin-top: 10px;
+    margin-top: 0px;
     padding-right: 10px;
     padding-top: 0;
-    width: 45%;
+    width: 100%;
     margin-left: 0;
     float: left;
+}
+
+#mainView .blog1 .text-contain .rowtwo ion-grid{
+    padding: 0;
+}
+
+
+#mainView .blog1 .text-contain .rowtwo ion-grid ion-row ion-col{
+    color: #616564;
+    font-family: "veneerregular";
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 20px;
+    margin: 0 !important;
+    padding-bottom: 8px;
+    float: left;
+}
+#mainView .blog1 .text-contain .rowtwo ion-grid ion-row ion-col span {
+    color: #929497;
+    font-family: reservation;
+    font-size: 10px;
+}
+
+@media screen and (min-width: 360px) {
+    #mainView .blog1 .text-contain .rowtwo ion-grid ion-row ion-col{
+        font-size: 22px;
+        line-height: 22px;
+    }
+    #mainView .blog1 .text-contain .rowtwo ion-grid ion-row ion-col span{
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -5370,17 +5412,62 @@ code.has-numbering {
     font-family: "veneerregular";
     font-size: 18px;
     line-height: 22px;
-    margin-bottom: 10px;
-    margin-top: 66px;
+    margin-bottom: 0px;
+    margin-top: 10px;
     text-transform: uppercase;
-    width: 110px;
+    width: 100%;
+}
+
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowone .sport-area{
+    float: left;
+    margin-right: 25px;
+}
+
+
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowone h2{
+    color: #616564;
+
 }
 .view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo {
-    float: left;
-    margin-top: 10px;
+    margin-top: 0px;
     padding-right: 10px;
     padding-top: 0;
-    width: 120px;
+    width: 100%;
+    margin-left: 0;
+    float: left;
+}
+
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo ion-grid{
+    padding: 0;
+}
+
+
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo ion-grid ion-row ion-col{
+    color: #616564;
+    font-family: "veneerregular";
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 20px;
+    margin: 0 !important;
+    padding-bottom: 8px;
+    float: left;
+}
+.view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo ion-grid ion-row ion-col span {
+    color: #929497;
+    font-family: reservation;
+    font-size: 10px;
+}
+
+@media screen and (min-width: 360px) {
+    .view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo ion-grid ion-row ion-col{
+        font-size: 22px;
+        line-height: 22px;
+    }
+    .view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo ion-grid ion-row ion-col span{
+        font-size: 12px;
+    }
+
+
 }
 .view-route-page .routes-body-contain .routes-wrapper .routes-row .rowtwo h2 {
     color: #616564;
@@ -8616,8 +8703,83 @@ code.has-numbering {
         position: relative;
         width: 8.7%;
     }
+}
+
+@media screen and (max-width: 1024px) {
     .sports-details-page .people-div {
-        height: 180px;
+        height: 218px;
+    }
+}
+
+@media screen and (max-width: 983px) {
+    .sports-details-page .people-div {
+        height: 214px;
+    }
+}
+
+@media screen and (max-width: 954px) {
+    .sports-details-page .people-div {
+        height: 210px;
+    }
+}
+
+@media screen and (max-width: 932px) {
+    .sports-details-page .people-div {
+        height: 206px;
+    }
+}
+
+@media screen and (max-width: 905px) {
+    .sports-details-page .people-div {
+        height: 202px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .sports-details-page .people-div {
+        height: 198px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .sports-details-page .people-div {
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 805px) {
+    .sports-details-page .people-div {
+        height: 186px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .sports-details-page .people-div {
+        height: 206px;
+    }
+}
+
+@media screen and (max-width: 762px) {
+    .sports-details-page .people-div {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 725px) {
+    .sports-details-page .people-div {
+        height: 195px;
+    }
+}
+
+@media screen and (max-width: 705px) {
+    .sports-details-page .people-div {
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 667px) {
+    .sports-details-page .people-div {
+        height: 185px;
     }
 }
 
@@ -8630,7 +8792,31 @@ code.has-numbering {
         width: 9.5%;
     }
     .sports-details-page .people-div {
-        height: 162px;
+        height: 186px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sports-details-page .people-div {
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .sports-details-page .people-div {
+        height: 174px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .sports-details-page .people-div {
+        height: 165px;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .sports-details-page .people-div {
+        height: 160px;
     }
 }
 
@@ -8643,7 +8829,31 @@ code.has-numbering {
         width: 10.6%;
     }
     .sports-details-page .people-div {
+        height: 165px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .sports-details-page .people-div {
+        height: 160px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .sports-details-page .people-div {
         height: 152px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .sports-details-page .people-div {
+        height: 146px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .sports-details-page .people-div {
+        height: 142px;
     }
 }
 
@@ -8656,9 +8866,16 @@ code.has-numbering {
         width: 12%;
     }
     .sports-details-page .people-div {
-        height: 136px;
+        height: 148px;
     }
 }
+
+@media screen and (max-width: 335px) {
+    .sports-details-page .people-div {
+        height: 140px;
+    }
+}
+
 
 @media screen and (max-width: 320px) {
     .sports-details-page .sport_community {
@@ -8669,7 +8886,7 @@ code.has-numbering {
         width: 14%;
     }
     .sports-details-page .people-div {
-        height: 138px;
+        height: 151px;
     }
 }
 

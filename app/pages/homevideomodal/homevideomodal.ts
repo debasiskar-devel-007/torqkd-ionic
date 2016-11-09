@@ -29,8 +29,8 @@ export class HomevideomodalPage {
     this.videourl=this._navParams.get("url");
 
     let options: StreamingVideoOptions = {
-      successCallback: () => { alert('Video played') },
-      errorCallback: (e) => { alert('Error streaming') },
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
       orientation: 'landscape'
     };
 

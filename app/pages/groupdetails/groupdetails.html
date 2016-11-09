@@ -116,29 +116,33 @@
           <div class="text-contain" *ngIf=" item.type=='route' ">
 
             <div class="rowone">
-              {{item.routes.sport_name}} <br>
-              <img src="{{item.routes.sport_image}}" style="max-width: 46px;" alt="">
+              <div class="sport-area">
+                {{item.routes.sport_name}} <br>
+                <img src="{{item.routes.sport_image}}" style="max-width: 46px;" alt="">
+              </div>
+              <h2>{{item.routes.route_name}}</h2>
             </div>
             <div class="rowtwo">
-              <h2>{{item.routes.route_name}}</h2>
-              <div class="date-contain">
-                <h5>
-                  <span>DATE</span><br>
-                  {{item.routes.date}}
-                </h5>
-                <h5>
-                  <span>TIME</span><br>
-                  {{item.routes.duration}}
-                </h5>
-                <h5>
-                  <span>DISTANCE</span><br>
-                  {{item.routes.distance}} miles
-                </h5>
+              <ion-grid>
+                <ion-row>
+                  <ion-col width-33>
+                    <span>DATE</span><br>
+                    {{item.routes.date}}
+                  </ion-col>
+                  <ion-col width-33>
+                    <span>TIME</span><br>
+                    {{item.routes.duration}}
+                  </ion-col>
+                  <ion-col width-33>
+                    <span>DISTANCE</span><br>
+                    {{item.routes.distance}} miles
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
 
-              </div>
             </div>
             <div class="clear"></div>
-            <!--<div style="height: 400px;width: 100%;" class="blogimg map-canvas-group{{item.id}}"  id="map22{{item.id}}" >
+            <!--<div style="height: 400px;width: 100%;" class="map-canvas-profile{{item.id}}"  id="map22{{item.id}}" >
 
             </div>-->
 
@@ -149,6 +153,7 @@
 
 
           </div>
+
           <div class="text-contain" *ngIf=" item.type=='mp4' ">
 
             <div class="blogimg"   style="position: relative;" id="youtubeBody{{item.id}}">

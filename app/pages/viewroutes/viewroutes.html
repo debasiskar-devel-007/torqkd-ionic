@@ -48,38 +48,49 @@
 
         <div class="routes-wrapper">
           <div class="routes-row" style="margin: 10px 0; position:relative;" *ngFor="let item of routesdata; let i = index">
+
             <div class="rowone">
-              {{item.sport_name}} <br>
-              <img alt="" style="max-width: 46px;" src="{{item.sport_image}}">
-            </div>
-            <div class="rowtwo ">
-              <h2 class="">{{item.route_name}}</h2>
-              <div class="date-contain">
-                <h5 class="">
-                  <span>DATE</span><br>
-                  {{item.date}}
-                </h5>
-                <h5 class="">
-                  <span>TIME</span><br>
-                  {{item.duration}}
-                </h5>
-                <h5 class="">
-                  <span>DISTANCE</span><br>
-                  {{item.distance}} miles
-                </h5>
+              <div class="sport-area">
+                {{item.sport_name}} <br>
+                <img src="{{item.sport_image}}" style="max-width: 46px;" alt="">
               </div>
+              <h2>{{item.route_name}}</h2>
+            </div>
+            <div class="rowtwo">
+              <ion-grid>
+                <ion-row>
+                  <ion-col width-33>
+                    <span>DATE</span><br>
+                    {{item.date}}
+                  </ion-col>
+                  <ion-col width-33>
+                    <span>TIME</span><br>
+                    {{item.duration}}
+                  </ion-col>
+                  <ion-col width-33>
+                    <span>DISTANCE</span><br>
+                    {{item.distance}} miles
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
             </div>
 
 
             <div class="clear"></div>
-            <div id="viewroutemap{{item.id}}"  class="rowthree" style="width: 100%; height: 330px;">
+            <!--<div id="viewroutemap{{item.id}}"  class="rowthree" style="width: 100%; height: 330px;">
+            </div>-->
+
+            <div>
+              <img src="http://torqkd.com/user/ajs1/createimage?image={{item.image_path}}" (click)="showRouteDetails(item)">
             </div>
 
             <div class="sdiv" style="display:block; margin-right: 11px; text-align: right; padding-top:10px;">
               <a href="javascript:void(0);" (click)="fbShare(item)"><img src="images/newsicon1.png" alt="#" width="25"></a>
               <a href="javascript:void(0);" (click)="twShare(item)"><img src="images/newsicon2.png" alt="#" width="25"></a>
               <a href="javascript:void(0);" (click)="prShare(item)"><img src="images/newsicon3.png" alt="#" width="25"></a>
-              <a style="color: #616564; font-family: 'veneerregular'; font-size: 22px; padding:0px 0; text-decoration: none; " href="javascript:void(0)" (click)="delRoute(item)">✖</a>
+              <a href="javascript:void(0)" (click)="delRoute(item)"><img src="images/deletebutton1.png" alt="#" width="25"></a>
+              <!--<a style="color: #616564; font-family: 'veneerregular'; font-size: 22px; padding:0px 0; text-decoration: none; " href="javascript:void(0)" (click)="delRoute(item)">✖</a>-->
             </div>
 
 
