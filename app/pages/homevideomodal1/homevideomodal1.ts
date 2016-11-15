@@ -33,12 +33,12 @@ export class Homevideomodal1Page {
 
 
 
-  ionViewDidEnter() {
+  /*ionViewDidEnter() {
     ScreenOrientation.lockOrientation('landscape');
   }
   onPageWillLeave() {
     ScreenOrientation.unlockOrientation();
-  }
+  }*/
   goback(){
     this.navCtrl.pop();
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform} from "ionic-angular";
+import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,LoadingController} from "ionic-angular";
 import {Http, Headers} from "@angular/http";
 import {DomSanitizationService} from "@angular/platform-browser";
 import * as $ from "jquery";
@@ -15,6 +15,7 @@ import '../../../node_modules/chart.js/src/chart.js';
 import { BaseChartComponent } from 'ng2-charts/ng2-charts';
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
+import {HomevideomodalPage} from '../homevideomodal/homevideomodal'
 
 /*
   Generated class for the ExpstatlistPage page.
@@ -129,7 +130,7 @@ export class ExpstatlistPage {
 
 
 
-  constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController) {
+  constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController, public loadingCtrl:LoadingController) {
 
     this.local = new Storage(LocalStorage);
 
@@ -239,7 +240,7 @@ export class ExpstatlistPage {
 
 
   getevents(){
-    var link = 'http://torqkd.com/user/ajs2/getCurLocation2';
+    var link = 'http://torqkd.com/user/ajs2/getCurLocationNew';
     var data = { 'sesh_user' : this.loggedinuser };
 
 
@@ -320,11 +321,16 @@ export class ExpstatlistPage {
 
 
   viewstatdet(item){
-    console.log(item.statDet);
     let modal = this.modalCtrl.create(statDetPage, {
       "item": item.statDet,
     });
 
     modal.present();
   }
+
+  playMainTorkqTv(){
+    let modal = this.modalCtrl.create(HomevideomodalPage,{"url": "http://torqkd.com/uploads/video/converted/defaultmaintv.mp4","poster":"http://torqkd.com/uploads/video/thumb/defaultmaintv.jpg"});
+    modal.present();
+  }
+
 }

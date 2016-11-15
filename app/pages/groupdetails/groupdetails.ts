@@ -21,6 +21,7 @@ import {TwcommentPage} from "../twcomment/twcomment";
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
 import {RouteDetailsPage} from '../routedetails/routedetails';
+import {HomevideomodalPage} from '../homevideomodal/homevideomodal'
 
 /*
   Generated class for the GroupdetailsPage page.
@@ -626,6 +627,9 @@ export class GroupdetailsPage {
         });
   }
 
-
+  playStatusVdo(videoval,poster){
+    let modal = this.modalCtrl.create(HomevideomodalPage,{"url": "http://torqkd.com/uploads/video/converted/"+videoval,"poster":poster});
+    modal.present();
+  }
 
 }

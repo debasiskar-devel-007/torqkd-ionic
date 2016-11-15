@@ -23,7 +23,16 @@ export class EventmapPage {
   private local:LocalStorage;
   private items;
 
+  private map;
+
+  private eventoffset;
+  private latitude;
+  private longitude;
+
   constructor(private navCtrl: NavController,private _http: Http, private sanitizer:DomSanitizationService,public modalCtrl: ModalController) {
+
+    this.eventoffset = 0;
+
     this.local = new Storage(LocalStorage);
 
     this.local.get('userinfo').then((value) => {
@@ -43,7 +52,7 @@ export class EventmapPage {
     $('.navmenul').click();
   }
   getevents(){
-    var link = 'http://torqkd.com/user/ajs2/getCurLocation2';
+    var link = 'http://torqkd.com/user/ajs2/getCurLocationNew';
     var data = { 'sesh_user' : this.loggedinuser };
 
 
@@ -51,6 +60,9 @@ export class EventmapPage {
     this._http.post(link, data)
         .subscribe(res => {
           this.items = res.json();
+
+          this.latitude = this.items.latitude;
+          this.longitude = this.items.longitude;
 
           this.loadmap();
 
@@ -61,18 +73,10 @@ export class EventmapPage {
   }
 
   loadmap(){
-    let poly = new Array();
-    let locations = new Array();
-    let points = new Array();
-    let path = new Array();
-    let address = new Array();
-    let markers = new Array();
-    let bounds = new Array();
-    let markerp = new Array();
 
     var myOptions = {
       zoom: 10,
-      center: new google.maps.LatLng(this.items.latitude, this.items.longitude),
+      center: new google.maps.LatLng(this.latitude, this.longitude),
       mapTypeId: google.maps.MapTypeId.HYBRID,
       scrollwheel:false,
       mapTypeControlOptions: {
@@ -81,11 +85,20 @@ export class EventmapPage {
       disableDefaultUI: true
     }
 
-    let map = new google.maps.Map(document.getElementById('event-map-canvas'), myOptions);
+    var elems = document.getElementsByClassName('event-map-canvas');
+    var elemlength = elems.length;
+
+    this.map = new google.maps.Map(elems[elemlength-1], myOptions);
+
+
+    this.getEvents();
+
+
+    //this.map = new google.maps.Map(document.getElementById('event-map-canvas'), myOptions);
 
     //console.log(this.items.markers);
 
-    let n;
+    /*let n;
 
     for(n in this.items.markers){
         var mdata = this.items.markers[n];
@@ -93,7 +106,7 @@ export class EventmapPage {
 
 
 
-    }
+    }*/
 
   }
 
@@ -106,7 +119,7 @@ export class EventmapPage {
     modal.present();
   }
 
-  placemarker(map,mdata){
+  placemarker(mdata){
     var curP = new google.maps.LatLng(mdata.latitude,mdata.longitude);
 
     var contentString = '<div class="event-infowindow">\
@@ -117,7 +130,7 @@ export class EventmapPage {
                         </div>';
 
     var marker = new google.maps.Marker({
-      map: map,
+      map: this.map,
       position: curP,
       icon:'http://torqkd.com/images/map-icon.png',
       //title:address[statusd[x].id]
@@ -128,10 +141,40 @@ export class EventmapPage {
     });
 
     marker.addListener('click', function() {
-      infowindow.open(map, marker);
+      infowindow.open(this.map, marker);
     });
 
   }
+
+  getEvents(){
+    var link = 'http://torqkd.com/user/ajs2/getmapevents';
+    var data = { 'latitude' : this.latitude,'longitude' : this.longitude,'offset' : this.eventoffset };
+
+
+
+    this._http.post(link, data)
+        .subscribe(res => {
+          let res1 = res.json();
+
+          let n;
+
+          for(n in res1){
+            var mdata = res1[n];
+            this.placemarker(mdata);
+          }
+
+          if(res1.length){
+            this.eventoffset = this.eventoffset+50;
+            this.getEvents();
+          }
+
+        }, error => {
+          console.log("Oooops!");
+        });
+  }
+
+
+
 
 
 }

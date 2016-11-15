@@ -13,6 +13,8 @@ import {ExpstatlistPage} from "../expstatlist/expstatlist";
 import {eventDetailsPage} from "../eventdetails1/eventdetails1";
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
+import {HomevideomodalPage} from '../homevideomodal/homevideomodal'
+
 /*
   Generated class for the ExpeventlistPage page.
 
@@ -255,5 +257,9 @@ export class ExpeventlistPage {
 
   }
 
+  playMainTorkqTv(){
+    let modal = this.modalCtrl.create(HomevideomodalPage,{"url": "http://torqkd.com/uploads/video/converted/defaultmaintv.mp4","poster":"http://torqkd.com/uploads/video/thumb/defaultmaintv.jpg"});
+    modal.present();
+  }
 
 }

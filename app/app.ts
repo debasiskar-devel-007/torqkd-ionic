@@ -70,7 +70,7 @@ class MyApp {
       { title: 'Friends', component: FriendsPage },
       { title: 'Community', component: CommunityPage },
       { title: 'Album', component: AlbumPage },
-      { title: 'Photo', component: PhotoPage },
+      { title: 'COMMUNITY PHOTOS', component: PhotoPage },
       { title: 'Torkq TV', component: TorqkdtvPage },
       { title: 'View Routes', component: ViewroutesPage },
       { title: 'Add Events', component: AddeventsPage },

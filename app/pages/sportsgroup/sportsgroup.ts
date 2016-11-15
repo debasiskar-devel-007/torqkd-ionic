@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,NavParams,ToastController ,AlertController,ActionSheetController} from 'ionic-angular';
+import { Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,NavParams,ToastController ,AlertController,ActionSheetController,Slides} from 'ionic-angular';
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
 import * as $ from "jquery";
@@ -13,6 +13,7 @@ import {SportsStatPage} from "../sportsstat/sportsstat";
 import {GroupdetailsPage} from "../groupdetails/groupdetails";
 import {SportspeoplePage} from "../sportspeople/sportspeople";
 import {InAppBrowser} from "ionic-native";
+import { ViewChild } from '@angular/core';
 
 /*
   Generated class for the SportsPage page.
@@ -24,6 +25,9 @@ import {InAppBrowser} from "ionic-native";
   templateUrl: 'build/pages/sportsgroup/sportsgroup.html',
 })
 export class SportsGroupPage {
+
+  @ViewChild('mySlider') slider: Slides;
+
   mySlideOptions5 = {
     initialSlide: 0,
     loop: true,
@@ -66,7 +70,9 @@ export class SportsGroupPage {
 
   private groupList;
   private groupcount;
+
   private spimagelist;
+  private spimagelistlength;
 
   constructor(private navCtrl: NavController,private _navParams: NavParams,public platform: Platform,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController,public toastCtrl: ToastController) {
     this.sportsid=this._navParams.get("id");
@@ -135,6 +141,7 @@ export class SportsGroupPage {
     this._http.post(link211, data211)
         .subscribe(res211 => {
           this.spimagelist=res211.json();
+          this.spimagelistlength = this.spimagelist.length;
         }, error => {
           console.log("Oooops!");
         });
@@ -175,5 +182,17 @@ export class SportsGroupPage {
 
      modal.present();*/
     this.navCtrl.push(SportspeoplePage, { "id": this.sportsid});
+  }
+
+  upArrow(){
+    this.slider.slideNext(100);
+  }
+
+  downArrow(){
+    if(this.slider.isBeginning()){
+      this.slider.slideTo((this.spimagelistlength-1),100);
+    }else{
+      this.slider.slidePrev(100);
+    }
   }
 }

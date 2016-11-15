@@ -89,7 +89,7 @@
                            [legend]="lineChartLegend"
                            [chartType]="lineChartType"></base-chart>
 
-              <div class="stat-table2" style="padding:10px 0; "><a href="javascript:void(0);" class="stat-view-btn" (click)="viewstatdet(item)">View Details</a></div>
+              <div class="stat-table2" style="padding:10px 0; "  (click)="viewstatdet(item)"><a href="javascript:void(0);" class="stat-view-btn">View Details</a></div>
             </td>
 
           <tr>
@@ -124,8 +124,10 @@
       </a>
     </div>
 
-    <div class="albums-div expgallery">
-      <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer"><source src="http://torqkd.com/uploads/video/converted/defaultmaintv.mp4" type="video/mp4"/></video>
+    <div class="albums-div">
+      <!--<video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer"><source src="http://torqkd.com/uploads/video/converted/defaultmaintv.mp4" type="video/mp4"/></video>-->
+      <img (click)="playMainTorkqTv()" src="http://torqkd.com/uploads/video/thumb/defaultmaintv.jpg" width="100%">
+      <img (click)="playMainTorkqTv()" src="images/youplay.png" width="20%" class="paly_video" style="cursor:pointer; width: 20%; z-index: 100; top: 40%; position: absolute; left: 40%;">
       <h3><a href="javascript:void(0);" [navPush]="torqkdtvpage">TORKQ TV</a></h3>
     </div>
 

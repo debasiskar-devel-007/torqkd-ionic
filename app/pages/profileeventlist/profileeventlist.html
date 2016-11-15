@@ -24,7 +24,7 @@
 <ion-content  style="background-color: #ffaf36;height:800px">
 </ion-content>
 
-<ion-content padding class="getting-started contentwrapper has-header hide has-subheader" fullscreen>
+<ion-content padding class="getting-started contentwrapper has-header hide has-subheader">
 
 
     <div class="experience-wrapper">
@@ -74,15 +74,15 @@
 
                         </div>
                     </div>
-                    <div class="statusuparea" id="statusuparea" contenteditable="true" (focus)="isStatusInput = true" placeholder="STATUS UPDATE" (keypress)="texthighlight($event)" (keydown)="texthighlight($event)" (keyup)="texthighlight($event)" style="position: absolute; left: 0; top: 0;"></div>
+                    <div class="statusuparea" id="statusuparea" contenteditable="true" (focus)="isStatusInput = true" placeholder="STATUS UPDATE" (keypress)="texthighlight($event)" (keydown)="texthighlight($event)" (keyup)="texthighlight($event); changestatustext($event.target.innerText);" style="position: absolute; left: 0; top: 0;"></div>
                 </div>
 
             </div>
             <div class="menu1">
-                <a href="javascript:void(0);" ng-click="addVideo()" style="color: #fff;">+<br>VIDEO</a>
+                <a href="javascript:void(0);" (click)="openvideodiv()" style="color: #fff;">+<br>VIDEO</a>
             </div>
             <div class="menu2">
-                <a href="javascript:void(0);" (click)="openphotobowse()"  ng-click="addPhoto()" style="color: #fff;">+<br>Photo</a>
+                <a href="javascript:void(0);" (click)="openphotodiv()"  ng-click="addPhoto()" style="color: #fff;">+<br>Photo</a>
             </div>
             <div class="clear"></div>
         </div>
@@ -92,28 +92,45 @@
                 <a href="javascript:void(0);" (click)="showtagPeople()"><img src="images/adduser_new2.png" width="25" height="17" style="display:inline; width: 25px; margin:5px 0 0 14px;"></a>
             </div>
 
-            <div ng-show="isPhoto" style="padding-bottom: 15px;" class=" browsephoto hide">
-                <input ng-show="!isMobileApp" type="button" class="browsebtn" value="Click To Browse"><br>
-                <img class="photopreview" src="" height="300" width="300">
-                <!--<a ng-show="isMobileApp" class="browsebtn ng-hide" style="display:block;" href="http://torqkd.com/upload/">Click To Browse</a>-->
+            <div *ngIf="isPhoto" style="padding-bottom: 15px;" class=" browsephoto">
+                <input type="button" class="browsebtn" value="Click To Browse" (click)="addPhoto()">
             </div>
 
-            <div ng-show="isVideo" class="ng-hide hide videobrowse">
-                    <form name="signUpForm" id="signUpForm" class="form-horizontal ng-pristine ng-valid">
-                        <input type="text" placeholder="Type to search YouTube" ng-model="youtubeTxt" class="searchbox"><br>
-                        <input type="submit" value="search" class="searchbtn">
-                    </form>
-                    <div class="btnor">OR</div>
-                    <input class="browsebtn" type="button" value="Click To Browse">
-           </div>
+            <div  *ngIf="photoval" style="position: relative;">
+                <img *ngIf="rotating" src="images/loading_list.gif" style="position: absolute;top:50%; left: 56px;">
+                <img *ngIf="filepath"  [src]="filepath" />
+            </div>
+
+            <div *ngIf="isVideo" class="videobrowse">
+                <form name="signUpForm" id="signUpForm" class="form-horizontal ng-pristine ng-valid">
+                    <input type="text" placeholder="Type to search YouTube" (keyup)="getytsearchkey($event.target.value)" class="searchbox"><br>
+                    <input type="button" value="search" class="searchbtn" (click)="ytvideoseacrh()">
+                </form>
+                <div class="btnor">OR</div>
+                <input class="browsebtn" type="button" value="Click To Browse" (click)="addVideo()">
+            </div>
+            <div *ngIf="videoval">
+                <video width="100%" controls *ngIf="videopath">
+                    <source [src]="videopath" type="video/mp4">
+                </video>
+            </div>
+            <div *ngIf="youtubeval" class="youtubeVideo2">
+                <div style="margin-bottom:10px; position: relative;" (click)="launchVideo1(statusvalue)">
+                    <img src="https://i.ytimg.com/vi/{{statusvalue}}/mqdefault.jpg" width="100%">
+                    <img src="images/youtube-playbtn.png" class="paly_video" style="cursor:pointer;">
+                </div>
+            </div>
             <div ngClass="{{addhideclass(isStatusInput)}}">
               <div>
-                    <select id="share_with">
+                    <select id="share_with" (change)="changesharewith($event.target.value)">
                         <option value="1">Community</option>
                         <option value="2">Friends</option>
                         <option value="3">Friends Of Friends</option>
                         <option value="4">Private Me Only</option>
                     </select>
+
+                  <input class="lrotbtn" *ngIf="photoval" (click)="imgRotate(1)" style="background: transparent url('images/rtal.png') no-repeat scroll 0% 0% ! important; height: 32px; width: 112px;" type="button">
+                  <input class="rrotbtn" *ngIf="photoval" (click)="imgRotate(2)" style="background: transparent url('images/rtar.png') no-repeat scroll 0% 0% ! important; height: 32px; width: 112px;" type="button">
                     <button class="postbtn1" (click)="statuscancel()">cancel</button>
                     <button class="postbtn2" (click)="statusupdate()">post</button>
                     <div class="clear"></div>

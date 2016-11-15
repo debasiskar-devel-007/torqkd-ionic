@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,NavParams,ToastController ,AlertController,ActionSheetController} from 'ionic-angular';
+import { Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,NavParams,ToastController ,AlertController,ActionSheetController,Slides} from 'ionic-angular';
 import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
 import * as $ from "jquery";
@@ -15,6 +15,7 @@ import '../../../node_modules/chart.js/src/chart.js';
 import { BaseChartComponent } from 'ng2-charts/ng2-charts';
 import {SportspeoplePage} from "../sportspeople/sportspeople";
 import {InAppBrowser} from "ionic-native";
+import { ViewChild } from '@angular/core';
 
 /*
   Generated class for the SportsPage page.
@@ -27,6 +28,9 @@ import {InAppBrowser} from "ionic-native";
   directives: [BaseChartComponent]
 })
 export class SportsStatPage {
+
+  @ViewChild('mySlider') slider: Slides;
+
   mySlideOptions5 = {
     initialSlide: 0,
     loop: true,
@@ -68,7 +72,9 @@ export class SportsStatPage {
   private statdata2;
   private statcount;
 
+
   private spimagelist;
+  private spimagelistlength;
 
 
   /*******************************Chat Settings [start] ******************************************/
@@ -200,6 +206,7 @@ export class SportsStatPage {
     this._http.post(link211, data211)
         .subscribe(res211 => {
           this.spimagelist=res211.json();
+          this.spimagelistlength = this.spimagelist.length;
         }, error => {
           console.log("Oooops!");
         });
@@ -271,5 +278,17 @@ export class SportsStatPage {
 
      modal.present();*/
     this.navCtrl.push(SportspeoplePage, { "id": this.sportsid});
+  }
+
+  upArrow(){
+    this.slider.slideNext(100);
+  }
+
+  downArrow(){
+    if(this.slider.isBeginning()){
+      this.slider.slideTo((this.spimagelistlength-1),100);
+    }else{
+      this.slider.slidePrev(100);
+    }
   }
 }

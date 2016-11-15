@@ -60,7 +60,6 @@ export class profileeventlistPage {
     public statusvalue = '';
     public tagpeople = '';
     public getExactRunning = false;
-    public statusText1 = '';
     public eventlist;
     public totalevent;
     public eventcount;
@@ -82,6 +81,28 @@ export class profileeventlistPage {
         loop: true,
         autoplay:4000
     };
+
+
+    public statusText = '';
+    public statusText1 = '';
+    private filepath;
+    private imagepath;
+    private videopath;
+    private msg;
+    private msg1;
+    private share_with=1;
+    public isPhoto = false;
+    public photoval = false;
+    public videoval = false;
+    public youtubeval = false;
+    public isVideo = false;
+    public status_id;
+    public ytsearchkey = '';
+
+
+    public isRotate;
+    public rotating;
+
 
     constructor(fb: FormBuilder,public platform: Platform,public navCtrl: NavController,private _http: Http ,public modalCtrl: ModalController ,sanitizer:DomSanitizationService ,public alertCtrl: AlertController,public actionSheetCtrl: ActionSheetController) {
         this.sanitizer=sanitizer;
@@ -481,10 +502,21 @@ export class profileeventlistPage {
         $('#statusuparea').text('');
         $( '#extracted_url' ).html('');
 
+        this.statusText = '';
         this.statusText1 = '';
         this.statustype = '';
         this.statusvalue = '';
         this.tagpeople = '';
+
+        this.filepath = '';
+        this.imagepath = '';
+        this.videopath = '';
+        this.isPhoto = false;
+        this.isVideo = false;
+        this.photoval = false;
+        this.videoval = false;
+        this.youtubeval = false;
+        this.status_id = 0;
     }
 
     statusupdate(){

@@ -166,7 +166,7 @@
                         <div class="blogimg">
                             <img style="position:absolute; margin-top:-2px; background: none;" alt="" src="images/arrow.png" width="54" height="28">
                             <!--<img src="{{item.s_img}}?version={{cdatetime}}" style="cursor: pointer;" alt="" class="imgresponsive" (click)="showPhotoDetails(item)">-->
-                            <img src="http://torqkd.com/user/ajs1/createimage?image={{item.s_img}}&version={{cdatetime}}" style="cursor: pointer;" alt="" class="imgresponsive" (click)="showPhotoDetails(item)">
+                            <img src="http://torqkd.com/user/ajs1/createimage?image={{item.s_img}}&version={{cdatetime}}" style="cursor: pointer;" alt="" class="imgresponsive" (click)="toogleComment(item)">
                         </div>
                     </div>
                     <div class="text-contain" *ngIf="item.type=='youtube' ">
@@ -226,8 +226,8 @@
 
                         <div class="blogimg"   style="position: relative;" id="youtubeBody{{item.id}}">
                             <!--<youtube-video class="embed-responsive-item" video-id="item.value"></youtube-video>-->
-                            <img src="http://torqkd.com/user/ajs1/createimage?image={{item.s_img}}" width="100%">
-                            <img (click)="launchVideo(item.value,item.s_img)" src="images/youplay.png" width="20%" class="paly_video" ng-click="showYoutubevdo(item.id,item.value)" style="cursor:pointer; width: 20%; z-index: 100; top: 40%; position: absolute; left: 40%;">
+                            <img src="http://torqkd.com/user/ajs1/createimage?image={{item.s_img}}" width="100%" (click)="playStatusVdo(item.value,item.s_img)">
+                            <img (click)="playStatusVdo(item.value,item.s_img)" src="images/youplay.png" width="20%" class="paly_video" ng-click="showYoutubevdo(item.id,item.value)" style="cursor:pointer; width: 20%; z-index: 100; top: 40%; position: absolute; left: 40%;">
                         </div>
                     </div>
 
@@ -266,7 +266,7 @@
                                 </a>
                             </span>
                             <label style=" float:none;">{{item.like_no}} LIKE -  {{item.comment_no}}</label>
-                            <a href="javascript:void(0);" (click)="toogleComment(item)" style=" float:none;"> &nbsp; Comment</a>
+                            <a href="javascript:void(0);" (click)="toogleComment(item)" style=" float:none;"> &nbsp; Comment{{(item.comment_no > 1)?'s':''}}</a>
                         </div>
                         <div class="commend-box-pro hide" style="padding-left: 0px; padding-right: 0px; display: block;">
                             <div class="commendboxpro">

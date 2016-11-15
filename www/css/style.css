@@ -43,6 +43,7 @@
 
 }
 
+
 a, a:-webkit-any-link {
     color: -webkit-link;
     text-decoration: none !important;
@@ -5256,7 +5257,7 @@ code.has-numbering {
 }
 
 .photo-det-content{
-    background-color: rgb(255,255,255);
+    background: #fab363;
 }
 .photo-det-content scroll-content{
     margin-top: 56px;
@@ -5301,7 +5302,7 @@ code.has-numbering {
     text-align: left;
 }
 .photo-det-footer .right-part{
-    width: 65%;
+    width: 68%;
     float: right;
 }
 .photo-det-footer .comment_top .right-part .text-contain {
@@ -8894,10 +8895,13 @@ code.has-numbering {
 .sports-details-page .ch-slider .slides {
     border: 5px solid #fff;
     list-style-type: none;
-    margin: 0 0 15px;
+    /*margin: 0 0 15px;*/
+    margin: 0;
     overflow: hidden;
     position: relative;
 }
+
+
 .sports-details-page .ch-slider .slides img {
     width: 100%;
 }
@@ -8912,7 +8916,8 @@ code.has-numbering {
     text-shadow: 2px 2px 5px #333;
     text-transform: uppercase;
     top: 7px;
-    width: 100px;
+    width: 200px;
+    text-align: left;
 }
 .sports-details-page .ch-slider .slides .more {
     bottom: 9px;
@@ -8932,6 +8937,21 @@ code.has-numbering {
 .sports-details-page .ch-slider .slides .more a:hover {
     text-decoration: none;
 }
+
+.sports-details-page .vertical-prev {
+    background: transparent url("../images/prev-vertical.png") no-repeat scroll 0 0;
+    cursor: pointer;
+    height: 37px;
+    width: 37px;
+}
+.sports-details-page .vertical-next {
+    background: transparent url("../images/next-vertical.png") no-repeat scroll 0 0;
+    cursor: pointer;
+    height: 37px;
+    width: 37px;
+}
+
+
 .sports-user-list{
     background: #DFE2E2 none repeat scroll 0 0;
 }
@@ -9427,6 +9447,163 @@ code.has-numbering {
 .logout a{
     display:block;
 }
+
+
+.full-video-page{
+    background: #000;
+    position : relative;
+}
+.full-video-page .close-video{
+    position : absolute;
+    top:0;
+    right:0;
+    z-index:999;
+}
+.full-video-page video{
+    width: 100%;
+    height : 100%;
+}
+
+
+
+
+
+
+
+.commentarea .blog1{background: #fab363;}
+
+.commentarea .blog1 {
+    background: #fab363;
+    margin: 0 auto;
+    padding: 2px 1%;
+    width: 100%;
+    padding-bottom: 10px;
+    position: relative;
+    clear: both;
+    float: left;
+}
+.commentarea .left-img {
+    float: none;
+    width: 100%;
+    margin: 0 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #333333;
+}
+
+.commentarea .left-img img {
+    float: left;
+    margin-left: 0px;
+    width: 50px;
+    margin-right: 12px;
+    background: url(../images/logo.png) no-repeat center center;
+    background-size: 80%;
+}
+.commentarea .mobile-name-view {
+    float: left;
+    width: 80%;
+    line-height: 25px;
+}
+
+.commentarea .text-contain {
+    background: #fff;
+    color: #000;
+    font-size: 11px;
+    line-height: 18px;
+    padding: 8px;
+    width: auto;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    clear: both;
+    float: left;
+    width: 100%;
+}
+
+.commentarea .text-contain a {
+    color: #000;
+}
+
+.commentarea .text-contain1 {
+    background: #fff;
+    color: #000;
+    font-size: 11px;
+    line-height: 18px;
+    padding: 8px;
+    width: auto;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    clear: both;
+    float: left;
+    width: 100%;
+}
+
+.commentarea .text-contain1 a {
+    color: #000;
+}
+
+
+.commentarea .blog1 .text-contain .rowone {
+    color: #f79213;
+    float: left;
+    font-family: "veneerregular";
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.commentarea .blog1 .text-contain .rowone .sport-area{
+    float: left;
+    margin-right: 25px;
+}
+
+
+.commentarea .blog1 .text-contain .rowone h2{
+    color: #616564;
+}
+
+.commentarea .blog1 .text-contain .rowtwo {
+    margin-top: 0px;
+    padding-right: 10px;
+    padding-top: 0;
+    width: 100%;
+    margin-left: 0;
+    float: left;
+}
+
+.commentarea .blog1 .text-contain .rowtwo ion-grid{
+    padding: 0;
+}
+
+
+.commentarea .blog1 .text-contain .rowtwo ion-grid ion-row ion-col{
+    color: #616564;
+    font-family: "veneerregular";
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 20px;
+    margin: 0 !important;
+    padding-bottom: 8px;
+    float: left;
+}
+.commentarea .blog1 .text-contain .rowtwo ion-grid ion-row ion-col span {
+    color: #929497;
+    font-family: reservation;
+    font-size: 10px;
+}
+
+@media screen and (min-width: 360px) {
+    .commentarea .blog1 .text-contain .rowtwo ion-grid ion-row ion-col{
+        font-size: 22px;
+        line-height: 22px;
+    }
+    .commentarea .blog1 .text-contain .rowtwo ion-grid ion-row ion-col span{
+        font-size: 12px;
+    }
+}
+
 
 
 /***********************Code By Samsuj [end]**********************************/

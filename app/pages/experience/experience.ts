@@ -6,7 +6,7 @@ import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
 import {TorqkdtvPage} from "../torqkdtv/torqkdtv";
 import {PhotoPage} from "../photo/photo";
-import {Splashscreen, InAppBrowser,YoutubeVideoPlayer,StreamingMedia, StreamingVideoOptions,Facebook} from "ionic-native";
+import {Splashscreen, InAppBrowser,YoutubeVideoPlayer,StreamingMedia, StreamingVideoOptions,Facebook,VideoPlayer} from "ionic-native";
 import {ExpeventlistPage} from "../expeventlist/expeventlist";
 import {ExpgrouplistPage} from "../expgrouplist/expgrouplist";
 import {ExpstatlistPage} from "../expstatlist/expstatlist";
@@ -20,6 +20,7 @@ import {HomePage} from '../home/home';
 import {UpdateprofilePage} from '../updateprofile/updateprofile';
 import {SportsPage} from '../sports/sports';
 import {RouteDetailsPage} from '../routedetails/routedetails';
+import {HomevideomodalPage} from '../homevideomodal/homevideomodal'
 
 /*
   Generated class for the ExperiencePage page.
@@ -159,14 +160,26 @@ export class ExperiencePage {
   }
 
     openDefault(){
+        /*
         let options: StreamingVideoOptions = {
             successCallback: () => {  },
             errorCallback: (e) => {  },
             orientation: 'landscape'
         };
 
-        StreamingMedia.playVideo("http://torqkd.com/uploads/Torkq_LR_061416.mp4", options);
+        StreamingMedia.playVideo("http://torqkd.com/uploads/Torkq_LR_061416.mp4", options);*/
+
+
+        /*VideoPlayer.play("http://torqkd.com/uploads/Torkq_LR_061416.mp4").then(() => {
+            alert('video completed');
+        }).catch(err => {
+            alert(JSON.stringify(err));
+        });*/
+
+        let modal = this.modalCtrl.create(HomevideomodalPage,{"url": "http://m.torkq.com/video/Torkq_LR_061416.mp4","poster":"http://m.torkq.com/images/tork_img2.jpg"});
+        modal.present();
     }
+
 
 
 
@@ -412,6 +425,16 @@ export class ExperiencePage {
 
         modal.present();
 
+    }
+
+    playStatusVdo(videoval,poster){
+        let modal = this.modalCtrl.create(HomevideomodalPage,{"url": "http://torqkd.com/uploads/video/converted/"+videoval,"poster":poster});
+        modal.present();
+    }
+
+    playMainTorkqTv(){
+        let modal = this.modalCtrl.create(HomevideomodalPage,{"url": "http://torqkd.com/uploads/video/converted/defaultmaintv.mp4","poster":"http://torqkd.com/uploads/video/thumb/defaultmaintv.jpg"});
+        modal.present();
     }
 
     launchVideo(url,poster) {

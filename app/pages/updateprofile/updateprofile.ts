@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {Http, Headers} from "@angular/http";
 import {HomePage} from '../home/home';
 import * as $ from "jquery";
@@ -12,6 +12,8 @@ import {
     ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions, MediaCapture, ScreenOrientation,
     Transfer, Camera, StreamingMedia, StreamingVideoOptions, Crop
 } from 'ionic-native';
+
+import * as Cropper from 'cropperjs';
 /*
   Generated class for the UpdateprofilePage page.
 
@@ -23,7 +25,12 @@ import {
   directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
 export class UpdateprofilePage {
-  public homepage = HomePage;
+    @ViewChild('imageSrc') input: ElementRef;
+
+    private cropper: cropperjs.Cropper;
+
+
+    public homepage = HomePage;
   public profilepage = ProfilePage;
   public sportlist;
   private signUpForm:FormGroup;
@@ -44,7 +51,11 @@ export class UpdateprofilePage {
     public cropimagepath;
 
 
+
   constructor(private navCtrl: NavController,public modalCtrl: ModalController,private _http: Http,public fb: FormBuilder,public actionSheetCtrl: ActionSheetController) {
+
+
+
 
 
     this.signUpForm = fb.group({
@@ -185,6 +196,7 @@ export class UpdateprofilePage {
 
             this.filepathorig = userdetails.profileOrigImg;
             this.filepath1orig = userdetails.OrigbackImg;
+
 
           this.changecountry(userdetails.country);
 

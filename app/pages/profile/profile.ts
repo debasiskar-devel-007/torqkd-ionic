@@ -1967,6 +1967,11 @@ export class ProfilePage {
     dfsdfsd(){
         alert(1);
     }
+
+    playStatusVdo(videoval,poster){
+        let modal = this.modalCtrl.create(HomevideomodalPage,{"url": "http://torqkd.com/uploads/video/converted/"+videoval,"poster":poster});
+        modal.present();
+    }
 }
 
 

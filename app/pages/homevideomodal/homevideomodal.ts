@@ -11,6 +11,8 @@ import {InAppBrowser} from 'ionic-native';
 import {StreamingMedia, StreamingVideoOptions} from 'ionic-native';
 import { Camera } from 'ionic-native';
 
+import { SafeResourceUrl, DomSanitizationService } from '@angular/platform-browser';
+
 /*
   Generated class for the HomevideomodalPage page.
 
@@ -24,28 +26,30 @@ export class HomevideomodalPage {
   private poster;
   private videourl;
 
-  constructor(private navCtrl: NavController,private _navParams: NavParams) {
+  public autoplay = true;
+
+  constructor(private navCtrl: NavController,private _navParams: NavParams,public sanitizer:DomSanitizationService) {
     this.poster=this._navParams.get("poster");
     this.videourl=this._navParams.get("url");
 
-    let options: StreamingVideoOptions = {
+    /*let options: StreamingVideoOptions = {
       successCallback: () => { console.log('Video played') },
       errorCallback: (e) => { console.log('Error streaming') },
       orientation: 'landscape'
     };
 
-    StreamingMedia.playVideo(this.videourl, options);
+    StreamingMedia.playVideo(this.videourl, options);*/
 
   }
 
 
-
+/*
   ionViewDidEnter() {
     ScreenOrientation.lockOrientation('landscape');
   }
   onPageWillLeave() {
     ScreenOrientation.unlockOrientation();
-  }
+  }*/
   goback(){
     this.navCtrl.pop();
   }
