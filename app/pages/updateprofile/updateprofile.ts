@@ -5,6 +5,8 @@ import * as $ from "jquery";
 import {CommonPopupPage} from "../commonpopup/commonpopup";
 import {UserblockPage} from "../userblock/userblock";
 import {ProfilePage} from "../profile/profile";
+import {ImageCropPage} from "../imagecrop/imagecrop";
+import {ImageCrop1Page} from "../imagecrop1/imagecrop1";
 import {Storage, LocalStorage, NavController, Nav, Content, ModalController, Platform,ActionSheetController} from "ionic-angular";
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators,FormControl} from "@angular/forms";
 import {ControlGroup, Control} from "@angular/common";
@@ -13,7 +15,8 @@ import {
     Transfer, Camera, StreamingMedia, StreamingVideoOptions, Crop
 } from 'ionic-native';
 
-import * as Cropper from 'cropperjs';
+
+import Cropper from 'cropperjs';
 /*
   Generated class for the UpdateprofilePage page.
 
@@ -27,19 +30,19 @@ import * as Cropper from 'cropperjs';
 export class UpdateprofilePage {
     @ViewChild('imageSrc') input: ElementRef;
 
-    private cropper: cropperjs.Cropper;
+    private cropper:cropperjs.Cropper;
 
 
     public homepage = HomePage;
-  public profilepage = ProfilePage;
-  public sportlist;
-  private signUpForm:FormGroup;
-  private loggedinuser;
-  private local:LocalStorage;
-  public countrylist = [];
-  public statelist = [];
-  public selsports = [];
-  public stateLoad = false;
+    public profilepage = ProfilePage;
+    public sportlist;
+    private signUpForm:FormGroup;
+    private loggedinuser;
+    private local:LocalStorage;
+    public countrylist = [];
+    public statelist = [];
+    public selsports = [];
+    public stateLoad = false;
     private privacy;
     public imagepath;
     public filepath;
@@ -165,6 +168,7 @@ export class UpdateprofilePage {
     }
 
   }
+
 
   getuserdetails(){
     var link3 = 'http://torqkd.com/user/ajs2/getUserDetails5';
@@ -405,10 +409,14 @@ export class UpdateprofilePage {
                                 this.profimg_name = data55.profileImgName;
                                 this.filepath = data55.profileImg;
                                 this.filepathorig = data55.profileOrigImgName;
+
+                                this.navCtrl.push(ImageCropPage,{userid:this.loggedinuser});
                             }
                             if(type == 2){
                                 this.backimg_name = this.loggedinuser+'.jpg';
                                 this.filepath1 = data11.text();
+
+                                this.navCtrl.push(ImageCrop1Page,{userid:this.loggedinuser});
                             }
                         }, error => {
                             console.log("Oooops!");
@@ -509,10 +517,15 @@ export class UpdateprofilePage {
                                 this.profimg_name = data55.profileImgName;
                                 this.filepath = data55.profileImg;
                                 this.filepathorig = data55.profileOrigImgName;
+
+
+                                this.navCtrl.push(ImageCropPage,{userid:this.loggedinuser});
                             }
                             if(type == 2){
                                 this.backimg_name = this.loggedinuser+'.jpg';
                                 this.filepath1 = data11.text();
+
+                                this.navCtrl.push(ImageCrop1Page,{userid:this.loggedinuser});
                             }
                         }, error => {
                             console.log("Oooops!");
@@ -640,8 +653,40 @@ export class UpdateprofilePage {
                 //this.statuscancel();
             })
     }
+/*
+    imageLoaded() {
+        this.cropper = <cropperjs.Cropper>new Cropper(this.input.nativeElement, {
+            aspectRatio: 142/156,
+            dragMode: 'crop',
+            modal: true,
+            guides: true,
+            highlight: false,
+            background: true,
+            autoCrop: true,
+            autoCropArea: 0.9,
+            responsive: true,
+            crop: (e: cropperjs.CropperCustomEvent) => {
 
+            }
+        });
+    }
+    cropnow(){
 
+       // var cropdata = this.cropper.getCropBoxData();
+
+        //console.log(this.cropper.getCropBoxData());
+        //console.log(cropdata.height);
+
+        console.log(this.cropper.getData());
+
+    }
+*/
+    cropnow(){
+        this.navCtrl.push(ImageCropPage,{userid:this.loggedinuser,'page':'profile'});
+    }
+    cropnow1(){
+        this.navCtrl.push(ImageCrop1Page,{userid:this.loggedinuser,'page':'profile'});
+    }
 
 
 

@@ -10,8 +10,8 @@
 
         <h4>Add Profile Photo</h4>
 
-        <div class="imglist-div1">
-          <div class="imglist">
+        <div class="imglist-div1" *ngIf="filepath">
+          <div class="imglist" style="line-height: 0;">
 
             <img src="{{filepath}}" alt="">
 
@@ -22,14 +22,17 @@
             <div class="clear"></div>
           </div>
 
+          <input *ngIf="isupload == 1" class="skipfinished" style="margin-top: 20px;" value="Crop" type="button" (click)="cropnow()">
+          <input *ngIf="isupload == 1" class="skipfinished" style="margin-top: 20px;" value="Delete" type="button" (click)="imagedel(1)">
+
         </div>
         <div class="clear"></div>
 
         <h4>Add Background Photo</h4>
 
 
-        <div class="imglist-div2">
-          <div class="imglist2">
+        <div class="imglist-div2" *ngIf="filepath1">
+          <div class="imglist2" style="line-height: 0;">
 
             <img name="" src="{{filepath1}}" alt="">
 
@@ -45,6 +48,8 @@
             <div style="width:%; background:#F69830;" ng-bind="files1[0].progresstext" class="ng-binding"></div>
           </div>
           <div class="clear"></div>
+          <input *ngIf="isupload1 == 1" class="skipfinished" style="margin-top: 20px;" value="Crop" type="button" (click)="cropnow1()">
+          <input *ngIf="isupload1 == 1" class="skipfinished" style="margin-top: 20px;" value="Delete" type="button" (click)="imagedel(2)">
         </div>
 
 

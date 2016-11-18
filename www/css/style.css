@@ -9606,4 +9606,26 @@ code.has-numbering {
 
 
 
+
+.signuprotatebutl1{ background: rgba(0, 0, 0, 0) url("../images/rtal.png") no-repeat scroll 0 0 !important;
+    border: 1px solid #fff !important;
+    box-shadow: 0 0 2px #888 !important;
+    float: left !important;
+    font-weight: normal !important;
+    height: 34px !important;
+    margin: 8px 0 0 10px !important;
+    padding: 0 !important;
+    width: 114px !important;}
+
+
+.signuprotatebutl2{background: rgba(0, 0, 0, 0) url("../images/rtar.png") no-repeat scroll 0 0 !important;
+    border: 1px solid #fff !important;
+    box-shadow: 0 0 2px #888 !important;
+    float: right !important;
+    font-weight: normal !important;
+    height: 34px !important;
+    margin: 8px 10px 0 0 !important;
+    padding: 0 !important;  width: 114px !important;}
+
+
 /***********************Code By Samsuj [end]**********************************/

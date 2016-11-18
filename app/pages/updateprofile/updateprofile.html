@@ -156,7 +156,7 @@
               <div class="clear"></div>
             </div>
 
-            <input *ngIf="profimg_name != 'default.jpg' && profimg_name != 'default_f.jpg'" class="imgBtnCls" value="Crop" type="button" (click)="opencrop()">
+            <input *ngIf="profimg_name != 'default.jpg' && profimg_name != 'default_f.jpg'" class="imgBtnCls" value="Crop" type="button" (click)="cropnow()">
             <input *ngIf="profimg_name != 'default.jpg' && profimg_name != 'default_f.jpg'" class="imgBtnCls" value="Delete" type="button" (click)="imagedel(1)">
 
 
@@ -174,7 +174,7 @@
               <img src="images/help.png" alt="#" class="help-icon">
               <div class="clear"></div>
             </div>
-            <input *ngIf="backimg_name != 'default.jpg' && backimg_name != 'default_f.jpg'" class="imgBtnCls" value="Crop" type="button">
+            <input *ngIf="backimg_name != 'default.jpg' && backimg_name != 'default_f.jpg'" class="imgBtnCls" value="Crop" type="button" (click)="cropnow1()">
             <input *ngIf="backimg_name != 'default.jpg' && backimg_name != 'default_f.jpg'" class="imgBtnCls" value="Delete" type="button" (click)="imagedel(2)">
           </div>
         </div>
@@ -251,5 +251,11 @@
             </span>
     </div>
   </div>
+
+<!--  <ion-item *ngIf="filepath != null">
+    <img (load)="imageLoaded()" src="images/logo_main.png" #imageSrc>
+  </ion-item>
+
+  <button (click)="cropnow()">hu</button>-->
 
 </ion-content>

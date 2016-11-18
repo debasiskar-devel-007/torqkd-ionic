@@ -9,7 +9,10 @@ import {Http, Headers} from "@angular/http";
 import {ControlGroup, Control} from "@angular/common";
 
 import {ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions,MediaCapture,ScreenOrientation, Transfer,Camera,StreamingMedia, StreamingVideoOptions} from 'ionic-native';
-import {ProfilePage} from '../profile/profile'
+import {ProfilePage} from '../profile/profile';
+import {ImageCropPage} from "../imagecrop/imagecrop";
+import {ImageCrop1Page} from "../imagecrop1/imagecrop1";
+
 
 /*
   Generated class for the SignupaddimagePage page.
@@ -30,20 +33,32 @@ export class SignupaddimagePage {
   public imagepath;
   public filepath;
   public filepath1;
+  public isupload;
+  public isupload1;
 
   constructor(private navCtrl: NavController,public modalCtrl: ModalController,private _http: Http,public actionSheetCtrl: ActionSheetController) {
 
     this.cdatetime = (new Date).getTime();
     this.userimage = 'default.jpg';
     this.userbackimage = 'default.jpg';
-    this.filepath = 'http://torqkd.com/uploads/user_image/thumb/default.jpg';
-    this.filepath1 = 'http://torqkd.com/uploads/user_image/background/thumb/default.jpg';
+   // this.filepath = 'http://torqkd.com/uploads/user_image/thumb/default.jpg';
+    //this.filepath1 = 'http://torqkd.com/uploads/user_image/background/thumb/default.jpg';
+
+    //  this.isupload = 0;
+    //  this.isupload1 = 0;
 
     this.local = new Storage(LocalStorage);
+
+      this.userid = 498;
+
+      this.getprofileimage(1);
+      this.getprofileimage(2);
 
     this.local.get('newUserId').then((value) => {
       if(value!=null) {
         this.userid = value;
+        this.getprofileimage(1);
+          this.getprofileimage(2);
       }else{
         this.navCtrl.push(HomePage);
       }
@@ -51,6 +66,42 @@ export class SignupaddimagePage {
       this.navCtrl.push(HomePage);
     });
   }
+
+  getprofileimage(type){
+      var link3 = 'http://torqkd.com/user/ajs2/getUserfile2';
+      var data3 = {type:type,userid : this.userid};
+
+
+
+      this._http.post(link3, data3)
+          .subscribe(res3 => {
+              var jsonres = res3.json();
+
+              if(jsonres.image_name == 'default.jpg' || jsonres.image_name == 'default_f.jpg'){
+                  if(type == 1){
+                      this.filepath = 'http://torqkd.com/uploads/user_image/thumb/default.jpg';
+                      this.isupload = 0;
+                  }
+                  if(type == 2){
+                      this.filepath1 = 'http://torqkd.com/uploads/user_image/background/thumb/default.jpg';
+                      this.isupload1 = 0;
+                  }
+              }else{
+                  if(type == 1){
+                      this.filepath = jsonres.image_path;
+                      this.isupload = 1;
+                  }
+                  if(type == 2){
+                      this.filepath1 = jsonres.image_path;
+                      this.isupload1 = 1;
+                  }
+              }
+              // this.fileDownload();
+          }, error => {
+              console.log("Oooops!");
+          });
+  }
+
   showtermsploicy(type){
     let modal = this.modalCtrl.create(CommonPopupPage, {
       "type": type
@@ -131,10 +182,16 @@ export class SignupaddimagePage {
 
             this._http.post(link, data5)
                 .subscribe(data11 => {
-                  if(type == 1)
-                    this.filepath = data11.text();
-                  if(type == 2)
-                    this.filepath1 = data11.text();
+                  if(type == 1){
+                      this.filepath = data11.text();
+                      this.isupload = 1;
+                      this.navCtrl.push(ImageCropPage,{userid:this.userid,'page':'signup'});
+                  }
+                  if(type == 2){
+                      this.filepath1 = data11.text();
+                      this.isupload1 = 1;
+                      this.navCtrl.push(ImageCrop1Page,{userid:this.userid,'page':'signup'});
+                  }
                 }, error => {
                   console.log("Oooops!");
                 });
@@ -219,10 +276,16 @@ export class SignupaddimagePage {
 
             this._http.post(link, data5)
                 .subscribe(data11 => {
-                  if(type == 1)
-                    this.filepath = data11.text();
-                  if(type == 2)
-                    this.filepath1 = data11.text();
+                  if(type == 1){
+                      this.filepath = data11.text();
+                      this.isupload = 1;
+                      this.navCtrl.push(ImageCropPage,{userid:this.userid,'page':'signup'});
+                  }
+                  if(type == 2){
+                      this.filepath1 = data11.text();
+                      this.isupload1 = 1;
+                      this.navCtrl.push(ImageCrop1Page,{userid:this.userid,'page':'signup'});
+                  }
                 }, error => {
                   console.log("Oooops!");
                 });
@@ -255,6 +318,36 @@ export class SignupaddimagePage {
           }, error => {
             console.log("Oooops!");
           });
+    }
+
+
+    imagedel(type){
+        var link = 'http://torqkd.com/user/ajs2/profileImgDel';
+        var data5 = {type: type,userid:this.userid};
+
+
+
+        this._http.post(link, data5)
+            .subscribe(data11 => {
+                var res = data11.json();
+                if(type == 1){
+                    this.filepath = 'http://torqkd.com/uploads/user_image/thumb/default.jpg';
+                    this.isupload = 0;
+                }
+                if(type == 2){
+                    this.filepath1 = 'http://torqkd.com/uploads/user_image/background/thumb/default.jpg';
+                    this.isupload1 = 0;
+                }
+            }, error => {
+                console.log("Oooops!");
+            });
+    }
+
+    cropnow(){
+        this.navCtrl.push(ImageCropPage,{userid:this.userid,'page':'signup'});
+    }
+    cropnow1(){
+        this.navCtrl.push(ImageCrop1Page,{userid:this.userid,'page':'signup'});
     }
 
 
