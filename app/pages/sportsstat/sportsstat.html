@@ -69,7 +69,7 @@
 
           <tr>
 
-            <td class="first-td" style="padding-bottom:10px;" width="20%">
+            <td class="first-td" style="padding:5px 0 10px;" width="20%">
 
               <h4 style="color:#f79213">{{item.sport_name}}</h4>
 
@@ -92,8 +92,8 @@
             <td  valign="top" align="left" width="100%"  colspan="5">
 
               <base-chart  class="chart"
-                           [datasets]="getLineChartData(item)"
-                           [labels]="getLineChartLabels(item)"
+                           [datasets]="item.chartData"
+                           [labels]="item.mon"
                            [options]="lineChartOptions"
                            [colors]="lineChartColors"
                            [legend]="lineChartLegend"

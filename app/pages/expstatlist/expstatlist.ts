@@ -126,6 +126,17 @@ export class ExpstatlistPage {
   ];
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'line';
+  public LineChartLabels:string[] = ['j','f','m','a','m','j'];
+  public LineChartData:Array<any> = [{
+    data: [1,2,8,9,5,1],
+    label: 'Month',
+    fill:false,
+    lineTension : 0,
+    pointRadius : 5
+  }];
+
+  private linechartlabelsArr:string[];
+
   /*******************************Chat Settings [end] ******************************************/
 
 
@@ -196,6 +207,12 @@ export class ExpstatlistPage {
             var res2 = res.json();
             this.statdata2 = res2;
             this.statcount = res2.length;
+            /*this.linechartlabelsArr = res2.mon;
+
+
+            console.log(this.linechartlabelsArr);
+            console.log(res2.mon);*/
+
           }
         }, error => {
           console.log("Oooops!");
